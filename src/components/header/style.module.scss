@@ -5,6 +5,7 @@
     box-sizing: border-box;
     padding: 10px;
 
+
     .background {
         background-color: black;
         opacity: 0.5;
@@ -38,6 +39,7 @@
             display: flex;
             gap: 30px;
             position: absolute;
+
             right: 0;
 
             .shop {
@@ -109,7 +111,10 @@
 
 @media only screen and (min-width: 600px) {
     .header {
-        padding: 20px;
+        padding-left: 20vw;
+        padding-right: 20vw;
+        padding-top: 20px;
+        padding-bottom: 20px;
 
         .bar {
             font-size: 15px;

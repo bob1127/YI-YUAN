@@ -45,16 +45,19 @@ export default function Index() {
           animate={!isActive ? "open" : "closed"}
           className={styles.shopContainer}
         >
-          sfhgoishfiog
+          Yi-YUAN
         </motion.div>
       </div>
-      <motion.div
-        variants={background}
-        initial="initial"
-        animate={isActive ? "open" : "closed"}
-        className={styles.background}
-      ></motion.div>
       <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+      {isActive && (
+        <motion.div
+          variants={background}
+          initial="initial"
+          animate="open"
+          exit="closed"
+          className={styles.background}
+        ></motion.div>
+      )}
     </div>
   );
 }

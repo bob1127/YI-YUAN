@@ -113,17 +113,22 @@ export default function Home() {
         </div>
         <div className="hero-title">
           <div className="line">
-            <h1 className="text-white text-5xl">宜園建設-宜園大院</h1>
+            <h1 className="text-white text-5xl">宜園建設</h1>
           </div>
-          <div className="line text-5xl">
-            <h1>臨近繁華，與自然共生</h1>
+          <div className="line mt-4 ">
+            <h1 className="text-5xl text-white">實在的構築</h1>
           </div>
-          <div data-aos="fade-up" className="description text-white ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum,
-            aliquam cum nulla doloribus unde nam earum ipsam ad maiores a
-            nostrum quae consequuntur dolore inventore aperiam nisi corrupti,
-            ipsum perspiciatis.
-          </div>
+
+          <button className="group  mt-5 relative h-12 rounded-full border border-neutral-200 bg-transparent px-4 text-neutral-950">
+            <span className="relative inline-flex overflow-hidden">
+              <div className="translate-y-0 text-white  skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
+                ＥＮＴＥＲ
+              </div>
+              <div className="absolute text-white translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                Yi-Yuan
+              </div>
+            </span>
+          </button>
         </div>
       </div>
       {/* <Footer /> */}

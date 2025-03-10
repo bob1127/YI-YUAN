@@ -4,15 +4,41 @@ import ParallaxImage from "../../components/ParallaxImage";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { Timeline } from "@/components/ui/timeline";
 import "./about.css";
+import SvgImg from "../../components/SvgImg/page.jsx";
+
+// import Carousel from "@/components/ui/carousel";
+// import InfiniteCarousel from "../../components/InfiniteCarousel/page";
 import Image from "next/image";
 export default function About() {
+  const slideData = [
+    {
+      title: "Mystic Mountains",
+      button: "Explore Component",
+      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Urban Dreams",
+      button: "Explore Component",
+      src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Neon Nights",
+      button: "Explore Component",
+      src: "https://images.unsplash.com/photo-1590041794748-2d8eb73a571c?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Desert Whispers",
+      button: "Explore Component",
+      src: "https://images.unsplash.com/photo-1679420437432-80cfbf88986c?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+  ];
   const data = [
     {
       title: "2024",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Built and launched Aceternity UI and Aceternity UI Pro from scratch
+            第一階段：設計與規劃階段
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -156,6 +182,7 @@ export default function About() {
       <div className="w-full">
         <Timeline data={data} />
       </div>
+      /{/* <InfiniteCarousel /> */}
     </ReactLenis>
   );
 }

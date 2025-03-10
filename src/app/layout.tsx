@@ -34,6 +34,13 @@ export default function RootLayout({
 
           {children}
         </body>
+        <footer className="h-[70vh] flex flex-col justify-center items-center bg-[#5b6c2b]">
+          <div className="top w-[80%] mx-auto">
+            <div className="w-1/2"></div>
+            <div className="w-1/2"></div>
+          </div>
+          <div className="w-[80%] mx-auto bottom"></div>
+        </footer>
       </HeroUIProvider>
     </html>
   );

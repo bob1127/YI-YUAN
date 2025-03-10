@@ -1,12 +1,17 @@
 "use client";
 import { useRef } from "react";
 import "./photos.css";
-import { Card, CardHeader, CardBody, Image } from "@heroui/react";
-
+import { Card, CardHeader, CardBody } from "@heroui/react";
+import HoverCard from "../../components/HoverCard/index.jsx";
+import React from "react";
+import { BackgroundGradientAnimation } from "../../components/ui/background-gradient-animation.tsx";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { CustomEase } from "gsap/CustomEase";
-
+import Image from "next/image";
+import { InfiniteMovingCards } from "../../components/ui/infinite-moving-cards.tsx";
+import ScrollAnimation from "../../components/ScrollAnimation/page.jsx";
+import { AnimatePresence, motion } from "framer-motion";
 gsap.registerPlugin(CustomEase);
 
 const Photos = () => {
@@ -17,234 +22,144 @@ const Photos = () => {
   const previewsRef = useRef(null);
   const sliderRef = useRef(null);
 
-  useGSAP(
-    () => {
-      gsap.registerPlugin(CustomEase);
-      CustomEase.create(
-        "hop2",
-        "M0,0 C0.071,0.505 0.192,0.726 0.318,0.852 0.45,0.984 0.504,1 1,1"
-      );
-
-      let currentImg = 1;
-      const totalSlides = 4;
-      let indicatorRotation = 0;
-
-      function updateCounterAndTitlePosition() {
-        const counterY = -20 * (currentImg - 1);
-        const titleY = -60 * (currentImg - 1);
-
-        gsap.to(counterRef.current, {
-          y: counterY,
-          duration: 1,
-          ease: "hop2",
-        });
-
-        gsap.to(titlesRef.current, {
-          y: titleY,
-          duration: 1,
-          ease: "hop2",
-        });
-      }
-
-      function updateActiveSlidePreview() {
-        previewsRef.current.forEach((prev) => prev.classList.remove("active"));
-        previewsRef.current[currentImg - 1].classList.add("active");
-      }
-
-      function animateSlide(direction) {
-        const currentSlide = sliderImagesRef.current.lastElementChild;
-
-        const slideImg = document.createElement("div");
-        slideImg.classList.add("img");
-
-        const slideImgElem = document.createElement("img");
-        slideImgElem.src = `/assets/img${currentImg}.jpg`;
-        gsap.set(slideImgElem, { x: direction === "left" ? -500 : 500 });
-
-        slideImg.appendChild(slideImgElem);
-        sliderImagesRef.current.appendChild(slideImg);
-
-        const tl = gsap.timeline();
-
-        tl.to(currentSlide.querySelector("img"), {
-          x: direction === "left" ? 500 : -500,
-          duration: 1.5,
-          ease: "hop2",
-        })
-          .fromTo(
-            slideImg,
-            {
-              clipPath:
-                direction === "left"
-                  ? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
-                  : "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
-            },
-            {
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-              duration: 1.5,
-              ease: "hop2",
-            },
-            0
-          )
-          .to(
-            slideImgElem,
-            {
-              x: 0,
-              duration: 1.5,
-              ease: "hop2",
-            },
-            0
-          )
-          .call(() => cleanupSlides(), null, 1.5);
-
-        indicatorRotation += direction === "left" ? -90 : 90;
-        gsap.to(indicatorsRef.current.children, {
-          rotate: indicatorRotation,
-          duration: 1,
-          ease: "hop2",
-        });
-      }
-
-      function cleanupSlides() {
-        const imgElements = sliderImagesRef.current.querySelectorAll(".img");
-        if (imgElements.length > totalSlides) {
-          gsap.to(imgElements[0], {
-            opacity: 0,
-            duration: 0.5,
-            onComplete: () => {
-              imgElements[0].remove();
-            },
-          });
-        }
-      }
-
-      function handleClick(event) {
-        const sliderWidth = sliderRef.current.clientWidth;
-        const clickPosition = event.clientX;
-
-        if (event.target.closest(".slider-preview")) {
-          const clickedPrev = event.target.closest(".preview");
-
-          if (clickedPrev) {
-            const clickedIndex =
-              Array.from(previewsRef.current).indexOf(clickedPrev) + 1;
-
-            if (clickedIndex !== currentImg) {
-              if (clickedIndex < currentImg) {
-                currentImg = clickedIndex;
-                animateSlide("left");
-              } else {
-                currentImg = clickedIndex;
-                animateSlide("right");
-              }
-              updateActiveSlidePreview();
-              updateCounterAndTitlePosition();
-            }
-          }
-          return;
-        }
-
-        if (clickPosition < sliderWidth / 2 && currentImg !== 1) {
-          currentImg--;
-          animateSlide("left");
-        } else if (
-          clickPosition > sliderWidth / 2 &&
-          currentImg !== totalSlides
-        ) {
-          currentImg++;
-          animateSlide("right");
-        }
-
-        updateActiveSlidePreview();
-        updateCounterAndTitlePosition();
-      }
-
-      sliderRef.current.addEventListener("click", handleClick);
-
-      return () => {
-        if (sliderRef.current) {
-          sliderRef.current.removeEventListener("click", handleClick);
-        }
-      };
-    },
-    { scope: sliderRef, dependencies: [] }
-  );
-
   return (
     <>
-      <div className="flex flex-col">
-        <div className="slider" ref={sliderRef}>
-          <div className="slider-images" ref={sliderImagesRef}>
-            <div className="img">
-              <img src="/assets/img1.jpg" />
-            </div>
-          </div>
-
-          <div className="slider-title">
-            <div className="slider-title-wrapper" ref={titlesRef}>
-              <p>The Revival Ensemble</p>
-              <p>Above The Canvas</p>
-              <p>Harmony in Every Note</p>
-              <p>Redefining Imagination</p>
-            </div>
-          </div>
-
-          <div className="slider-counter">
-            <div className="counter" ref={counterRef}>
-              <p>1</p>
-              <p>2</p>
-              <p>3</p>
-              <p>4</p>
-            </div>
-            <div>
-              <p>&mdash;</p>
-            </div>
-            <div>
-              <p>4</p>
-            </div>
-          </div>
-
-          <div className="slider-preview">
-            {[1, 2, 3, 4].map((num) => (
-              <div
-                key={num}
-                className={`preview ${num === 1 ? "active" : ""}`}
-                ref={(el) =>
-                  (previewsRef.current = [...(previewsRef.current || []), el])
-                }
-              >
-                <img src={`/assets/img${num}.jpg`} />
-              </div>
-            ))}
-          </div>
-
-          <div className="slider-indicators" ref={indicatorsRef}>
-            <p>+</p>
-            <p>+</p>
-          </div>
-        </div>
-        <div className="bottom mt-10  w-2/3 mx-auto">
-          <h1 className="font-black">HELLOW</h1>
-          <Card className="py-4">
-            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-              <p className="text-tiny uppercase font-bold">Daily Mix</p>
-              <h4></h4>
-              <small className="text-default-500 !text-2xl">12 Tracks</small>
-              <h4 className="font-bold text-large">Frontend Radio</h4>
-            </CardHeader>
-            <CardBody className="overflow-visible py-2">
-              <Image
-                alt="Card background"
-                className="object-cover rounded-xl"
-                src="https://heroui.com/images/hero-card-complete.jpeg"
-                width={270}
-              />
-            </CardBody>
-          </Card>
-        </div>
+      <section className="section_hero relative overflow-hidden h-[100vh] border border-black">
+        <Image
+          src="/images/city-img_sp.png"
+          alt=" "
+          placeholder="empty"
+          loading="lazy"
+          width={2820}
+          height={700}
+          className="w-full h-full absolute z-[9] mt-[15vh] top-0 left-0"
+        ></Image>
+        <BackgroundGradientAnimation></BackgroundGradientAnimation>
+        <Image
+          src="/images/top-copy.png.webp"
+          alt=" "
+          placeholder="empty"
+          loading="lazy"
+          width={820}
+          height={300}
+          className=" absolute left-[35%]  top-[30%] z-[99999999]"
+        ></Image>
+      </section>
+      <div className=" mt-[-20vh] ">
+        <InfiniteMovingCards
+          speed={800}
+          items={[
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/IMG_3175-1.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/IMG_3323_edit.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-05.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-07.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-07.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-01.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/IMG_3175-1.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/IMG_3323_edit.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-05.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-07.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-07.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-01.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/IMG_3175-1.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/IMG_3323_edit.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-05.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-07.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-07.jpg",
+            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-01.jpg",
+          ]}
+        />
       </div>
+
+      <section className="section_news py-[50px]">
+        <div className="w-[80%] flex flex-col xl:flex-row section-container mx-auto">
+          <div className="w-full xl:w-[30%]">
+            <div className="flex flex-col">
+              <h2 className="text-[9vmin] font-bold">NEWS</h2>
+              <b>新公告</b>
+            </div>
+          </div>
+          <div className="w-full xl:w-[70%]">
+            <div>
+              <ul>
+                <li className="border-b-1 py-[40px] hover:scale-105 duration-400">
+                  <div className="flex w-auto flex-col">
+                    <p>2025/01/01</p>
+                    <button
+                      role="link"
+                      class="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                    >
+                      当社のブランディングに関するインタビュー記事が公開されました
+                    </button>
+                  </div>
+                </li>
+                <li className="border-b-1 py-[40px] hover:scale-105 duration-400">
+                  <div className="flex w-auto flex-col">
+                    <p>2025/01/01</p>
+                    <button
+                      role="link"
+                      class="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                    >
+                      当社のブランディングに関するインタビュー記事が公開されました
+                    </button>
+                  </div>
+                </li>
+                <li className="border-b-1 py-[40px] hover:scale-105 duration-400">
+                  <div className="flex w-auto flex-col">
+                    <p>2025/01/01</p>
+                    <button
+                      role="link"
+                      class="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                    >
+                      当社のブランディングに関するインタビュー記事が公開されました
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <HoverCard />
+      </section>
+      <section className="mt-[200px]">
+        <ScrollAnimation />
+      </section>
     </>
   );
 };
 
 export default Photos;
+const testimonials = [
+  {
+    quote:
+      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
+    name: "Charles Dickens",
+    title: "A Tale of Two Cities",
+  },
+  {
+    quote:
+      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
+    name: "William Shakespeare",
+    title: "Hamlet",
+  },
+  {
+    quote: "All that we see or seem is but a dream within a dream.",
+    name: "Edgar Allan Poe",
+    title: "A Dream Within a Dream",
+  },
+  {
+    quote:
+      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
+    name: "Jane Austen",
+    title: "Pride and Prejudice",
+  },
+  {
+    quote:
+      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
+    name: "Herman Melville",
+    title: "Moby-Dick",
+  },
+];

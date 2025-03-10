@@ -15,7 +15,7 @@ const links = [
   },
   {
     title: "新案件賞",
-    href: "/shop",
+    href: "/project",
     src: "shop.png",
   },
   {
@@ -30,6 +30,11 @@ const links = [
   },
   {
     title: "新聞中心",
+    href: "/contact",
+    src: "contact.png",
+  },
+  {
+    title: "聯絡我們",
     href: "/contact",
     src: "contact.png",
   },

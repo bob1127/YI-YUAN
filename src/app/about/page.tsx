@@ -2,11 +2,13 @@
 import { TransitionLink } from "../../components/utils/TransitionLink";
 import ParallaxImage from "../../components/ParallaxImage";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import HeroSlider from "../../components/HeroSlider/page";
 
 import "./about.css";
 export default function About() {
   return (
     <ReactLenis root>
+      <HeroSlider />
       <div className="app">
         <section className="hero">
           <div className="img">
@@ -23,7 +25,10 @@ export default function About() {
 
         <section className="projects">
           <div className="img">
-            <ParallaxImage src="/images/img1.jpg" alt="" />
+            <ParallaxImage
+              src="/portraits/截圖 2025-03-05 中午12.20.35.jpg"
+              alt=""
+            />
           </div>
 
           <div className="projects-brief">
@@ -34,11 +39,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="col projects-cover">
-            <div className="img">
-              <ParallaxImage src="/images/img1.jpg" alt="" />
-            </div>
-          </div>
+          <div className="col projects-cover"></div>
 
           <div className="col projects-list">
             <NavLeft />
@@ -80,7 +81,10 @@ export default function About() {
 
         <section className="banner">
           <div className="img">
-            <ParallaxImage src="/images/img1.jpg" alt="" />
+            <ParallaxImage
+              src="/portraits/截圖 2025-03-05 中午12.20.53.jpg"
+              alt=""
+            />
           </div>
 
           <div className="banner-copy">
