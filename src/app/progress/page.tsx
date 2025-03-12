@@ -4,7 +4,10 @@ import ParallaxImage from "../../components/ParallaxImage";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { Timeline } from "@/components/ui/timeline";
 import "./about.css";
+import Framer from "../../components/FramerMotionParallax/page";
 import SvgImg from "../../components/SvgImg/page.jsx";
+import { EvervaultCard, Icon } from "../../components/ui/evervault-card";
+import Marquee from "react-fast-marquee";
 
 // import Carousel from "@/components/ui/carousel";
 // import InfiniteCarousel from "../../components/InfiniteCarousel/page";
@@ -182,7 +185,95 @@ export default function About() {
       <div className="w-full">
         <Timeline data={data} />
       </div>
-      /{/* <InfiniteCarousel /> */}
+      <Marquee>
+        <div className="flex py-10 flex-row">
+          <div className="border mx-5 hover:bg-white group border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm  p-4 relative h-[30rem]">
+            <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
+            <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
+            <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
+            <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+
+            <EvervaultCard
+              text="hover"
+              backgroundImage="/images/hadashinoie016-2048x1365.jpg.webp"
+              hoverBackgroundImage="/images/hadashinoie016-2048x1365.jpg.webp"
+              className="group-hover:scale-105 duration-1000"
+            />
+
+            <h2 className="dark:text-white text-black mt-4 text-sm font-light">
+              Hover over this card to reveal an awesome effect. Running out of
+              copy here.
+            </h2>
+            <p className="text-sm border font-light dark:border-white/[0.2] border-black/[0.2] rounded-full mt-4 text-black dark:text-white px-2 py-0.5">
+              Watch me hover
+            </p>
+          </div>
+          <div className="border mx-5 hover:bg-white group border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm  p-4 relative h-[30rem]">
+            <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
+            <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
+            <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
+            <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+
+            <EvervaultCard
+              text="hover"
+              backgroundImage="/images/hadashinoie016-2048x1365.jpg.webp"
+              hoverBackgroundImage="/images/hadashinoie016-2048x1365.jpg.webp"
+              className="group-hover:scale-105 duration-1000"
+            />
+
+            <h2 className="dark:text-white text-black mt-4 text-sm font-light">
+              Hover over this card to reveal an awesome effect. Running out of
+              copy here.
+            </h2>
+            <p className="text-sm border font-light dark:border-white/[0.2] border-black/[0.2] rounded-full mt-4 text-black dark:text-white px-2 py-0.5">
+              Watch me hover
+            </p>
+          </div>
+          <div className="border mx-5 hover:bg-white group border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm  p-4 relative h-[30rem]">
+            <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
+            <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
+            <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
+            <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+
+            <EvervaultCard
+              text="hover"
+              backgroundImage="/images/hadashinoie016-2048x1365.jpg.webp"
+              hoverBackgroundImage="/images/hadashinoie016-2048x1365.jpg.webp"
+              className="group-hover:scale-105 duration-1000"
+            />
+
+            <h2 className="dark:text-white text-black mt-4 text-sm font-light">
+              Hover over this card to reveal an awesome effect. Running out of
+              copy here.
+            </h2>
+            <p className="text-sm border font-light dark:border-white/[0.2] border-black/[0.2] rounded-full mt-4 text-black dark:text-white px-2 py-0.5">
+              Watch me hover
+            </p>
+          </div>
+          <div className="border mx-5 hover:bg-white group border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm  p-4 relative h-[30rem]">
+            <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
+            <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
+            <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
+            <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+
+            <EvervaultCard
+              text="hover"
+              backgroundImage="/images/hadashinoie016-2048x1365.jpg.webp"
+              hoverBackgroundImage="/images/hadashinoie016-2048x1365.jpg.webp"
+              className="group-hover:scale-105 duration-1000"
+            />
+
+            <h2 className="dark:text-white text-black mt-4 text-sm font-light">
+              Hover over this card to reveal an awesome effect. Running out of
+              copy here.
+            </h2>
+            <p className="text-sm border font-light dark:border-white/[0.2] border-black/[0.2] rounded-full mt-4 text-black dark:text-white px-2 py-0.5">
+              Watch me hover
+            </p>
+          </div>
+        </div>
+      </Marquee>
+      <Framer />/{/* <InfiniteCarousel /> */}
     </ReactLenis>
   );
 }

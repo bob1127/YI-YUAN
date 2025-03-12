@@ -174,7 +174,7 @@ const Photos = () => {
       <div className="slider" ref={sliderRef}>
         <div className="slider-images" ref={sliderImagesRef}>
           <div className="img">
-            <img src="/assets/img1.jpg" />
+            <img src="/assets/img1.jpg" alt="" />
           </div>
         </div>
 
@@ -211,7 +211,7 @@ const Photos = () => {
                 (previewsRef.current = [...(previewsRef.current || []), el])
               }
             >
-              <img src={`/assets/img${num}.jpg`} />
+              <img src={`/assets/img${num}.jpg`} alt="" />
             </div>
           ))}
         </div>

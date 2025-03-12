@@ -94,8 +94,8 @@ export default function Home() {
           <div className="progress-bar" ref={progressBarRef}></div>
         </div>
       )}
-      <div className="home-page" ref={containerRef}>
-        <div className="hero-video w-full h-screen absolute top-0 left-0 z-[-1] overflow-hidden">
+      <div className="home-page relative " ref={containerRef}>
+        <div className="hero-video w-full  top-0 left-0 z-[-1] ">
           <video
             ref={videoRef}
             className="w-full h-full object-cover"

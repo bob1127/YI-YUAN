@@ -25,7 +25,7 @@ export default function RootLayout({
       <HeroUIProvider>
         <body className={inter.className}>
           <div className="w-[100vw] z-[9999999] left-0 top-0 fixed">
-            <div className="top-nav bg-[#5B6C2B] py-4 flex justify-center text-white">
+            <div className="top-nav bg-[#222] py-4 flex justify-center text-gray-200">
               宜園建設：實在的構築
             </div>
             <Header />
