@@ -63,10 +63,7 @@ const ParallaxImage = ({ src, alt }) => {
       ref={imageRef}
       src={src}
       alt={alt}
-      style={{
-        willChange: "transform",
-        transform: "translateY(0) scale(1.25)",
-      }}
+      className=" md:w-[100vw] md:h-auto"
     />
   );
 };

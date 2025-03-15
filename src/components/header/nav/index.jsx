@@ -66,6 +66,7 @@ export default function Index() {
         <Image
           src={links[selectedLink.index].src}
           isActive={selectedLink.isActive}
+          alt=""
         />
       </div>
     </motion.div>

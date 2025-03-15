@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import "./Transition.css";
 
 const Transition = (OriginalComponent, transitionText = "loading") => {
-  return function WrappedComponent() {
+  // ✅ 這裡返回一個合法的 React 組件
+  const WrappedComponent = () => {
     useEffect(() => {
       document.body.style.overflow = "hidden";
 
@@ -58,6 +59,8 @@ const Transition = (OriginalComponent, transitionText = "loading") => {
       </>
     );
   };
+
+  return WrappedComponent;
 };
 
 export default Transition;

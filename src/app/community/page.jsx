@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import "./page.css";
 import SvgImg from "../../components/SVGImage";
-import RevealLink from "../../components/RevealLinks";
+
 // import { StickyScroll } from "../../components/ui/sticky-scroll-reveal";
 import Image from "next/image";
 import HoverCard from "../../components/HoverCardBuild/index";
@@ -157,7 +157,6 @@ const Photos = () => {
           onSubmit={onSubmit}
         />
       </div>
-      {/* <RevealLink /> */}
     </>
   );
 };
