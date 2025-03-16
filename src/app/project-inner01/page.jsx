@@ -6,10 +6,11 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import LightBox from "../../components/LightBox/page";
 import ParallaxImage from "../../components/ParallaxImage";
-import { ReactLenis } from "@studio-freight/react-lenis";
+
 import HeroSlider from "../../components/HeroSlider/page";
 import { NumberTicker } from "../../../src/components/magicui/number-ticker";
 import HoverExpand from "../../components/HoverExpand/page";
+import { ReactLenis } from "@studio-freight/react-lenis";
 
 import { Carousel, Card } from "../../components/ui/apple-cards-carousel";
 import {

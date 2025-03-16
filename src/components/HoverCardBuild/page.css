@@ -4,6 +4,7 @@
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  flex-wrap: wrap;
  margin-top: 30px;
   justify-items: center;
 
@@ -16,6 +17,7 @@
    width: calc(100%/3);
     display: flex;
   flex-direction: column;
+  border: 3px solid red;
   
  
   
@@ -52,11 +54,11 @@
 .item {
   position: relative;
   width: 100%;
- height: 500px;
+ height: 300px;
   overflow:hidden;
 
 
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(45, 176, 30);
   cursor: pointer;
 }
 

@@ -139,6 +139,7 @@ export default function About() {
             <div className="h-[1px] bg-black w-[50vw]"></div>
           </div>
         </Marquee>
+
         <div className="bg-[#f4efe3] py-8 border border-red-300 lg:flex-row flex-col flex">
           <div className=" w-full lg:w-1/2 ">
             <div className="relative h-[400px] sm:h-[50vh] lg:h-[70vh] 2xl:h-[65vh] overflow-hidden w-full">

@@ -1,10 +1,56 @@
 "use client";
 import { TransitionLink } from "../../components/utils/TransitionLink";
 import EmblaCarousel from "../../components/EmblaCarousel07/EmblaCarousel";
+import { AnimatedTooltip } from "../../components/ui/animated-tooltip";
+import { PlaceholdersAndVanishInput } from "../../components/ui/placeholders-and-vanish-input";
+
+import Image from "next/image";
+// import { StickyScroll } from "../../components/ui/sticky-scroll-reveal";
 import React from "react";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import Marquee from "react-fast-marquee";
 export default function About() {
+  const placeholders = ["建案地點？", "房價房型?", "預約看房?"];
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log("submitted");
+  };
+
+  const people = [
+    {
+      id: 1,
+      name: "John Doe",
+      designation: "業務人員",
+      qrCodeImage:
+        "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
+      image:
+        "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
+    },
+    {
+      id: 2,
+      name: "John Doe",
+      designation: "買屋看房",
+      qrCodeImage:
+        "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
+      image:
+        "https://blogimg.goo.ne.jp/user_image/1c/fe/9641ac44fee5bb8525f467bac86d0fb9.jpg",
+    },
+    {
+      id: 3,
+      name: "John Doe",
+      designation: "詢問價格",
+      qrCodeImage:
+        "https://thumb.ac-illust.com/bd/bd2c033b5a0f028d5d0a5f63223c0781_t.jpeg",
+      image:
+        "https://thumb.ac-illust.com/56/56a7c15a78437570e11a8252b729f35f_t.jpeg",
+    },
+  ];
+
   const OPTIONS = {};
 
   // 這裡定義你的背景圖片
@@ -26,18 +72,18 @@ export default function About() {
   ];
 
   return (
-    <ReactLenis root>
-      <div className="flex lg:flex-row flex-col pt-[100px] bg-white ">
+    <ReactLenis root className="">
+      <div className="flex lg:flex-row px-0 2xl:px-[200px] flex-col pt-[100px] bg-white ">
         <div className=" w-full lg:w-[75%] flex-col justify-center items-center flex ">
           <EmblaCarousel
             slides={SLIDES}
             thumbnails={THUMBNAILS}
             options={OPTIONS}
           />
-          <div className="title py-[90px] px-[80px]">
+          <div className="title py-[90px] px-[30px] sm:px-[40px] lg:px-[80px]">
             <h1 className="!text-[2rem]">宜園建設【一青隱】</h1>
           </div>
-          <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[80px]">
+          <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
             <p className="leading-relaxed">
               不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
               致邀，職住共生的青創企業家 成家滿意，創業更旺，2-3房共居新浪潮
@@ -54,10 +100,10 @@ export default function About() {
               className="w-full"
             />
           </div>
-          <div className="title py-[90px] px-[80px]">
+          <div className="title py-[90px] px-[30px] sm:px-[40px] lg:px-[80px]">
             <h1 className="!text-[2rem]">向自然習作，美好新始，健康新序</h1>
           </div>
-          <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[80px]">
+          <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
             <p className="leading-relaxed">
               不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
               致邀，職住共生的青創企業家 成家滿意，創業更旺，2-3房共居新浪潮
@@ -66,11 +112,48 @@ export default function About() {
               接待會館：漢口路一段69號（漢口國中正對面） 預約專線：04-2314-9066
             </p>
           </div>
+          <div className="h-[40rem] flex flex-col justify-center  items-center px-4">
+            <h2 className="mb-10 sm:mb-20 text-[2.5rem] text-center  dark:text-white text-black">
+              立即詢價 專人為您服務
+            </h2>
+            <PlaceholdersAndVanishInput
+              placeholders={placeholders}
+              onChange={handleChange}
+              onSubmit={onSubmit}
+            />
+          </div>
         </div>
 
-        <div className="right w-full lg:w-[25%]"></div>
+        <div className="right w-full lg:w-[25%]">
+          <div className="wrap py-10 px-8 relative lg:fixed">
+            <b className="text-[1.1rem] font-bold">建案名稱：一清隱</b>
+            <div className="project-info mt-5">
+              <div className="flex  items-center">
+                <b className="text-[.95rem] font-bold">建坪：</b>
+                <p className="text-[.95rem] font-normal">100-130</p>
+              </div>
+              <div className="flex  items-center">
+                <b className="text-[.95rem] font-bold">格局：</b>
+                <p className="text-[.95rem] font-normal">1/2/3房</p>
+              </div>
+              <div className="flex   flex-col items-start">
+                <b className="text-[.95rem] font-bold">地點：</b>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3640.2223114352178!2d120.6552684753488!3d24.163934978390408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDA5JzUwLjIiTiAxMjDCsDM5JzI4LjIiRQ!5e0!3m2!1szh-TW!2stw!4v1742104432576!5m2!1szh-TW!2stw"
+                  className=" border-3 border-gray-200 max-w-[550px] h-[330px]"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+            <div className="flex flex-row items-center justify-center mb-10 w-full">
+              <AnimatedTooltip items={people} />
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="bg-white py-10 bottom-section flex flex-col justify-center items-center">
+      <div className="bg-white z-[99999999] py-10 bottom-section flex flex-col justify-center items-center">
         <Marquee>
           <div className="flex flex-row py-10 justify-center items-center">
             <div className="h-[1px] bg-black w-[50vw]"></div>
@@ -99,7 +182,7 @@ export default function About() {
             <div className="h-[1px] bg-black w-[50vw]"></div>
           </div>
         </Marquee>
-        <div className="flex flex-row justify-center items-center flex-wrap">
+        <div className="flex bg-white flex-row justify-center items-center flex-wrap">
           <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
             <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
               <p className="text-[.8rem] hidden sm:block">

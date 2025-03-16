@@ -97,8 +97,8 @@ img {
 }
 
 .shape {
-  width: 175px;
-  height: 175px;
+  width: 8rem;
+  height: 6rem;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
   color: #fff;
@@ -143,7 +143,7 @@ img {
 
 .shape #number {
   font-family: "Orbitron";
-  font-size: 50px;
+  font-size: 1.2rem;
   font-weight: 400;
 }
 

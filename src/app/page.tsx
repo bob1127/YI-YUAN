@@ -90,11 +90,11 @@ export default function Home() {
         {isLoading && <Preloader />}
       </AnimatePresence>
       {showPreloader && (
-        <div className="pre-loader" ref={preloaderRef}>
+        <div className="pre-loader " ref={preloaderRef}>
           <div className="progress-bar" ref={progressBarRef}></div>
         </div>
       )}
-      <div className="home-page relative " ref={containerRef}>
+      <div className="home-page relativez-[99999999999]" ref={containerRef}>
         <div className="hero-video w-full  top-0 left-0 z-[-1] ">
           <video
             ref={videoRef}
@@ -119,7 +119,10 @@ export default function Home() {
             <h1 className="text-5xl text-white">實在的構築</h1>
           </div>
 
-          <button className="group  mt-5 relative h-12 rounded-full border border-neutral-200 bg-transparent px-4 text-neutral-950">
+          <button
+            onClick={() => (window.location.href = "/home")}
+            className="group  mt-5 relative h-12 rounded-full border border-neutral-200 bg-transparent px-4 text-neutral-950"
+          >
             <span className="relative inline-flex overflow-hidden">
               <div className="translate-y-0 text-white  skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
                 ＥＮＴＥＲ

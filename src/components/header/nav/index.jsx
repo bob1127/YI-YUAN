@@ -20,17 +20,17 @@ const links = [
   },
   {
     title: "線上熱銷",
-    href: "/about",
+    href: "/project",
     src: "home.png",
   },
   {
     title: "建築思維",
-    href: "/lookbook",
+    href: "/thinking",
     src: "lookbook.png",
   },
   {
     title: "新聞中心",
-    href: "/contact",
+    href: "/news",
     src: "contact.png",
   },
   {

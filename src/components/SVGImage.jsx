@@ -45,7 +45,7 @@ const HeroComponent = () => {
   }, []);
 
   return (
-    <div className="relative w-full my-[100px] 2xl:w-[70%] mx-auto">
+    <div className="relative  w-full my-[100px] 2xl:w-[70%] mx-auto">
       <div
         ref={(el) => (blobsRef02.current[0] = el)}
         className="absolute top-[-15%] w-[80vmin] sm:top-0 left-[-40%] sm:left-[0%] "
@@ -96,7 +96,7 @@ const HeroComponent = () => {
       </div>
       <div
         ref={(el) => (blobsRef.current[0] = el)}
-        className="absolute top-[20%] sm:top-0  right-[-30%] w-[80vmin] h-[500px]"
+        className="absolute top-[20%] sm:top-0  right-[10%] w-[40vmin] h-[500px]"
       >
         <svg
           version="1.1"

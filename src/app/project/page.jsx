@@ -1,152 +1,99 @@
-import { TextAnimate } from "../../components/magicui/text-animate";
-// import InfiniteCarousel from "../../components/InfiniteCarousel/page";
-import { Popover, PopoverTrigger, PopoverContent, Button } from "@heroui/react";
-import SwiperCarousel from "../../components/SwiperCarousel/SwiperCard";
-import Image from "next/image";
+"use client";
+import { useRef } from "react";
 import SvgImg from "../../components/SVGImage";
-import React from "react";
-import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
-export default function Pricing() {
-  const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
+import { ReactLenis } from "@studio-freight/react-lenis";
+
+import Image from "next/image";
+import HoverCard from "../../components/HoverCardBuild/index";
+import gsap from "gsap";
+import { PlaceholdersAndVanishInput } from "../../components/ui/placeholders-and-vanish-input";
+// import HeroSlider from "../../components/HeroSlider/page";
+import { useGSAP } from "@gsap/react";
+import { CustomEase } from "gsap/CustomEase";
+import ImageDistortion from "../../components/ImageDistortion/page";
+
+gsap.registerPlugin(CustomEase);
+
+const Photos = () => {
+  const placeholders = [
+    "理想的家，該具備哪些元素？",
+    "選擇房子時，你最在意什麼？",
+    "如何找到兼具品質與舒適的住宅？",
+    "買房是投資還是生活選擇？",
+    "未來的家，會是什麼模樣？",
+  ];
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log("submitted");
+  };
 
   return (
-    <main className="p-4 text-center">
-      <section>
-        <SvgImg />
-      </section>
-      {/* <section className="mt-20 p-[100px]">
-        <div className="flex">
-          <div className="w-1/2  items-center justify-center flex-col">
-            <div className="w-full h-full py-20">
-              <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
-                新案件賞
-              </h2>
-              <Carousel items={cards} />
-            </div>
+    <ReactLenis root>
+      {/* <HeroSlider /> */}
+      <SvgImg />
+      {/* <div className="p-10">
+        <StickyScroll content={content} />
+      </div> */}
+
+      <section className="section_project flex flex-col py-[40px]">
+        <div className="flex 2xl:px-[10px] justify-end items-center pr-6">
+          <div className="description">
+            <p className="text-gray-400 mr-4 text-right text-[14px]">
+              匠心獨運，築夢家園 —— 宜園建設打造理想居所，，<br></br>
+              結合自然美學與現代舒適，帶您邁向幸福生活新境界。
+            </p>
           </div>
-          <div className="w-1/2 relative   ">
-            <div className="absolute w-full top-1/2 z-[999]">
-              <Popover
-                showArrow
-                backdrop="opaque"
-                classNames={{
-                  base: [
-                    // arrow color
-                    "before:bg-default-200",
-                  ],
-                  content: [
-                    "py-3 px-4 border border-default-200",
-                    "bg-gradient-to-br from-white to-default-300",
-                    "dark:from-default-100 dark:to-default-50",
-                  ],
-                }}
-                placement="right"
-              >
-                <PopoverTrigger>
-                  <Button>第二層樓</Button>
-                </PopoverTrigger>
-                <PopoverContent className="!w-[100%]">
-                  <h4 className="text-center font-bold my-3 text-[20px]">
-                    樓層介紹
-                  </h4>
-                  <br></br>
-                  <Image
-                    src="/images/img1.jpg"
-                    placeholder="empty"
-                    loading="lazy"
-                    className="rounded-xl"
-                    width={450}
-                    height={300}
-                  ></Image>
-                  <br></br>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  <br></br>
-                </PopoverContent>
-              </Popover>
-            </div>
-            <Image
-              src="/assets/oaphoto11_edit_1.jpg"
-              placeholder="empty"
-              loading="lazy"
-              width={600}
-              height={1000}
-            ></Image>
+          <div className="title">
+            <h2> 經典選粹</h2>
           </div>
         </div>
-      </section> */}
-    </main>
-  );
-}
-const DummyContent = () => {
-  return (
-    <>
-      {[...new Array(3).fill(1)].map((_, index) => {
-        return (
-          <div
-            key={"dummy-content" + index}
-            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-          >
-            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                The first rule of Apple club is that you boast about Apple club.
-              </span>{" "}
-              Keep a journal, quickly jot down a grocery list, and take amazing
-              class notes. Want to convert those notes to text? No problem.
-              Langotiya jeetu ka mara hua yaar is ready to capture every
-              thought.
+        <HoverCard />
+      </section>
+      <section className="section_project flex flex-col py-[40px]">
+        <div className="flex 2xl:px-[10px] justify-start items-center pl-6">
+          <div className="description">
+            <p className="text-gray-400 ml-4 text-left text-[14px]">
+              匠心獨運，築夢家園 —— 宜園建設打造理想居所，，<br></br>
+              結合自然美學與現代舒適，帶您邁向幸福生活新境界。
             </p>
-            <Image
-              src="https://assets.aceternity.com/macbook.png"
-              alt="Macbook mockup from Aceternity UI"
-              height="500"
-              width="500"
-              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-            />
           </div>
-        );
-      })}
-    </>
+          <div className="title">
+            <h2> 線上熱銷</h2>
+          </div>
+        </div>
+        <HoverCard />
+      </section>
+      <section className="section_project flex flex-col py-[40px]">
+        <div className="flex 2xl:px-[10px] justify-end items-center pr-6">
+          <div className="description">
+            <p className="text-gray-400 mr-4 text-right text-[14px]">
+              匠心獨運，築夢家園 —— 宜園建設打造理想居所，，<br></br>
+              結合自然美學與現代舒適，帶您邁向幸福生活新境界。
+            </p>
+          </div>
+          <div className="title">
+            <h2> 新案件賞</h2>
+          </div>
+        </div>
+        <HoverCard />
+      </section>
+      <ImageDistortion />
+      <div className="h-[40rem] flex flex-col justify-center  items-center px-4">
+        <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
+          對我們的建案有興趣嗎？
+        </h2>
+        <PlaceholdersAndVanishInput
+          placeholders={placeholders}
+          onChange={handleChange}
+          onSubmit={onSubmit}
+        />
+      </div>
+    </ReactLenis>
   );
 };
 
-const data = [
-  {
-    category: "New Project",
-    title: "新案件賞-01",
-    src: "https://images.pexels.com/photos/2079249/pexels-photo-2079249.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    content: <DummyContent />,
-  },
-  {
-    category: "New Project",
-    title: "新案件賞-01",
-    src: "https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    content: <DummyContent />,
-  },
-  {
-    category: "New Project",
-    title: "新案件賞-01",
-    src: "https://images.pexels.com/photos/827518/pexels-photo-827518.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    content: <DummyContent />,
-  },
-
-  {
-    category: "New Project",
-    title: "新案件賞-01",
-    src: "https://images.pexels.com/photos/30349784/pexels-photo-30349784.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load",
-    content: <DummyContent />,
-  },
-  {
-    category: "New Project",
-    title: "新案件賞-01",
-    src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-  {
-    category: "New Project",
-    title: "新案件賞-01",
-    src: "https://images.pexels.com/photos/11595929/pexels-photo-11595929.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load",
-    content: <DummyContent />,
-  },
-];
+export default Photos;
