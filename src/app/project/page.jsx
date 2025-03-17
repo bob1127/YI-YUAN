@@ -39,50 +39,58 @@ const Photos = () => {
         <StickyScroll content={content} />
       </div> */}
 
-      <section className="section_project flex flex-col py-[40px]">
-        <div className="flex 2xl:px-[10px] justify-end items-center pr-6">
+      <section className="section_project flex flex-col 2xl:w-[80%] mx-auto  py-[40px]">
+        <div className="flex flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
+          <div className="title">
+            <h2> 經典選粹</h2>
+          </div>
           <div className="description">
             <p className="text-gray-400 mr-4 text-right text-[14px]">
               匠心獨運，築夢家園 —— 宜園建設打造理想居所，，<br></br>
               結合自然美學與現代舒適，帶您邁向幸福生活新境界。
             </p>
           </div>
-          <div className="title">
-            <h2> 經典選粹</h2>
-          </div>
         </div>
-        <HoverCard />
+        <div data-aos="fade-up">
+          {" "}
+          <HoverCard />
+        </div>
       </section>
-      <section className="section_project flex flex-col py-[40px]">
-        <div className="flex 2xl:px-[10px] justify-start items-center pl-6">
+      <section className="section_project flex flex-col 2xl:w-[80%] mx-auto  py-[40px]">
+        <div className="flex flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
+          <div className="title">
+            <h2> 線上熱銷</h2>
+          </div>
           <div className="description">
             <p className="text-gray-400 ml-4 text-left text-[14px]">
               匠心獨運，築夢家園 —— 宜園建設打造理想居所，，<br></br>
               結合自然美學與現代舒適，帶您邁向幸福生活新境界。
             </p>
           </div>
-          <div className="title">
-            <h2> 線上熱銷</h2>
-          </div>
         </div>
-        <HoverCard />
+        <div data-aos="fade-up">
+          {" "}
+          <HoverCard />
+        </div>
       </section>
-      <section className="section_project flex flex-col py-[40px]">
-        <div className="flex 2xl:px-[10px] justify-end items-center pr-6">
+      <section className="section_project flex flex-col 2xl:w-[80%] mx-auto  py-[40px]">
+        <div className="flex flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
+          <div className="title">
+            <h2> 新案件賞</h2>
+          </div>
           <div className="description">
             <p className="text-gray-400 mr-4 text-right text-[14px]">
               匠心獨運，築夢家園 —— 宜園建設打造理想居所，，<br></br>
               結合自然美學與現代舒適，帶您邁向幸福生活新境界。
             </p>
           </div>
-          <div className="title">
-            <h2> 新案件賞</h2>
-          </div>
         </div>
-        <HoverCard />
+        <div data-aos="fade-up">
+          <HoverCard />
+        </div>
       </section>
       <ImageDistortion />
-      <div className="h-[40rem] flex flex-col justify-center  items-center px-4">
+      <div className="h-auto 2xl:h-[40rem] flex flex-col justify-center  items-center px-4">
         <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
           對我們的建案有興趣嗎？
         </h2>

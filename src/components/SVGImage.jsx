@@ -45,7 +45,7 @@ const HeroComponent = () => {
   }, []);
 
   return (
-    <div className="relative  w-full my-[100px] 2xl:w-[70%] mx-auto">
+    <div className="relative  overflow-hidden w-full my-[100px] 2xl:w-[70%] mx-auto">
       <div
         ref={(el) => (blobsRef02.current[0] = el)}
         className="absolute top-[-15%] w-[80vmin] sm:top-0 left-[-40%] sm:left-[0%] "
@@ -180,7 +180,10 @@ const HeroComponent = () => {
       </div>
 
       <div className="hero-container relative z-10 w-full">
-        <div ref={heroRef} className="hero w-1/3 mx-auto text-center py-16">
+        <div
+          ref={heroRef}
+          className="hero w-[70%] sm:w-[50%] lg:w-[35%] 2xl:w-1/3 mx-auto text-center py-16"
+        >
           <h1 className="font-voyage font-medium text-[5.5vmin] leading-tight">
             宜園建設
           </h1>

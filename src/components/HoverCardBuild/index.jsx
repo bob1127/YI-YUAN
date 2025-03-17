@@ -6,23 +6,23 @@ const items = [
   {
     id: 1,
     imgSrc: "/images/img01.jpg",
-    number: "07",
+    number: "宜園大院",
 
-    bottomLeft: "宜園建設，打造理想生活空間，讓家的每一刻都值得珍藏。",
+    bottomLeft: "宜園建設，打造理想生活空間",
   },
   {
     id: 2,
     imgSrc: "/images/img02.jpg",
-    number: "一清影",
+    number: "一青隱",
 
-    bottomLeft: "0wastewear",
+    bottomLeft: "宜園建設，打造理想生活空間",
   },
   {
     id: 3,
     imgSrc: "/images/img02.jpg",
-    number: "一清影",
+    number: "誠境二期",
 
-    bottomLeft: "0wastewear",
+    bottomLeft: "宜園建設，打造理想生活空間",
   },
 ];
 
@@ -42,7 +42,7 @@ const Codegrid = () => {
                 </div>
                 <div className="item-copy-1">
                   <div className="shape flex flex-col items-start">
-                    <div className="text-left w-[85%] text-[24px] text-white">
+                    <div className="text-left w-[85%] text-[1.2rem] text-white">
                       {[...bottomLeft].map((char, idx) => (
                         <span key={idx}>{char}</span>
                       ))}
@@ -51,7 +51,10 @@ const Codegrid = () => {
                       id="number"
                       className="text-white text-[16px] flex justify-center items-center"
                     >
-                      <p className="text-[16px] mr-4 font-light"> project</p>
+                      <p className="text-[16px] text-white mr-4 font-light">
+                        {" "}
+                        project
+                      </p>
                       {[...number].map((char, idx) => (
                         <span className="text-[4.5vmin]" key={idx}>
                           {char}
@@ -71,7 +74,7 @@ const Codegrid = () => {
                   role="link"
                   class="relative font-extrabold text-[18px] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                 >
-                  橋梁補修工事（その３）（週休２日・遠隔臨場）
+                  宜園建設，打造理想生活空間
                 </button>
               </div>
             </div>

@@ -1,6 +1,6 @@
 "use client";
 import { TransitionLink } from "../../components/utils/TransitionLink";
-
+import { TextGenerateEffect } from "../../components/ui/text-generate-effect";
 import StartAnimate from "../../components/HomeAnimate/page";
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
@@ -59,12 +59,12 @@ export default function About() {
 
   return (
     <ReactLenis root>
-      {/* <section className="section_hero mt-[140px]">
+      <section className="section_hero mt-[140px]">
         <StartAnimate />
-      </section> */}
+      </section>
       <section className="section_features">
-        <div className="flex w-[85%]  border-3 mx-auto mt-10">
-          <div className="img w-1/2 mx-auto">
+        <div className="flex lg:flex-row flex-col w-[85%]   mx-auto mt-10">
+          <div className="img w-[95%] lg:w-1/2 mx-auto">
             <img
               src="https://hadashinoie.co.jp/assets/images/index/about01.jpg"
               alt=""
@@ -75,17 +75,17 @@ export default function About() {
               height={1200}
             ></img>
           </div>
-          <div className="text w-1/2 p-8 flex flex-col justify-center items-center">
-            <h2 className="text-[#333]">宜居</h2>
+          <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
+            <TextGenerateEffect words="宜居" />
             <p>不與人同的作為</p>
           </div>
         </div>
-        <div className="flex w-[85%]  border-3 mx-auto mt-10">
-          <div className="text w-1/2 p-8 flex flex-col justify-center items-center">
-            <h2 className="text-[#333]">宜融</h2>
+        <div className="flex lg:flex-row flex-col w-[85%]   mx-auto mt-10">
+          <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
+            <TextGenerateEffect words="宜融" />
             <p>家是情感的生態系</p>
           </div>
-          <div className="img w-1/2 mx-auto">
+          <div className="img w-[95%] lg:w-1/2 mx-auto">
             <img
               src="https://hadashinoie.co.jp/assets/images/index/about02.jpg"
               alt=""
@@ -97,8 +97,8 @@ export default function About() {
             ></img>
           </div>
         </div>
-        <div className="flex w-[85%]  border-3 mx-auto mt-10">
-          <div className="img w-1/2 mx-auto">
+        <div className="flex lg:flex-row flex-col w-[85%]   mx-auto mt-10">
+          <div className="img w-[95%] lg:w-1/2 mx-auto">
             <img
               src="https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie-54-1-2048x1365.jpg"
               alt=""
@@ -109,16 +109,16 @@ export default function About() {
               height={1200}
             ></img>
           </div>
-          <div className="text w-1/2 p-8 flex flex-col justify-center items-center">
-            <h2 className="text-[#333]">宜安</h2>
+          <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
+            <TextGenerateEffect words="宜安" />
             <p>構築心靈的沃土</p>
           </div>
         </div>
       </section>
 
-      <div className="grid place-content-center bg-emerald-950 px-4 py-24 text-yellow-50">
-        <h1 className="max-w-2xl text-white  font-normal text-center text-5xl leading-snug">
-          選擇安心的建商
+      <div className="grid place-content-center  px-4 py-24 text-yellow-50">
+        <h1 className="max-w-2xl text-gray-600  font-normal text-center text-5xl leading-snug">
+          實在的構築
           <span className="relative">
             宜園建設
             <svg
@@ -139,9 +139,111 @@ export default function About() {
               />
             </svg>
           </span>{" "}
-          with Simple AI Tools
         </h1>
       </div>
+      <section className="section_project flex-col">
+        <div className="title pl-[10%] pb-10">
+          <TextGenerateEffect
+            words="House, furniture, apparel and everything committed to
+            quality."
+          />
+          <p className="text-[1.1rem]">
+            我們用心塑造我們的家、家具、服飾和其他一切。
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  w-full ">
+          <TransitionLink href="/project">
+            <div className="relative w-full h-[400px] bg-[url('https://hadashinoie.co.jp/assets/images/index/service03.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
+              {/* 毛玻璃遮罩（hover時顯示） */}
+              <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
+
+              {/* 內部內容 */}
+              <div className="absolute inset-0 flex flex-col justify-between">
+                <div className="top h-[20%] flex items-start p-5">
+                  <span className="text-white text-[.9rem]">01</span>
+                </div>
+                <div className="flex justify-center items-center h-[80%]">
+                  <div className="text-white text-[1rem] font-semibold">
+                    青年住宅
+                  </div>
+                </div>
+              </div>
+            </div>
+          </TransitionLink>
+          <TransitionLink href="/project">
+            <div className="relative w-full h-[400px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie004-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
+              {/* 毛玻璃遮罩（hover時顯示） */}
+              <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
+
+              {/* 內部內容 */}
+              <div className="absolute inset-0 flex flex-col justify-between">
+                <div className="top h-[20%] flex items-start p-5">
+                  <span className="text-white text-[.9rem]">01</span>
+                </div>
+                <div className="flex justify-center items-center h-[80%]">
+                  <div className="text-white text-[1rem] font-semibold">
+                    青年住宅
+                  </div>
+                </div>
+              </div>
+            </div>
+          </TransitionLink>
+          <TransitionLink href="/project">
+            <div className="relative w-full h-[400px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/02/hadashinoie116-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
+              {/* 毛玻璃遮罩（hover時顯示） */}
+              <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
+
+              {/* 內部內容 */}
+              <div className="absolute inset-0 flex flex-col justify-between">
+                <div className="top h-[20%] flex items-start p-5">
+                  <span className="text-white text-[.9rem]">01</span>
+                </div>
+                <div className="flex justify-center items-center h-[80%]">
+                  <div className="text-white text-[1rem] font-semibold">
+                    青年住宅
+                  </div>
+                </div>
+              </div>
+            </div>
+          </TransitionLink>
+          <TransitionLink href="/project">
+            <div className="relative w-full h-[400px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie-54-1-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
+              {/* 毛玻璃遮罩（hover時顯示） */}
+              <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
+
+              {/* 內部內容 */}
+              <div className="absolute inset-0 flex flex-col justify-between">
+                <div className="top h-[20%] flex items-start p-5">
+                  <span className="text-white text-[.9rem]">01</span>
+                </div>
+                <div className="flex justify-center items-center h-[80%]">
+                  <div className="text-white text-[1rem] font-semibold">
+                    青年住宅
+                  </div>
+                </div>
+              </div>
+            </div>
+          </TransitionLink>
+          <TransitionLink href="/project">
+            <div className="relative w-full h-[400px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie040-1-1-2048x1366.jpg')] bg-center bg-no-repeat bg-cover group overflow-hidden">
+              {/* 毛玻璃遮罩（hover時顯示） */}
+              <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
+
+              {/* 內部內容 */}
+              <div className="absolute inset-0 flex flex-col justify-between">
+                <div className="top h-[20%] flex items-start p-5">
+                  <span className="text-white text-[.9rem]">01</span>
+                </div>
+                <div className="flex justify-center items-center h-[80%]">
+                  <div className="text-white text-[1rem] font-semibold">
+                    青年住宅
+                  </div>
+                </div>
+              </div>
+            </div>
+          </TransitionLink>
+        </div>
+      </section>
     </ReactLenis>
   );
 }

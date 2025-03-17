@@ -192,18 +192,18 @@ const ImageDistortion = () => {
         <p>設計一隅</p>
       </div>
 
-      {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-        <div className="row flex" key={num}>
-          <div className="img " data-aos="fade-up">
+      {[1, 2].map((num) => (
+        <div className="row flex flex-col lg:flex-row" key={num}>
+          <div className="img w-full lg:w-[65%] " data-aos="fade-up">
             <Image
               src={`/assets/img${num}.png`}
               alt={`Image ${num}`}
-              width={500}
-              height={500}
+              width={1500}
+              height={1500}
               className=""
             />
           </div>
-          <div className="size-full pl-5 w-1/2 items-center justify-center overflow-hidden pt-8">
+          <div className="size-full w-full lg:w-[35%] pl-5  items-center justify-center overflow-hidden pt-8">
             <BoxReveal boxColor={"#9ea849"} duration={0.5}>
               <p className="text-[3.5rem] font-semibold">
                 Magic UI<span className="">.</span>

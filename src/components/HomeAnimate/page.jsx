@@ -153,7 +153,7 @@ export default function LandingPage() {
           <h1 className="text-[3.5rem] font-normal text-[#f4f2f0]">宜園建設</h1>
           <p className="text-white">-Yi Yuan</p>
           <div className="flex flex-row py-4 btn-wrap">
-            <button class="group relative inline-flex h-8 items-center justify-center rounded-full bg-[#022c22] px-6 font-medium text-neutral-200">
+            <button class="group relative inline-flex h-8 items-center border-gray-400  border justify-center rounded-full bg-[#022c22] px-6 font-medium text-neutral-200">
               <span>關於宜園建設</span>
               <div class="relative ml-1 h-5 w-5 overflow-hidden">
                 <div class="absolute transition-all duration-200 group-hover:-translate-y-5 group-hover:translate-x-4">
@@ -190,7 +190,7 @@ export default function LandingPage() {
                 </div>
               </div>
             </button>
-            <button class="group relative ml-3 inline-flex h-8 items-center justify-center rounded-full border-gray-100 border-2 bg-[#022c22] px-6 font-medium text-neutral-200">
+            <button class="group relative ml-3 inline-flex h-8 items-center justify-center rounded-full border-gray-400 border bg-[#022c22] px-6 font-medium text-neutral-200">
               <span>精選建案案例</span>
               <div class="relative ml-1 h-5 w-5 overflow-hidden">
                 <div class="absolute transition-all duration-200 group-hover:-translate-y-5 group-hover:translate-x-4">
