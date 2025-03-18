@@ -9,7 +9,7 @@ import "./page.css";
 
 function App() {
   return (
-    <div className="wrapper">
+    <div className="wrapper w-[100%] overflow-hidden">
       <div className="slider-container">
         <Slide imageSrc="/images/ph_takahiradai-no-ie.jpg" />
         <Slide imageSrc="/images/ph_esperanza.jpg" />

@@ -10,6 +10,11 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import HeroSlider from "../../components/HeroSlider/page";
 import Marquee from "react-fast-marquee";
 import { Carousel } from "../../components/ui/carousel01";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function About() {
   const slideData = [
     {
@@ -33,6 +38,9 @@ export default function About() {
       src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_feature05.jpg",
     },
   ];
+  const imageRefs = useRef([]);
+  const containerRef = useRef(null);
+
   useEffect(() => {
     const disableScroll = () => {
       window.scrollTo(0, 0);
@@ -51,9 +59,52 @@ export default function About() {
       window.removeEventListener("scroll", disableScroll);
     }, 5000);
 
+    // 設置圖片動畫
+    const images = document.querySelectorAll(".animate-image-wrapper");
+    images.forEach((image, index) => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: image,
+          start: "top bottom",
+          end: "top center",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      tl.fromTo(
+        image.querySelector(".overlay"),
+        {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        },
+        {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          duration: 1,
+          ease: "power2.inOut",
+        }
+      )
+        .to(image.querySelector(".overlay"), {
+          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+          duration: 1,
+          ease: "power2.inOut",
+        })
+        .fromTo(
+          image.querySelector(".image-container"),
+          {
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+          },
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 2,
+            ease: "power3.inOut",
+          },
+          "-=0.5"
+        );
+    });
+
     return () => {
       clearTimeout(timeout);
       window.removeEventListener("scroll", disableScroll);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
@@ -62,52 +113,62 @@ export default function About() {
       <section className="section_hero mt-[140px]">
         <StartAnimate />
       </section>
-      <section className="section_features">
-        <div className="flex lg:flex-row flex-col w-[85%]   mx-auto mt-10">
-          <div className="img w-[95%] lg:w-1/2 mx-auto">
-            <img
-              src="https://hadashinoie.co.jp/assets/images/index/about01.jpg"
-              alt=""
-              placeholder="empty"
-              loading="lazy"
-              width={800}
-              className=""
-              height={1200}
-            ></img>
+      <section className="section_features w-full  mx-auto sm:[90%] lg:w-[85%] 2xl:w-[70%]">
+        <div className="flex lg:flex-row flex-col w-[85%] mx-auto mt-20">
+          <div className="img w-[90%] md:w-[550px] lg:w-[85%] mx-auto h-auto md:h-[700px] overflow-hidden">
+            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <Image
+                  src="https://hadashinoie.co.jp/assets/images/index/about01.jpg"
+                  alt="About Image 1"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                />
+                xs
+              </div>
+            </div>
           </div>
           <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
             <TextGenerateEffect words="宜居" />
             <p>不與人同的作為</p>
           </div>
         </div>
-        <div className="flex lg:flex-row flex-col w-[85%]   mx-auto mt-10">
+        <div className="flex lg:flex-row flex-col w-[85%] mx-auto mt-20">
           <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
             <TextGenerateEffect words="宜融" />
             <p>家是情感的生態系</p>
           </div>
-          <div className="img w-[95%] lg:w-1/2 mx-auto">
-            <img
-              src="https://hadashinoie.co.jp/assets/images/index/about02.jpg"
-              alt=""
-              placeholder="empty"
-              loading="lazy"
-              width={800}
-              className=""
-              height={1200}
-            ></img>
+          <div className="img w-[90%] md:w-[550px] lg:w-[85%] mx-auto h-auto md:h-[700px] overflow-hidden">
+            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <Image
+                  src="https://hadashinoie.co.jp/assets/images/index/about02.jpg"
+                  alt="About Image 2"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="flex lg:flex-row flex-col w-[85%]   mx-auto mt-10">
-          <div className="img w-[95%] lg:w-1/2 mx-auto">
-            <img
-              src="https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie-54-1-2048x1365.jpg"
-              alt=""
-              placeholder="empty"
-              loading="lazy"
-              width={800}
-              className=""
-              height={1200}
-            ></img>
+        <div className="flex lg:flex-row flex-col w-[85%] mx-auto mt-20">
+          <div className="img w-[90%] md:w-[550px] lg:w-[85%] mx-auto h-auto md:h-[700px] overflow-hidden">
+            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <Image
+                  src="https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie-54-1-2048x1365.jpg"
+                  alt="About Image 3"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                />
+              </div>
+            </div>
           </div>
           <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
             <TextGenerateEffect words="宜安" />
@@ -116,8 +177,8 @@ export default function About() {
         </div>
       </section>
 
-      <div className="grid place-content-center  px-4 py-24 text-yellow-50">
-        <h1 className="max-w-2xl text-gray-600  font-normal text-center text-5xl leading-snug">
+      <div className="grid place-content-center  px-4  py-5 sm:py-12 lg:py-24 text-yellow-50">
+        <h1 className="max-w-2xl text-gray-600  font-normal text-center sm:text-[3rem] text-[2rem] lg:text-5xl leading-snug">
           實在的構築
           <span className="relative">
             宜園建設
@@ -142,7 +203,7 @@ export default function About() {
         </h1>
       </div>
       <section className="section_project flex-col">
-        <div className="title pl-[10%] pb-10">
+        <div className="title pl-4 pb-4 pr-4 pt-4 lg:pl-[10%] lg:pb-10">
           <TextGenerateEffect
             words="House, furniture, apparel and everything committed to
             quality."

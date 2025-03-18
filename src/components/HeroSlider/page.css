@@ -1,10 +1,19 @@
 .slider {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 85vh;
   overflow: hidden;
 }
-
+@media (max-width:1000px){
+  .slider {
+  height: 70vh;
+  }
+}
+@media (max-width:768px){
+  .slider {
+  height: 50vh;
+  }
+}
 .slider-images {
   position: absolute;
   width: 100%;

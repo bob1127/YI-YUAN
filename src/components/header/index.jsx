@@ -6,11 +6,14 @@ import { usePathname } from "next/navigation"; // 監聽當前路徑變化
 import { motion, AnimatePresence } from "framer-motion";
 import { opacity, background } from "./anim";
 import Nav from "./nav";
-
+import Image from "next/image";
 export default function Index() {
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname(); // 取得當前的路由路徑
-
+  const [selectedLink, setSelectedLink] = useState({
+    isActive: true,
+    index: 0,
+  });
   // 當 pathname 改變時，自動關閉 Nav
   useEffect(() => {
     setIsActive(false);
@@ -20,7 +23,17 @@ export default function Index() {
     <div className={styles.header}>
       <div className={styles.bar}>
         <Link href="/" className="font-bold ">
-          宜園建設
+          <div className="h-full flex justify-center items-center">
+            <Image
+              src="/images/yiyuan-logo.png"
+              alt="logo"
+              placeholder="empty"
+              loading="lazy"
+              className="w-[85px] sm:w-[100px] xl:w-[130px]"
+              width={75}
+              height={35}
+            ></Image>
+          </div>
         </Link>
         <div onClick={() => setIsActive(!isActive)} className={styles.el}>
           <div
@@ -40,13 +53,6 @@ export default function Index() {
             </motion.p>
           </div>
         </div>
-        <motion.div
-          variants={opacity}
-          animate={!isActive ? "open" : "closed"}
-          className={styles.shopContainer}
-        >
-          Yi-YUAN
-        </motion.div>
       </div>
       <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
       {isActive && (

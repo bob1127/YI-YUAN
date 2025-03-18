@@ -184,8 +184,10 @@ export default function About() {
         </h2>
         <Carousel items={cards} />
       </div>
-      <LightBox />
-      <HoverExpand />
+      <div className="w-full overflow-hidden">
+        <LightBox />
+      </div>
+      {/* <HoverExpand /> */}
     </ReactLenis>
   );
 }
@@ -268,7 +270,7 @@ const OverlayCopy = ({ subheading, heading, description }) => {
       <p className="mb-2 text-center text-xl md:mb-4 md:text-3xl">
         {subheading}
       </p>
-      <p className="text-left  w-2/3 leading-relaxed font-bold text-[3rem]">
+      <p className="text-left  w-2/3 leading-relaxed font-bold text-[2.3rem]">
         {heading}
       </p>
       <p className="w-2/3 xl:w-1/2  text-[1rem] leading-loose mt-5">

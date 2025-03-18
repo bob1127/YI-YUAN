@@ -306,3 +306,19 @@ body {
   }
 }
 
+/* 自訂 AOS 動畫：fade-up-blur */
+[data-aos="fade-up-blur"] {
+  opacity: 0.8;
+  transform: translateY(20px);
+  filter: blur(50px); /* 初始模糊程度 */
+  transition: 
+    opacity 1.2s ease-out, 
+    transform 1.2s ease-out, 
+    filter 3s cubic-bezier(0.19, 1, 0.22, 1); /* 讓模糊過渡更慢更順暢 */
+}
+
+[data-aos="fade-up-blur"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px); /* 清晰 */
+}

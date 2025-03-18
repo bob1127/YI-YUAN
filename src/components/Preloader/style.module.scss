@@ -37,3 +37,44 @@
         }
     }
 }
+
+.introduction {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    /* 黑色背景 */
+    color: white;
+    /* 文字顏色白色 */
+}
+
+motion.p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    /* 文字與進度條之間的距離 */
+}
+
+.progressBarContainer {
+    width: 10%;
+    /* **進度條縮短至原來的一半** */
+    height: 5px;
+    /* 進度條高度 */
+    background: rgba(255, 255, 255, 0.2);
+    /* 淡灰色背景 */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 85px;
+    /* 縮小進度條與文字的距離 */
+}
+
+.progressBar {
+    height: 100%;
+    background: white;
+    /* **進度條顏色設為白色** */
+    transition: width 0.1s ease-in-out;
+}

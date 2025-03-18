@@ -34,16 +34,22 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
+      className="w-full pt-[160px]  dark:bg-neutral-950 font-sans md:px-10"
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-          Changelog from my journey
+        <h2
+          data-aos="fade-up-blur"
+          className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl"
+        >
+          工程進度
         </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
-          a timeline of my journey.
+        <p
+          data-aos="fade-up-blur"
+          data-aos-delay="1s"
+          className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm"
+        >
+          感謝您對本建案的支持與關注！為了讓您即時掌握最新的施工進度，我們將定期更新工程狀況，確保施工品質與安全，敬請安心期待您的理想家園。
         </p>
       </div>
 
@@ -63,7 +69,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             </div>
 
             <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
+              <h3 className="md:hidden block text-xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
                 {item.title}
               </h3>
               {item.content}{" "}

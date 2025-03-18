@@ -137,10 +137,11 @@ nav {
   }
 
   .header {
-    top: 30%;
+    top: 19%;
   }
 
-  .hero-img {
-    height: 90vh;
+  .hero-img, .hero,   .container {
+    height: 70vh;
   }
+ 
 }

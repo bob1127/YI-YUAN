@@ -13,26 +13,26 @@ interface ImagesProps {
 
 const Images: FC<ImagesProps> = ({ data, onClick }) => {
   return (
-    <div className="wrapper   p-[50px]">
-      <div className="container p-2 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] auto-rows-[125px] gap-2 grid-flow-dense mx-auto max-w-[1400px]">
+    <div className="wrapper p-4 md:p-8">
+      <div className="container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 auto-rows-[150px] max-w-[1400px] mx-auto">
         {data.map((slide, index) => (
           <div
             key={index}
-            className={`relative flex justify-center items-center  overflow-hidden ${getGridArea(
-              index
-            )} ${slide.customStyle || ""}`}
+            className={`relative flex justify-center items-center overflow-hidden rounded-lg ${
+              slide.customStyle || ""
+            }`}
             onClick={() => onClick(index)}
           >
             {slide.src ? (
               <img
                 src={slide.src}
                 alt={slide.description}
-                className={`w-full border border-black h-full object-cover ${
+                className={`w-full h-full object-cover border border-black ${
                   slide.borderRadius || ""
                 }`}
               />
             ) : (
-              <div className="w-full h-full   p-2 grid items-center text-center border-radius-custom">
+              <div className="w-full h-full flex justify-center items-center bg-gray-200 text-center p-2">
                 {slide.title}
               </div>
             )}
@@ -41,22 +41,6 @@ const Images: FC<ImagesProps> = ({ data, onClick }) => {
       </div>
     </div>
   );
-};
-
-const getGridArea = (index: number) => {
-  const areas = [
-    "col-span-2 row-span-1",
-    "col-span-1 row-span-2",
-    "col-span-2 row-span-2",
-    "col-span-1 row-span-1",
-    "col-span-2 row-span-1",
-    "col-span-1 row-span-2",
-    "col-span-2 row-span-2",
-    "col-span-1 row-span-1",
-    "col-span-1 row-span-1",
-    "col-span-2 row-span-1",
-  ];
-  return areas[index] || "col-span-1 row-span-1";
 };
 
 export default Images;

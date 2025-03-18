@@ -9,12 +9,12 @@ import Image from "./Image";
 
 const links = [
   {
-    title: "宜園建設",
-    href: "/",
+    title: "關於宜園",
+    href: "/about",
     src: "home.png",
   },
   {
-    title: "新案件賞",
+    title: "經典選粹",
     href: "/project",
     src: "shop.png",
   },
@@ -34,15 +34,20 @@ const links = [
     src: "contact.png",
   },
   {
+    title: "工程進度",
+    href: "/progress",
+    src: "contact.png",
+  },
+  {
     title: "聯絡我們",
-    href: "/contact",
+    href: "",
     src: "contact.png",
   },
 ];
 
 export default function Index() {
   const [selectedLink, setSelectedLink] = useState({
-    isActive: false,
+    isActive: true,
     index: 0,
   });
 

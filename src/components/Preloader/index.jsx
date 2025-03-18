@@ -6,67 +6,59 @@ import { motion } from "framer-motion";
 
 const words = ["宜園建設"];
 
-// 定義動畫變數
+// 文字淡入動畫
 const opacity = {
   initial: { opacity: 0 },
   enter: { opacity: 0.75, transition: { duration: 1, delay: 0.2 } },
 };
 
+// 整體動畫
 const slideUp = {
   initial: { top: 0 },
   exit: {
     top: "-100vh",
-    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 },
+    transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.2 },
   },
 };
+
+// 進度條動畫時間
+const progressDuration = 1.2; // 與 `slideUp` transition.duration 相同
 
 export default function Index() {
   const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    if (typeof window === "undefined") return; // 確保只在客戶端執行
+    if (typeof window === "undefined") return;
 
     const handleLoad = () => {
       setDimension({ width: window.innerWidth, height: window.innerHeight });
     };
 
-    handleLoad(); // 初次加載時執行
-
+    handleLoad();
     window.addEventListener("resize", handleLoad);
     return () => window.removeEventListener("resize", handleLoad);
   }, []);
 
   useEffect(() => {
     if (index >= words.length - 1) return;
-    const timer = setTimeout(
-      () => setIndex((prev) => prev + 1),
-      index === 0 ? 1000 : 150
-    );
+    const timer = setTimeout(() => setIndex((prev) => prev + 1), 1000);
     return () => clearTimeout(timer);
   }, [index]);
 
-  if (dimension.width === 0) return null; // 確保只在客戶端渲染，避免 SSR 錯誤
+  // 進度條同步動畫時間
+  useEffect(() => {
+    let progressInterval;
+    if (progress < 100) {
+      progressInterval = setInterval(() => {
+        setProgress((prev) => Math.min(prev + 5, 100));
+      }, (progressDuration * 1000) / 40); // 讓進度條在 `progressDuration` 秒內完成
+    }
+    return () => clearInterval(progressInterval);
+  }, [progress]);
 
-  const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
-    dimension.height
-  } Q${dimension.width / 2} ${dimension.height + 300} 0 ${
-    dimension.height
-  } L0 0`;
-  const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
-    dimension.height
-  } Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height} L0 0`;
-
-  const curve = {
-    initial: {
-      d: initialPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] },
-    },
-    exit: {
-      d: targetPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
-    },
-  };
+  if (dimension.width === 0) return null;
 
   return (
     <motion.div
@@ -76,18 +68,20 @@ export default function Index() {
       exit="exit"
       className={styles.introduction}
     >
+      {/* 文字動畫 */}
       <motion.p variants={opacity} initial="initial" animate="enter">
-        <span></span>
         {words[index]}
       </motion.p>
-      <svg>
-        <motion.path
-          variants={curve}
-          initial="initial"
-          exit="exit"
-          d={initialPath}
-        ></motion.path>
-      </svg>
+
+      {/* 進度條 */}
+      <div className={styles.progressBarContainer}>
+        <motion.div
+          className={styles.progressBar}
+          initial={{ width: "0%" }}
+          animate={{ width: `${progress}%` }}
+          transition={{ duration: progressDuration, ease: "linear" }}
+        />
+      </div>
     </motion.div>
   );
 }

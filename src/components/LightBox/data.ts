@@ -100,8 +100,8 @@ export const slides = [
     description: 'Slide Description Eight',
   },
      {
-    title: '怡園建設。設計一隅',
+    title: '',
     description: '',
-    customStyle: "w-[40vmin] font-normal text-[4vmin]",
+    customStyle: "w-[40vmin] font-normal text-[1.2rem]",
   },
 ]

@@ -149,12 +149,17 @@ export default function LandingPage() {
             </div>
           </div>
         </nav>
-        <div className="header overflow-hidden w-1/2 px-[10%]" ref={headerRef}>
-          <h1 className="text-[3.5rem] font-normal text-[#f4f2f0]">宜園建設</h1>
+        <div
+          className="header overflow-hidden w-1/2 px-4 sm:px-[10%]"
+          ref={headerRef}
+        >
+          <h1 className="text-[2.5rem] md:text-[3.5rem] font-normal text-[#f4f2f0]">
+            宜園建設
+          </h1>
           <p className="text-white">-Yi Yuan</p>
           <div className="flex flex-row py-4 btn-wrap">
             <button class="group relative inline-flex h-8 items-center border-gray-400  border justify-center rounded-full bg-[#022c22] px-6 font-medium text-neutral-200">
-              <span>關於宜園建設</span>
+              <span className="text-[.9rem]">關於宜園建設</span>
               <div class="relative ml-1 h-5 w-5 overflow-hidden">
                 <div class="absolute transition-all duration-200 group-hover:-translate-y-5 group-hover:translate-x-4">
                   <svg
@@ -191,7 +196,7 @@ export default function LandingPage() {
               </div>
             </button>
             <button class="group relative ml-3 inline-flex h-8 items-center justify-center rounded-full border-gray-400 border bg-[#022c22] px-6 font-medium text-neutral-200">
-              <span>精選建案案例</span>
+              <span className="text-[.9rem]">精選建案案例</span>
               <div class="relative ml-1 h-5 w-5 overflow-hidden">
                 <div class="absolute transition-all duration-200 group-hover:-translate-y-5 group-hover:translate-x-4">
                   <svg
@@ -230,20 +235,29 @@ export default function LandingPage() {
           </div>
           <Marquee>
             <div className="flex">
-              <h2 className="text-white font-normal text-[2.3rem]">宜家 - </h2>
-              <h2 className="text-white font-normal text-[2.3rem]">宜居 - </h2>
-              <h2 className="text-white font-normal text-[2.3rem]">宜園 - </h2>
-              <h2 className="text-white font-normal text-[2.3rem]">
+              <h2 className="text-white font-normal text-[1.5rem] md:text-[2.3rem]">
+                宜家 -{" "}
+              </h2>
+              <h2 className="text-white font-normal text-[1.5rem] md:text-[2.3rem]">
+                宜居 -{" "}
+              </h2>
+              <h2 className="text-white font-normal text-[1.5rem] md:text-[2.3rem]">
+                宜園 -{" "}
+              </h2>
+              <h2 className="text-white font-normal text-[1.5rem] md:text-[2.3rem]">
                 YI YUAN -{" "}
               </h2>
-              <h2 className="text-white font-normal text-[2.3rem]">
+              <h2 className="text-white font-normal text-[1.5rem] md:text-[2.3rem]">
                 YI YUAN -{" "}
               </h2>
             </div>
           </Marquee>
         </div>
 
-        <div className="hero-img border border-black h-[90vh]" ref={heroImgRef}>
+        <div
+          className="hero-img border border-black h-[70vh] md:h-[90vh]"
+          ref={heroImgRef}
+        >
           <Image
             src="/images/ph_esperanza.jpg"
             alt=""

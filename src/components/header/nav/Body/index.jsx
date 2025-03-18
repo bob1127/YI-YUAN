@@ -28,7 +28,9 @@ export default function Body({ links, selectedLink, setSelectedLink }) {
           <TransitionLink key={`l_${index}`} href={href}>
             <p
               onMouseOver={() => setSelectedLink({ isActive: true, index })}
-              onMouseLeave={() => setSelectedLink({ isActive: false, index })}
+              onMouseLeave={() =>
+                setSelectedLink({ isActive: true, index: selectedLink.index })
+              }
               className={
                 selectedLink.isActive && selectedLink.index !== index
                   ? "opacity-50 transition-opacity duration-300"
