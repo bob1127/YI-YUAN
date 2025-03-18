@@ -322,3 +322,30 @@ body {
   transform: translateY(0);
   filter: blur(0px); /* 清晰 */
 }
+.hero-video {
+  position: relative; /* 確保遮罩的 absolute 參考這個區塊 */
+  width: 100vw;
+  height: 100vh; /* 讓影片佔滿手機螢幕 */
+  overflow: hidden;
+}
+
+.video-bg {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* 讓影片填滿畫面 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* 影片在最底層 */
+}
+
+/* 黑色遮罩 */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* 黑色半透明遮罩 */
+  z-index: 1; /* 讓遮罩覆蓋影片 */
+}

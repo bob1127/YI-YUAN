@@ -95,10 +95,10 @@ export default function Home() {
         </div>
       )}
       <div className="home-page relativez-[99999999999]" ref={containerRef}>
-        <div className="hero-video w-full  top-0 left-0 z-[-1] ">
+        <div className="hero-video">
           <video
             ref={videoRef}
-            className="w-full h-full object-cover"
+            className="video-bg"
             autoPlay
             loop
             muted
@@ -109,9 +109,10 @@ export default function Home() {
               type="video/mp4"
             />
           </video>
-          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+          {/* 黑色遮罩 */}
+          <div className="video-overlay"></div>
         </div>
-        <div className="hero-title">
+        <div className="hero-title z-[99999999]">
           <div className="line">
             <h1 className="text-white text-5xl">宜園建設</h1>
           </div>
