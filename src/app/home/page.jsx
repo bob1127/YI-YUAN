@@ -114,7 +114,7 @@ export default function About() {
   ));
   return (
     <ReactLenis root>
-      <section className="section_hero mt-[60px]  lg:mt-[140px]">
+      <section className="section_hero mt-[60px] mb-[150px]  lg:mt-[140px]">
         <StartAnimate />
       </section>
       <section className="section_features w-full  mx-auto sm:[90%] lg:w-[85%] 2xl:w-[70%]">
