@@ -112,10 +112,7 @@ export default function Home() {
           {/* 黑色遮罩 */}
           <div className="video-overlay"></div>
         </div>
-        <div className="hero-title z-[99999999]">
-          <div className="line">
-            <h1 className="text-white text-5xl">宜園建設</h1>
-          </div>
+        <div className="hero-title z-[99999]">
           <div className="line mt-4 ">
             <h1 className="text-5xl text-white">實在的構築</h1>
           </div>

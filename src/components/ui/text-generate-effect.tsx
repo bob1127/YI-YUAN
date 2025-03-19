@@ -17,11 +17,14 @@ export const TextGenerateEffect = ({
 }) => {
   const [scope, animate] = useAnimate();
   const { ref, inView } = useInView({
-    triggerOnce: true, // 只觸發一次
-    threshold: 0.2, // 20% 出現在視窗內時觸發
+    triggerOnce: true,
+    threshold: 0.2,
   });
 
-  let wordsArray = words.split(" ");
+  // 支援中文字與英文
+  let wordsArray = /[\u4e00-\u9fa5]/.test(words)
+    ? words.split("")
+    : words.split(" ");
 
   useEffect(() => {
     if (inView) {
@@ -33,7 +36,7 @@ export const TextGenerateEffect = ({
         },
         {
           duration: duration || 1,
-          delay: stagger(0.2), // 依序顯示每個字
+          delay: stagger(0.1), // 增加速度，中文字比較短小
         }
       );
     }
@@ -41,16 +44,18 @@ export const TextGenerateEffect = ({
 
   const renderWords = () => {
     return (
-      <motion.div ref={scope}>
+      <motion.div ref={scope} className="flex flex-wrap">
         {wordsArray.map((word, idx) => (
           <motion.span
             key={word + idx}
             className="dark:text-white text-black opacity-0"
             style={{
               filter: filter ? "blur(10px)" : "none",
+              display: "inline-block", // 確保中文字換行時不會壓縮
+              marginRight: word === " " ? "0" : "5px", // 避免中文字太擠
             }}
           >
-            {word}{" "}
+            {word}
           </motion.span>
         ))}
       </motion.div>
@@ -60,7 +65,7 @@ export const TextGenerateEffect = ({
   return (
     <div className={cn("font-bold", className)} ref={ref}>
       <div className="mt-4">
-        <div className="text-[1.5rem] lg:text-[2rem] 2xl:text-[2.5rem] inline-block  w-1/2 !text-[#46342a]">
+        <div className="text-[1.5rem] lg:text-[2rem] 2xl:text-[2.5rem] inline-block w-1/2 !text-[#46342a]">
           {renderWords()}
         </div>
       </div>

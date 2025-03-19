@@ -3,7 +3,7 @@
 import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-
+import Image from "next/image";
 const words = ["宜園建設"];
 
 // 文字淡入動畫
@@ -53,7 +53,7 @@ export default function Index() {
     if (progress < 100) {
       progressInterval = setInterval(() => {
         setProgress((prev) => Math.min(prev + 5, 100));
-      }, (progressDuration * 1000) / 40); // 讓進度條在 `progressDuration` 秒內完成
+      }, (progressDuration * 1000) / 45); // 讓進度條在 `progressDuration` 秒內完成
     }
     return () => clearInterval(progressInterval);
   }, [progress]);
@@ -69,8 +69,17 @@ export default function Index() {
       className={styles.introduction}
     >
       {/* 文字動畫 */}
+
       <motion.p variants={opacity} initial="initial" animate="enter">
-        {words[index]}
+        <img
+          src="/images/yiyuan-logo-white.png"
+          alt=""
+          placeholder="empty"
+          loading="lazy"
+          width={200}
+          height={100}
+        ></img>
+        {/* {words[index]} */}
       </motion.p>
 
       {/* 進度條 */}

@@ -2,6 +2,7 @@
 import { TransitionLink } from "../../components/utils/TransitionLink";
 import { TextGenerateEffect } from "../../components/ui/text-generate-effect";
 import StartAnimate from "../../components/HomeAnimate/page";
+
 import { Carousel, Card } from "../../components/ui/apple-cards-carousel";
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
@@ -113,7 +114,7 @@ export default function About() {
   ));
   return (
     <ReactLenis root>
-      <section className="section_hero mt-[140px]">
+      <section className="section_hero mt-[60px]  lg:mt-[140px]">
         <StartAnimate />
       </section>
       <section className="section_features w-full  mx-auto sm:[90%] lg:w-[85%] 2xl:w-[70%]">
@@ -206,11 +207,8 @@ export default function About() {
         </h1>
       </div>
       <section className="section_project flex-col">
-        <div className="title pl-4 pb-4 pr-4 pt-4 lg:pl-[10%] lg:pb-10">
-          <TextGenerateEffect
-            words="House, furniture, apparel and everything committed to
-            quality."
-          />
+        <div className="title pl-4 2xl:w-1/2 lg:w-2/3 w-full pb-4 pr-4 pt-4 lg:pl-[10%] lg:pb-10">
+          <TextGenerateEffect words="我們用心塑造我們的家、家具、服飾和其他一切。" />
           <p className="text-[1.1rem]">
             我們用心塑造我們的家、家具、服飾和其他一切。
           </p>
