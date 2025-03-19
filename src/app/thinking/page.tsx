@@ -10,14 +10,16 @@ export default function About() {
   return (
     <ReactLenis root>
       <TextScroll />
-      <section className="section_content w-[60%] mx-auto my-10">
-        <div className="title py-[100px] border-b-1 border-gray-300 ">
-          <h1 className="font-normal">「不熱也不冷」 世界標準的房子。</h1>
+      <section className="section_content  sm:w-[80%] w-[85%] xl:w-[60%] mx-auto my-10">
+        <div className="title sm:py-[20px] py-0 lg:py-[100px] border-b-1 border-gray-300 ">
+          <h1 className="font-normal text-[2rem]">
+            「不熱也不冷」 世界標準的房子。
+          </h1>
           <p>
             被動設計是指最大限度地利用太陽、風等自然能源，創造舒適節能的居住環境的設計思想和設計方法。
           </p>
         </div>
-        <div className="border-b-1 border-gray-300  py-[100px]">
+        <div className="border-b-1 border-gray-300 py-[20px] my-5 lg:py-[100px]">
           <h2>被動設計的特點</h2>
           <div className="flex">
             <div>
@@ -42,7 +44,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="py-[100px] border-b-1 border-gray-300 ">
+        <div className="py-[20px] lg:py-[100px] my-5 border-b-1 border-gray-300 ">
           <h2>高氣密、高隔熱</h2>
           <div className="flex">
             <div>

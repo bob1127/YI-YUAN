@@ -22,7 +22,7 @@ const ParallaxImage = ({
           : "md:grid-cols-[2fr_1fr]"
       )}
     >
-      <div className="self-start">
+      <div className="self-start mt-20 lg:mt-0">
         <div
           className="md:supports-[animation-timeline]:parallax-image relative"
           style={{ "--movement": parallaxDistance } as React.CSSProperties}
@@ -62,7 +62,7 @@ function App() {
         </div>
       </div>
 
-      <div className="mt-[-100vh] h-[400vh] [view-timeline-name:--reveal-wrapper]">
+      <div className="mt-[-100vh] lg:block hidden h-[400vh] [view-timeline-name:--reveal-wrapper]">
         <div className="sticky top-0 flex min-h-screen items-center justify-center">
           <div>
             <p className="supports-[animation-timeline]:reveal-text text-xl text-black md:text-[2.3rem] lg:text-[2rem] lg:leading-[1]">

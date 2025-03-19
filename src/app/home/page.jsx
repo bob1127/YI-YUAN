@@ -2,6 +2,7 @@
 import { TransitionLink } from "../../components/utils/TransitionLink";
 import { TextGenerateEffect } from "../../components/ui/text-generate-effect";
 import StartAnimate from "../../components/HomeAnimate/page";
+import { Carousel, Card } from "../../components/ui/apple-cards-carousel";
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -9,7 +10,7 @@ import ParallaxImage from "../../components/ParallaxImage";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import HeroSlider from "../../components/HeroSlider/page";
 import Marquee from "react-fast-marquee";
-import { Carousel } from "../../components/ui/carousel01";
+// import { Carousel } from "../../components/ui/carousel01";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -107,7 +108,9 @@ export default function About() {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
-
+  const cards = data.map((card, index) => (
+    <Card key={card.src} card={card} index={index} />
+  ));
   return (
     <ReactLenis root>
       <section className="section_hero mt-[140px]">
@@ -305,6 +308,9 @@ export default function About() {
           </TransitionLink>
         </div>
       </section>
+      <div className="w-full h-full py-20">
+        <Carousel items={cards} />
+      </div>
     </ReactLenis>
   );
 }
@@ -471,3 +477,72 @@ const OverlayCopy = ({ subheading, heading, description }) => {
     </motion.div>
   );
 };
+
+const DummyContent = () => {
+  return (
+    <>
+      {[...new Array(3).fill(1)].map((_, index) => {
+        return (
+          <div
+            key={"dummy-content" + index}
+            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14  mb-4"
+          >
+            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-medium font-sans max-w-3xl mx-auto">
+              <span className="font-bold text-[20px] text-neutral-700 dark:text-neutral-200">
+                臨近繁華，與自然共生
+              </span>{" "}
+              周邊環境方面，宜園建設為您精心選擇了理想的生活圈。社區周邊生活機能豐富，無論是超市、學校還是醫療機構，應有盡有。交通便捷，讓您無論是通勤還是外出，都能輕鬆迅速。
+            </p>
+            <Image
+              src="https://hadashinoie.co.jp/app/wp-content/uploads/2024/05/2B3A0382-2048x1365.jpg"
+              alt="Macbook mockup from Aceternity UI"
+              height="500"
+              width="500"
+              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+            />
+          </div>
+        );
+      })}
+    </>
+  );
+};
+
+const data = [
+  {
+    category: "Artificial Intelligence",
+    title: "You can do more with AI.",
+    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2025/01/PXL_20250124_000513315-1-2048x1152.jpg",
+    content: <DummyContent />,
+  },
+  {
+    category: "Productivity",
+    title: "Enhance your productivity.",
+    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/06/01_0140-2048x1365.jpg",
+    content: <DummyContent />,
+  },
+  {
+    category: "Product",
+    title: "Launching the new Apple Vision Pro.",
+    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie004-2048x1365.jpg",
+    content: <DummyContent />,
+  },
+
+  {
+    category: "Product",
+    title: "Maps for your iPhone 15 Pro Max.",
+    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/11/hadashinoie016-2048x1365.jpg",
+    content: <DummyContent />,
+  },
+  {
+    category: "iOS",
+    title: "Photography just got better.",
+    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/06/23IS002_03bF-2-2048x1365.jpg",
+    content: <DummyContent />,
+  },
+  {
+    category: "Hiring",
+    title: "Hiring for a Staff Software Engineer",
+    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/06/20230121-2B3A0074-2048x1365.jpg",
+    content: <DummyContent />,
+  },
+];

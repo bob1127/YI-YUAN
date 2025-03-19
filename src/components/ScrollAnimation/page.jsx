@@ -11,39 +11,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 const servicesData = [
   {
-    title: "Custom Web Development",
+    title: "實在的構築",
     description:
-      "We provide bespoke web development solutions tailored to your business needs. Our team ensures top-notch performance and scalability.",
-    imgSrc: "/assets/img1.jpg",
+      "宜園建設，承襲匠心工藝，以細膩的規劃與人本設計，打造兼具美感與實用的居住空間。我們不只建造房屋，更締造理想的生活場域，讓每一位住戶都能在此找到家的溫度。",
+    imgSrc:
+      "https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie004-2-2048x1365.jpg",
     alt: "Web Development",
   },
   {
-    title: "Mobile App Development",
+    title: "實在的構築",
     description:
-      "Crafting intuitive and engaging mobile applications for both Android and iOS platforms. Enhance your user experience with our expert team.",
-    imgSrc: "/assets/img2.jpg",
+      "宜園建設，承襲匠心工藝，以細膩的規劃與人本設計，打造兼具美感與實用的居住空間。我們不只建造房屋，更締造理想的生活場域，讓每一位住戶都能在此找到家的溫度。",
+    imgSrc:
+      "https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie040-1-1-2048x1366.jpg",
     alt: "App Development",
   },
   {
-    title: "Digital Marketing",
+    title: "實在的構築",
     description:
-      "Comprehensive digital marketing services to boost your online presence. From SEO to social media campaigns, we cover it all.",
-    imgSrc: "/assets/img3.jpg",
+      "宜園建設，承襲匠心工藝，以細膩的規劃與人本設計，打造兼具美感與實用的居住空間。我們不只建造房屋，更締造理想的生活場域，讓每一位住戶都能在此找到家的溫度。",
+    imgSrc:
+      "https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie-54-1-2048x1365.jpg",
     alt: "Digital Marketing",
-  },
-  {
-    title: "Cloud Solutions",
-    description:
-      "Reliable and secure cloud solutions to streamline your business operations. Leverage the power of the cloud with our expertise.",
-    imgSrc: "/assets/img4.jpg",
-    alt: "Cloud Solutions",
-  },
-  {
-    title: "IT Consultancy",
-    description:
-      "Expert IT consultancy services to guide your business through digital transformation. Optimize your IT infrastructure with our insights.",
-    imgSrc: "/assets/img5.jpg",
-    alt: "IT Consultancy",
   },
 ];
 
@@ -125,14 +114,11 @@ export default function ServicesSection() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container ">
       <section className="hero" />
       <section className="services">
         <div className="services-header flex justify-between items-center">
           <div className="col"></div>
-          <div className="col">
-            <h1 className="text-3xl font-bold">All Services</h1>
-          </div>
         </div>
         {servicesData.map((service, index) => (
           <div key={index} className="service flex items-center">
@@ -153,7 +139,6 @@ export default function ServicesSection() {
           </div>
         ))}
       </section>
-      <section className="footer" />
     </div>
   );
 }

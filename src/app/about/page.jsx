@@ -4,6 +4,7 @@ import { TransitionLink } from "../../components/utils/TransitionLink";
 import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { LinkPreview } from "@/components/ui/link-preview";
 
 import ParallaxImage from "../../components/ParallaxImage";
 import { ReactLenis } from "@studio-freight/react-lenis";
@@ -59,6 +60,18 @@ export default function About() {
             <p className="leading-relaxed font-normal text-[.95rem] text-[#20201f]">
               宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。
             </p>
+            <div className="flex justify-center items-center h-[20rem] flex-col px-4">
+              <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-3xl mx-auto mb-10">
+                <LinkPreview url="/project" className="font-bold no-underline">
+                  實在的構築
+                </LinkPreview>{" "}
+                project{" "}
+                <LinkPreview url="/project" className="font-bold no-underline">
+                  宜園建設
+                </LinkPreview>{" "}
+                宜園建設精心規劃，融合自然綠意與現代設計
+              </p>
+            </div>
           </div>
         </section>
 

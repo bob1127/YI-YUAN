@@ -2,7 +2,6 @@
 import { useRef } from "react";
 import SvgImg from "../../components/SVGImage";
 import { ReactLenis } from "@studio-freight/react-lenis";
-
 import Image from "next/image";
 import HoverCard from "../../components/HoverCardBuild/index";
 import gsap from "gsap";

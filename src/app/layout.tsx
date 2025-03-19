@@ -40,7 +40,7 @@ export default function RootLayout({
 
           {/* 只有當不是首頁時才顯示 Footer */}
           {!isHomePage && (
-            <footer className="pb-[150px] z-[-1] pt-[200px] flex flex-col justify-center items-center bg-[#f4efe3]">
+            <footer className=" pb-[50px] lg:pb-[150px] z-[-1]  sm:pt-[100px] pt-[50px] lg:pt-[200px] flex flex-col justify-center items-center bg-[#f4efe3]">
               <div className="top 2xl:w-[70%]  w-[90%] lg:w-[85%]  md:mb-10 mb-0 lg:flex-row flex-col flex mx-auto">
                 <div className="w-full lg:w-1/2">
                   <div className="navgation flex flex-col md:flex-row">

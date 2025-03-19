@@ -42,7 +42,7 @@ const Photos = () => {
           loading="lazy"
           width={820}
           height={300}
-          className=" absolute left-[35%]  top-[30%] z-[99999999]"
+          className=" absolute left-[35%]  top-[0%] z-[99999999]"
         ></Image>
       </section>
       <div className=" mt-[-20vh] ">
@@ -73,13 +73,13 @@ const Photos = () => {
 
       <section className="section_news py-[50px]">
         <div className="w-[80%] flex flex-col xl:flex-row section-container mx-auto">
-          <div className="w-full xl:w-[30%]">
+          <div className="w-full xl:w-[50%]">
             <div className="flex flex-col">
               <h2 className="text-[9vmin] font-bold">NEWS</h2>
               <b>新公告</b>
             </div>
           </div>
-          <div className="w-full xl:w-[70%]">
+          <div className="w-full xl:w-[50%]">
             <div>
               <ul>
                 <li className="border-b-1 py-[40px] hover:scale-105 duration-400">
@@ -120,12 +120,24 @@ const Photos = () => {
           </div>
         </div>
       </section>
-
+      <section className="mt-[0px] overflow-hidden w-[95%] xl:w-[85%] mx-auto xl:flex-row flex-col flex">
+        <div className="w-full xl:w-[60%] ">
+          <ScrollAnimation />
+        </div>
+        <div className="w-full xl:w-[40%] pt-0  xl:pt-[10%] pb-20  ">
+          <div className="bg-white mt-20 w-full h-[400px] p-10">
+            <h3>title</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+              molestiae eligendi et, ex ratione mollitia, accusamus amet, neque
+              iure labore officia deserunt placeat laborum quis incidunt.
+              Perferendis voluptates enim architecto!
+            </p>
+          </div>
+        </div>
+      </section>
       <section>
         <HoverCard />
-      </section>
-      <section className="mt-[200px]">
-        <ScrollAnimation />
       </section>
     </>
   );

@@ -18,7 +18,7 @@ export default function LayoutContent({ children }: { children: ReactNode }) {
       )}
       <main>{children}</main>
       {!isHomePage && (
-        <footer className="pb-[150px] z-[-1] pt-[200px] flex flex-col justify-center items-center bg-[#f4efe3]">
+        <footer className="pb-[150px] z-[-1] pt-[50px]  sm:pt-[100px] lg:pt-[200px] flex flex-col justify-center items-center bg-[#f4efe3]">
           <div
             className="top w-[85%] border md:mb-10 mb-0 flex border-black mx-auto"
             data-aos="fade-up"
