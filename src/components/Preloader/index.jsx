@@ -71,14 +71,15 @@ export default function Index() {
       {/* 文字動畫 */}
 
       <motion.p variants={opacity} initial="initial" animate="enter">
-        <img
+        <Image
           src="/images/yiyuan-logo-white.png"
-          alt=""
-          placeholder="empty"
-          loading="lazy"
+          alt="Yiyuan Logo"
           width={200}
           height={100}
-        ></img>
+          layout="intrinsic"
+          priority={true}
+        />
+
         {/* {words[index]} */}
       </motion.p>
 
