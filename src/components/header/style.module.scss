@@ -112,8 +112,44 @@
 
 @media only screen and (min-width: 600px) {
     .header {
-        padding-left: 20vw;
-        padding-right: 20vw;
+        padding-left: 10vw;
+        padding-right: 10vw;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        .bar {
+            font-size: 15px;
+        }
+
+        .shop {
+            display: block;
+            cursor: pointer;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .header {
+        padding-left: 10vw;
+        padding-right: 10vw;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        .bar {
+            font-size: 15px;
+        }
+
+        .shop {
+            display: block;
+            cursor: pointer;
+        }
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .header {
+        padding-left: 8vw;
+        padding-right: 8vw;
         padding-top: 10px;
         padding-bottom: 10px;
 

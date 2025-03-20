@@ -22,7 +22,7 @@ export default function Index() {
   return (
     <div className={styles.header}>
       <div className={styles.bar}>
-        <Link href="/" className="font-bold ">
+        <Link href="/home" className="font-bold ">
           <div className="h-full flex justify-center items-center">
             <Image
               src="/images/yiyuan-logo.png"

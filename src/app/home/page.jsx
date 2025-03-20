@@ -114,7 +114,7 @@ export default function About() {
   ));
   return (
     <ReactLenis root>
-      <section className="section_hero mt-[60px] mb-[150px]  lg:mt-[140px]">
+      <section className="section_hero overflow-hidden mt-[40px] mb-[110px]  lg:mt-[70px]">
         <StartAnimate />
       </section>
       <section className="section_features w-full  mx-auto sm:[90%] lg:w-[85%] 2xl:w-[70%]">
@@ -507,40 +507,40 @@ const DummyContent = () => {
 
 const data = [
   {
-    category: "Artificial Intelligence",
-    title: "You can do more with AI.",
+    category: "PROJECT",
+    title: "誠鏡二期",
     src: "https://hadashinoie.co.jp/app/wp-content/uploads/2025/01/PXL_20250124_000513315-1-2048x1152.jpg",
     content: <DummyContent />,
   },
   {
-    category: "Productivity",
-    title: "Enhance your productivity.",
+    category: "PROJECT",
+    title: "宜園大院",
     src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/06/01_0140-2048x1365.jpg",
     content: <DummyContent />,
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
+    category: "PROJECT",
+    title: "一青隱",
     src: "https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie004-2048x1365.jpg",
     content: <DummyContent />,
   },
 
   {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
+    category: "PROJECT",
+    title: "誠鏡五期",
     src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/11/hadashinoie016-2048x1365.jpg",
     content: <DummyContent />,
   },
   {
-    category: "iOS",
-    title: "Photography just got better.",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/06/23IS002_03bF-2-2048x1365.jpg",
+    category: "PROJECT",
+    title: "誠鏡二期",
+    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2025/01/PXL_20250124_000513315-1-2048x1152.jpg",
     content: <DummyContent />,
   },
   {
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/06/20230121-2B3A0074-2048x1365.jpg",
+    category: "PROJECT",
+    title: "宜園大院",
+    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/06/01_0140-2048x1365.jpg",
     content: <DummyContent />,
   },
 ];

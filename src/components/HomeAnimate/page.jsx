@@ -130,7 +130,7 @@ export default function LandingPage() {
       {/* 左側滑動圖片 */}
       <motion.div
         style={{ opacity: fadeOut, x: slideLeft }}
-        className="absolute top-[-150px]  left-0 sm:w-[450px] w-[350px] xl:w-[600px] h-auto z-10"
+        className="absolute top-[-160px] md:top-[-250px] 2xl:top-[-150px]  left-[-15%] 2xl:left-0 sm:w-[450px] w-[350px] xl:w-[600px] h-auto z-10"
       >
         <Image
           src="/images/—Pngtree—green trees branches and leaves_4877518.png"
