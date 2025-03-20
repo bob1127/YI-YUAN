@@ -28,10 +28,12 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
     body?.classList.add("page-transition");
 
     await sleep(500);
-    router.push(href);
+    router.replace(href);
     await sleep(500);
 
     body?.classList.remove("page-transition");
+
+    window.dispatchEvent(new CustomEvent("pageTransitionComplete"));
   };
 
   return (
