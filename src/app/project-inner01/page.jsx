@@ -283,9 +283,15 @@ const OverlayCopy = ({ subheading, heading, description }) => {
 const ExampleContent = () => (
   <div className="mx-auto bg-[#242424]">
     <div className=" py-[50px] w-[80%] mx-auto  flex flex-col justify-center items-center">
-      <h2 className="text-[2.2rem] text-center text-white ">
+      <h2 data-aos="fade-up" className="text-[2.2rem] text-center text-white ">
         幸福生活，從宜園開始{" "}
-        <p className="text-white mt-4 text-[2rem]">「宜園建設，築夢家園」</p>
+        <p
+          data-aos="fade-up"
+          data-delay=".5s"
+          className="text-white mt-4 text-[2rem]"
+        >
+          「宜園建設，築夢家園」
+        </p>
       </h2>
 
       <p className=" text-[.9rem] mt-5 text-center w-[80%] md:w-[60%] 2xl:w-[50%] leading-relaxed font-light">

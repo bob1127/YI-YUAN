@@ -121,10 +121,10 @@ const Photos = () => {
         </div>
       </section>
       <section className="mt-[0px] overflow-hidden w-[95%] xl:w-[85%] mx-auto xl:flex-row flex-col flex">
-        <div className="w-full xl:w-[60%] ">
+        <div className="w-full xl:w-[70%] ">
           <ScrollAnimation />
         </div>
-        <div className="w-full xl:w-[40%] pt-0  xl:pt-[10%] pb-20  ">
+        <div className="w-full xl:w-[30%] pt-0  xl:pt-[10%] pb-20  ">
           <div className="bg-white mt-20 w-full h-[400px] p-10">
             <h3>title</h3>
             <p>

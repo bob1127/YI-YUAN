@@ -3,8 +3,8 @@
     position: fixed;
     width: 100%;
     box-sizing: border-box;
-    padding: 10px;
-
+    padding-top: 10px;
+    padding-bottom: 10px;
 
     .background {
         background-color: black;
@@ -23,6 +23,8 @@
         font-size: 12px;
         font-weight: 400;
         position: relative;
+        padding-left: 40px;
+        padding-right: 40px;
 
 
         p {

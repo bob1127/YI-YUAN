@@ -174,7 +174,7 @@ const Photos = () => {
       <div className="slider" ref={sliderRef}>
         <div className="slider-images" ref={sliderImagesRef}>
           <div className="img">
-            <img src="/assets/img1.jpg" alt="" />
+            <img src="/assets/img1.jpg" alt="" className="" />
           </div>
         </div>
 

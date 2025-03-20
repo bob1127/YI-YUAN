@@ -7,8 +7,7 @@
     /* 欄間距 */
 
     margin-top: 40px;
-    padding-left: 20px;
-    padding-right: 50px;
+
 
     a {
         color: black;
@@ -21,11 +20,13 @@
         display: flex;
         overflow: hidden;
         font-size: 32px;
+        color: black !important;
         padding-right: 30px;
         padding-top: 10px;
         font-weight: 300;
     }
 }
+
 
 
 @media only screen and (min-width: 1000px) {

@@ -3,7 +3,7 @@ import { TransitionLink } from "../../components/utils/TransitionLink";
 import EmblaCarousel from "../../components/EmblaCarousel07/EmblaCarousel";
 import { AnimatedTooltip } from "../../components/ui/animated-tooltip";
 import { PlaceholdersAndVanishInput } from "../../components/ui/placeholders-and-vanish-input";
-
+import { TextGenerateEffect } from "../../components/ui/text-generate-effect";
 import Image from "next/image";
 // import { StickyScroll } from "../../components/ui/sticky-scroll-reveal";
 import React from "react";
@@ -80,7 +80,7 @@ export default function About() {
             thumbnails={THUMBNAILS}
             options={OPTIONS}
           />
-          <div className="title py-[90px] px-[30px] sm:px-[40px] lg:px-[80px]">
+          <div className="title py-[40px] md:py-[50px] px-[30px] sm:px-[40px] lg:px-[80px]">
             <h1 className="!text-[2rem]">宜園建設【一青隱】</h1>
           </div>
           <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
@@ -100,8 +100,9 @@ export default function About() {
               className="w-full"
             />
           </div>
-          <div className="title py-[90px] px-[30px] sm:px-[40px] lg:px-[80px]">
-            <h1 className="!text-[2rem]">向自然習作，美好新始，健康新序</h1>
+          <div className="title py-[40px] md:py-[50px] px-[30px] sm:px-[40px] lg:px-[80px]">
+            <TextGenerateEffect words="向自然習作，美好新始，健康新序" />
+            <h1 className="!text-[2rem]"></h1>
           </div>
           <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
             <p className="leading-relaxed">

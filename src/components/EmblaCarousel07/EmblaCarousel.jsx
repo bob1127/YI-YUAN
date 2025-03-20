@@ -35,10 +35,10 @@ const EmblaCarousel = (props) => {
   return (
     <div className="w-full">
       {/* 主幻燈片 */}
-      <div className="w-full">
+      <div className="w-[95%] mx-auto sm:w-full">
         <div className="embla bg-[#f5f5f5]  w-full sm:-2 p-0 lg:p-10 mx-auto">
           <div
-            className="embla__viewport sm:w-[90%] w-full lg:w-[70%] mx-auto border border-red-800 overflow-hidden"
+            className="embla__viewport sm:w-[90%] w-full lg:w-[70%] mx-auto  overflow-hidden"
             ref={emblaMainRef}
           >
             <div className="embla__container  flex touch-pan-y touch-pinch-zoom -ml-[1rem]">
@@ -64,12 +64,12 @@ const EmblaCarousel = (props) => {
         </div>
 
         {/* 縮略圖 */}
-        <div className="embla-thumbs mt-[0.8rem]">
+        <div className="embla-thumbs  mt-[0.8rem]">
           <div
             className="embla-thumbs__viewport overflow-hidden"
             ref={emblaThumbsRef}
           >
-            <div className="embla-thumbs__container  flex -ml-[0.8rem]">
+            <div className="embla-thumbs__container  flex -ml-[0.8rem] pl-4 ">
               {thumbnails.map((thumbUrl, index) => (
                 <Thumb
                   key={index}

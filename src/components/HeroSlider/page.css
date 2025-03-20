@@ -1,19 +1,34 @@
 .slider {
   position: relative;
   width: 100vw;
-  height: 85vh;
+  height: 100vh; /* 預設為全螢幕高度 */
   overflow: hidden;
 }
-@media (max-width:1000px){
+
+@media (max-width: 1200px) {
   .slider {
-  height: 70vh;
+    height: 85vh; /* 大型平板 */
   }
 }
-@media (max-width:768px){
+
+@media (max-width: 1000px) {
   .slider {
-  height: 50vh;
+    height: 80vh; /* 一般平板 */
   }
 }
+
+@media (max-width: 768px) {
+  .slider {
+    height: 75vh; /* 手機 */
+  }
+}
+
+@media (max-width: 480px) {
+  .slider {
+    height: 70vh; /* 更小的手機 */
+  }
+}
+
 .slider-images {
   position: absolute;
   width: 100%;
@@ -26,6 +41,13 @@
   height: 100%;
 }
 
+.slider .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 保持圖片比例，確保填滿 */
+}
+
+/* 底部計數器 */
 .slider-counter {
   position: absolute;
   bottom: 2em;
@@ -52,6 +74,7 @@
   will-change: transform;
 }
 
+/* 主要標題區塊 */
 .slider .slider-title {
   position: absolute;
   top: 50%;
@@ -77,6 +100,13 @@
   font-weight: 500;
 }
 
+@media (max-width: 900px) {
+  .slider-title-wrapper p {
+    font-size: 30px;
+  }
+}
+
+/* 左右切換的指示器 */
 .slider-indicators {
   position: absolute;
   top: 50%;
@@ -95,6 +125,7 @@
   color: var(--text);
 }
 
+/* 預覽縮圖 */
 .slider-preview {
   position: absolute;
   bottom: 2em;
@@ -138,7 +169,7 @@
   }
 
   .slider-title-wrapper p {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .slider-counter {
