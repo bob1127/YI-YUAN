@@ -58,14 +58,7 @@ const ParallaxImage = ({ src, alt }) => {
     targetTranslateY.current = relativeScroll * 0.2;
   });
 
-  return (
-    <img
-      ref={imageRef}
-      src={src}
-      alt={alt}
-      className=" md:w-[100vw] md:h-auto"
-    />
-  );
+  return <img ref={imageRef} src={src} alt={alt} className="   md:h-auto" />;
 };
 
 export default ParallaxImage;

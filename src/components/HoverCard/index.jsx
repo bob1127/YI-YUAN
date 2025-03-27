@@ -6,7 +6,8 @@ import { TransitionLink } from "../utils/TransitionLink";
 const items = [
   {
     id: 1,
-    imgSrc: "/images/img01.jpg",
+    imgSrc:
+      "https://niwahouzing.com/wp-content/uploads/2024/10/aba1dd9afd994bc383f5259806be7bb4-17.jpg",
     number: "動土典禮",
     textLeft: "活動照片",
     textRight: "active",
@@ -14,7 +15,8 @@ const items = [
   },
   {
     id: 1,
-    imgSrc: "/images/img01.jpg",
+    imgSrc:
+      "https://niwahouzing.com/wp-content/uploads/2024/10/aba1dd9afd994bc383f5259806be7bb4-20.jpg",
     number: "動土典禮",
     textLeft: "活動照片",
     textRight: "active",
@@ -22,7 +24,8 @@ const items = [
   },
   {
     id: 1,
-    imgSrc: "/images/img01.jpg",
+    imgSrc:
+      "https://niwahouzing.com/wp-content/uploads/2024/10/bee585f7a27f9e02a7042435dd3a63ee.jpg",
     number: "動土典禮",
     textLeft: "活動照片",
     textRight: "active",
@@ -30,7 +33,8 @@ const items = [
   },
   {
     id: 1,
-    imgSrc: "/images/img01.jpg",
+    imgSrc:
+      "https://niwahouzing.com/wp-content/uploads/2024/10/aba1dd9afd994bc383f5259806be7bb4-19.jpg",
     number: "動土典禮",
     textLeft: "活動照片",
     textRight: "active",
@@ -38,7 +42,8 @@ const items = [
   },
   {
     id: 1,
-    imgSrc: "/images/img01.jpg",
+    imgSrc:
+      "https://niwahouzing.com/wp-content/uploads/2024/10/aba1dd9afd994bc383f5259806be7bb4-14-scaled.jpg",
     number: "動土典禮",
     textLeft: "活動照片",
     textRight: "active",
@@ -46,7 +51,8 @@ const items = [
   },
   {
     id: 1,
-    imgSrc: "/images/img01.jpg",
+    imgSrc:
+      "https://niwahouzing.com/wp-content/uploads/2024/10/6929b940e4802cf13960acbb172247c2-18.jpg",
     number: "動土典禮",
     textLeft: "活動照片",
     textRight: "active",

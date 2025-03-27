@@ -34,7 +34,7 @@ button {
   margin: 0.25em 0;
   padding: 0.3em 0.75em 0.25em 0.75em;
   color: #0f0f0f;
-  background-color: #dbccc0;
+ 
   border-radius: 2em;
 }
 
@@ -101,7 +101,7 @@ section.projects {
 
 .about {
   display: flex;
-  background-color: #d1d5d1;
+  background-color: #ffffff;
 }
 
 .intro,

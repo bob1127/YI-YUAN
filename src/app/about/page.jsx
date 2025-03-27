@@ -39,46 +39,53 @@ export default function About() {
     <ReactLenis root>
       <div className="app">
         <TextParallaxContent
-          imgUrl="https://hadashinoie.co.jp/assets/images/hero/hero-slide03.jpg"
+          imgUrl="https://niwahouzing.com/wp-content/themes/niwa/assets/images/modelhouse/img-modelhouse-head_pc.avif"
           heading="關於宜園建設."
           description="宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。"
         ></TextParallaxContent>
 
-        <section className="about flex !h-[85vh] flex-col lg:flex-row section">
+        <section className="about flex h-[85vh] md:h-[70vh] 2xl:h-[90vh] flex-col lg:flex-row section">
           <div className="col lg:w-1/2 w-full portrait">
             <div className="portrait-container">
               <div className="img mt-8">
                 <ParallaxImage
-                  src="https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery03.jpg"
+                  src="https://niwahouzing.com/wp-content/uploads/2024/10/bee585f7a27f9e02a7042435dd3a63ee.jpg"
                   alt=""
                 />
               </div>
             </div>
           </div>
           <div className="col lg:w-1/2 w-full  intro">
-            <h1 className="text-[#333]">宜家</h1>
+            <h1 className="text-[#333] text-[2rem] xl:text-[3rem]">宜家</h1>
             <p className="leading-relaxed font-normal text-[.95rem] text-[#20201f]">
               宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。
             </p>
             <div className="flex justify-center items-center h-[20rem] flex-col px-4">
               <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-3xl mx-auto mb-10">
-                <LinkPreview url="/project" className="font-bold no-underline">
-                  實在的構築
+                <LinkPreview
+                  style="!border-none !underline-none"
+                  url="/project"
+                  className="font-bold no-underline"
+                >
+                  <span className="text-[1.3rem] font-normal"> 實在的構築</span>
                 </LinkPreview>{" "}
                 project{" "}
                 <LinkPreview url="/project" className="font-bold no-underline">
-                  宜園建設
+                  <span className="text-[1.3rem]"> 宜園建設</span>
                 </LinkPreview>{" "}
-                宜園建設精心規劃，融合自然綠意與現代設計
+                <span className="text-[1.3rem]">
+                  {" "}
+                  宜園建設精心規劃，融合自然綠意與現代設計
+                </span>
               </p>
             </div>
           </div>
         </section>
 
-        <section className="banner h-[360px] md:h-[80vh] 2xl:h-[1000px]">
-          <div className="img ">
+        <section className="banner flex justify-center ">
+          <div className="img w-[70vw] mx-auto">
             <ParallaxImage
-              src="https://editora.jp/wp/wp-content/themes/editora/assets/img/cover1@2x.jpg"
+              src="https://niwahouzing.com/wp-content/themes/niwa/assets/images/modelhouse/img-modelhouse-head_pc.avif"
               alt=""
               className=""
             />
@@ -153,7 +160,7 @@ export default function About() {
           </div>
         </Marquee>
 
-        <div className="bg-[#f4efe3] py-8 border border-red-300 lg:flex-row flex-col flex">
+        <div className="py-8 border border-red-300 lg:flex-row flex-col flex">
           <div className=" w-full lg:w-1/2 ">
             <div className="relative h-[400px] sm:h-[50vh] lg:h-[70vh] 2xl:h-[65vh] overflow-hidden w-full">
               <Carousel slides={slideData} />

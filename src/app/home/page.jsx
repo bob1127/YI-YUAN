@@ -115,11 +115,11 @@ export default function About() {
   ));
   return (
     <ReactLenis root>
-      {/* <section className="section_hero overflow-hidden mt-[40px] mb-[110px]  lg:mt-[70px]">
+      <section className="section_hero overflow-hidden mt-[40px] mb-[110px]  lg:mt-[70px]">
         <StartAnimate />
-      </section> */}
+      </section>
       <section className="section_features w-full  mx-auto  mt-[30vh]">
-        <div className="title pl-4  flex justify-center flex-col items-center w-full">
+        <div className="title  flex justify-center flex-col items-center mx-auto w-[85%] sm:w-full">
           <TextGenerateEffect
             words="一起思考人生，一起創造未來
 
@@ -130,8 +130,8 @@ export default function About() {
             專注於創造“精緻”的建築。
           </p>
         </div>
-        <div className="flex md:flex-row flex-col w-[95%] mx-auto mt-20">
-          <div className="img  w-full md:w-[20%] mx-3 mx-auto h-auto md:h-[20vh] xl:h-[30vh] overflow-hidden">
+        <div className="flex md:flex-row flex-col w-[90%] sm:w-[95%] mx-auto mt-20">
+          <div className="img  w-full md:w-[20%] mx-auto sm:mx-3  h-auto md:h-[20vh] xl:h-[30vh] overflow-hidden">
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
@@ -146,7 +146,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="img w-ful mt-4 md:mt-0 md:w-[25%] mx-3 mx-auto h-auto md:h-[30vh] xl:h-[60vh] overflow-hidden">
+          <div className="img w-ful mt-4 md:mt-0 md:w-[25%] mx-auto sm:mx-3  h-auto md:h-[30vh] xl:h-[60vh] overflow-hidden">
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
@@ -161,7 +161,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="img  w-full  mt-4 md:mt-0  md:w-[55%] mx-3 mx-auto h-auto md:h-[50vh] xl:h-[70vh] overflow-hidden">
+          <div className="img  w-full  mt-4 md:mt-0  md:w-[55%] mx-auto sm:mx-3  h-auto md:h-[50vh] xl:h-[70vh] overflow-hidden">
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
@@ -181,7 +181,7 @@ export default function About() {
             <p>不與人同的作為</p>
           </div> */}
         </div>
-        <div className="flex lg:flex-row my-[20vh] flex-col w-[98%] mx-auto">
+        <div className="flex lg:flex-row mb-5 mt-[20vh] flex-col w-[98%] mx-auto">
           <div className="img w-[98%] md:w-[550px] lg:w-[50%] mx-auto h-auto md:h-[830px] overflow-hidden">
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
@@ -220,6 +220,75 @@ export default function About() {
                 </div>
               </TransitionLink>
             </div>
+          </div>
+        </div>
+        <div className="flex flex-col lg:flex-row max-w-[98%] justify-between py-5  mx-auto">
+          <div className=" w-full lg:w-[49%] border-t-1 border-gray-600 py-8 group px-8 ">
+            <TransitionLink href="/about">
+              <div className="flex flex-row">
+                <div className="w-[20%]">
+                  <h3 className="font-normal  text-[1.2rem] xl:text-[2rem]">
+                    About
+                  </h3>
+                </div>
+                <div className="w-[80%]  flex items-center flex-row justify-around">
+                  <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden  bg-transparent px-4 text-neutral-950">
+                    <span class="relative inline-flex overflow-hidden">
+                      <div class="absolute origin-bottom transition duration-500 [transform:translateX(-150%)_skewX(33deg)] group-hover:[transform:translateX(0)_skewX(0deg)]">
+                        我們不僅專注於設計，還對實現概念的施工保持堅持。
+                      </div>
+                      <div class="transition duration-500 [transform:translateX(0%)_skewX(0deg)] group-hover:[transform:translateX(150%)_skewX(33deg)]">
+                        我們不僅專注於設計，還對實現概念的施工保持堅持。
+                      </div>
+                    </span>
+                  </button>
+
+                  <span></span>
+                  <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                    <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                      →
+                    </div>
+                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-black px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                      →
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </TransitionLink>
+          </div>
+
+          <div className=" w-full lg:w-[49%] border-t-1 border-gray-600 py-8 group px-8 ">
+            <TransitionLink href="/progress">
+              <div className="flex flex-row">
+                <div className="w-[20%]">
+                  <h3 className="font-normal  text-[1.2rem] xl:text-[2rem]">
+                    Progress
+                  </h3>
+                </div>
+                <div className="w-[80%]  flex items-center flex-row justify-around">
+                  <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden  bg-transparent px-4 text-neutral-950">
+                    <span class="relative inline-flex overflow-hidden">
+                      <div class="absolute origin-bottom transition duration-500 [transform:translateX(-150%)_skewX(33deg)] group-hover:[transform:translateX(0)_skewX(0deg)]">
+                        我們不僅專注於設計，還對實現概念的施工保持堅持。
+                      </div>
+                      <div class="transition duration-500 [transform:translateX(0%)_skewX(0deg)] group-hover:[transform:translateX(150%)_skewX(33deg)]">
+                        我們不僅專注於設計，還對實現概念的施工保持堅持。
+                      </div>
+                    </span>
+                  </button>
+
+                  <span></span>
+                  <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                    <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                      →
+                    </div>
+                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-black px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                      →
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </TransitionLink>
           </div>
         </div>
       </section>

@@ -97,7 +97,10 @@ export const LinkPreview = ({
       >
         <HoverCardPrimitive.Trigger
           onMouseMove={handleMouseMove}
-          className={cn("text-black dark:text-white no-underline", className)}
+          className={cn(
+            "text-black dark:text-white no-underline [&_*]:no-underline",
+            className
+          )}
           href={url}
         >
           {children}
@@ -124,14 +127,14 @@ export const LinkPreview = ({
                   },
                 }}
                 exit={{ opacity: 0, y: 20, scale: 0.6 }}
-                className="shadow-xl rounded-xl"
+                className="shadow-xl !border-none !underline-none rounded-xl"
                 style={{
                   x: translateX,
                 }}
               >
                 <Link
                   href={url}
-                  className="block p-1 bg-white shadow rounded-xl  no-underline"
+                  className="block p-1 bg-white  shadow rounded-xl  no-underline"
                   style={{ textDecoration: "none" }}
                 >
                   <Image
