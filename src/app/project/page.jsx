@@ -33,7 +33,42 @@ const Photos = () => {
   return (
     <ReactLenis root>
       {/* <HeroSlider /> */}
-      <SvgImg />
+      <section className=" pt-[10vh] ">
+        <div className=" w-[90%] md:w-[80%]  mx-auto">
+          <div>
+            <div className=" w-[30%] mb-5">
+              <Image
+                width={800}
+                height={400}
+                src="https://www.bess.jp/wordpress/wp-content/themes/bess/assets/images/top_life_title.png"
+                alt="project-hero-img"
+                placeholder="empty"
+                loading="eager"
+              ></Image>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row ">
+            <div className="img w-full md:w-1/2 xl:w-[85%]">
+              <Image
+                width={2200}
+                height={800}
+                src="https://www.bess.jp/wordpress/wp-content/themes/bess/assets/images/top_life_image_1312w.png"
+                alt="project-hero-img"
+                placeholder="empty"
+                loading="eager"
+              ></Image>
+            </div>
+            <div className=" xl:w-[15%]  w-full md:w-1/2 lg:p-10 p-0 2xl:p-20">
+              <h2
+                className="text-[1.1rem] w-full xl:text-[1.5rem]"
+                data-aos="fade-up"
+              >
+                不選擇普通的家，而是選擇BESS的家的人。這裡有什麼不同呢？實際的生活是什麼樣的？通過全國的家庭採訪，我們看到了真實的生活。
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* <div className="p-10">
         <StickyScroll content={content} />
       </div> */}
@@ -88,7 +123,7 @@ const Photos = () => {
           <HoverCard />
         </div>
       </section>
-      <ImageDistortion />
+      {/* <ImageDistortion /> */}
       <div className="h-auto 2xl:h-[40rem] flex flex-col justify-center  items-center px-4">
         <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
           對我們的建案有興趣嗎？

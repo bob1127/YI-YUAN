@@ -5,21 +5,24 @@ import { TransitionLink } from "../utils/TransitionLink";
 const items = [
   {
     id: 1,
-    imgSrc: "/images/img01.jpg",
+    imgSrc:
+      "https://niwahouzing.com/wp-content/uploads/2024/10/6d1cfee1873d72c4ff0b68115f19ffa6.jpg",
     number: "宜園大院",
 
     bottomLeft: "宜園建設，打造理想生活空間",
   },
   {
     id: 2,
-    imgSrc: "/images/img02.jpg",
+    imgSrc:
+      "https://niwahouzing.com/wp-content/uploads/2024/10/6929b940e4802cf13960acbb172247c2-17.jpg",
     number: "一青隱",
 
     bottomLeft: "宜園建設，打造理想生活空間",
   },
   {
     id: 3,
-    imgSrc: "/images/img02.jpg",
+    imgSrc:
+      "https://niwahouzing.com/wp-content/uploads/2024/10/6ac2397867767a902ce2217f0a58282f-18.jpg",
     number: "誠境二期",
 
     bottomLeft: "宜園建設，打造理想生活空間",

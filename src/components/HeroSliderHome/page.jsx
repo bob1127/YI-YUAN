@@ -13,12 +13,10 @@ const Photos = () => {
   const counterRef = useRef(null);
   const titlesRef = useRef(null);
   const indicatorsRef = useRef(null);
-  const previewsRef = useRef(null);
   const sliderRef = useRef(null);
 
   useGSAP(
     () => {
-      gsap.registerPlugin(CustomEase);
       CustomEase.create(
         "hop2",
         "M0,0 C0.071,0.505 0.192,0.726 0.318,0.852 0.45,0.984 0.504,1 1,1"
@@ -29,8 +27,10 @@ const Photos = () => {
       let indicatorRotation = 0;
 
       function updateCounterAndTitlePosition() {
-        const counterY = -20 * (currentImg - 1);
-        const titleY = -60 * (currentImg - 1);
+        const counterY =
+          -(counterRef.current.clientHeight / totalSlides) * (currentImg - 1);
+        const titleY =
+          -(titlesRef.current.clientHeight / totalSlides) * (currentImg - 1);
 
         gsap.to(counterRef.current, {
           y: counterY,
@@ -45,11 +45,6 @@ const Photos = () => {
         });
       }
 
-      function updateActiveSlidePreview() {
-        previewsRef.current.forEach((prev) => prev.classList.remove("active"));
-        previewsRef.current[currentImg - 1].classList.add("active");
-      }
-
       function animateSlide(direction) {
         const currentSlide = sliderImagesRef.current.lastElementChild;
 
@@ -58,7 +53,12 @@ const Photos = () => {
 
         const slideImgElem = document.createElement("img");
         slideImgElem.src = `/assets/img${currentImg}.jpg`;
-        gsap.set(slideImgElem, { x: direction === "left" ? -500 : 500 });
+        gsap.set(slideImgElem, {
+          x: direction === "left" ? -500 : 500,
+          scale: 1,
+          opacity: 0.5,
+          transformOrigin: "center center",
+        });
 
         slideImg.appendChild(slideImgElem);
         sliderImagesRef.current.appendChild(slideImg);
@@ -89,6 +89,8 @@ const Photos = () => {
             slideImgElem,
             {
               x: 0,
+              scale: 1.2,
+              opacity: 1,
               duration: 1.5,
               ease: "hop2",
             },
@@ -120,39 +122,14 @@ const Photos = () => {
       function nextSlide() {
         currentImg = currentImg < totalSlides ? currentImg + 1 : 1;
         animateSlide("right");
-        updateActiveSlidePreview();
         updateCounterAndTitlePosition();
       }
 
-      // 啟用自動輪播
-      const autoSlideInterval = setInterval(nextSlide, 4000); // 每4秒切換一次
+      const autoSlideInterval = setInterval(nextSlide, 6000); // 每6秒
 
-      // 仍保留手動點擊邏輯（可選）
       function handleClick(event) {
         const sliderWidth = sliderRef.current.clientWidth;
         const clickPosition = event.clientX;
-
-        if (event.target.closest(".slider-preview")) {
-          const clickedPrev = event.target.closest(".preview");
-
-          if (clickedPrev) {
-            const clickedIndex =
-              Array.from(previewsRef.current).indexOf(clickedPrev) + 1;
-
-            if (clickedIndex !== currentImg) {
-              if (clickedIndex < currentImg) {
-                currentImg = clickedIndex;
-                animateSlide("left");
-              } else {
-                currentImg = clickedIndex;
-                animateSlide("right");
-              }
-              updateActiveSlidePreview();
-              updateCounterAndTitlePosition();
-            }
-          }
-          return;
-        }
 
         if (clickPosition < sliderWidth / 2 && currentImg !== 1) {
           currentImg--;
@@ -165,16 +142,13 @@ const Photos = () => {
           animateSlide("right");
         }
 
-        updateActiveSlidePreview();
         updateCounterAndTitlePosition();
       }
 
       sliderRef.current.addEventListener("click", handleClick);
 
       return () => {
-        if (sliderRef.current) {
-          sliderRef.current.removeEventListener("click", handleClick);
-        }
+        sliderRef.current?.removeEventListener("click", handleClick);
         clearInterval(autoSlideInterval);
       };
     },
@@ -186,7 +160,7 @@ const Photos = () => {
       <div className="slider" ref={sliderRef}>
         <div className="slider-images" ref={sliderImagesRef}>
           <div className="img">
-            <img src="/assets/img1.jpg" alt="" className="" />
+            <img src="/assets/img1.jpg" alt="" />
           </div>
         </div>
 
@@ -200,7 +174,11 @@ const Photos = () => {
         </div>
 
         <div className="slider-counter">
-          <div className="counter" ref={counterRef}>
+          <div
+            className="counter"
+            ref={counterRef}
+            style={{ overflow: "hidden", height: "20px" }}
+          >
             <p>1</p>
             <p>2</p>
             <p>3</p>
@@ -212,20 +190,6 @@ const Photos = () => {
           <div>
             <p>4</p>
           </div>
-        </div>
-
-        <div className="slider-preview">
-          {[1, 2, 3, 4].map((num) => (
-            <div
-              key={num}
-              className={`preview ${num === 1 ? "active" : ""}`}
-              ref={(el) =>
-                (previewsRef.current = [...(previewsRef.current || []), el])
-              }
-            >
-              <img src={`/assets/img${num}.jpg`} alt="" />
-            </div>
-          ))}
         </div>
 
         <div className="slider-indicators" ref={indicatorsRef}>

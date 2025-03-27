@@ -1,9 +1,10 @@
 "use client";
 import { TransitionLink } from "../../components/utils/TransitionLink";
-import { TextGenerateEffect } from "../../components/ui/text-generate-effect";
+import { TextGenerateEffect } from "../../components/ui/text-generate-effec-home";
 import StartAnimate from "../../components/HomeAnimate/page";
 
 import { Carousel, Card } from "../../components/ui/apple-cards-carousel";
+import HomeSlider from "../../components/HeroSliderHome/page";
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -114,17 +115,28 @@ export default function About() {
   ));
   return (
     <ReactLenis root>
-      <section className="section_hero overflow-hidden mt-[40px] mb-[110px]  lg:mt-[70px]">
+      {/* <section className="section_hero overflow-hidden mt-[40px] mb-[110px]  lg:mt-[70px]">
         <StartAnimate />
-      </section>
-      <section className="section_features w-full  mx-auto sm:[90%] lg:w-[85%] 2xl:w-[70%]">
-        <div className="flex lg:flex-row flex-col w-[85%] mx-auto mt-20">
-          <div className="img w-[90%] md:w-[550px] lg:w-[85%] mx-auto h-auto md:h-[700px] overflow-hidden">
+      </section> */}
+      <section className="section_features w-full  mx-auto  mt-[30vh]">
+        <div className="title pl-4  flex justify-center flex-col items-center w-full">
+          <TextGenerateEffect
+            words="一起思考人生，一起創造未來
+
+"
+          />
+          <p className="text-[.9rem] mt-4 text-center">
+            宜園建設是一家以台中為基地的設計建築公司，<br></br>
+            專注於創造“精緻”的建築。
+          </p>
+        </div>
+        <div className="flex md:flex-row flex-col w-[95%] mx-auto mt-20">
+          <div className="img  w-full md:w-[20%] mx-3 mx-auto h-auto md:h-[20vh] xl:h-[30vh] overflow-hidden">
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
                 <Image
-                  src="https://hadashinoie.co.jp/assets/images/index/about01.jpg"
+                  src="https://www.bess.jp/wordpress/wp-content/uploads/2024/06/kinoie_11_header_02-768x768.jpg"
                   alt="About Image 1"
                   fill
                   className="object-cover"
@@ -134,22 +146,48 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
-            <TextGenerateEffect words="宜居" />
-            <p>不與人同的作為</p>
-          </div>
-        </div>
-        <div className="flex lg:flex-row flex-col w-[85%] mx-auto mt-20">
-          <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
-            <TextGenerateEffect words="宜融" />
-            <p>家是情感的生態系</p>
-          </div>
-          <div className="img w-[90%] md:w-[550px] lg:w-[85%] mx-auto h-auto md:h-[700px] overflow-hidden">
+          <div className="img w-ful mt-4 md:mt-0 md:w-[25%] mx-3 mx-auto h-auto md:h-[30vh] xl:h-[60vh] overflow-hidden">
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
                 <Image
-                  src="https://hadashinoie.co.jp/assets/images/index/about02.jpg"
+                  src="https://www.bess.jp/wordpress/wp-content/uploads/2025/03/img_hd_05_archive-768x768.jpg"
+                  alt="About Image 1"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                />
+                xs
+              </div>
+            </div>
+          </div>
+          <div className="img  w-full  mt-4 md:mt-0  md:w-[55%] mx-3 mx-auto h-auto md:h-[50vh] xl:h-[70vh] overflow-hidden">
+            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <Image
+                  src="https://www.bess.jp/wordpress/wp-content/themes/bess/assets/images/top_life_image_1312w.png"
+                  alt="About Image 1"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                />
+                xs
+              </div>
+            </div>
+          </div>
+          {/* <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
+            <TextGenerateEffect words="宜居" />
+            <p>不與人同的作為</p>
+          </div> */}
+        </div>
+        <div className="flex lg:flex-row my-[20vh] flex-col w-[98%] mx-auto">
+          <div className="img w-[98%] md:w-[550px] lg:w-[50%] mx-auto h-auto md:h-[830px] overflow-hidden">
+            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <Image
+                  src="https://niwahouzing.com/wp-content/themes/niwa/assets/images/quality/img-quality-modelhouse.avif"
                   alt="About Image 2"
                   fill
                   className="object-cover"
@@ -158,31 +196,36 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="flex lg:flex-row flex-col w-[85%] mx-auto mt-20">
-          <div className="img w-[90%] md:w-[550px] lg:w-[85%] mx-auto h-auto md:h-[700px] overflow-hidden">
-            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-              <div className="overlay absolute inset-0 bg-black z-10"></div>
-              <div className="image-container relative w-full h-full">
-                <Image
-                  src="https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie-54-1-2048x1365.jpg"
-                  alt="About Image 3"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                />
-              </div>
+          <div className="text w-[95%]  lg:w-1/2 p-8 flex flex-col justify-center items-center ">
+            <div className="flex flex-col justify-start items-start ">
+              <h2 className="mb-0 font-normal">宜融</h2>
+              <p className="text-[1.1rem] font-normal tracking-widest	">
+                模型房屋參觀接受中
+              </p>
+              <span className="text-[.9rem] font-normal mt-10 tracking-widest	">
+                也許是只有製作者自己才會注意到的、<br></br>{" "}
+                極其講究的設計正在被傳達。
+              </span>
+              <TransitionLink href="/project">
+                <div className="group flex justify-center items-center mt-10 text-[1.2rem] font-normal">
+                  PRPJECT
+                  <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                    <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                      →
+                    </div>
+                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-black px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                      →
+                    </div>
+                  </button>
+                </div>
+              </TransitionLink>
             </div>
-          </div>
-          <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
-            <TextGenerateEffect words="宜安" />
-            <p>構築心靈的沃土</p>
           </div>
         </div>
       </section>
 
       <div className="grid place-content-center  px-4  py-5 sm:py-12 lg:py-24 text-yellow-50">
-        <h1 className="max-w-2xl text-gray-600  font-normal text-center sm:text-[3rem] text-[2rem] lg:text-5xl leading-snug">
+        {/* <h1 className="max-w-2xl text-gray-600  font-normal text-center sm:text-[3rem] text-[2rem] lg:text-5xl leading-snug">
           實在的構築
           <span className="relative">
             宜園建設
@@ -204,18 +247,22 @@ export default function About() {
               />
             </svg>
           </span>{" "}
-        </h1>
+        </h1> */}
       </div>
-      <section className="section_project flex-col">
-        <div className="title pl-4 2xl:w-1/2 lg:w-2/3 w-full pb-4 pr-4 pt-4 lg:pl-[10%] lg:pb-10">
-          <TextGenerateEffect words="我們用心塑造我們的家、家具、服飾和其他一切。" />
-          <p className="text-[1.1rem]">
-            我們用心塑造我們的家、家具、服飾和其他一切。
+      <section>
+        <HomeSlider />
+      </section>
+      <section className="section_project flex-col py-[20vh]">
+        <div className="title flex justify-center items-center flex-col">
+          <TextGenerateEffect words="我們用心塑造我們的家。" />
+          <p className="text-[1.1rem] text-center">
+            我們用心塑造我們的家、家具、<br></br>服飾和其他一切。
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  w-full ">
+        <Marquee></Marquee>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  w-full ">
           <TransitionLink href="/project">
-            <div className="relative w-full h-[400px] bg-[url('https://hadashinoie.co.jp/assets/images/index/service03.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
+            <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/assets/images/index/service03.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
               {/* 毛玻璃遮罩（hover時顯示） */}
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
 
@@ -233,7 +280,7 @@ export default function About() {
             </div>
           </TransitionLink>
           <TransitionLink href="/project">
-            <div className="relative w-full h-[400px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie004-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
+            <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie004-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
               {/* 毛玻璃遮罩（hover時顯示） */}
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
 
@@ -251,7 +298,7 @@ export default function About() {
             </div>
           </TransitionLink>
           <TransitionLink href="/project">
-            <div className="relative w-full h-[400px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/02/hadashinoie116-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
+            <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/02/hadashinoie116-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
               {/* 毛玻璃遮罩（hover時顯示） */}
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
 
@@ -269,7 +316,7 @@ export default function About() {
             </div>
           </TransitionLink>
           <TransitionLink href="/project">
-            <div className="relative w-full h-[400px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie-54-1-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
+            <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie-54-1-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
               {/* 毛玻璃遮罩（hover時顯示） */}
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
 
@@ -287,7 +334,7 @@ export default function About() {
             </div>
           </TransitionLink>
           <TransitionLink href="/project">
-            <div className="relative w-full h-[400px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie040-1-1-2048x1366.jpg')] bg-center bg-no-repeat bg-cover group overflow-hidden">
+            <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie040-1-1-2048x1366.jpg')] bg-center bg-no-repeat bg-cover group overflow-hidden">
               {/* 毛玻璃遮罩（hover時顯示） */}
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
 

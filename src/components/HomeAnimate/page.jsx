@@ -200,7 +200,7 @@ export default function LandingPage() {
             ref={heroImgRef}
           >
             <Image
-              src="https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie040-1-1-2048x1366.jpg"
+              src="/images/img1home.jpg"
               alt=""
               width={2800}
               height={900}
