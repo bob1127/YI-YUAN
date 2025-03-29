@@ -34,7 +34,7 @@ const Photos = () => {
     <ReactLenis root>
       {/* <HeroSlider /> */}
       <section className=" pt-[10vh] ">
-        <div className=" w-[90%] md:w-[80%]  mx-auto">
+        <div className=" w-[90%] overflow-hidden md:w-[95%]  mx-auto">
           <div>
             <div className=" w-[30%] mb-5">
               <Image
@@ -47,8 +47,8 @@ const Photos = () => {
               ></Image>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row ">
-            <div className="img w-full md:w-1/2 xl:w-[85%]">
+          <div className="flex flex-col lg:flex-row w-full">
+            <div className="img w-full md:w-[80%] xl:w-[85%]">
               <Image
                 width={2200}
                 height={800}
@@ -58,9 +58,9 @@ const Photos = () => {
                 loading="eager"
               ></Image>
             </div>
-            <div className=" xl:w-[15%]  w-full md:w-1/2 lg:p-10 p-0 2xl:p-20">
+            <div className=" w-full sm:w-[80%] mx-auto lg:w-[40%]  p-2 lg:p-10">
               <h2
-                className="text-[1.1rem] w-full xl:text-[1.5rem]"
+                className="text-[1.1rem] w-full xl:text-[1]"
                 data-aos="fade-up"
               >
                 不選擇普通的家，而是選擇BESS的家的人。這裡有什麼不同呢？實際的生活是什麼樣的？通過全國的家庭採訪，我們看到了真實的生活。
@@ -75,7 +75,7 @@ const Photos = () => {
 
       <section className="section_project flex flex-col 2xl:w-[80%] mx-auto  py-[40px]">
         <div className="flex flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
-          <div className="title">
+          <div className="title mr-4">
             <h2> 經典選粹</h2>
           </div>
           <div className="description">

@@ -267,9 +267,7 @@ const OverlayCopy = ({ subheading, heading, description }) => {
       ref={targetRef}
       className="absolute left-0 top-0 flex h-[200vh] px-[5%] sm:px-[8%] lg:px-[10%] 2xl:px-[15%]  flex-col pb-[50vh] items-start justify-center text-white"
     >
-      <p className="mb-2 text-center text-xl md:mb-4 md:text-3xl">
-        {subheading}
-      </p>
+      <p className="mb-2 text-center text-[2.3rem] md:mb-4 ">{subheading}</p>
       <p className="text-left  w-2/3 leading-relaxed font-bold text-[2.3rem]">
         {heading}
       </p>
@@ -281,20 +279,20 @@ const OverlayCopy = ({ subheading, heading, description }) => {
 };
 
 const ExampleContent = () => (
-  <div className="mx-auto bg-[#242424]">
+  <div className="mx-auto ">
     <div className=" py-[50px] w-[80%] mx-auto  flex flex-col justify-center items-center">
-      <h2 data-aos="fade-up" className="text-[2.2rem] text-center text-white ">
+      <h2 data-aos="fade-up" className="text-[2.2rem] text-center ">
         幸福生活，從宜園開始{" "}
         <p
           data-aos="fade-up"
           data-delay=".5s"
-          className="text-white mt-4 text-[2rem]"
+          className="mt-4 text-black text-[2rem]"
         >
           「宜園建設，築夢家園」
         </p>
       </h2>
 
-      <p className=" text-[.9rem] mt-5 text-center w-[80%] md:w-[60%] 2xl:w-[50%] leading-relaxed font-light">
+      <p className=" text-[.9rem] mt-5 text-center w-[80%] md:w-[60%] 2xl:w-[50%] leading-relaxed text-black font-light">
         在喧囂的城市中，宜園建設秉持著「以人為本」的理念，打造的不僅是房子，而是您夢想中的家園。
         <br></br>
         我們重視每一個細節，從設計到施工，每一個角落都經過精心規劃，只為給您一個舒適、溫暖、安全的家。

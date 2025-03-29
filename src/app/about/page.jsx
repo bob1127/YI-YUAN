@@ -104,18 +104,12 @@ export default function About() {
         <div className="footer overflow-hidden h-full  lg:flex-row flex-col  flex justify-center items-center mx-auto">
           <div className="col w-full  lg:w-1/2 flex flex-col justify-center   md:pl-[10%] xl:pl-[150px]">
             <div className=" mt-8 2xl:p-20">
-              <h1 className="text-[#201815]">宜居</h1>
+              <h1 className="text-[#201815] ">宜居</h1>
               <p className="leading-relaxed font-normal text-[.95rem] text-[#20201f]">
                 宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，<br></br>
                 融合自然綠意與現代設計，營造安心宜居的生活環境。<br></br>
                 便利交通、完善機能，讓您盡享家的溫暖與美好。
               </p>
-            </div>
-            <div className=" mt-8 2xl:p-20">
-              <FlipLink href="#">誠境二期</FlipLink>
-              <FlipLink href="#">誠境五期</FlipLink>
-              <FlipLink href="#">誠境六期</FlipLink>
-              <FlipLink href="#">誠境五期</FlipLink>
             </div>
           </div>
           <div className="w-full lg:w-1/2 pl-2 h-full border-l-1 border-black">

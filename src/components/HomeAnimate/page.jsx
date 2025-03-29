@@ -166,9 +166,9 @@ export default function LandingPage() {
             ref={headerRef}
           >
             <h1 className="text-[2.5rem] md:text-[3.5rem] font-normal text-[#f4f2f0]">
-              宜園建設
+              Tender - 宜安
             </h1>
-            <p className="text-white">-Yi Yuan</p>
+            <h2 className="text-white font-normal text-[3.2rem] ">宜園建設</h2>
 
             {/* 按鈕保留 */}
             <div className="flex flex-row py-4 btn-wrap">
@@ -182,13 +182,13 @@ export default function LandingPage() {
 
             <Marquee>
               <div className="flex">
-                <h2 className="text-white font-normal text-[1.5rem] md:text-[2.3rem]">
+                <h2 className="text-white font-light text-[1.5rem] md:text-[2.3rem]">
                   宜家 -{" "}
                 </h2>
-                <h2 className="text-white font-normal text-[1.5rem] md:text-[2.3rem]">
+                <h2 className="text-white font-light text-[1.5rem] md:text-[2.3rem]">
                   宜居 -{" "}
                 </h2>
-                <h2 className="text-white font-normal text-[1.5rem] md:text-[2.3rem]">
+                <h2 className="text-white font-light text-[1.5rem] md:text-[2.3rem]">
                   宜園 -{" "}
                 </h2>
               </div>
