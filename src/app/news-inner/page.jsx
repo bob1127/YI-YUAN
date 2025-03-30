@@ -55,20 +55,20 @@ export default function About() {
 
   // 這裡定義你的背景圖片
   const SLIDES = [
-    "/images/ph_esperanza.jpg",
-    "/images/ph_takahiradai-no-ie.jpg",
-    "/images/ph_esperanza.jpg",
-    "/images/ph_minna-no-ie.jpg",
-    "/images/ph_kumamoto-tasaki-clinic.jpg",
-    "/images/hadashinoie016-2048x1365.jpg.webp",
+    "/images/news/動土典禮/DSCF5288.jpg",
+    "/images/news/動土典禮/DSCF5268.jpg",
+    "/images/news/動土典禮/DSCF5311.jpg",
+    "/images/news/動土典禮/DSCF5351.jpg",
+    "/images/news/動土典禮/DSCF5323.jpg",
+    "/images/news/動土典禮/DSCF5388.jpg",
   ];
   const THUMBNAILS = [
-    "/images/ph_esperanza.jpg",
-    "/images/ph_takahiradai-no-ie.jpg",
-    "/images/ph_esperanza.jpg",
-    "/images/ph_minna-no-ie.jpg",
-    "/images/ph_kumamoto-tasaki-clinic.jpg",
-    "/images/hadashinoie016-2048x1365.jpg.webp",
+    "/images/news/動土典禮/DSCF5288.jpg",
+    "/images/news/動土典禮/DSCF5268.jpg",
+    "/images/news/動土典禮/DSCF5311.jpg",
+    "/images/news/動土典禮/DSCF5351.jpg",
+    "/images/news/動土典禮/DSCF5323.jpg",
+    "/images/news/動土典禮/DSCF5388.jpg",
   ];
 
   return (
@@ -95,7 +95,7 @@ export default function About() {
           <div className="img p-[80px]">
             {" "}
             <img
-              src="https://cdn.shopify.com/s/files/1/0779/4674/9246/files/240705Karimoku_LAVOT28889.jpg?v=1724405193"
+              src="/images/news/動土典禮/DSCF5292.jpg"
               alt=""
               className="w-full"
             />
@@ -113,6 +113,15 @@ export default function About() {
               接待會館：漢口路一段69號（漢口國中正對面） 預約專線：04-2314-9066
             </p>
           </div>
+          <Image
+            src="/images/news/動土典禮/DSCF5351.jpg"
+            alt=""
+            width={800}
+            height={1400}
+            placeholder="empty"
+            className="mt-5"
+            loading="lazy"
+          ></Image>
           <div className="h-[40rem] flex flex-col justify-center  items-center px-4">
             <h2 className="mb-10 sm:mb-20 text-[2.5rem] text-center  dark:text-white text-black">
               立即詢價 專人為您服務
