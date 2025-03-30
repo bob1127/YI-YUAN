@@ -2,6 +2,7 @@
 import { TransitionLink } from "../../components/utils/TransitionLink";
 import EmblaCarousel from "../../components/EmblaCarousel07/EmblaCarousel";
 import { AnimatedTooltip } from "../../components/ui/animated-tooltip";
+import { Carousel } from "../../components/ui/carousel01";
 import { PlaceholdersAndVanishInput } from "../../components/ui/placeholders-and-vanish-input";
 import { TextGenerateEffect } from "../../components/ui/text-generate-effect";
 import Image from "next/image";
@@ -21,7 +22,28 @@ export default function About() {
     e.preventDefault();
     console.log("submitted");
   };
+  const slideData = [
+    {
+      title: "誠境二期",
 
+      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery01.jpg",
+    },
+    {
+      title: "誠境二期",
+
+      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery05.jpg",
+    },
+    {
+      title: "誠境二期",
+
+      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery02.jpg",
+    },
+    {
+      title: "誠境二期",
+
+      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_feature05.jpg",
+    },
+  ];
   const people = [
     {
       id: 1,
@@ -75,340 +97,31 @@ export default function About() {
   return (
     <ReactLenis root className="">
       <ScrollAnimtion />
-      <div className="flex lg:flex-row px-0 2xl:px-[200px] flex-col pt-[100px] bg-white ">
-        <div className=" w-full  flex-col justify-center items-center flex ">
-          <EmblaCarousel
-            slides={SLIDES}
-            thumbnails={THUMBNAILS}
-            options={OPTIONS}
-          />
-          <div className="title py-[40px] md:py-[50px] px-[30px] sm:px-[40px] lg:px-[80px]">
-            <h1 className="!text-[2rem]">宜園建設【一青隱】</h1>
+      <div className="py-8 lg:flex-row flex-col flex">
+        <div className=" w-full lg:w-1/2 ">
+          <div className="relative h-[400px] sm:h-[50vh] lg:h-[70vh] 2xl:h-[65vh] overflow-hidden w-full">
+            <Carousel slides={slideData} />
           </div>
-          <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
-            <p className="leading-relaxed">
-              不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
-              致邀，職住共生的青創企業家 成家滿意，創業更旺，2-3房共居新浪潮
-              <br></br> <br></br>
-              宜園建設【一青隱】 神隱青海│2-3房│含精裝修
-              接待會館：漢口路一段69號（漢口國中正對面） 預約專線：04-2314-9066
+        </div>
+        <div className="w-full pl-[5%] lg:w-1/2 flex  pt-0 lg:pt-2  flex-col">
+          <div className="flex flex-col ">
+            <h2 className="text-[2.3rem]">Story</h2>
+            <p className="w-full lg:w-[70%] font-[.9rem] font-normal tracjing-widest leading-loose">
+              自2005年事業開始以來，我們已經參與了3000多件的翻新案件。在客戶需求不斷變化的情況下，像是「買了新建的房子但想稍微自訂一下」、「買了翻新過的物件，但因為客廳過於簡單所以想加入一些個性」等，非全訂製，而是在預算內的隨意自訂需求正在增加。對於設備和格局並無不滿，但想要一些質感和個性。不需要過度講究細節，也希望能創造出讓人舒適而滿意的空間。這樣「想要稍微改善普通的東西」的心情，就是「模樣替」所回應的。
             </p>
           </div>
-          <div className="img p-[80px]">
-            {" "}
-            <img
-              src="https://cdn.shopify.com/s/files/1/0779/4674/9246/files/240705Karimoku_LAVOT28889.jpg?v=1724405193"
-              alt=""
-              className="w-full"
-            />
+          <div className="flex border-gray-400 w-[80%] border-t-1 flex-col mt-20  py-6 ">
+            建地面積：
           </div>
-          <div className="title py-[40px] md:py-[50px] px-[30px] sm:px-[40px] lg:px-[80px]">
-            <TextGenerateEffect words="向自然習作，美好新始，健康新序" />
-            <h1 className="!text-[2rem]"></h1>
+          <div className="flex border-gray-400 w-[80%] border-t-1 flex-col mt-2  py-6 ">
+            樓層：
           </div>
-          <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
-            <p className="leading-relaxed">
-              不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
-              致邀，職住共生的青創企業家 成家滿意，創業更旺，2-3房共居新浪潮
-              <br></br> <br></br>
-              宜園建設【一青隱】 神隱青海│2-3房│含精裝修
-              接待會館：漢口路一段69號（漢口國中正對面） 預約專線：04-2314-9066
-            </p>
-          </div>
-          <div className="h-[40rem] flex flex-col justify-center  items-center px-4">
-            <h2 className="mb-10 sm:mb-20 text-[2.5rem] text-center  dark:text-white text-black">
-              立即詢價 專人為您服務
-            </h2>
-            <PlaceholdersAndVanishInput
-              placeholders={placeholders}
-              onChange={handleChange}
-              onSubmit={onSubmit}
-            />
+          <div className="flex border-gray-400 w-[80%] border-t-1 flex-col mt-2  py-6 ">
+            規劃：
           </div>
         </div>
       </div>
-      <div className="bg-white z-[99999999] py-10 bottom-section flex flex-col justify-center items-center">
-        <Marquee>
-          <div className="flex flex-row py-10 justify-center items-center">
-            <div className="h-[1px] bg-black w-[50vw]"></div>
-            <div className="flex flex-col sm:flex-row justify-center items-center">
-              <p className="text-[3rem] mx-4">NEWS</p>
-              <button class="group relative mr-3 inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950">
-                <div class="transition duration-300 group-hover:rotate-[360deg]">
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 15 15"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 text-neutral-200"
-                  >
-                    <path
-                      d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-              </button>
-            </div>
-            <div className="h-[1px] bg-black w-[50vw]"></div>
-          </div>
-        </Marquee>
-        <div className="flex bg-white flex-row justify-center items-center flex-wrap">
-          <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
-            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
-              <p className="text-[.8rem] hidden sm:block">
-                不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
-                致邀，職住共生的青創企業家
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center items-center">
-                <b className="text-[.8rem] mr-3 mt-4">
-                  {" "}
-                  NEWS:神隱青海│2-3房│含精裝修{" "}
-                </b>
-                <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0 duration-1000">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                </button>{" "}
-              </div>
-            </div>
-          </div>
-          <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
-            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
-              <p className="text-[.8rem] hidden sm:block">
-                不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
-                致邀，職住共生的青創企業家
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center items-center">
-                <b className="text-[.8rem] mr-3 mt-4">
-                  {" "}
-                  NEWS:神隱青海│2-3房│含精裝修{" "}
-                </b>
-                <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0 duration-1000">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                </button>{" "}
-              </div>
-            </div>
-          </div>
-          <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
-            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
-              <p className="text-[.8rem] hidden sm:block">
-                不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
-                致邀，職住共生的青創企業家
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center items-center">
-                <b className="text-[.8rem] mr-3 mt-4">
-                  {" "}
-                  NEWS:神隱青海│2-3房│含精裝修{" "}
-                </b>
-                <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0 duration-1000">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                </button>{" "}
-              </div>
-            </div>
-          </div>
-          <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
-            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
-              <p className="text-[.8rem] hidden sm:block">
-                不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
-                致邀，職住共生的青創企業家
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center items-center">
-                <b className="text-[.8rem] mr-3 mt-4">
-                  {" "}
-                  NEWS:神隱青海│2-3房│含精裝修{" "}
-                </b>
-                <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0 duration-1000">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                </button>{" "}
-              </div>
-            </div>
-          </div>
-          <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
-            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
-              <p className="text-[.8rem] hidden sm:block">
-                不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
-                致邀，職住共生的青創企業家
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center items-center">
-                <b className="text-[.8rem] mr-3 mt-4">
-                  {" "}
-                  NEWS:神隱青海│2-3房│含精裝修{" "}
-                </b>
-                <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0 duration-1000">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                    >
-                      <path
-                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                </button>{" "}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
       <div className="content"></div>
     </ReactLenis>
   );

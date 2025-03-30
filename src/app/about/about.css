@@ -154,6 +154,7 @@ section.projects {
 .footer {
   display: flex;
   padding: 1em;
+  background-color: white;
  
 }
 

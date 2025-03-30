@@ -44,7 +44,7 @@ export default function About() {
           description="宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。"
         ></TextParallaxContent>
 
-        <section className="about flex h-[85vh] md:h-[70vh] 2xl:h-[90vh] flex-col lg:flex-row section">
+        <section className="about flex h-[85vh] pb-20 md:h-[80vh] 2xl:h-[90vh] flex-col lg:flex-row section">
           <div className="col lg:w-1/2 w-full portrait">
             <div className="portrait-container">
               <div className="img mt-8">
@@ -56,7 +56,7 @@ export default function About() {
             </div>
           </div>
           <div className="col lg:w-1/2 w-full  intro">
-            <h1 className="text-[#333] text-[2rem] xl:text-[3rem]">宜家</h1>
+            <h1 className="text-[#333] text-[2rem] xl:text-[2.2rem]">宜家</h1>
             <p className="leading-relaxed font-normal text-[.95rem] text-[#20201f]">
               宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。
             </p>
@@ -104,7 +104,7 @@ export default function About() {
         <div className="footer overflow-hidden h-full  lg:flex-row flex-col  flex justify-center items-center mx-auto">
           <div className="col w-full  lg:w-1/2 flex flex-col justify-center   md:pl-[10%] xl:pl-[150px]">
             <div className=" mt-8 2xl:p-20">
-              <h1 className="text-[#201815] ">宜居</h1>
+              <h1 className="text-[#201815] text-[2.2rem]">宜居</h1>
               <p className="leading-relaxed font-normal text-[.95rem] text-[#20201f]">
                 宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，<br></br>
                 融合自然綠意與現代設計，營造安心宜居的生活環境。<br></br>
@@ -126,10 +126,10 @@ export default function About() {
           </div>
         </div>
         <Marquee>
-          <div className="flex flex-row py-10 justify-center items-center">
+          <div className="flex bg-white flex-row py-10 justify-center items-center">
             <div className="h-[1px] bg-black w-[50vw]"></div>
             <div className="flex flex-row justify-center items-center">
-              <p className="text-[3rem] mx-4">CONTACT</p>
+              <p className="text-[3rem] text-black mx-4">CONTACT</p>
               <button class="group relative mr-3 inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950">
                 <div class="transition duration-300 group-hover:rotate-[360deg]">
                   <svg
@@ -154,7 +154,7 @@ export default function About() {
           </div>
         </Marquee>
 
-        <div className="py-8 border border-red-300 lg:flex-row flex-col flex">
+        <div className="py-8 lg:flex-row bg-white flex-col flex">
           <div className=" w-full lg:w-1/2 ">
             <div className="relative h-[400px] sm:h-[50vh] lg:h-[70vh] 2xl:h-[65vh] overflow-hidden w-full">
               <Carousel slides={slideData} />
@@ -163,7 +163,7 @@ export default function About() {
           <div className="w-full pl-[5%] lg:w-1/2 flex  pt-0 lg:pt-20  flex-col">
             <div className="flex flex-col ">
               <h2 className="text-[2.3rem]">建案基地</h2>
-              <p className="w-[70%] font-[.9rem] font-normal leading-relaxed">
+              <p className="w-[70%] text-gray-800 font-[.9rem] font-normal leading-relaxed">
                 來體驗EDITORA的世界。請注意，展廳僅接受預約開放。<br></br>
                 如果您有興趣，請發電子郵件給我們（ 訊息 ) 進行諮詢。
               </p>

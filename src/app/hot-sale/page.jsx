@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="mt-[20vh] ml-[20px] md:ml-[10%]  mb-[-15px] lg:mb-[-30px] text-[2.3rems] md:text-[3rem] xl:text-[5rem] font-normal text-gray-800">
+      <h1 className="mt-[20vh] ml-[20px] md:ml-[10%]  mb-[35px] lg:mb-[6px] text-[2.3rems] md:text-[3rem] xl:text-[5rem] font-normal text-gray-800">
         TENDER-宜安
       </h1>
       <main ref={container} className=" relative">
@@ -34,6 +34,7 @@ export default function Home() {
           const targetScale = 1 - (projects.length - i) * 0.05;
           return (
             <Card
+              total={projects.length} // ✅ 修正這裡
               key={`p_${i}`}
               i={i}
               {...project}
@@ -45,19 +46,41 @@ export default function Home() {
         })}
       </main>
       <section>
-        <div className="flex  flex-row">
-          <div className="w-[10%]">
-            <Image
-              src="https://niwahouzing.com/wp-content/uploads/2024/10/b54091b9ea851f9c8810b52e50cbc14b-17.jpg"
-              placeholder="empty"
-              loading="lazy"
-              alt=""
-              width={500}
-              height={800}
-            ></Image>
+        <div className="flex py-[10vh] flex-col lg:flex-row">
+          <div className="w-1/2 flex justify-center">
+            <div className=" w-full lg:w-[40%] mx-auto">
+              <Image
+                src="https://monarchitects.jp/wp-content/themes/mon/assets/images/top/philosophy-main@2x.jpg"
+                placeholder="empty"
+                loading="lazy"
+                className="mx-auto"
+                alt=""
+                width={500}
+                height={800}
+              ></Image>
+            </div>
           </div>
-          <div className="w-[80%]"></div>
-          <div className="w-[10%]"></div>
+          <div className=" w-full lg:w-1/2">
+            <div className="description max-w-[600px] p-10">
+              <b className="mb-6 text-[1.4rem]">宜」—— 宜居美好，品質至上</b>
+              <br></br>
+              <p className="text-[.9rem] tracking-widest">
+                宜園建設堅信，家不僅是住所，更是安身立命的港灣。我們致力於打造宜居空間，
+                透過嚴謹的施工品質與細膩的設計，讓每一位住戶都能在這裡找到安心與幸福。
+              </p>
+              <p className="text-[.9rem] tracking-widest">
+                <br></br>
+                <br></br>
+                社區所擁有的個性是一件藝術作品，為人們的生活注入新的脈動，創造出特別的瞬間。
+              </p>
+              <br></br>
+              <br></br>
+              <p className="text-[.9rem] tracking-widest">
+                象徵著自然與人文的共融，我們將綠建築理念融入每一個案場，創造富含綠意、
+                舒適宜人的生活環境，讓建築不僅是一座空間，而是一處與自然共存的理想家園。
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </>

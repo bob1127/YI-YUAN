@@ -1,6 +1,6 @@
 "use client";
 import styles from "./style.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { height } from "../anim";
 import Body from "./Body";
@@ -15,7 +15,7 @@ const links = [
   },
   {
     title: "經典選粹",
-    href: "/project",
+    href: "/hot-sale",
     src: "shop.png",
   },
   {
@@ -50,6 +50,12 @@ export default function Index() {
     isActive: true,
     index: 0,
   });
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    // 當組件掛載時，設置 isOpen 為 true
+    setIsOpen(true);
+  }, []);
 
   return (
     <motion.div
@@ -65,6 +71,7 @@ export default function Index() {
             links={links}
             selectedLink={selectedLink}
             setSelectedLink={setSelectedLink}
+            isOpen={isOpen}
           />
           <Footer />
         </div>

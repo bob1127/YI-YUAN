@@ -181,18 +181,99 @@ export default function About() {
             <p>不與人同的作為</p>
           </div> */}
         </div>
+        <div className="flex md:flex-row flex-col w-[90%] sm:w-[95%] mx-auto mt-20">
+          <div className="img  w-full mt-[26vh] md:w-[17%] mx-auto sm:mx-3  h-auto md:h-[60vh] xl:h-[60vh] overflow-hidden">
+            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <Image
+                  src="https://niwahouzing.com/wp-content/uploads/2024/10/f6f77a1616e27fc34eb1a81aa7dc6262-17.jpg"
+                  alt="About Image 1"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                />
+                xs
+              </div>
+            </div>
+          </div>
+          <div className="img w-ful mt-4 md:mt-0 md:w-[62%] mx-auto sm:mx-3  h-auto md:h-[93vh] flex flex-col justify-end items-end xl:h-[93vh] overflow-hidden">
+            <div className="animate-image-wrapper group h-[90%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
+              <TransitionLink href="/hot-sale-02">
+                <div className="title ">
+                  <div className="flex items-center">
+                    <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                      <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                        →
+                      </div>
+                      <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                        →
+                      </div>
+                    </button>
+                    <h3 className="text-[1.3rem] font-normal">
+                      My Home Project-Yi Yuan
+                    </h3>
+                  </div>
+                  <div className="flex items-center">
+                    {" "}
+                    <span className="border mr-3 my-2 border-black text-[.78rem] p-1">
+                      Home
+                    </span>{" "}
+                    <p className="text-[.78rem]">Dec.2019</p>
+                  </div>
+                </div>
+              </TransitionLink>
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <Image
+                  src="https://niwahouzing.com/wp-content/uploads/2024/10/6929b940e4802cf13960acbb172247c2-17.jpg"
+                  alt="About Image 1"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                />
+                xs
+              </div>
+            </div>
+            <b className="mt-3">Feature</b>
+            <p className="w-[60%] mt-4 text-[.8rem]">
+              被牆面上的裝飾架圍繞著我最喜愛的愛好。2.房間中央的窗戶兼顧設計與功能性。實木地板和組合材質的架子營造出自然的情感。
+            </p>
+          </div>
+          <div className="img  w-full  mt-4 md:mt-0  md:w-[21%] mx-auto sm:mx-3 pt-[14vh]  h-auto md:h-[50vh] xl:h-[50vh] overflow-hidden">
+            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <Image
+                  src="https://niwahouzing.com/wp-content/uploads/2024/10/ed80de20dfec1bd144442f3c2532b6bb-18.jpg"
+                  alt="About Image 1"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                />
+                xs
+              </div>
+            </div>
+          </div>
+          {/* <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
+            <TextGenerateEffect words="宜居" />
+            <p>不與人同的作為</p>
+          </div> */}
+        </div>
         <div className="flex lg:flex-row mb-5 mt-[20vh] flex-col w-[98%] mx-auto">
           <div className="img w-[98%] md:w-[550px] lg:w-[50%] mx-auto h-auto md:h-[830px] overflow-hidden">
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
-                <Image
-                  src="https://niwahouzing.com/wp-content/themes/niwa/assets/images/quality/img-quality-modelhouse.avif"
-                  alt="About Image 2"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                />
+                <TransitionLink href="/hot-sale">
+                  <Image
+                    src="https://niwahouzing.com/wp-content/themes/niwa/assets/images/quality/img-quality-modelhouse.avif"
+                    alt="About Image 2"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                  />
+                </TransitionLink>
               </div>
             </div>
           </div>
@@ -206,14 +287,14 @@ export default function About() {
                 也許是只有製作者自己才會注意到的、<br></br>{" "}
                 極其講究的設計正在被傳達。
               </span>
-              <TransitionLink href="/project">
+              <TransitionLink href="/hot-sale">
                 <div className="group flex justify-center items-center mt-10 text-[1.2rem] font-normal">
                   PRPJECT
                   <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
                     <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
                       →
                     </div>
-                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-black px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
                       →
                     </div>
                   </button>
@@ -248,7 +329,7 @@ export default function About() {
                     <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
                       →
                     </div>
-                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-black px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
                       →
                     </div>
                   </button>
@@ -282,7 +363,7 @@ export default function About() {
                     <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
                       →
                     </div>
-                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-black px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
                       →
                     </div>
                   </button>
@@ -322,13 +403,17 @@ export default function About() {
         <HomeSlider />
       </section>
       <section className="section_project flex-col py-[20vh]">
-        <div className="title flex justify-center items-center flex-col">
-          <TextGenerateEffect words="我們用心塑造我們的家。" />
-          <p className="text-[1.1rem] text-center">
+        <div className="title  mb-6 flex justify-center flex-col items-center mx-auto w-[85%] sm:w-full">
+          <TextGenerateEffect
+            words="我們用心塑造我們的家。
+
+"
+          />
+          <p className="text-[.9rem] mt-2 text-center">
             我們用心塑造我們的家、家具、<br></br>服飾和其他一切。
           </p>
         </div>
-        <Marquee></Marquee>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  w-full ">
           <TransitionLink href="/project">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/assets/images/index/service03.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
