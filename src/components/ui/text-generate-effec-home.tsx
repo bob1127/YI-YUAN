@@ -44,15 +44,15 @@ export const TextGenerateEffect = ({
 
   const renderWords = () => {
     return (
-      <motion.div ref={scope} className="flex  flex-wrap">
+      <motion.div ref={scope} className="w-full flex flex-wrap justify-center">
         {wordsArray.map((word, idx) => (
           <motion.span
             key={word + idx}
-            className="dark:text-white  text-black opacity-0"
+            className="dark:text-white text-black opacity-0"
             style={{
               filter: filter ? "blur(10px)" : "none",
-              display: "inline-block", // 確保中文字換行時不會壓縮
-              marginRight: word === " " ? "0" : "5px", // 避免中文字太擠
+              display: "inline-block",
+              marginRight: word === " " ? "0" : "5px",
             }}
           >
             {word}
@@ -64,8 +64,8 @@ export const TextGenerateEffect = ({
 
   return (
     <div className={cn("font-bold", className)} ref={ref}>
-      <div className="mt-4 w-[100vw] flex justify-center">
-        <div className="text-[1.5rem] inline-flex items-center justify-center lg:text-[1.7rem] 2xl:text-[2.2rem] font-normal  mx-auto  !text-[#46342a]">
+      <div className="flex justify-center items-center">
+        <div className="text-[1.5rem] inline-flex items-center justify-center text-center lg:text-[1.7rem] 2xl:text-[2.2rem] font-normal  mx-auto  !text-[#46342a]">
           {renderWords()}
         </div>
       </div>

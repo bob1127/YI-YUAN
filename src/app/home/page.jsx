@@ -130,7 +130,7 @@ export default function About() {
             專注於創造“精緻”的建築。
           </p>
         </div>
-        <div className="flex md:flex-row flex-col w-[90%] sm:w-[95%] mx-auto mt-20">
+        <div className="flex md:flex-row flex-col w-[90%] sm:w-[95%] mx-auto mt-10 sm:mt-20">
           <div className="img  w-full md:w-[20%] mx-auto sm:mx-3  h-auto md:h-[20vh] xl:h-[30vh] overflow-hidden">
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
@@ -181,8 +181,8 @@ export default function About() {
             <p>不與人同的作為</p>
           </div> */}
         </div>
-        <div className="flex md:flex-row flex-col w-[90%] sm:w-[95%] mx-auto mt-20">
-          <div className="img  w-full mt-[26vh] md:w-[17%] mx-auto sm:mx-3  h-auto md:h-[60vh] xl:h-[60vh] overflow-hidden">
+        <div className="flex md:flex-row flex-col w-[90%] sm:w-[95%] mx-auto mt-10 sm:mt-20">
+          <div className="img  w-full mt-[10vh] sm:mt-[26vh] md:w-[17%] mx-auto sm:mx-3  h-auto md:h-[60vh] xl:h-[60vh] overflow-hidden">
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
@@ -260,7 +260,7 @@ export default function About() {
             <p>不與人同的作為</p>
           </div> */}
         </div>
-        <div className="flex lg:flex-row mb-5 mt-[20vh] flex-col w-[98%] mx-auto">
+        <div className="flex lg:flex-row mb-5 mt-20 sm:mt-[20vh] flex-col w-[98%] mx-auto">
           <div className="img w-[98%] md:w-[550px] lg:w-[50%] mx-auto h-auto md:h-[830px] overflow-hidden">
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
@@ -402,7 +402,7 @@ export default function About() {
       <section>
         <HomeSlider />
       </section>
-      <section className="section_project flex-col py-[20vh]">
+      <section className="section_project flex-col my-20 sm:my-[20vh]">
         <div className="title  mb-6 flex justify-center flex-col items-center mx-auto w-[85%] sm:w-full">
           <TextGenerateEffect
             words="我們用心塑造我們的家。
