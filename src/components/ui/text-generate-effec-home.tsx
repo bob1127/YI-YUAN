@@ -44,7 +44,10 @@ export const TextGenerateEffect = ({
 
   const renderWords = () => {
     return (
-      <motion.div ref={scope} className="w-full flex flex-wrap justify-center">
+      <motion.div
+        ref={scope}
+        className="w-full flex flex-wrap sm:justify-start justify-center"
+      >
         {wordsArray.map((word, idx) => (
           <motion.span
             key={word + idx}

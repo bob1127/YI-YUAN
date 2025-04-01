@@ -1,6 +1,7 @@
 "use client";
 
 import { projects } from "../../components/ParallaxCard/data";
+import { TextGenerateEffect } from "../../components/ui/text-generate-effec-home";
 import Card from "../../components/ParallaxCard/page";
 import { useScroll } from "framer-motion";
 import { useEffect, useRef } from "react";
@@ -62,7 +63,12 @@ export default function Home() {
           </div>
           <div className=" w-full lg:w-1/2">
             <div className="description max-w-[600px] p-10">
-              <b className="mb-6 text-[1.4rem]">宜」—— 宜居美好，品質至上</b>
+              <TextGenerateEffect
+                words="宜」—— 宜居美好，品質至上
+
+"
+              />
+
               <br></br>
               <p className="text-[.9rem] tracking-widest">
                 宜園建設堅信，家不僅是住所，更是安身立命的港灣。我們致力於打造宜居空間，

@@ -37,8 +37,10 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
   };
 
   return (
-    <Link {...props} href={href} onClick={handleTransition}>
-      {children}
+    <Link {...props} href={href} legacyBehavior>
+      <a onClick={handleTransition} className="w-full">
+        {children}
+      </a>
     </Link>
   );
 };

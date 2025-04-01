@@ -67,7 +67,7 @@ export default function Body({ links, selectedLink, setSelectedLink, isOpen }) {
         const { title, href } = link;
         return (
           <TransitionLink key={`l_${index}`} href={href}>
-            <p
+            <a
               onMouseOver={() => setSelectedLink({ isActive: true, index })}
               onMouseLeave={() =>
                 setSelectedLink({ isActive: true, index: selectedLink.index })
@@ -79,7 +79,7 @@ export default function Body({ links, selectedLink, setSelectedLink, isOpen }) {
               }
             >
               {getChars(title)}
-            </p>
+            </a>
           </TransitionLink>
         );
       })}
