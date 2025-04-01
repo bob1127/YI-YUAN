@@ -122,7 +122,7 @@ export default function RootLayout({
                   >
                     <li className=" mr-3 sec-footer__social-list-item list-social__item">
                       <a
-                        href="https://twitter.com/kimurasoap"
+                        href=""
                         className="sec-footer__social-link link list-social__link"
                         target="blank"
                       >
@@ -142,7 +142,7 @@ export default function RootLayout({
                     </li>
                     <li className=" mr-3 sec-footer__social-list-item list-social__item">
                       <a
-                        href="https://www.facebook.com/kimurasoap"
+                        href=""
                         className="sec-footer__social-link link list-social__link"
                         target="blank"
                       >
@@ -162,7 +162,7 @@ export default function RootLayout({
                     </li>
                     <li className=" mr-3 sec-footer__social-list-item list-social__item">
                       <a
-                        href="http://instagram.com/kimurasoap"
+                        href=""
                         className="sec-footer__social-link link list-social__link"
                         target="blank"
                       >
@@ -186,7 +186,7 @@ export default function RootLayout({
                     </li>
                     <li className=" mr-3 sec-footer__social-list-item list-social__item">
                       <a
-                        href="https://tiktok.com/@kimurasoap"
+                        href=""
                         className="sec-footer__social-link link list-social__link"
                         target="blank"
                       >
@@ -206,7 +206,7 @@ export default function RootLayout({
                     </li>
                     <li className=" mr-3 sec-footer__social-list-item list-social__item">
                       <a
-                        href="https://www.youtube.com/@kimurasoap1924"
+                        href=""
                         className="sec-footer__social-link link list-social__link"
                         target="blank"
                       >
