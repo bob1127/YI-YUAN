@@ -2,6 +2,7 @@
 import styles from "./style.module.scss";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { TransitionLink } from "../utils/TransitionLink";
 import { usePathname } from "next/navigation"; // 監聽當前路徑變化
 import { motion, AnimatePresence } from "framer-motion";
 import { opacity, background } from "./anim";
@@ -22,19 +23,24 @@ export default function Index() {
   return (
     <div className={styles.header}>
       <div className={styles.bar}>
-        <Link href="/home" className="font-bold ">
-          <div className="h-full flex justify-center items-center">
-            <Image
-              src="/images/yiyuan-logo.png"
-              alt="logo"
-              placeholder="empty"
-              loading="lazy"
-              className="w-[85px] sm:w-[100px] xl:w-[130px]"
-              width={75}
-              height={35}
-            ></Image>
-          </div>
-        </Link>
+        <div className=" flex justify-start ">
+          <TransitionLink href="/home" legacyBehavior>
+            <a className="font-bold">
+              <div className="h-full flex justify-center items-center">
+                <Image
+                  src="/images/yiyuan-logo.png"
+                  alt="logo"
+                  placeholder="empty"
+                  loading="lazy"
+                  className="w-[85px] sm:w-[100px] xl:w-[130px]"
+                  width={75}
+                  height={35}
+                />
+              </div>
+            </a>
+          </TransitionLink>
+        </div>
+
         <div onClick={() => setIsActive(!isActive)} className={styles.el}>
           <div
             className={`${styles.burger} ${
