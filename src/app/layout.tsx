@@ -1,14 +1,12 @@
 "use client"; // 需要在 Client Component 中使用 usePathname()
 import { usePathname } from "next/navigation";
 // import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+import "yakuhanjp";
 import { HeroUIProvider } from "@heroui/react";
 import Header from "../components/header/index.jsx";
 import { TextGenerateEffect } from "../components/ui/text-generate-effect";
 import ClientWrapper from "../components/ClientWrapper.jsx"; // 引入 Client Component
-
-const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
 //   title: "Yi-Yuan 宜園建設 | 匠心打造，永續宜居 | 台中優質建案工程",
@@ -27,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <HeroUIProvider>
-        <body className={inter.className}>
+        <body>
           <ClientWrapper>
             {/* 只有當不是首頁時才顯示 Header */}
             {!isHomePage && (

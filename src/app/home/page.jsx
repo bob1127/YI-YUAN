@@ -115,11 +115,11 @@ export default function About() {
   ));
   return (
     <ReactLenis root>
-      <section className="section_hero overflow-hidden mt-[40px] mb-[110px]  lg:mt-[70px]">
+      <section className="section_hero overflow-hidden mt-[40px]   lg:mt-[70px]">
         <StartAnimate />
       </section>
-      <section className="section_features w-full  mx-auto  mt-[30vh]">
-        <div className="title  flex justify-center flex-col items-center mx-auto w-[85%] sm:w-full">
+      <section className="section_features w-full  mx-auto  mt-[5vh]">
+        <div className="title  flex justify-center flex-col items-center mx-auto w-[85%] ">
           <TextGenerateEffect
             words="一起思考人生，一起創造未來
 
@@ -507,9 +507,9 @@ export default function About() {
           </TransitionLink>
         </div>
       </section>
-      <div className="w-full h-full py-20">
+      {/* <div className="w-full h-full py-20">
         <Carousel items={cards} />
-      </div>
+      </div> */}
     </ReactLenis>
   );
 }

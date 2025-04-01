@@ -73,7 +73,7 @@ const Photos = () => {
         <StickyScroll content={content} />
       </div> */}
 
-      <section className="section_project flex flex-col 2xl:w-[80%] mx-auto  py-[40px]">
+      <section className="section_project flex flex-col 2xl:w-[80%] mx-auto  ">
         <div className="flex flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
           <div className="title mr-4">
             <h2> 經典選粹</h2>
@@ -92,9 +92,6 @@ const Photos = () => {
       </section>
       <section className="section_project flex flex-col 2xl:w-[80%] mx-auto  py-[40px]">
         <div className="flex flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
-          <div className="title">
-            <h2> 線上熱銷</h2>
-          </div>
           <div className="description">
             <p className="text-gray-400 ml-4 text-left text-[14px]">
               匠心獨運，築夢家園 —— 宜園建設打造理想居所，，<br></br>
@@ -107,22 +104,28 @@ const Photos = () => {
           <HoverCard />
         </div>
       </section>
-      <section className="section_project flex flex-col 2xl:w-[80%] mx-auto  py-[40px]">
-        <div className="flex flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
-          <div className="title">
-            <h2> 新案件賞</h2>
-          </div>
-          <div className="description">
-            <p className="text-gray-400 mr-4 text-right text-[14px]">
-              匠心獨運，築夢家園 —— 宜園建設打造理想居所，，<br></br>
-              結合自然美學與現代舒適，帶您邁向幸福生活新境界。
+      <section>
+        <div className="banner relative max-w-[1500px] border border-black mx-auto">
+          <Image
+            src="https://kon-sumai.com/common/img/openhouse-bnr.jpg"
+            width={2000}
+            className="w-full"
+            height={600}
+            placeholder="empty"
+            loading="lazy"
+            alt="banner"
+          ></Image>
+          <div className="absolute top-5 left-5 z-50 flex flex-col ">
+            <div className="bg-[#162F67] font-extrabold text-[2.5rem] text-white">
+              たくさんの人が集まれる家
+            </div>
+            <p className="text-[#162F67] text-[4rem] font-extrabold">
+              MODEL HOUSE
             </p>
           </div>
         </div>
-        <div data-aos="fade-up">
-          <HoverCard />
-        </div>
       </section>
+
       {/* <ImageDistortion /> */}
       <div className="h-auto 2xl:h-[40rem] flex flex-col justify-center  items-center px-4">
         <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">

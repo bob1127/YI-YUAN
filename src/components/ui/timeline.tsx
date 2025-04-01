@@ -6,6 +6,7 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import { TextGenerateEffect } from "./text-generate-effec-home";
 
 interface TimelineEntry {
   title: string;
@@ -38,19 +39,20 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2
-          data-aos="fade-up-blur"
-          className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl"
-        >
-          工程進度
-        </h2>
-        <p
-          data-aos="fade-up-blur"
-          data-aos-delay="1s"
-          className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm"
-        >
-          感謝您對本建案的支持與關注！為了讓您即時掌握最新的施工進度，我們將定期更新工程狀況，確保施工品質與安全，敬請安心期待您的理想家園。
-        </p>
+        <div className="title  flex justify-center flex-col items-center mx-auto w-[85%] sm:w-full">
+          <TextGenerateEffect
+            words="工程進度
+
+"
+          />
+          <p
+            data-aos="fade-up-blur"
+            data-aos-delay="1s"
+            className=" mt-4 text-center font-normal text-black   text-sm  max-w-sm"
+          >
+            感謝您對本建案的支持與關注！為了讓您即時掌握最新的施工進度，我們將定期更新工程狀況，確保施工品質與安全，敬請安心期待您的理想家園。
+          </p>
+        </div>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
@@ -63,7 +65,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500 ">
+              <h3 className="hidden md:block text-xl md:pl-20 md:text-xl font-bold text-neutral-500 dark:text-neutral-500 ">
                 {item.title}
               </h3>
             </div>
@@ -87,7 +89,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full"
+            className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-green-500 via-green-700 to-transparent from-[0%] via-[10%] rounded-full"
           />
         </div>
       </div>

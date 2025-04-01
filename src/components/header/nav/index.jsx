@@ -33,11 +33,7 @@ const links = [
     href: "/news",
     src: "contact.png",
   },
-  {
-    title: "工程進度",
-    href: "/progress",
-    src: "contact.png",
-  },
+
   {
     title: "聯絡我們",
     href: "",

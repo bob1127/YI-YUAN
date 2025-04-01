@@ -130,7 +130,7 @@ export default function LandingPage() {
       {/* 左側滑動圖片 */}
       <motion.div
         style={{ opacity: fadeOut, x: slideLeft }}
-        className="absolute top-[-160px] md:top-[-250px] 2xl:top-[-150px]  left-[-15%] 2xl:left-0 sm:w-[450px] w-[350px] xl:w-[600px] h-auto z-10"
+        className="absolute top-[-160px] md:top-[-50px] 2xl:top-[-150px]  left-[-5%] 2xl:left-0 sm:w-[450px] w-[350px] xl:w-[600px] h-auto z-10"
       >
         <Image
           src="/images/—Pngtree—green trees branches and leaves_4877518.png"
@@ -143,7 +143,7 @@ export default function LandingPage() {
       {/* 右側滑動圖片 */}
       <motion.div
         style={{ opacity: fadeOut, x: slideRight }}
-        className="absolute bottom-0 lg:bottom-1/2 right-0 sm:w-[450px] w-[300px] xl:w-[600px] h-auto z-10"
+        className="absolute top-0 lg:top-0 right-0 sm:w-[450px] w-[300px] xl:w-[600px] h-auto z-10"
       >
         <Image
           src="/images/—Pngtree—tree branch_5643252.png"
@@ -166,9 +166,8 @@ export default function LandingPage() {
             ref={headerRef}
           >
             <h1 className="text-[2.5rem] md:text-[3.5rem] font-normal text-[#f4f2f0]">
-              Tender - 宜安
+              宜園建設
             </h1>
-            <h2 className="text-white font-normal text-[3.2rem] ">宜園建設</h2>
 
             {/* 按鈕保留 */}
             <div className="flex flex-row py-4 btn-wrap">

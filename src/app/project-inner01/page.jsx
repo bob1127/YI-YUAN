@@ -6,6 +6,8 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import LightBox from "../../components/LightBox/page";
 import ParallaxImage from "../../components/ParallaxImage";
+import { Timeline } from "@/components/ui/timeline";
+import { EvervaultCard, Icon } from "../../components/ui/evervault-card";
 
 import HeroSlider from "../../components/HeroSlider/page";
 import { NumberTicker } from "../../../src/components/magicui/number-ticker";
@@ -37,7 +39,128 @@ export default function About() {
   const cards = data.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
   ));
-
+  const data01 = [
+    {
+      title: "2024 年 3 月｜最新工程進度",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            第一階段：地下室工程完成（基礎結構已完工，進入地上層施作）
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="https://kakumagumi.com/cms/wp-content/uploads/2025/01/siozakisousuikan1.jpg"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://kakumagumi.com/cms/wp-content/uploads/2025/01/siozakisousuikan2.jpg"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://kakumagumi.com/cms/wp-content/uploads/2024/12/inasato71.jpg"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://kakumagumi.com/cms/wp-content/uploads/2024/12/RIMG6747.jpg"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "2024 年 3 月｜最新工程進度",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            第一階段：地下室工程完成（基礎結構已完工，進入地上層施作）
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="https://kakumagumi.com/cms/wp-content/uploads/2025/01/siozakisousuikan1.jpg"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://kakumagumi.com/cms/wp-content/uploads/2025/01/siozakisousuikan2.jpg"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://kakumagumi.com/cms/wp-content/uploads/2024/12/inasato71.jpg"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://kakumagumi.com/cms/wp-content/uploads/2024/12/RIMG6747.jpg"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "2024 年 3 月｜最新工程進度",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            第一階段：地下室工程完成（基礎結構已完工，進入地上層施作）
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="https://kakumagumi.com/cms/wp-content/uploads/2025/01/siozakisousuikan1.jpg"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://kakumagumi.com/cms/wp-content/uploads/2025/01/siozakisousuikan2.jpg"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://kakumagumi.com/cms/wp-content/uploads/2024/12/inasato71.jpg"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://kakumagumi.com/cms/wp-content/uploads/2024/12/RIMG6747.jpg"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+          </div>
+        </div>
+      ),
+    },
+  ];
   return (
     <ReactLenis root>
       <HeroSlider />
@@ -153,7 +276,9 @@ export default function About() {
           </div>
         </div>
       </section>
-
+      <div className="w-full overflow-hidden ">
+        <Timeline data={data01} />
+      </div>
       <div className="bg-white ">
         <TextParallaxContent
           imgUrl="https://hadashinoie.co.jp/assets/images/hero/hero-slide03.jpg"

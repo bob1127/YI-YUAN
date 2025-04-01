@@ -35,7 +35,7 @@ const Codegrid = () => {
       {items.map(({ id, imgSrc, number, bottomLeft }) => (
         <div className="item-wrapper flex flex-wrap " key={id}>
           <TransitionLink href="/project-inner01">
-            <div className="item ">
+            <div className="item mt-8 sm:mt-0">
               <div className="item-img">
                 <img src={imgSrc} alt="" />
               </div>
@@ -45,7 +45,7 @@ const Codegrid = () => {
                 </div>
                 <div className="item-copy-1">
                   <div className="shape flex flex-col items-start">
-                    <div className="text-left w-[85%] text-[1.2rem] text-white">
+                    <div className="text-left w-[85%] text-[.9rem] lg:text-[1.2rem] text-white">
                       {[...bottomLeft].map((char, idx) => (
                         <span key={idx}>{char}</span>
                       ))}
@@ -59,7 +59,10 @@ const Codegrid = () => {
                         project
                       </p>
                       {[...number].map((char, idx) => (
-                        <span className="text-[4.5vmin]" key={idx}>
+                        <span
+                          className="text-[1.3rem] lg:text-[1.7rem] 2xl:text-[2.3vmin]"
+                          key={idx}
+                        >
                           {char}
                         </span>
                       ))}
