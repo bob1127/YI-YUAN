@@ -1,11 +1,12 @@
 "use client";
 import { TransitionLink } from "../../components/utils/TransitionLink";
+import { Accordion, AccordionItem } from "@heroui/react";
 
 import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { LinkPreview } from "@/components/ui/link-preview";
-
+import SvgImage from "../../components/SVGImage";
 import ParallaxImage from "../../components/ParallaxImage";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import HeroSlider from "../../components/HeroSlider/page";
@@ -81,7 +82,7 @@ export default function About() {
             </div>
           </div>
         </section>
-
+        {/* 
         <section className="banner flex justify-center ">
           <div className="img w-[70vw] mx-auto">
             <ParallaxImage
@@ -91,17 +92,10 @@ export default function About() {
             />
           </div>
 
-          {/* <div className="banner-copy">
-            <p>綠意生活，宜園共築</p>
-            <h1>宜園建設</h1>
-            <p className="!mt-10 !leading-loose !w-[60%]">
-              宜園建設以「品質、匠心、宜居」為核心理念，專注於打造兼具美學與實用性的建築空間。我們堅持嚴選優質建材、融合自然環境，讓每一個細節都承載溫度，為您築起舒適、安全、永續的理想家園。
-            </p>
-            <button>Join the newsletter</button>
-          </div> */}
-        </section>
+         
+        </section> */}
 
-        <div className="footer overflow-hidden h-full  lg:flex-row flex-col  flex justify-center items-center mx-auto">
+        {/* <div className="footer overflow-hidden h-full  lg:flex-row flex-col  flex justify-center items-center mx-auto">
           <div className="col w-full  lg:w-1/2 flex flex-col justify-center   md:pl-[10%] xl:pl-[150px]">
             <div className=" mt-8 2xl:p-20">
               <h1 className="text-[#201815] text-[2.2rem]">宜居</h1>
@@ -124,7 +118,7 @@ export default function About() {
               ></Image>
             </div>
           </div>
-        </div>
+        </div> */}
         <Marquee>
           <div className="flex bg-white flex-row py-10 justify-center items-center">
             <div className="h-[1px] bg-black w-[50vw]"></div>
@@ -153,7 +147,212 @@ export default function About() {
             <div className="h-[1px] bg-black w-[50vw]"></div>
           </div>
         </Marquee>
-
+        <div>
+          <div className="overflow-hidden">
+            <SvgImage />
+          </div>
+        </div>
+        <div className="my-[10vh] z-[999999] relative">
+          <div className="title"></div>
+          <div className="max-w-[1000px] mx-auto">
+            <Accordion>
+              <AccordionItem
+                key="1"
+                aria-label="目前有哪幾個建案在銷售？"
+                title={
+                  <div className="flex md:flex-row flex-col items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span>目前有哪幾個建案在銷售？</span>
+                      <div className="bg-[#34894f] text-white rounded-full px-4   text-center">
+                        QA
+                      </div>
+                    </div>
+                    <div>
+                      <span className=" text-gray-600 font-normal text-[.8rem]">
+                        Latest Releases 2025-03-05
+                      </span>
+                    </div>
+                  </div>
+                }
+              >
+                <div className="flex px-4 flex-col space-y-4">
+                  <div className="flex flex-col sm:flex-row items-start">
+                    <Image
+                      src="https://noizarchitects.com/cms/wp-content/uploads/2024/02/KST_003-1-2560x1707.jpg"
+                      className=" w-[90%]  sm:w-[130px] object-cover rounded-md"
+                      width={400}
+                      height={300}
+                      alt="綠意莊園"
+                    />
+                    <div className="mx-4 sm:mt-0 mt-5 text-sm leading-relaxed tracking-wide">
+                      <b>【一青隱】：</b>{" "}
+                      位於台中南區，主打綠建築與人文環境，2-4 房規劃。
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row items-start">
+                    <Image
+                      src="https://noizarchitects.com/cms/wp-content/uploads/2024/02/KST_003-1-2560x1707.jpg"
+                      className=" w-[90%]  sm:w-[130px] object-cover rounded-md"
+                      width={400}
+                      height={300}
+                      alt="綠意莊園"
+                    />
+                    <div className="mx-4 sm:mt-0 mt-5 text-sm leading-relaxed tracking-wide">
+                      <b>【宜園大院】：</b>{" "}
+                      位於台中南區，主打綠建築與人文環境，2-4 房規劃。
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row items-start">
+                    <Image
+                      src="https://noizarchitects.com/cms/wp-content/uploads/2024/02/KST_003-1-2560x1707.jpg"
+                      className=" w-[90%]  sm:w-[130px] object-cover rounded-md"
+                      width={400}
+                      height={300}
+                      alt="綠意莊園"
+                    />
+                    <div className="mx-4 sm:mt-0 mt-5 text-sm leading-relaxed tracking-wide">
+                      <b>【誠境二期】：</b>{" "}
+                      位於台中南區，主打綠建築與人文環境，2-4 房規劃。
+                    </div>
+                  </div>
+                </div>
+              </AccordionItem>
+              <AccordionItem
+                key="2"
+                aria-label="怎麼預約看屋？需要準備什麼？"
+                title={
+                  <div className="flex md:flex-row flex-col items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span>怎麼預約看屋？需要準備什麼？</span>
+                      <div className="bg-[#34894f] text-white rounded-full px-4   text-center">
+                        QA
+                      </div>
+                    </div>
+                    <div>
+                      <span className=" text-gray-600 font-normal text-[.8rem]">
+                        Latest Releases 2025-03-05
+                      </span>
+                    </div>
+                  </div>
+                }
+              >
+                <div className="flex  px-5 py-4 flex-col gap-2">
+                  <div>
+                    <b>您可以透過以下方式預約賞屋：</b>
+                    <ul>
+                      <li classname="!text-[.8rem] !mt-2">
+                        ・線上預約表單：填寫聯絡方式與想看建案，我們將安排專人聯繫您。
+                      </li>
+                      <li classname="!text-[.8rem] !mt-2">
+                        ・臉書或 LINE 官方帳號私訊我們，客服人員將協助預約。
+                      </li>
+                      <li classname="!text-[.8rem] !mt-2">
+                        ・電話預約：撥打本公司專線，立即安排賞屋時段。
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="mt-[30px]">
+                    <b>看屋不需攜帶任何文件，如您已有購屋需求，建議準備：</b>
+                    <ul>
+                      <li classname="!text-[.8rem] !mt-2">
+                        ・身分證影本（預約洽談時使用）
+                      </li>
+                      <li classname="!text-[.8rem] !mt-2">
+                        ・銀行貸款試算資料（可現場協助評估）
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </AccordionItem>
+              <AccordionItem
+                key="3"
+                aria-label="購屋流程大概是怎樣的？"
+                title={
+                  <div className="flex md:flex-row flex-col items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span>購屋流程大概是怎樣的？</span>
+                      <div className="bg-[#34894f] text-white rounded-full px-4   text-center">
+                        QA
+                      </div>
+                    </div>
+                    <div>
+                      <span className=" text-gray-600 font-normal text-[.8rem]">
+                        Latest Releases 2025-03-05
+                      </span>
+                    </div>
+                  </div>
+                }
+              >
+                <div>
+                  <b>購屋流程簡單明確，大致如下：</b>
+                  <div>
+                    <p className="text-[.8rem] tracking-widest mt-2">
+                      (1) 賞屋參觀：安排看屋，了解格局、設備與環境。
+                    </p>
+                    <p className="text-[.8rem] tracking-widest mt-2">
+                      (2) 挑選戶別：選定喜愛的戶型與樓層。
+                    </p>
+                    <p className="text-[.8rem] tracking-widest mt-2">
+                      (3) 簽約訂購：支付訂金，簽訂購屋合約。
+                    </p>
+                    <p className="text-[.8rem] tracking-widest mt-2">
+                      (4) 銀行貸款申請（如有需要）
+                    </p>
+                    <p className="text-[.8rem] tracking-widest mt-2">
+                      (5) 簽立買賣契約：正式完成購屋程序。
+                    </p>
+                    <p className="text-[.8rem] tracking-widest mt-2">
+                      (6) 驗屋交屋：建案完工後安排驗屋與交屋。
+                    </p>
+                  </div>
+                </div>
+              </AccordionItem>
+            </Accordion>
+          </div>
+          <div className="">
+            <TransitionLink href="/news">
+              <div className="flex group py-10 w-full sm:w-[85%] lg:w-[70%] mx-auto justify-center md:justify-end items-center">
+                <span className="text-[2rem] font-bold mr-3">更多消息</span>
+                <button class="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
+                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                    >
+                      <path
+                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                    >
+                      <path
+                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </TransitionLink>
+          </div>
+        </div>
         <div className="py-8 lg:flex-row bg-white flex-col flex">
           <div className=" w-full lg:w-1/2 ">
             <div className="relative h-[400px] sm:h-[50vh] lg:h-[70vh] 2xl:h-[65vh] overflow-hidden w-full">

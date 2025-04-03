@@ -36,7 +36,7 @@ const links = [
 
   {
     title: "聯絡我們",
-    href: "",
+    href: "/contact",
     src: "contact.png",
   },
 ];

@@ -70,7 +70,7 @@ export default function About() {
           trigger: image,
           start: "top bottom",
           end: "top center",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       });
 
@@ -182,7 +182,7 @@ export default function About() {
           </div> */}
         </div>
         <div className="flex md:flex-row flex-col w-[90%] sm:w-[95%] mx-auto mt-10 sm:mt-20">
-          <div className="img  w-full mt-[10vh] sm:mt-[26vh] md:w-[17%] mx-auto sm:mx-3  h-auto md:h-[60vh] xl:h-[60vh] overflow-hidden">
+          <div className="img  w-full mt-20 sm:mt-[26vh] md:w-[17%] mx-auto sm:mx-3  h-auto md:h-[60vh] xl:h-[60vh] overflow-hidden">
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">

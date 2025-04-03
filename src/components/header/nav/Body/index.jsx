@@ -67,19 +67,19 @@ export default function Body({ links, selectedLink, setSelectedLink, isOpen }) {
         const { title, href } = link;
         return (
           <TransitionLink key={`l_${index}`} href={href}>
-            <a
+            <p
               onMouseOver={() => setSelectedLink({ isActive: true, index })}
               onMouseLeave={() =>
                 setSelectedLink({ isActive: true, index: selectedLink.index })
               }
               className={
                 selectedLink.isActive && selectedLink.index !== index
-                  ? "opacity-50 transition-opacity duration-300"
-                  : "opacity-100"
+                  ? "opacity-50   text-[2rem] transition-opacity duration-300"
+                  : "opacity-100 text-[2rem]"
               }
             >
               {getChars(title)}
-            </a>
+            </p>
           </TransitionLink>
         );
       })}

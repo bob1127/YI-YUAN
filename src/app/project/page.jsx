@@ -5,6 +5,7 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import Image from "next/image";
 import HoverCard from "../../components/HoverCardBuild/index";
 import gsap from "gsap";
+
 import { PlaceholdersAndVanishInput } from "../../components/ui/placeholders-and-vanish-input";
 // import HeroSlider from "../../components/HeroSlider/page";
 import { useGSAP } from "@gsap/react";
