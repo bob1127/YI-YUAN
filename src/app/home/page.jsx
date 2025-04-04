@@ -203,28 +203,30 @@ export default function About() {
           <div className="img w-ful mt-4 md:mt-0 md:w-[62%] mx-auto sm:mx-3  h-auto md:h-[93vh] flex flex-col justify-end items-end xl:h-[93vh] overflow-hidden">
             <div className="animate-image-wrapper group h-[90%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
               <TransitionLink href="/hot-sale-02">
-                <div className="title ">
-                  <div className="flex items-center">
-                    <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
-                      <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
-                        →
-                      </div>
-                      <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
-                        →
-                      </div>
-                    </button>
-                    <h3 className="text-[1.3rem] font-normal">
-                      My Home Project-Yi Yuan
-                    </h3>
+                <a>
+                  <div className="title ">
+                    <div className="flex items-center">
+                      <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                        <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                          →
+                        </div>
+                        <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                          →
+                        </div>
+                      </button>
+                      <h3 className="text-[1.3rem] font-normal">
+                        My Home Project-Yi Yuan
+                      </h3>
+                    </div>
+                    <div className="flex items-center">
+                      {" "}
+                      <span className="border mr-3 my-2 border-black text-[.78rem] p-1">
+                        Home
+                      </span>{" "}
+                      <p className="text-[.78rem]">Dec.2019</p>
+                    </div>
                   </div>
-                  <div className="flex items-center">
-                    {" "}
-                    <span className="border mr-3 my-2 border-black text-[.78rem] p-1">
-                      Home
-                    </span>{" "}
-                    <p className="text-[.78rem]">Dec.2019</p>
-                  </div>
-                </div>
+                </a>
               </TransitionLink>
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
