@@ -53,7 +53,7 @@ const Photos = () => {
               <Image
                 width={2200}
                 height={800}
-                src="https://www.bess.jp/wordpress/wp-content/themes/bess/assets/images/top_life_image_1312w.png"
+                src="https://www.31sumai.com/content/dam/31sumai/mfr/X2114/top/main_img02.png"
                 alt="project-hero-img"
                 placeholder="empty"
                 loading="eager"

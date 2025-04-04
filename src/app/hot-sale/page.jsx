@@ -89,6 +89,30 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section>
+        <div className="flex max-w-[1000px] mx-auto my-5 justify-center">
+          <Image
+            src="https://www.31sumai.com/content/dam/31sumai/mfr/H2302/top/btn_access.png"
+            alt=""
+            placeholder="empty"
+            loading="lazy"
+            width={1200}
+            height={800}
+            className="w-full"
+          ></Image>
+        </div>
+        <div className="flex max-w-[1000px] mx-auto my-5 justify-center">
+          <Image
+            src="https://www.31sumai.com/content/dam/31sumai/mfr/H2302/top/btn_design.png"
+            alt=""
+            placeholder="empty"
+            loading="lazy"
+            width={1200}
+            height={800}
+            className="w-full"
+          ></Image>
+        </div>
+      </section>
     </>
   );
 }

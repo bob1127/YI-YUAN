@@ -12,8 +12,6 @@ import TextScroll from "../../components/TextScroll/page";
 // import InfiniteCarousel from "../../components/InfiniteCarousel/page";
 import Image from "next/image";
 export default function About() {
-  const [action, setAction] = React.useState(null);
-
   return (
     <ReactLenis root>
       {/* <TextScroll /> */}
@@ -91,11 +89,6 @@ export default function About() {
                       清除
                     </Button>
                   </div>
-                  {action && (
-                    <div className="text-small text-default-500">
-                      Action: <code>{action}</code>
-                    </div>
-                  )}
                 </Form>
                 <div className="contact-info flex w-full sm:w-[85%] mx-auto flex-col sm:flex-row items-center pt-10">
                   <div className="w-full sm:w-1/2 inline-block">

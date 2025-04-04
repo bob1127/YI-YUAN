@@ -281,7 +281,7 @@ export default function About() {
       </div>
       <div className="bg-white ">
         <TextParallaxContent
-          imgUrl="https://hadashinoie.co.jp/assets/images/hero/hero-slide03.jpg"
+          imgUrl="https://www.31sumai.com/content/dam/31sumai/mfr/F2471/top/main_img01.jpg"
           subheading="宜居"
           heading="坐落在13期的心臟."
           description="在富人區的心臟地帶，坐落著一座如詩如畫的豪墅，猶如隱匿於繁華中的藝術品。
@@ -290,14 +290,14 @@ export default function About() {
           <ExampleContent />
         </TextParallaxContent>
         <TextParallaxContent
-          imgUrl="https://hadashinoie.co.jp/assets/images/hero/hero-slide04.jpg"
+          imgUrl="https://www.31sumai.com/content/dam/31sumai/mfr/B2301/top/topimage_02.jpg"
           subheading="Quality"
           heading="為您打造無可
 比擬的居住體驗"
           description="在宜園建設的每一個家中，空間規劃無不考量到居住者的需求與舒適。大面積的開放式設計，帶來豐富的自然光線，讓每個角落都充滿生機。廚房、衛浴的每一處細節，都選用頂級材質，無論是煮飯還是休息，都是一場享受。"
         ></TextParallaxContent>
         <TextParallaxContent
-          imgUrl="https://hadashinoie.co.jp/assets/images/hero/hero-slide05.jpg"
+          imgUrl="https://www.31sumai.com/content/dam/31sumai/mfr/B2223/top/add2.jpg"
           subheading="Modern"
           heading="Dress for the best."
           description="fsdfsdfsdf"
@@ -461,32 +461,32 @@ const data = [
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2025/01/PXL_20250124_000513315-1-2048x1152.jpg",
+    src: "https://www.31sumai.com/content/dam/31sumai/mfr/F2471/top/main_img01.jpg",
     content: <DummyContent />,
   },
   {
     category: "Productivity",
     title: "Enhance your productivity.",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/06/01_0140-2048x1365.jpg",
+    src: "https://www.31sumai.com/content/dam/31sumai/mfr/X2114/top/top_img14.png",
     content: <DummyContent />,
   },
   {
     category: "Product",
     title: "Launching the new Apple Vision Pro.",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie004-2048x1365.jpg",
+    src: "https://www.31sumai.com/content/dam/31sumai/mfr/F2241/top/main_gaikan.jpg",
     content: <DummyContent />,
   },
 
   {
     category: "Product",
     title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/11/hadashinoie016-2048x1365.jpg",
+    src: "https://www.31sumai.com/content/dam/31sumai/mfr/B2223/top/img15.jpg",
     content: <DummyContent />,
   },
   {
     category: "iOS",
     title: "Photography just got better.",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/06/23IS002_03bF-2-2048x1365.jpg",
+    src: "https://www.31sumai.com/content/dam/31sumai/mfr/B2307/floor_plan/btn_plan3.jpg",
     content: <DummyContent />,
   },
   {
