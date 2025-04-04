@@ -63,52 +63,55 @@ export default function About() {
     }, 5000);
 
     // 設置圖片動畫
-    const images = document.querySelectorAll(".animate-image-wrapper");
-    images.forEach((image, index) => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: image,
-          start: "top bottom",
-          end: "top center",
-          toggleActions: "play none none none",
-        },
-      });
+    const ctx = gsap.context(() => {
+      const images = document.querySelectorAll(".animate-image-wrapper");
 
-      tl.fromTo(
-        image.querySelector(".overlay"),
-        {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-        },
-        {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          duration: 1,
-          ease: "power2.inOut",
-        }
-      )
-        .to(image.querySelector(".overlay"), {
-          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-          duration: 1,
-          ease: "power2.inOut",
-        })
-        .fromTo(
-          image.querySelector(".image-container"),
+      images.forEach((image) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: image,
+            start: "top bottom",
+            end: "top center",
+            toggleActions: "play none none none",
+            // 如果你想要做區分的話可以加 id 或 label
+            id: "imageReveal-" + image.dataset.index,
+          },
+        });
+
+        tl.fromTo(
+          image.querySelector(".overlay"),
           {
-            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
           },
           {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            duration: 2,
-            ease: "power3.inOut",
-          },
-          "-=0.5"
-        );
-    });
+            duration: 1,
+            ease: "power2.inOut",
+          }
+        )
+          .to(image.querySelector(".overlay"), {
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            duration: 1,
+            ease: "power2.inOut",
+          })
+          .fromTo(
+            image.querySelector(".image-container"),
+            {
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            },
+            {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              duration: 2,
+              ease: "power3.inOut",
+            },
+            "-=0.5"
+          );
+      });
 
-    return () => {
-      clearTimeout(timeout);
-      window.removeEventListener("scroll", disableScroll);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+      ScrollTrigger.refresh(); // 強制重新計算位置
+    }, containerRef); // 👈 這裡用 container 限制範圍
+
+    return () => ctx.revert(); // 👈 自動 kill 清理範圍內動畫
   }, []);
   const cards = data.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
