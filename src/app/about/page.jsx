@@ -311,7 +311,7 @@ export default function About() {
           </div>
           <div className="">
             <TransitionLink href="/news">
-              <div className="flex group py-10 w-full sm:w-[85%] lg:w-[70%] mx-auto justify-center md:justify-end items-center">
+              <div className="flex group py-10 w-full sm:w-[85%] md:w-[70%] mx-auto justify-center md:justify-end items-center">
                 <span className="text-[2rem] font-bold mr-3">更多消息</span>
                 <button class="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
                   <div class="translate-x-0 transition group-hover:translate-x-[300%]">

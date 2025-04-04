@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+
 import { TransitionLink } from "../../components/utils/TransitionLink";
 import EmblaCarousel from "../../components/EmblaCarousel07/EmblaCarousel";
 import { AnimatedTooltip } from "../../components/ui/animated-tooltip";
@@ -13,15 +15,23 @@ import ScrollAnimtion from "../../components/ScrollAnimation01";
 import Marquee from "react-fast-marquee";
 
 export default function About() {
+  const pathname = usePathname();
+
   useEffect(() => {
+    // 如果不是重整進來，而是從其他頁進入 about 頁，才執行 reload
+    const hasReloaded = sessionStorage.getItem("hasReloadedAboutPage");
+
     if (
-      typeof window !== "undefined" &&
-      !sessionStorage.getItem("aboutPageReloaded")
+      !hasReloaded &&
+      document.referrer &&
+      !document.referrer.includes(pathname)
     ) {
-      sessionStorage.setItem("aboutPageReloaded", "true");
+      sessionStorage.setItem("hasReloadedAboutPage", "true");
       window.location.reload();
+    } else {
+      sessionStorage.removeItem("hasReloadedAboutPage");
     }
-  }, []);
+  }, [pathname]);
 
   const placeholders = ["建案地點？", "房價房型?", "預約看房?"];
 

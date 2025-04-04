@@ -62,54 +62,79 @@ export default function About() {
       window.removeEventListener("scroll", disableScroll);
     }, 5000);
 
-    // 設置圖片動畫
-    const ctx = gsap.context(() => {
-      const images = document.querySelectorAll(".animate-image-wrapper");
+    const initGSAPAnimations = () => {
+      const ctx = gsap.context(() => {
+        const images = document.querySelectorAll(".animate-image-wrapper");
 
-      images.forEach((image) => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: image,
-            start: "top bottom",
-            end: "top center",
-            toggleActions: "play none none none",
-            // 如果你想要做區分的話可以加 id 或 label
-            id: "imageReveal-" + image.dataset.index,
-          },
-        });
+        images.forEach((image, i) => {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: image,
+              start: "top bottom",
+              end: "top center",
+              toggleActions: "play none none none",
+              id: "imageReveal-" + i,
+            },
+          });
 
-        tl.fromTo(
-          image.querySelector(".overlay"),
-          {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-          },
-          {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            duration: 1,
-            ease: "power2.inOut",
-          }
-        )
-          .to(image.querySelector(".overlay"), {
-            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-            duration: 1,
-            ease: "power2.inOut",
-          })
-          .fromTo(
-            image.querySelector(".image-container"),
+          tl.fromTo(
+            image.querySelector(".overlay"),
             {
-              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
             },
             {
               clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-              duration: 2,
-              ease: "power3.inOut",
-            },
-            "-=0.5"
-          );
-      });
+              duration: 1,
+              ease: "power2.inOut",
+            }
+          )
+            .to(image.querySelector(".overlay"), {
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+              duration: 1,
+              ease: "power2.inOut",
+            })
+            .fromTo(
+              image.querySelector(".image-container"),
+              {
+                clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+              },
+              {
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                duration: 2,
+                ease: "power3.inOut",
+              },
+              "-=0.5"
+            );
+        });
 
-      ScrollTrigger.refresh(); // 強制重新計算位置
-    }, containerRef); // 👈 這裡用 container 限制範圍
+        ScrollTrigger.refresh();
+      }, containerRef);
+
+      return ctx; // return so we can revert later
+    };
+
+    let ctx;
+
+    const onTransitionComplete = () => {
+      ctx = initGSAPAnimations();
+    };
+
+    window.addEventListener("pageTransitionComplete", onTransitionComplete);
+
+    // fallback: 若不是從 transition link 進來，直接初始化
+    if (!sessionStorage.getItem("transitioning")) {
+      ctx = initGSAPAnimations();
+    } else {
+      sessionStorage.removeItem("transitioning"); // 清除 flag
+    }
+
+    return () => {
+      if (ctx) ctx.revert();
+      window.removeEventListener(
+        "pageTransitionComplete",
+        onTransitionComplete
+      );
+    };
 
     return () => ctx.revert(); // 👈 自動 kill 清理範圍內動畫
   }, []);
@@ -203,30 +228,28 @@ export default function About() {
           <div className="img w-ful mt-4 md:mt-0 md:w-[62%] mx-auto sm:mx-3  h-auto md:h-[93vh] flex flex-col justify-end items-end xl:h-[93vh] overflow-hidden">
             <div className="animate-image-wrapper group h-[90%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
               <TransitionLink href="/hot-sale-02">
-                <a>
-                  <div className="title ">
-                    <div className="flex items-center">
-                      <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
-                        <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
-                          →
-                        </div>
-                        <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
-                          →
-                        </div>
-                      </button>
-                      <h3 className="text-[1.3rem] font-normal">
-                        My Home Project-Yi Yuan
-                      </h3>
-                    </div>
-                    <div className="flex items-center">
-                      {" "}
-                      <span className="border mr-3 my-2 border-black text-[.78rem] p-1">
-                        Home
-                      </span>{" "}
-                      <p className="text-[.78rem]">Dec.2019</p>
-                    </div>
+                <div className="title ">
+                  <div className="flex items-center">
+                    <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                      <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                        →
+                      </div>
+                      <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                        →
+                      </div>
+                    </button>
+                    <h3 className="text-[1.3rem] font-normal">
+                      My Home Project-Yi Yuan
+                    </h3>
                   </div>
-                </a>
+                  <div className="flex items-center">
+                    {" "}
+                    <span className="border mr-3 my-2 border-black text-[.78rem] p-1">
+                      Home
+                    </span>{" "}
+                    <p className="text-[.78rem]">Dec.2019</p>
+                  </div>
+                </div>
               </TransitionLink>
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">

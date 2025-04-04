@@ -9,19 +9,24 @@ gsap.registerPlugin(ScrollTrigger);
 import Image from "next/image";
 export default function ScrollAnimationComponent() {
   useEffect(() => {
-    const initScrollAnimation = () => {
-      if (window.innerWidth < 900) return;
-
+    const transitioning = sessionStorage.getItem("transitioning");
+    if (transitioning === "true") {
+      sessionStorage.removeItem("transitioning");
+      setTimeout(() => {
+        window.dispatchEvent(new Event("pageTransitionComplete"));
+      }, 100); // 避免還沒 mount 完
+    }
+    if (window.innerWidth >= 900) {
+      const lenis = new Lenis();
       const videoContainer = document.querySelector(".video-container-desktop");
       const videoTitleElements = document.querySelectorAll(".video-title p");
 
-      // DOM 檢查保護
-      if (!videoContainer || videoTitleElements.length === 0) return;
-
-      const lenis = new Lenis();
       lenis.on("scroll", ScrollTrigger.update);
 
-      gsap.ticker.add((time) => lenis.raf(time * 1000));
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+
       gsap.ticker.lagSmoothing(0);
 
       const breakpoints = [
@@ -33,6 +38,7 @@ export default function ScrollAnimationComponent() {
 
       const getInitialValues = () => {
         const width = window.innerWidth;
+
         for (const bp of breakpoints) {
           if (width <= bp.maxWidth) {
             return {
@@ -41,6 +47,7 @@ export default function ScrollAnimationComponent() {
             };
           }
         }
+
         return {
           translateY: -105,
           movementMultiplier: 650,
@@ -65,6 +72,7 @@ export default function ScrollAnimationComponent() {
         const newValues = getInitialValues();
         animationState.initialTranslateY = newValues.translateY;
         animationState.movementMultiplier = newValues.movementMultiplier;
+
         if (animationState.scrollProgress === 0) {
           animationState.currentTranslateY = newValues.translateY;
         }
@@ -98,11 +106,20 @@ export default function ScrollAnimationComponent() {
             );
 
             if (animationState.scrollProgress <= 0.4) {
-              const first = animationState.scrollProgress / 0.4;
-              animationState.fontSize = gsap.utils.interpolate(80, 40, first);
+              const firstPartProgress = animationState.scrollProgress / 0.4;
+              animationState.fontSize = gsap.utils.interpolate(
+                80,
+                40,
+                firstPartProgress
+              );
             } else {
-              const second = (animationState.scrollProgress - 0.4) / 0.6;
-              animationState.fontSize = gsap.utils.interpolate(40, 20, second);
+              const secondPartProgress =
+                (animationState.scrollProgress - 0.4) / 0.6;
+              animationState.fontSize = gsap.utils.interpolate(
+                40,
+                20,
+                secondPartProgress
+              );
             }
           },
         },
@@ -125,39 +142,30 @@ export default function ScrollAnimationComponent() {
           movementMultiplier,
         } = animationState;
 
-        const scaledMovement = (1 - scale) * movementMultiplier;
-        const maxMove = scale < 0.95 ? targetMouseX * scaledMovement : 0;
+        const scaledMovementMultiplier = (1 - scale) * movementMultiplier;
+
+        const maxHorizontalMovement =
+          scale < 0.95 ? targetMouseX * scaledMovementMultiplier : 0;
 
         animationState.currentMouseX = gsap.utils.interpolate(
           currentMouseX,
-          maxMove,
+          maxHorizontalMovement,
           0.05
         );
 
-        // ✅ 無 TypeScript 斷言，直接操作
         videoContainer.style.transform = `translateY(${currentTranslateY}%) translateX(${animationState.currentMouseX}px) scale(${scale})`;
+
         videoContainer.style.gap = `${gap}em`;
 
-        videoTitleElements.forEach((el) => {
-          el.style.fontSize = `${fontSize}px`;
+        videoTitleElements.forEach((element) => {
+          element.style.fontSize = `${fontSize}px`;
         });
 
         requestAnimationFrame(animate);
       };
 
       animate();
-    };
-
-    // 初始化動畫
-    initScrollAnimation();
-
-    // 如有 TransitionLink 支援頁面切換重新啟動動畫
-    const handleTransition = () => setTimeout(initScrollAnimation, 100);
-    window.addEventListener("pageTransitionComplete", handleTransition);
-
-    return () => {
-      window.removeEventListener("pageTransitionComplete", handleTransition);
-    };
+    }
   }, []);
 
   return (
@@ -265,10 +273,10 @@ export default function ScrollAnimationComponent() {
             </div>
           </div>
           <div className="video-title">
-            <p className="!text-[1rem] text-gray-800 font-medium relative">
+            <p className="text-[78px] text-gray-800 font-medium relative">
               PROJECT-YI YUAN
             </p>
-            <p className="!text-[1rem] text-gray-800 font-medium relative">
+            <p className="text-[78px] text-gray-800 font-medium relative">
               2023 - 2024
             </p>
           </div>

@@ -27,9 +27,10 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
 
     body?.classList.add("page-transition");
 
-    await sleep(500);
+    await sleep(500); // ✅ 動畫出場前延遲
+    sessionStorage.setItem("transitioning", "true"); // ✅ 告知下一頁是 transition 進來的
+
     router.push(href);
-    await sleep(500);
 
     body?.classList.remove("page-transition");
 
