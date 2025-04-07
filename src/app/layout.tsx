@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <HeroUIProvider>
-        <body>
+        <body className="overflow-hidden">
           <ClientWrapper>
             {/* 只有當不是首頁時才顯示 Header */}
             {!isHomePage && (

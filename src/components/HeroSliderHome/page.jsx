@@ -8,6 +8,26 @@ import { CustomEase } from "gsap/CustomEase";
 
 gsap.registerPlugin(CustomEase);
 
+// ✅ 自定義輪播內容
+const slides = [
+  {
+    type: "video",
+    src: "/videos/hero.mp4",
+  },
+  {
+    type: "image",
+    src: "/images/hero02.jpg",
+  },
+  {
+    type: "image",
+    src: "/images/hero01.jpg",
+  },
+  {
+    type: "image",
+    src: "/images/hero03.jpg",
+  },
+];
+
 const Photos = () => {
   const sliderImagesRef = useRef(null);
   const counterRef = useRef(null);
@@ -23,7 +43,7 @@ const Photos = () => {
       );
 
       let currentImg = 1;
-      const totalSlides = 4;
+      const totalSlides = slides.length;
       let indicatorRotation = 0;
 
       function updateCounterAndTitlePosition() {
@@ -47,25 +67,39 @@ const Photos = () => {
 
       function animateSlide(direction) {
         const currentSlide = sliderImagesRef.current.lastElementChild;
-
         const slideImg = document.createElement("div");
         slideImg.classList.add("img");
 
-        const slideImgElem = document.createElement("img");
-        slideImgElem.src = `/assets/img${currentImg}.jpg`;
-        gsap.set(slideImgElem, {
+        const currentSlideData = slides[currentImg - 1];
+        let slideMedia;
+
+        if (currentSlideData.type === "video") {
+          slideMedia = document.createElement("video");
+          slideMedia.src = currentSlideData.src;
+          slideMedia.autoplay = true;
+          slideMedia.loop = true;
+          slideMedia.muted = true;
+          slideMedia.playsInline = true;
+          slideMedia.className = "w-[100vw] h-screen object-cover";
+        } else {
+          slideMedia = document.createElement("img");
+          slideMedia.src = currentSlideData.src;
+          slideMedia.className = "w-[100vw] h-screen object-cover";
+        }
+
+        gsap.set(slideMedia, {
           x: direction === "left" ? -500 : 500,
           scale: 1,
           opacity: 0.5,
           transformOrigin: "center center",
         });
 
-        slideImg.appendChild(slideImgElem);
+        slideImg.appendChild(slideMedia);
         sliderImagesRef.current.appendChild(slideImg);
 
         const tl = gsap.timeline();
 
-        tl.to(currentSlide.querySelector("img"), {
+        tl.to(currentSlide.querySelector("img, video"), {
           x: direction === "left" ? 500 : -500,
           duration: 1.5,
           ease: "hop2",
@@ -86,7 +120,7 @@ const Photos = () => {
             0
           )
           .to(
-            slideImgElem,
+            slideMedia,
             {
               x: 0,
               scale: 1.2,
@@ -152,15 +186,32 @@ const Photos = () => {
         clearInterval(autoSlideInterval);
       };
     },
-    { scope: sliderRef, dependencies: [] }
+    { scope: sliderRef }
   );
 
   return (
     <>
       <div className="slider" ref={sliderRef}>
+        <div className="absolute z-10 top-0 left-0 w-full h-[100vh] bg-[#000] opacity-25"></div>
+
         <div className="slider-images" ref={sliderImagesRef}>
           <div className="img">
-            <img src="/assets/img1.jpg" alt="" />
+            {slides[0].type === "video" ? (
+              <video
+                src={slides[0].src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-[100vw] h-screen object-cover"
+              ></video>
+            ) : (
+              <img
+                src={slides[0].src}
+                className="w-[100vw] h-screen object-cover"
+                alt=""
+              />
+            )}
           </div>
         </div>
 
@@ -170,6 +221,40 @@ const Photos = () => {
             <p>Above The Canvas</p>
             <p>Harmony in Every Note</p>
             <p>Redefining Imagination</p>
+          </div>
+        </div>
+
+        {/* ✅ 原本的 bottom-info 保留不動 */}
+        <div className="bottom-info absolute w-screen z-50 bottom-8">
+          <div className="flex w-full ">
+            <div className="w-1/4  flex justify-center items-center">
+              <b className="text-white font-bold ">+SHIFT NOGIZAKA</b>
+            </div>
+            <div className="w-1/4 flex flex-col items-center">
+              <span className="text-gray-400 text-[.75rem]">Category</span>
+              <span className="text-white mt-2 text-[.75rem]">Category</span>
+              <span className="text-white  text-[.75rem]">Category</span>
+              <span className="text-white  text-[.75rem]">Category</span>
+            </div>
+            <div className="w-1/4 flex flex-col justify-center items-center">
+              <div className="flex flex-col ">
+                <span className="text-gray-300 text-[.75rem]">Location</span>
+                <span className="text-white text-[.75rem]">
+                  Taiwan,Taichung
+                </span>
+                <span className="text-white text-[.75rem] ">2025.03.24 </span>
+              </div>
+            </div>
+            <div className="w-1/4 flex justify-center items-center">
+              <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden font-medium">
+                <div className="inline-flex h-12 translate-y-0 items-center justify-center  px-6 text-neutral-50 transition group-hover:-translate-y-[150%]">
+                  Hover me
+                </div>
+                <div className="absolute inline-flex h-12 w-full translate-y-[100%] items-center justify-center bg-white px-6 text-black transition duration-300 group-hover:translate-y-0">
+                  Hover me
+                </div>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -188,7 +273,7 @@ const Photos = () => {
             <p>&mdash;</p>
           </div>
           <div>
-            <p>4</p>
+            <p>{slides.length}</p>
           </div>
         </div>
 

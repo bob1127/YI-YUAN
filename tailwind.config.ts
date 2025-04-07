@@ -12,6 +12,9 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(335.885deg, rgb(52, 59, 74) 5.58677%, rgb(53, 41, 41) 84.8547%)',
+      },
 	 animation: {
         first: "moveVertical 30s ease infinite",
         second: "moveInCircle 20s reverse infinite",

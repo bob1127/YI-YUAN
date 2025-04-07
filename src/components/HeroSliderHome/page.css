@@ -84,19 +84,23 @@
   height: 64px;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
-
+.slider-title{
+  z-index: 99999999999;
+}
 .slider-title-wrapper {
   position: relative;
   width: 100%;
+  z-index: 9999999999;
   top: 0px;
+  font-size: 20px;
   text-align: center;
   will-change: transform;
 }
 
 .slider-title-wrapper p {
-  font-size: 50px;
+  font-size: 30px !important;
   line-height: 60px;
-  color: var(--text);
+  color: white !important;
   font-weight: 500;
 }
 

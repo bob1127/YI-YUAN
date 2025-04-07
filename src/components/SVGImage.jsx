@@ -49,7 +49,7 @@ const HeroComponent = () => {
       {/* 左邊綠色漸層 Blob */}
       <div
         ref={(el) => (blobsRef02.current[0] = el)}
-        className="absolute top-[-27%] left-[-10%] w-[100vmin] h-[100vmin]"
+        className="absolute top-[-45%] md:top-[-27%] left-[-48%] md:left-[-10%] w-[100vmin] h-[100vmin]"
       >
         <svg
           viewBox="0 0 450 450"

@@ -16,28 +16,28 @@ import "swiper/css/pagination";
 
 const slides = [
   {
-    src: "https://www.jgran.jp/nishiakashi/common/images/top/vision03.png",
+    src: "	https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top06.jpg",
     alt: "日常生活新站點",
   },
   {
-    src: "https://www.jgran.jp/nishiakashi/common/images/top/vision01.png",
+    src: "	https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top02.jpg",
     alt: "每天散步逛街都是樂趣",
   },
   {
-    src: "https://www.jgran.jp/nishiakashi/common/images/top/vision02.png",
+    src: "	https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top07.jpg",
     alt: "我們將創建一個城鎮中的每個人都能享受的廣場。",
   },
   {
-    src: "https://www.jgran.jp/nishiakashi/common/images/top/vision06.png",
-    alt: "大人小孩都喜歡的趣味讀書空間",
+    src: "	https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top06.jpg",
+    alt: "日常生活新站點",
   },
   {
-    src: "https://www.jgran.jp/nishiakashi/common/images/top/vision05.png",
-    alt: "成為育兒支援城市",
+    src: "	https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top02.jpg",
+    alt: "每天散步逛街都是樂趣",
   },
   {
-    src: "https://www.jgran.jp/nishiakashi/common/images/top/vision04.png",
-    alt: "人們可以聚集並繼續生活的地方",
+    src: "	https://10per-komatsu.com/wp/wp-content/uploads/2025/03/top07.jpg",
+    alt: "我們將創建一個城鎮中的每個人都能享受的廣場。",
   },
 ];
 

@@ -5,6 +5,9 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import Image from "next/image";
 import HoverCard from "../../components/HoverCardBuild/index";
 import gsap from "gsap";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import GsapText from "../../components/RevealText/index";
 
 import { PlaceholdersAndVanishInput } from "../../components/ui/placeholders-and-vanish-input";
 // import HeroSlider from "../../components/HeroSlider/page";
@@ -30,10 +33,72 @@ const Photos = () => {
     e.preventDefault();
     console.log("submitted");
   };
-
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(null);
+  const backgroundImages = [
+    "https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_01.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1",
+    "https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_02.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1",
+    "https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_04.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1",
+  ];
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPrevIndex(currentIndex); // 保留上一張索引
+      setCurrentIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [currentIndex]);
   return (
     <ReactLenis root>
-      {/* <HeroSlider /> */}
+      <section className="section-hero w-full h-[100vh] relative overflow-hidden">
+        {/* 背景圖片群組 */}
+        {backgroundImages.map((bg, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{
+              opacity: i === currentIndex ? 1 : 0,
+              scale: i === currentIndex ? 1.15 : 1, // 放大範圍加大
+            }}
+            transition={{
+              opacity: { duration: 1.5, ease: "easeInOut" }, // 切換用淡入淡出
+              scale: { duration: 20, ease: "linear" }, // 放大效果持續 20 秒
+            }}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+            style={{
+              backgroundImage: `url(${bg})`,
+            }}
+          />
+        ))}
+
+        {/* 黑色遮罩 */}
+        <div className="bg-black opacity-40 w-full h-full absolute top-0 left-0 z-10" />
+
+        {/* 文字區塊 */}
+        <div className="hero-title border border-green-300 w-1/2 absolute left-[4%] top-[90%] z-20">
+          <div className="text-center px-4">
+            <GsapText
+              text="Built for Living."
+              id="gsap-intro"
+              fontSize="4rem"
+              fontWeight="200"
+              color="#fff"
+              lineHeight="60px"
+              className="text-center !text-white tracking-widest inline-block mb-0 h-auto"
+            />
+          </div>
+          <div className="text-center px-4">
+            <GsapText
+              text="Yi Yuan"
+              id="gsap-intro"
+              fontSize="1.5rem"
+              fontWeight="200"
+              color="#fff"
+              lineHeight="30px"
+              className="text-center !text-white tracking-widest inline-block mb-0 h-auto"
+            />
+          </div>
+        </div>
+      </section>
       <section className=" pt-[10vh] ">
         <div className=" w-[90%] overflow-hidden md:w-[95%]  mx-auto">
           <div>
@@ -44,6 +109,7 @@ const Photos = () => {
                 src="https://www.bess.jp/wordpress/wp-content/themes/bess/assets/images/top_life_title.png"
                 alt="project-hero-img"
                 placeholder="empty"
+                className="w-[200px]"
                 loading="eager"
               ></Image>
             </div>
@@ -74,16 +140,10 @@ const Photos = () => {
         <StickyScroll content={content} />
       </div> */}
 
-      <section className="section_project flex flex-col 2xl:w-[80%] mx-auto  ">
-        <div className="flex flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
+      <section className="section_project py-[100px] flex flex-col 2xl:w-[80%] mx-auto  ">
+        <div className="flex max-w-[1920px] w-[80%] mx-auto flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
           <div className="title mr-4">
             <h2> 經典選粹</h2>
-          </div>
-          <div className="description">
-            <p className="text-gray-400 mr-4 text-right text-[14px]">
-              匠心獨運，築夢家園 —— 宜園建設打造理想居所，，<br></br>
-              結合自然美學與現代舒適，帶您邁向幸福生活新境界。
-            </p>
           </div>
         </div>
         <div data-aos="fade-up">
@@ -93,19 +153,14 @@ const Photos = () => {
       </section>
       <section className="section_project flex flex-col 2xl:w-[80%] mx-auto  py-[40px]">
         <div className="flex flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
-          <div className="description">
-            <p className="text-gray-400 ml-4 text-left text-[14px]">
-              匠心獨運，築夢家園 —— 宜園建設打造理想居所，，<br></br>
-              結合自然美學與現代舒適，帶您邁向幸福生活新境界。
-            </p>
-          </div>
+          <div className="description"></div>
         </div>
         <div data-aos="fade-up">
           {" "}
           <HoverCard />
         </div>
       </section>
-      <section>
+      {/* <section>
         <div className="banner relative max-w-[1500px] border border-black mx-auto">
           <Image
             src="https://kon-sumai.com/common/img/openhouse-bnr.jpg"
@@ -125,7 +180,7 @@ const Photos = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <ImageDistortion /> */}
       <div className="h-auto 2xl:h-[40rem] flex flex-col justify-center  items-center px-4">

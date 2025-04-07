@@ -7,7 +7,7 @@ import CustomEase from "gsap/CustomEase";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import "./page.css";
-
+import { DragCloseDrawer } from "../../components/DragCloseDrawer";
 // 註冊 GSAP 插件
 gsap.registerPlugin(CustomEase);
 CustomEase.create(
@@ -128,30 +128,6 @@ export default function LandingPage() {
   return (
     <div className="relative">
       {/* 左側滑動圖片 */}
-      <motion.div
-        style={{ opacity: fadeOut, x: slideLeft }}
-        className="absolute top-[-160px] md:top-[-50px] 2xl:top-[-150px]  left-[-5%] 2xl:left-0 sm:w-[450px] w-[350px] xl:w-[600px] h-auto z-10"
-      >
-        <Image
-          src="/images/—Pngtree—green trees branches and leaves_4877518.png"
-          alt="Left Tree"
-          width={600}
-          height={600}
-        />
-      </motion.div>
-
-      {/* 右側滑動圖片 */}
-      <motion.div
-        style={{ opacity: fadeOut, x: slideRight }}
-        className="absolute top-0 lg:top-0 right-0 sm:w-[450px] w-[300px] xl:w-[600px] h-auto z-10"
-      >
-        <Image
-          src="/images/—Pngtree—tree branch_5643252.png"
-          alt="Right Tree"
-          width={600}
-          height={600}
-        />
-      </motion.div>
 
       {/* 主內容 */}
       <div className="container ">
@@ -161,7 +137,7 @@ export default function LandingPage() {
         <section className="hero " ref={heroRef}>
           <div className="overlay" ref={overlayRef}></div>
 
-          <div
+          {/* <div
             className="header  overflow-hidden w-1/2 px-4 sm:px-[10%]"
             ref={headerRef}
           >
@@ -169,7 +145,7 @@ export default function LandingPage() {
               宜園建設
             </h1>
 
-            {/* 按鈕保留 */}
+          
             <div className="flex flex-row py-4 btn-wrap">
               <button className="group relative inline-flex h-8 items-center border-gray-400 border justify-center rounded-full bg-[#022c22] px-6 font-medium text-neutral-200">
                 關於宜園建設
@@ -178,32 +154,73 @@ export default function LandingPage() {
                 精選建案案例
               </button>
             </div>
-
-            <Marquee>
-              <div className="flex">
-                <h2 className="text-white font-light text-[1.5rem] md:text-[2.3rem]">
-                  宜家 -{" "}
-                </h2>
-                <h2 className="text-white font-light text-[1.5rem] md:text-[2.3rem]">
-                  宜居 -{" "}
-                </h2>
-                <h2 className="text-white font-light text-[1.5rem] md:text-[2.3rem]">
-                  宜園 -{" "}
-                </h2>
-              </div>
-            </Marquee>
-          </div>
+          </div> */}
 
           <div
-            className="hero-img border border-black h-[70vh] md:h-[90vh]"
+            className="hero-img border border-black h-[120vh]"
             ref={heroImgRef}
           >
-            <Image
-              src="/images/img1home.jpg"
-              alt=""
-              width={2800}
-              height={900}
-            />
+            <section className="section-hero relative">
+              <motion.div
+                style={{ opacity: fadeOut, x: slideLeft }}
+                className="absolute top-[-160px] md:top-[-50px] 2xl:top-[-150px]  left-[-5%] 2xl:left-0 sm:w-[450px] w-[350px] xl:w-[600px] h-auto z-[1]"
+              >
+                <Image
+                  src="/images/—Pngtree—green trees branches and leaves_4877518.png"
+                  alt="Left Tree"
+                  width={600}
+                  height={600}
+                />
+              </motion.div>
+
+              {/* 右側滑動圖片 */}
+              <motion.div
+                style={{ opacity: fadeOut, x: slideRight }}
+                className="absolute top-0 lg:top-0 right-0 sm:w-[450px] w-[300px] xl:w-[600px] h-auto z-[1]"
+              >
+                <Image
+                  src="/images/—Pngtree—tree branch_5643252.png"
+                  alt="Right Tree"
+                  width={600}
+                  height={600}
+                />
+              </motion.div>
+              <div className="grid overflow-hidden group absolute hover:w-[300px] duration-400 rounded-full bg-white border-2 border-black w-[60px] h-[60px] z-[9999999] top-[40%] left-[20%] place-content-center ">
+                <DragCloseDrawer
+                  trigger={({ onClick }) => (
+                    <button
+                      onClick={onClick}
+                      className="px-4  flex justify-start items-center   w-full h-[45px] group-hover:w-[300px] py-2 "
+                    >
+                      <div className="text-white rounded-full  w-[45px] h-[45px] bg-[#5b8b5a] flex justify-center items-center hover:bg-[#487447]">
+                        01
+                      </div>
+                      <span className="text-[1.1rem] ml-4 group-hover:block group-hover:opacity-100 delay-150 duration-300 hidden opacity-0 font-bold tracking-widest">
+                        實在的構築 - 宜園大院
+                      </span>
+                    </button>
+                  )}
+                >
+                  <div className="max-w-2xl mx-auto text-neutral-400 space-y-4">
+                    <h2 className="text-4xl font-bold text-neutral-200">
+                      可重用的 Drawer 🎉
+                    </h2>
+                    <p>
+                      這個 drawer
+                      現在可以在任何地方使用，只要傳入你想要的內容跟按鈕樣式就好。
+                    </p>
+                  </div>
+                </DragCloseDrawer>
+              </div>
+              <video
+                src="/videos/TMHD.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-[100vw] h-screen object-cover"
+              ></video>
+            </section>
           </div>
         </section>
       </div>
