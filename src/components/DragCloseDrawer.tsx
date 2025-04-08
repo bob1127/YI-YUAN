@@ -1,11 +1,4 @@
 import React, { useState } from "react";
-import useMeasure from "react-use-measure";
-import {
-  useDragControls,
-  useMotionValue,
-  useAnimate,
-  motion,
-} from "framer-motion";
 
 type DragCloseDrawerProps = {
   trigger: (props: { onClick: () => void }) => React.ReactNode;
@@ -19,15 +12,8 @@ export const DragCloseDrawer = ({
   className,
 }: DragCloseDrawerProps) => {
   const [open, setOpen] = useState(false);
-  const [scope, animate] = useAnimate();
-  const [drawerRef, { width }] = useMeasure(); // 👈 量測寬度
-  const x = useMotionValue(0);
-  const controls = useDragControls();
 
-  const handleClose = async () => {
-    animate(scope.current, { opacity: [1, 0] });
-    const xStart = typeof x.get() === "number" ? x.get() : 0;
-    await animate("#drawer", { x: [xStart, width] });
+  const handleClose = () => {
     setOpen(false);
   };
 
@@ -35,48 +21,49 @@ export const DragCloseDrawer = ({
     <>
       {trigger({ onClick: () => setOpen(true) })}
 
-      {open && (
-        <motion.div
-          ref={scope}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          onClick={handleClose}
-          className="fixed inset-0 z-50 bg-neutral-950/70"
-        >
-          <motion.div
-            id="drawer"
-            ref={drawerRef}
-            onClick={(e) => e.stopPropagation()}
-            initial={{ x: "100%" }}
-            animate={{ x: "0%" }}
-            transition={{ ease: "easeInOut" }}
-            className={`absolute right-0 top-0 h-full w-2/3 border-l-6 border-b-black overflow-hidden bg-neutral-50 ${
-              className || ""
-            }`}
-            style={{ x }}
-            drag="x"
-            dragControls={controls}
-            onDragEnd={() => {
-              if (x.get() >= 100) {
-                handleClose();
-              }
-            }}
-            dragListener={false}
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={{ left: 0, right: 0.5 }}
-          >
-            <div className="absolute top-0 right-0 z-[9999999999999999999] flex justify-end p-4 bg-neutral-50">
-              <button
-                onPointerDown={(e) => controls.start(e)}
-                className="h-2 w-14 cursor-grab touch-none rounded-full bg-neutral-700 active:cursor-grabbing"
-              ></button>
+      {/* Backdrop */}
+      <div
+        className={`fixed inset-0 z-40 bg-black/50 transition-opacity ${
+          open ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+        onClick={handleClose}
+      />
+
+      {/* Drawer Panel */}
+      <div
+        className={`fixed top-0 right-0 z-50 border-l-2 border-black border-t-2 h-full w-3/4 shadow-xl transform transition-transform duration-300 ease-in-out
+  bg-[linear-gradient(to_bottom,_#5b8b5a_0%,_#5b8b5a_30%,_#fefefe_30%,_#fefefe_100%)]
+  ${open ? "translate-x-0" : "translate-x-full"} ${className || ""}`}
+      >
+        {/* flex-col 容器，拉撐高度 */}
+        <div className="relative flex w-full flex-col h-full">
+          {/* 左側裝飾條 */}
+          <div className="left-bar absolute left-0 top-0 z-50 h-screen border-r-2 bg-white border-black w-[6%]">
+            {/* 關閉按鈕 - X 標誌 */}
+
+            <button
+              onClick={handleClose}
+              className="text-black text-2xl close-button border-b-2 border-black top h-[10%] w-full flex items-start justify-center  pt-4 hover:text-white hover:bg-black transition-colors duration-200"
+              aria-label="關閉"
+            >
+              ✕
+            </button>
+
+            {/* 垂直文字區 */}
+            <div className="rotate-[-90deg] flex items-center justify-center h-[70%]">
+              <b className="text-[1.45rem] font-bold tracking-widest">
+                YIYUANPROJECT
+              </b>
             </div>
-            <div className="relative z-0 h-full overflow-y-scroll p-6 pt-12">
-              {children}
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
+          </div>
+
+          <div className="flex justify-end p-4 border-b border-black z-10"></div>
+
+          <div className="flex-1  overflow-y-auto w-full h-full px-6 pt-2 pb-6 z-0">
+            {children}
+          </div>
+        </div>
+      </div>
     </>
   );
 };

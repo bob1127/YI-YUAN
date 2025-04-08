@@ -161,6 +161,14 @@ export default function LandingPage() {
             ref={heroImgRef}
           >
             <section className="section-hero relative">
+              <video
+                className="absolute inset-0 w-[100vw] h-[100vh] object-cover z-[-1]"
+                src="/videos/TMHD.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
               <motion.div
                 style={{ opacity: fadeOut, x: slideLeft }}
                 className="absolute top-[-160px] md:top-[-50px] 2xl:top-[-150px]  left-[-5%] 2xl:left-0 sm:w-[450px] w-[350px] xl:w-[600px] h-auto z-[1]"
@@ -185,41 +193,106 @@ export default function LandingPage() {
                   height={600}
                 />
               </motion.div>
-              <div className="grid overflow-hidden group absolute hover:w-[300px] duration-400 rounded-full bg-white border-2 border-black w-[60px] h-[60px] z-[9999999] top-[40%] left-[20%] place-content-center ">
-                <DragCloseDrawer
-                  trigger={({ onClick }) => (
-                    <button
-                      onClick={onClick}
-                      className="px-4  flex justify-start items-center   w-full h-[45px] group-hover:w-[300px] py-2 "
-                    >
-                      <div className="text-white rounded-full  w-[45px] h-[45px] bg-[#5b8b5a] flex justify-center items-center hover:bg-[#487447]">
-                        01
+              <div className="grid group place-content-center relative border border-blue-500 h-screen">
+                <div className="absolute overflow-hidden hover:w-[300px] duration-400 rounded-full bg-white border-2 border-black w-[10vmin] h-[10vmin] z-[1] top-[20%] left-[20%] ">
+                  <DragCloseDrawer
+                    trigger={({ onClick }) => (
+                      <button
+                        onClick={onClick}
+                        className="pr-4  flex justify-start items-center     pl-[1.5px] pt-[1.2px] group-hover:w-[560px]  "
+                      >
+                        <div className="text-white rounded-full  w-[9vmin] h-[9vmin] bg-[#5b8b5a] inline-flex  flex-col justify-center items-center hover:bg-[#487447]">
+                          <span className="text-[.8rem]">一青隱</span>
+                        </div>
+                        <span className="text-[1.1rem] ml-4 group-hover:block group-hover:opacity-100   duration-300 delay-150 hidden opacity-0 font-normal tracking-widest">
+                          實在的構築 - 宜園大院
+                        </span>
+                      </button>
+                    )}
+                  >
+                    <div className="w-[90%] pl-20 h-screen  py-[20px] relative  text-neutral-400 space-y-4">
+                      <div className="w-[400px] h-[280px] absolute z-[-1] right-[-10%] top-[10%] ">
+                        <Image
+                          src="https://www.tokiomarinehd.com/purpose/images/top/materiality/bg_id_3.png"
+                          alt=""
+                          width={800}
+                          height={800}
+                          placeholder="empty"
+                          className="w-full"
+                          loading="lazy"
+                        ></Image>
                       </div>
-                      <span className="text-[1.1rem] ml-4 group-hover:block group-hover:opacity-100 delay-150 duration-300 hidden opacity-0 font-bold tracking-widest">
-                        實在的構築 - 宜園大院
-                      </span>
-                    </button>
-                  )}
-                >
-                  <div className="max-w-2xl mx-auto text-neutral-400 space-y-4">
-                    <h2 className="text-4xl font-bold text-neutral-200">
-                      可重用的 Drawer 🎉
-                    </h2>
-                    <p>
-                      這個 drawer
-                      現在可以在任何地方使用，只要傳入你想要的內容跟按鈕樣式就好。
-                    </p>
-                  </div>
-                </DragCloseDrawer>
+                      <div className="modal-inner-title  inline-flex flex-col">
+                        <span className="font-bold text-4xl text-black">
+                          PROJECT-01
+                        </span>
+                        <h2 className="text-4xl bg-white border-2 border-black py-2 px-4 inline-block font-bold text-neutral-900">
+                          實在的構築-宜園大院
+                        </h2>
+                        <h3 className="text-[2.5rem] bg-white border-2 border-black inline-flex justify-center items-center py-2 px-4 tracking-widest font-bold text-black">
+                          宜園大院
+                        </h3>
+                      </div>
+                      <div>
+                        <p className="text-[1rem] w-2/3 font-normal leading-loose tracking-widest">
+                          在今天這個百歲壽命的時代，每個人都希望健康長壽，而隨著人口老化及先進醫療的普及，個人、家庭及社會的經濟負擔逐年加重。
+                          作為一家提供非壽險和壽險疾病保障產品的保險公司，本集團的目標是運用積累的專業知識，提供高增值的產品和服務。
+                          藉此，我們將為解決延長健康預期壽命和資產預期壽命等社會問題做出貢獻，並支持健康和充實的生活方式。
+                        </p>
+                      </div>
+                    </div>
+                  </DragCloseDrawer>
+                </div>
+                <div className="absolute overflow-hidden hover:w-[300px] duration-400 rounded-full bg-white border-2 border-black w-[10vmin] h-[10vmin] z-[1] top-[40%] left-[60%] ">
+                  <DragCloseDrawer
+                    trigger={({ onClick }) => (
+                      <button
+                        onClick={onClick}
+                        className="pr-4  flex justify-start items-center     pl-[1.5px] pt-[1.2px] group-hover:w-[560px]  "
+                      >
+                        <div className="text-white rounded-full  w-[9vmin] h-[9vmin] bg-[#5b8b5a] inline-flex  flex-col justify-center items-center hover:bg-[#487447]">
+                          <span>Yi Yuan</span>
+                        </div>
+                        <span className="text-[1.1rem] ml-4 group-hover:block group-hover:opacity-100   duration-300 delay-150 hidden opacity-0 font-normal tracking-widest">
+                          實在的構築 - 宜園大院
+                        </span>
+                      </button>
+                    )}
+                  >
+                    <div className="w-[90%] pl-20 h-screen  py-[20px] relative  text-neutral-400 space-y-4">
+                      <div className="w-[400px] h-[280px] absolute z-[-1] right-[-10%] top-[10%] ">
+                        <Image
+                          src="https://www.tokiomarinehd.com/purpose/images/top/materiality/bg_id_3.png"
+                          alt=""
+                          width={800}
+                          height={800}
+                          placeholder="empty"
+                          className="w-full"
+                          loading="lazy"
+                        ></Image>
+                      </div>
+                      <div className="modal-inner-title  inline-flex flex-col">
+                        <span className="font-bold text-4xl text-black">
+                          PROJECT-01
+                        </span>
+                        <h2 className="text-4xl bg-white border-2 border-black py-2 px-4 inline-block font-bold text-neutral-900">
+                          實在的構築-宜園大院
+                        </h2>
+                        <h3 className="text-[2.5rem] bg-white border-2 border-black inline-flex justify-center items-center py-2 px-4 tracking-widest font-bold text-black">
+                          宜園大院
+                        </h3>
+                      </div>
+                      <div>
+                        <p className="text-[1rem] w-2/3 font-normal leading-loose tracking-widest">
+                          在今天這個百歲壽命的時代，每個人都希望健康長壽，而隨著人口老化及先進醫療的普及，個人、家庭及社會的經濟負擔逐年加重。
+                          作為一家提供非壽險和壽險疾病保障產品的保險公司，本集團的目標是運用積累的專業知識，提供高增值的產品和服務。
+                          藉此，我們將為解決延長健康預期壽命和資產預期壽命等社會問題做出貢獻，並支持健康和充實的生活方式。
+                        </p>
+                      </div>
+                    </div>
+                  </DragCloseDrawer>
+                </div>
               </div>
-              <video
-                src="/videos/TMHD.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-[100vw] h-screen object-cover"
-              ></video>
             </section>
           </div>
         </section>
