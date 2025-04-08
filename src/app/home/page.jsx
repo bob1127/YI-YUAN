@@ -4,7 +4,7 @@ import { TextGenerateEffect } from "../../components/ui/text-generate-effec-home
 import StartAnimate from "../../components/HomeAnimate/page";
 
 import { Carousel, Card } from "../../components/ui/apple-cards-carousel";
-import HomeSlider from "../../components/HeroSliderHome/page";
+
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -427,9 +427,7 @@ export default function About() {
           </span>{" "}
         </h1> */}
       </div>
-      <section>
-        <HomeSlider />
-      </section>
+
       <section className="section_project flex-col my-20 sm:my-[20vh]">
         <div className="title  mb-6 flex justify-center flex-col items-center mx-auto w-[85%] sm:w-full">
           <TextGenerateEffect

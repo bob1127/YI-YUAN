@@ -294,7 +294,7 @@ export default function About() {
           </div>
         </div>
       </motion.div>
-      <section className="section-hero w-full h-[100vh] relative overflow-hidden">
+      <section className="section-hero w-full min-h-[100vh] relative">
         {/* 背景圖片群組 */}
         {backgroundImages.map((bg, i) => (
           <motion.div

@@ -6,6 +6,7 @@ import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import HomeSlider from "../HeroSliderHome/page";
 import "./page.css";
 import { DragCloseDrawer } from "../../components/DragCloseDrawer";
 // 註冊 GSAP 插件
@@ -161,14 +162,7 @@ export default function LandingPage() {
             ref={heroImgRef}
           >
             <section className="section-hero relative">
-              <video
-                className="absolute inset-0 w-[100vw] h-[100vh] object-cover z-[-1]"
-                src="/videos/TMHD.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
+              <HomeSlider />
               <motion.div
                 style={{ opacity: fadeOut, x: slideLeft }}
                 className="absolute top-[-160px] md:top-[-50px] 2xl:top-[-150px]  left-[-5%] 2xl:left-0 sm:w-[450px] w-[350px] xl:w-[600px] h-auto z-[1]"
