@@ -73,49 +73,60 @@ const Photos = () => {
 
       <section className="section_news py-[50px]">
         <div className="w-[80%] flex flex-col xl:flex-row section-container mx-auto">
-          <div className="w-full xl:w-[50%]">
+          <div className="w-full sm:pr-10 pr-5 lg:pr-20 xl:w-[50%]">
             <div className="flex flex-col">
               <h2 className="text-[9vmin] font-bold">NEWS</h2>
               <b>新公告</b>
             </div>
+            <ul>
+              <li className="border-b-1 group py-[40px] hover:scale-105 duration-400">
+                <div className="flex flex-row justify-between items-center w-auto ">
+                  <p>2025/01/01</p>
+                  <button
+                    role="link"
+                    class="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                  >
+                    慶祝宜園大院 動土典禮活動紀錄
+                  </button>
+                </div>
+              </li>
+              <li className="border-b-1 group py-[40px] hover:scale-105 duration-400">
+                <div className="flex flex-row justify-between items-center w-auto ">
+                  <p>2025/01/01</p>
+                  <button
+                    role="link"
+                    class="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                  >
+                    慶祝宜園大院 動土典禮活動紀錄
+                  </button>
+                </div>
+              </li>
+
+              <li className="border-b-1 group py-[40px] hover:scale-105 duration-400">
+                <div className="flex flex-row justify-between items-center w-auto ">
+                  <p>2025/01/01</p>
+                  <button
+                    role="link"
+                    class="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                  >
+                    慶祝宜園大院 動土典禮活動紀錄
+                  </button>
+                </div>
+              </li>
+            </ul>
           </div>
           <div className="w-full xl:w-[50%]">
             <div>
-              <ul>
-                <li className="border-b-1 py-[40px] hover:scale-105 duration-400">
-                  <div className="flex w-auto flex-col">
-                    <p>2025/01/01</p>
-                    <button
-                      role="link"
-                      class="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
-                    >
-                      慶祝宜園大院 動土典禮活動紀錄
-                    </button>
-                  </div>
-                </li>
-                <li className="border-b-1 py-[40px] hover:scale-105 duration-400">
-                  <div className="flex w-auto flex-col">
-                    <p>2025/01/01</p>
-                    <button
-                      role="link"
-                      class="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
-                    >
-                      慶祝宜園大院 動土典禮活動紀錄
-                    </button>
-                  </div>
-                </li>
-                <li className="border-b-1 py-[40px] hover:scale-105 duration-400">
-                  <div className="flex w-auto flex-col">
-                    <p>2025/01/01</p>
-                    <button
-                      role="link"
-                      class="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
-                    >
-                      慶祝宜園大院 動土典禮活動紀錄
-                    </button>
-                  </div>
-                </li>
-              </ul>
+              <Image
+                data-aos="fade-up"
+                src="https://www.lala.co.jp/wp-content/themes/lalahouse/common/images/top/img-about-after.png?1736987543401"
+                placeholder="empty"
+                loading="lazy"
+                alt=""
+                width={800}
+                height={1500}
+                className="w-[70%] mt-10 md:mt-0 mx-auto max-w-[800px]"
+              ></Image>
             </div>
           </div>
         </div>

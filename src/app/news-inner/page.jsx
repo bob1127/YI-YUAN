@@ -74,7 +74,7 @@ export default function About() {
   return (
     <ReactLenis root className="">
       <div className="flex lg:flex-row px-0 2xl:px-[200px] flex-col pt-[100px] bg-white ">
-        <div className=" w-full lg:w-[75%] flex-col justify-center items-center flex ">
+        <div className=" w-full lg:w-[75%]  flex-col justify-center items-center flex ">
           <EmblaCarousel
             slides={SLIDES}
             thumbnails={THUMBNAILS}
@@ -83,7 +83,7 @@ export default function About() {
           <div className="title py-[40px] md:py-[50px] px-[30px] sm:px-[40px] lg:px-[80px]">
             <h1 className="!text-[2rem]">宜園建設【一青隱】</h1>
           </div>
-          <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
+          <div className="content  flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
             <p className="leading-relaxed">
               不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
               致邀，職住共生的青創企業家 成家滿意，創業更旺，2-3房共居新浪潮
@@ -122,7 +122,7 @@ export default function About() {
             className="mt-5"
             loading="lazy"
           ></Image>
-          <div className="h-[40rem] flex flex-col justify-center  items-center px-4">
+          <div className=" pt-[50px] flex flex-col justify-center  items-center px-4">
             <h2 className="mb-10 sm:mb-20 text-[2.5rem] text-center  dark:text-white text-black">
               立即詢價 專人為您服務
             </h2>
@@ -135,7 +135,7 @@ export default function About() {
         </div>
 
         <div className="right w-full lg:w-[25%]">
-          <div className="wrap py-10 px-8 relative lg:fixed">
+          <div className="wrap py-10 px-8 relative top-[50px] lg:sticky">
             <b className="text-[1.1rem] font-bold">建案名稱：一清隱</b>
             <div className="project-info mt-5">
               <div className="flex  items-center">
@@ -169,7 +169,7 @@ export default function About() {
             <div className="h-[1px] bg-black w-[50vw]"></div>
             <div className="flex flex-col sm:flex-row justify-center items-center">
               <p className="text-[3rem] mx-4">NEWS</p>
-              <button class="group relative mr-3 inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950">
+              <button class="group relative mr-3 inline-flex h-12 w-12 items-center justify-center  rounded-full bg-neutral-950">
                 <div class="transition duration-300 group-hover:rotate-[360deg]">
                   <svg
                     width="15"
@@ -193,7 +193,7 @@ export default function About() {
           </div>
         </Marquee>
         <div className="flex bg-white flex-row justify-center items-center flex-wrap">
-          <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
+          <div className="news-item  group overflow-hidden  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
             <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
               <p className="text-[.8rem] hidden sm:block">
                 不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
@@ -204,7 +204,7 @@ export default function About() {
                   {" "}
                   NEWS:神隱青海│2-3房│含精裝修{" "}
                 </b>
-                <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
+                <button class="group relative inline-flex h-6 w-6 items-center justify-center  rounded-full bg-neutral-950 font-medium text-neutral-200">
                   <div class="translate-x-0 transition group-hover:translate-x-[300%]">
                     <svg
                       width="10"
@@ -243,7 +243,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
+          <div className="news-item  group overflow-hidden  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
             <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
               <p className="text-[.8rem] hidden sm:block">
                 不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
@@ -254,7 +254,7 @@ export default function About() {
                   {" "}
                   NEWS:神隱青海│2-3房│含精裝修{" "}
                 </b>
-                <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
+                <button class="group relative inline-flex h-6 w-6 items-center justify-center  rounded-full bg-neutral-950 font-medium text-neutral-200">
                   <div class="translate-x-0 transition group-hover:translate-x-[300%]">
                     <svg
                       width="10"
@@ -293,7 +293,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
+          <div className="news-item  group overflow-hidden  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
             <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
               <p className="text-[.8rem] hidden sm:block">
                 不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
@@ -304,7 +304,7 @@ export default function About() {
                   {" "}
                   NEWS:神隱青海│2-3房│含精裝修{" "}
                 </b>
-                <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
+                <button class="group relative inline-flex h-6 w-6 items-center justify-center  rounded-full bg-neutral-950 font-medium text-neutral-200">
                   <div class="translate-x-0 transition group-hover:translate-x-[300%]">
                     <svg
                       width="10"
@@ -343,7 +343,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
+          <div className="news-item  group overflow-hidden  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
             <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
               <p className="text-[.8rem] hidden sm:block">
                 不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
@@ -354,7 +354,7 @@ export default function About() {
                   {" "}
                   NEWS:神隱青海│2-3房│含精裝修{" "}
                 </b>
-                <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
+                <button class="group relative inline-flex h-6 w-6 items-center justify-center  rounded-full bg-neutral-950 font-medium text-neutral-200">
                   <div class="translate-x-0 transition group-hover:translate-x-[300%]">
                     <svg
                       width="10"
@@ -393,7 +393,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
+          <div className="news-item  group overflow-hidden  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
             <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
               <p className="text-[.8rem] hidden sm:block">
                 不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
@@ -404,7 +404,7 @@ export default function About() {
                   {" "}
                   NEWS:神隱青海│2-3房│含精裝修{" "}
                 </b>
-                <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
+                <button class="group relative inline-flex h-6 w-6 items-center justify-center  rounded-full bg-neutral-950 font-medium text-neutral-200">
                   <div class="translate-x-0 transition group-hover:translate-x-[300%]">
                     <svg
                       width="10"

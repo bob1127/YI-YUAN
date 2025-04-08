@@ -1,11 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { motion, useScroll, useTransform } from "framer-motion";
+import gsap from "gsap";
+import CustomEase from "gsap/CustomEase";
 import ThreeDSlider from "../../components/3DSlider.jsx";
 import { TransitionLink } from "../../components/utils/TransitionLink";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
-import { motion } from "framer-motion";
+
 import Link from "next/link.js";
 import { ContainerScroll } from "../../components/ui/container-scroll-animation.tsx";
 import ShiftingCountdown from "../../components/ShiftingCountdown.jsx";
@@ -17,10 +20,118 @@ import { TextGenerateEffect } from "../../components/ui/text-generate-effect";
 import Image from "next/image";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import Marquee from "react-fast-marquee";
+import { DragCloseDrawer } from "../../components/DragCloseDrawer";
 
 export default function About() {
   const pathname = usePathname();
+  const counterRef = useRef(null);
+  const heroRef = useRef(null);
+  const overlayRef = useRef(null);
+  const headerRef = useRef(null);
+  const heroImgRef = useRef(null);
 
+  // Framer Motion 滾動動畫
+  const { scrollYProgress } = useScroll();
+  const fadeOut = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const slideLeft = useTransform(scrollYProgress, [0, 0.3], ["0%", "-100%"]);
+  const slideRight = useTransform(scrollYProgress, [0, 0.3], ["0%", "100%"]);
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    function splitTextIntoSpans(selector) {
+      let elements = document.querySelectorAll(selector);
+      elements.forEach((element) => {
+        let text = element.innerText;
+        let splitText = text
+          .split("")
+          .map((char) => `<span>${char === " " ? "&nbsp;&nbsp;" : char}</span>`)
+          .join("");
+        element.innerHTML = splitText;
+      });
+    }
+    splitTextIntoSpans(".header h1");
+
+    function animateCounter() {
+      let currentValue = 0;
+      const updateInterval = 300;
+      const maxDuration = 2000;
+      const endValue = 100;
+      const startTime = Date.now();
+
+      const updateCounter = () => {
+        const elapsedTime = Date.now() - startTime;
+        if (elapsedTime < maxDuration) {
+          currentValue = Math.min(
+            currentValue + Math.floor(Math.random() * 30) + 5,
+            endValue
+          );
+          if (counterRef.current) counterRef.current.textContent = currentValue;
+          setTimeout(updateCounter, updateInterval);
+        } else {
+          if (counterRef.current) counterRef.current.textContent = endValue;
+          setTimeout(() => {
+            gsap.to(counterRef.current, {
+              y: -20,
+              duration: 1,
+              ease: "power3.inOut",
+              onStart: revealLandingPage,
+            });
+          }, 500);
+        }
+      };
+      updateCounter();
+    }
+
+    gsap.to(counterRef.current, {
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 1,
+      onComplete: animateCounter,
+    });
+
+    function revealLandingPage() {
+      gsap.to(heroRef.current, {
+        clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+        duration: 2,
+        ease: "hop",
+        onStart: () => {
+          gsap.to(heroRef.current, {
+            transform: "translate(-50%, -50%) scale(1)",
+            duration: 2.25,
+            ease: "power3.inOut",
+            delay: 0.25,
+          });
+
+          gsap.to(overlayRef.current, {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            duration: 2,
+            delay: 0.5,
+            ease: "hop",
+          });
+
+          gsap.to(heroImgRef.current, {
+            transform: "scale(1)",
+            duration: 2.25,
+            ease: "power3.inOut",
+            delay: 0.25,
+          });
+
+          gsap.to(".header h1 span", {
+            y: 0,
+            stagger: 0.1,
+            duration: 2,
+            ease: "power4.inOut",
+            delay: 0.75,
+            onComplete: () => {
+              document.body.style.overflow = "auto";
+            },
+          });
+        },
+      });
+    }
+  }, []);
   useEffect(() => {
     // 如果不是重整進來，而是從其他頁進入 about 頁，才執行 reload
     const hasReloaded = sessionStorage.getItem("hasReloadedAboutPage");
@@ -73,16 +184,145 @@ export default function About() {
   };
   return (
     <ReactLenis root>
-      <section className="section-hero">
-        <video
-          src="https://www.jgran.jp/nishiakashi/common/images/top/webtop0120_pc.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-[100vw] h-screen object-cover"
-        ></video>
-      </section>
+      <div
+        className="hero-img border mt-[10vh] border-black !static !h-[100vh]"
+        ref={heroImgRef}
+      >
+        <section className="section-hero relative">
+          <video
+            className="absolute inset-0 w-[100vw] h-[100vh] object-cover z-[-1]"
+            src="/videos/TMHD.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          <motion.div
+            style={{ opacity: fadeOut, x: slideLeft }}
+            className="absolute top-[-160px] md:top-[-50px] 2xl:top-[-150px]  left-[-5%] 2xl:left-0 sm:w-[450px] w-[350px] xl:w-[600px] h-auto z-[1]"
+          >
+            <Image
+              src="/images/—Pngtree—green trees branches and leaves_4877518.png"
+              alt="Left Tree"
+              width={600}
+              height={600}
+            />
+          </motion.div>
+
+          {/* 右側滑動圖片 */}
+          <motion.div
+            style={{ opacity: fadeOut, x: slideRight }}
+            className="absolute top-0 lg:top-0 right-0 sm:w-[450px] w-[300px] xl:w-[600px] h-auto z-[1]"
+          >
+            <Image
+              src="/images/—Pngtree—tree branch_5643252.png"
+              alt="Right Tree"
+              width={600}
+              height={600}
+            />
+          </motion.div>
+          <div className="grid group  place-content-center relative border border-blue-500 h-screen">
+            <div className="absolute overflow-hidden hover:w-[300px] duration-400 rounded-full bg-white border-2 border-black w-[10vmin] h-[10vmin] z-[1] top-[20%] left-[20%] ">
+              <DragCloseDrawer
+                trigger={({ onClick }) => (
+                  <button
+                    onClick={onClick}
+                    className="pr-4  flex justify-start items-center     pl-[1.5px] pt-[1.2px] group-hover:w-[560px]  "
+                  >
+                    <div className="text-white rounded-full  w-[9vmin] h-[9vmin] bg-[#5b8b5a] inline-flex  flex-col justify-center items-center hover:bg-[#487447]">
+                      <span className="text-[.8rem]">一青隱</span>
+                    </div>
+                    <span className="text-[1.1rem] ml-4 group-hover:block group-hover:opacity-100   duration-300 delay-150 hidden opacity-0 font-normal tracking-widest">
+                      實在的構築 - 宜園大院
+                    </span>
+                  </button>
+                )}
+              >
+                <div className="w-[90%] pl-20 h-screen  py-[20px] relative  text-neutral-400 space-y-4">
+                  <div className="w-[400px] h-[280px] absolute z-[-1] right-[-10%] top-[10%] ">
+                    <Image
+                      src="https://www.tokiomarinehd.com/purpose/images/top/materiality/bg_id_3.png"
+                      alt=""
+                      width={800}
+                      height={800}
+                      placeholder="empty"
+                      className="w-full"
+                      loading="lazy"
+                    ></Image>
+                  </div>
+                  <div className="modal-inner-title  inline-flex flex-col">
+                    <span className="font-bold text-4xl text-black">
+                      PROJECT-01
+                    </span>
+                    <h2 className="text-[2rem] bg-white border-2 border-black py-2 px-4 inline-block font-bold text-neutral-900">
+                      實在的構築-宜園大院
+                    </h2>
+                    <h3 className="text-[1.6rem] bg-white border-2 border-black inline-flex justify-center items-center py-2 px-4 tracking-widest font-bold text-black">
+                      宜園大院
+                    </h3>
+                  </div>
+                  <div>
+                    <p className="text-[1rem] w-2/3 font-normal leading-loose tracking-widest">
+                      在今天這個百歲壽命的時代，每個人都希望健康長壽，而隨著人口老化及先進醫療的普及，個人、家庭及社會的經濟負擔逐年加重。
+                      作為一家提供非壽險和壽險疾病保障產品的保險公司，本集團的目標是運用積累的專業知識，提供高增值的產品和服務。
+                      藉此，我們將為解決延長健康預期壽命和資產預期壽命等社會問題做出貢獻，並支持健康和充實的生活方式。
+                    </p>
+                  </div>
+                </div>
+              </DragCloseDrawer>
+            </div>
+            <div className="absolute overflow-hidden hover:w-[300px] duration-400 rounded-full bg-white border-2 border-black w-[10vmin] h-[10vmin] z-[1] top-[40%] left-[60%] ">
+              <DragCloseDrawer
+                trigger={({ onClick }) => (
+                  <button
+                    onClick={onClick}
+                    className="pr-4  flex justify-start items-center     pl-[1.5px] pt-[1.2px] group-hover:w-[560px]  "
+                  >
+                    <div className="text-white rounded-full  w-[9vmin] h-[9vmin] bg-[#5b8b5a] inline-flex  flex-col justify-center items-center hover:bg-[#487447]">
+                      <span>Yi Yuan</span>
+                    </div>
+                    <span className="text-[1.1rem] ml-4 group-hover:block group-hover:opacity-100   duration-300 delay-150 hidden opacity-0 font-normal tracking-widest">
+                      實在的構築 - 宜園大院
+                    </span>
+                  </button>
+                )}
+              >
+                <div className="w-[90%] pl-20 h-screen  py-[20px] relative  text-neutral-400 space-y-4">
+                  <div className="w-[400px] h-[280px] absolute z-[-1] right-[-10%] top-[10%] ">
+                    <Image
+                      src="https://www.tokiomarinehd.com/purpose/images/top/materiality/bg_id_3.png"
+                      alt=""
+                      width={800}
+                      height={800}
+                      placeholder="empty"
+                      className="w-full"
+                      loading="lazy"
+                    ></Image>
+                  </div>
+                  <div className="modal-inner-title  inline-flex flex-col">
+                    <span className="font-bold text-4xl text-black">
+                      PROJECT-01
+                    </span>
+                    <h2 className="text-4xl bg-white border-2 border-black py-2 px-4 inline-block font-bold text-neutral-900">
+                      實在的構築-宜園大院
+                    </h2>
+                    <h3 className="text-[2.5rem] bg-white border-2 border-black inline-flex justify-center items-center py-2 px-4 tracking-widest font-bold text-black">
+                      宜園大院
+                    </h3>
+                  </div>
+                  <div>
+                    <p className="text-[1rem] w-2/3 font-normal leading-loose tracking-widest">
+                      在今天這個百歲壽命的時代，每個人都希望健康長壽，而隨著人口老化及先進醫療的普及，個人、家庭及社會的經濟負擔逐年加重。
+                      作為一家提供非壽險和壽險疾病保障產品的保險公司，本集團的目標是運用積累的專業知識，提供高增值的產品和服務。
+                      藉此，我們將為解決延長健康預期壽命和資產預期壽命等社會問題做出貢獻，並支持健康和充實的生活方式。
+                    </p>
+                  </div>
+                </div>
+              </DragCloseDrawer>
+            </div>
+          </div>
+        </section>
+      </div>
       <Marquee>
         <div>
           <h1 className="text-[4.5rem] font-extrabold mx-5">YI-YUAN</h1>
@@ -126,7 +366,7 @@ export default function About() {
           height={500}
           placeholder="empty"
           loading="lazy"
-          className="max-w-[800px] mx-auto"
+          className="max-w-[800px] w-[90%] mx-auto"
         ></Image>
         <div>
           <p className="text-[1rem] tracking-widest leading-relaxed w-[70%] text-center mx-auto my-20">
@@ -315,7 +555,7 @@ export default function About() {
         </div>
       </section>
 
-      <section>
+      <section className="overflow-hidden">
         <div className="section-banner bg-[url('https://storage.googleapis.com/studio-design-asset-files/projects/91aPgdndql/s-2338x1328_v-frms_webp_37d66fac-41e3-41bf-80a5-2b9e118acf96.webp')] bg-center bg-cover bg-no-repeat h-[80vh] w-full relative">
           <div className="absolute hidden md:block w-1/3 h-full  top-0 z-0 right-0 bg-gradient-to-l from-black to-transparent opacity-60"></div>
           <div className="absolute w-[110%] md:w-1/2 h-full  top-0 z-0 left-0 bg-gradient-to-r from-black to-transparent opacity-90 md:opacity-70"></div>
@@ -326,7 +566,7 @@ export default function About() {
               alt=""
               width={800}
               height={400}
-              className="max-w-[400px]"
+              className="max-w-[400px] w-full"
               placeholder="empty"
             ></Image>
             <div>

@@ -23,7 +23,7 @@ export const DragCloseDrawer = ({
 
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-40 bg-black/50 transition-opacity ${
+        className={`!fixed inset-0 z-40 bg-black/50 transition-opacity ${
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={handleClose}
@@ -31,7 +31,7 @@ export const DragCloseDrawer = ({
 
       {/* Drawer Panel */}
       <div
-        className={`fixed top-0 right-0 z-50 border-l-2 border-black border-t-2 h-full w-3/4 shadow-xl transform transition-transform duration-300 ease-in-out
+        className={`!fixed top-0 right-0 z-50 border-l-2 border-black border-t-2 h-full w-full md:w-3/4 shadow-xl transform transition-transform duration-300 ease-in-out
   bg-[linear-gradient(to_bottom,_#5b8b5a_0%,_#5b8b5a_30%,_#fefefe_30%,_#fefefe_100%)]
   ${open ? "translate-x-0" : "translate-x-full"} ${className || ""}`}
       >
