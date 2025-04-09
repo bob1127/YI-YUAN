@@ -1,9 +1,12 @@
 "use client";
 import { useRef } from "react";
 import "./photos.css";
+import { ReactLenis } from "@studio-freight/react-lenis";
+
 import { Card, CardHeader, CardBody } from "@heroui/react";
 import HoverCard from "../../components/HoverCard/index.jsx";
 import React from "react";
+import GsapText from "../../components/RevealText/index";
 import { BackgroundGradientAnimation } from "../../components/ui/background-gradient-animation.tsx";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -23,7 +26,7 @@ const Photos = () => {
   const sliderRef = useRef(null);
 
   return (
-    <>
+    <ReactLenis root className="">
       <section className="section_hero relative overflow-hidden h-[100vh] border border-black">
         <Image
           src="/images/city-img_sp.png"
@@ -35,15 +38,17 @@ const Photos = () => {
           className="w-full h-full absolute z-[9] mt-[15vh] top-0 left-0"
         ></Image>
         <BackgroundGradientAnimation></BackgroundGradientAnimation>
-        <Image
-          src="/images/top-copy.png.webp"
-          alt=" "
-          placeholder="empty"
-          loading="lazy"
-          width={820}
-          height={300}
-          className=" absolute left-[35%]  top-[0%] z-[99999999]"
-        ></Image>
+        <div className="absolute w-[550px] z-50 top-[35%] left-[15%]">
+          <div className="flex flex-col">
+            <img
+              src="https://www.tokiomarinehd.com/purpose/images/top/purpose-ttl.svg"
+              alt="leaders message"
+            />
+            <div className="txt">
+              <h2>宜宜</h2>
+            </div>
+          </div>
+        </div>
       </section>
       <div className=" mt-[-20vh] ">
         <InfiniteMovingCards
@@ -75,42 +80,55 @@ const Photos = () => {
         <div className="w-[80%] flex flex-col xl:flex-row section-container mx-auto">
           <div className="w-full sm:pr-10 pr-5 lg:pr-20 xl:w-[50%]">
             <div className="flex flex-col">
-              <h2 className="text-[9vmin] font-bold">NEWS</h2>
-              <b>新公告</b>
+              <GsapText
+                text="NEWS."
+                id="gsap-intro"
+                fontSize="3.2rem"
+                fontWeight="800"
+                color="#000"
+                lineHeight="60px"
+                className="text-left tracking-widest inline-block mb-0 h-auto"
+              />
+              <p className="text-[.9rem] tracking-widest font-normal">
+                関西で活躍する編集者をゲストに迎えた「エディターズ・トーク」やインターン・採用情報などのニュースを発信しています。
+              </p>
             </div>
-            <ul>
-              <li className="border-b-1 group py-[40px] hover:scale-105 duration-400">
-                <div className="flex flex-row justify-between items-center w-auto ">
-                  <p>2025/01/01</p>
+            <ul className="mt-10">
+              <li className="border-b-1 group pt-4 pb-[20px] hover:scale-105 duration-400">
+                <div className="flex flex-col  w-auto ">
+                  <b className="text-[.8rem] mb-3">2025/01/01</b>
                   <button
                     role="link"
-                    class="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                    class="text-[1rem]  flex justify-start relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                   >
                     慶祝宜園大院 動土典禮活動紀錄
                   </button>
+                  <p className="text-[.8rem] mt-3">2025/01/01</p>
                 </div>
               </li>
-              <li className="border-b-1 group py-[40px] hover:scale-105 duration-400">
-                <div className="flex flex-row justify-between items-center w-auto ">
-                  <p>2025/01/01</p>
+              <li className="border-b-1 group pt-4 pb-[20px] hover:scale-105 duration-400">
+                <div className="flex flex-col  w-auto ">
+                  <b className="text-[.8rem] mb-3">2025/01/01</b>
                   <button
                     role="link"
-                    class="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                    class="text-[1rem]  flex justify-start relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                   >
                     慶祝宜園大院 動土典禮活動紀錄
                   </button>
+                  <p className="text-[.8rem] mt-3">2025/01/01</p>
                 </div>
               </li>
 
-              <li className="border-b-1 group py-[40px] hover:scale-105 duration-400">
-                <div className="flex flex-row justify-between items-center w-auto ">
-                  <p>2025/01/01</p>
+              <li className="border-b-1 group pt-4 pb-[20px] hover:scale-105 duration-400">
+                <div className="flex flex-col  w-auto ">
+                  <b className="text-[.8rem] mb-3">2025/01/01</b>
                   <button
                     role="link"
-                    class="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                    class="text-[1rem]  flex justify-start relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                   >
                     慶祝宜園大院 動土典禮活動紀錄
                   </button>
+                  <p className="text-[.8rem] mt-3">2025/01/01</p>
                 </div>
               </li>
             </ul>
@@ -132,25 +150,35 @@ const Photos = () => {
         </div>
       </section>
       <section className="mt-[0px] overflow-hidden w-[95%] xl:w-[85%] mx-auto xl:flex-row flex-col flex">
-        <div className="w-full xl:w-[70%] ">
+        <div className="w-full xl:w-[85%] ">
           <ScrollAnimation />
         </div>
-        <div className="w-full xl:w-[30%] pt-0  xl:pt-[10%] pb-20  ">
+        <div className="w-full xl:w-[15%] pt-0  xl:pt-[10%] pb-20  ">
           <div className="bg-white mt-20 w-full h-[400px] p-10">
             <h3>title</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-              molestiae eligendi et, ex ratione mollitia, accusamus amet, neque
-              iure labore officia deserunt placeat laborum quis incidunt.
-              Perferendis voluptates enim architecto!
-            </p>
           </div>
         </div>
       </section>
       <section>
+        <div className="flex justify-start items-center w-[80%] mx-auto">
+          <GsapText
+            text="EDITORS FILE."
+            id="gsap-intro"
+            fontSize="3.2rem"
+            fontWeight="800"
+            color="#000"
+            lineHeight="60px"
+            className="text-center tracking-widest inline-block mb-0 h-auto"
+          />
+
+          <div className="txt text-[.9rem] font-normal">
+            関西に拠点をおく編集者および <br></br>
+            編集業務を担う企業や団体を紹介しています。
+          </div>
+        </div>
         <HoverCard />
       </section>
-    </>
+    </ReactLenis>
   );
 };
 

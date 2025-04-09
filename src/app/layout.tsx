@@ -7,7 +7,7 @@ import "yakuhanjp";
 import { HeroUIProvider } from "@heroui/react";
 import Header from "../components/header/index.jsx";
 import ClientWrapper from "../components/ClientWrapper.jsx";
-
+import Footer from "../components/Footer/Footer1";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,23 +35,7 @@ export default function RootLayout({
             <main>{children}</main>
           </ClientWrapper>
 
-          {!isHomePage && (
-            <footer className="pb-[50px] lg:pb-[150px] z-[-1] sm:pt-[100px] pt-[50px] lg:pt-[200px] flex flex-col justify-center items-center bg-[#f4efe3]">
-              {/* ... footer內容不變，略去 ... */}
-              <div className="w-full flex justify-center pt-[100px]">
-                <p className="text-gray-400 mr-10 font-light text-[.85rem]">
-                  Copyright ©宜園建設
-                </p>
-                <a
-                  href="https://www.jeek-webdesign.com.tw"
-                  target="_blank"
-                  className="text-gray-400 font-light text-[.85rem]"
-                >
-                  Design by 極客網頁設計
-                </a>
-              </div>
-            </footer>
-          )}
+          {!isHomePage && <Footer />}
         </body>
       </HeroUIProvider>
     </html>

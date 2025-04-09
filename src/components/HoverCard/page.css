@@ -21,9 +21,7 @@
 }
 
 @media (max-width: 900px) {
-  body {
-    padding: 5rem 0;
-  }
+
   .items {
     flex-direction: column;
   }

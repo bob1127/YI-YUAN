@@ -73,7 +73,7 @@ export default function About() {
 
   return (
     <ReactLenis root className="">
-      <div className="flex lg:flex-row px-0 2xl:px-[200px] flex-col pt-[100px] bg-white ">
+      <div className="flex lg:flex-row max-w-[1920px] mx-auto px-0 2xl:px-[200px] flex-col pt-[100px] bg-white ">
         <div className=" w-full lg:w-[75%]  flex-col justify-center items-center flex ">
           <EmblaCarousel
             slides={SLIDES}

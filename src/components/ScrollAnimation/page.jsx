@@ -15,7 +15,7 @@ const servicesData = [
     description:
       "宜園建設，承襲匠心工藝，以細膩的規劃與人本設計，打造兼具美感與實用的居住空間。我們不只建造房屋，更締造理想的生活場域，讓每一位住戶都能在此找到家的溫度。",
     imgSrc:
-      "https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie004-2-2048x1365.jpg",
+      "https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/service-01-pc.webp",
     alt: "Web Development",
   },
   {
@@ -23,7 +23,7 @@ const servicesData = [
     description:
       "宜園建設，承襲匠心工藝，以細膩的規劃與人本設計，打造兼具美感與實用的居住空間。我們不只建造房屋，更締造理想的生活場域，讓每一位住戶都能在此找到家的溫度。",
     imgSrc:
-      "https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie040-1-1-2048x1366.jpg",
+      "https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/service-02-pc.webp",
     alt: "App Development",
   },
   {
@@ -31,7 +31,7 @@ const servicesData = [
     description:
       "宜園建設，承襲匠心工藝，以細膩的規劃與人本設計，打造兼具美感與實用的居住空間。我們不只建造房屋，更締造理想的生活場域，讓每一位住戶都能在此找到家的溫度。",
     imgSrc:
-      "https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie-54-1-2048x1365.jpg",
+      "https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/service-03-pc.webp",
     alt: "Digital Marketing",
   },
 ];
@@ -124,7 +124,9 @@ export default function ServicesSection() {
           <div key={index} className="service flex items-center">
             <div className="service-info">
               <h1 className="text-2xl font-semibold">{service.title}</h1>
-              <p className="mt-2 text-gray-700">{service.description}</p>
+              <p className="mt-2 text-gray-800 text-[.8rem] tracking-widest">
+                {service.description}
+              </p>
             </div>
             <div className="service-img relative">
               <div className="img w-30">
@@ -132,7 +134,7 @@ export default function ServicesSection() {
                   src={service.imgSrc}
                   alt={service.alt}
                   width={500}
-                  height={300}
+                  height={220}
                 />
               </div>
             </div>
