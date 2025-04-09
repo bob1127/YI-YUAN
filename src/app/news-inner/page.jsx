@@ -5,8 +5,10 @@ import { AnimatedTooltip } from "../../components/ui/animated-tooltip";
 import { PlaceholdersAndVanishInput } from "../../components/ui/placeholders-and-vanish-input";
 import { TextGenerateEffect } from "../../components/ui/text-generate-effect";
 import Image from "next/image";
+import GsapText from "../../components/RevealText";
 // import { StickyScroll } from "../../components/ui/sticky-scroll-reveal";
 import React from "react";
+import TextImageSlider from "../../components/TextImageSlider";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import Marquee from "react-fast-marquee";
 export default function About() {
@@ -81,7 +83,14 @@ export default function About() {
             options={OPTIONS}
           />
           <div className="title py-[40px] md:py-[50px] px-[30px] sm:px-[40px] lg:px-[80px]">
-            <h1 className="!text-[2rem]">宜園建設【一青隱】</h1>
+            <GsapText
+              text="宜園建設【一青隱】"
+              fontSize="6vmin"
+              color="#000"
+              fontWeight="900"
+              className="!text-black"
+              delay={0.3} // ✅ 延遲 0.3 秒動畫
+            />
           </div>
           <div className="content  flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
             <p className="leading-relaxed">
@@ -101,8 +110,13 @@ export default function About() {
             />
           </div>
           <div className="title py-[40px] md:py-[50px] px-[30px] sm:px-[40px] lg:px-[80px]">
-            <TextGenerateEffect words="向自然習作，美好新始，健康新序" />
-            <h1 className="!text-[2rem]"></h1>
+            <GsapText
+              text="向自然習作，美好新始，健康新序"
+              fontSize="5.3vmin"
+              color="#000"
+              className="!text-black"
+              delay={0.3} // ✅ 延遲 0.3 秒動畫
+            />
           </div>
           <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
             <p className="leading-relaxed">
@@ -122,6 +136,7 @@ export default function About() {
             className="mt-5"
             loading="lazy"
           ></Image>
+          <TextImageSlider />
           <div className=" pt-[50px] flex flex-col justify-center  items-center px-4">
             <h2 className="mb-10 sm:mb-20 text-[2.5rem] text-center  dark:text-white text-black">
               立即詢價 專人為您服務

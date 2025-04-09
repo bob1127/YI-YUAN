@@ -8,7 +8,7 @@ import CustomEase from "gsap/CustomEase";
 import ThreeDSlider from "../../components/3DSlider.jsx";
 import { TransitionLink } from "../../components/utils/TransitionLink";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
-
+import TextImageSlider from "../../components/TextImageSlider.jsx";
 import Link from "next/link.js";
 import { ContainerScroll } from "../../components/ui/container-scroll-animation.tsx";
 import ShiftingCountdown from "../../components/ShiftingCountdown.jsx";
@@ -358,6 +358,7 @@ export default function About() {
       <section className="py-20">
         <ThreeDSlider />
       </section>
+      <TextImageSlider />
       <section>
         <Image
           src="https://www.jgran.jp/nishiakashi/common/images/top/vision_title.png"
