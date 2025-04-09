@@ -397,7 +397,7 @@ export default function About() {
           <div className="flex w-[80%] flex-col md:flex-row h-full justify-center items-center mx-auto">
             <div className=" w-full md:w-1/2 p-5  border">
               <GsapText
-                text="進化し続けるためのデザイン"
+                text="持續進化的設計"
                 id="gsap-intro"
                 fontSize="1.3rem"
                 fontWeight="200"
@@ -407,7 +407,7 @@ export default function About() {
               />
 
               <p className="text-[.85rem]   tracking-widest leading-loose text-gray-100 ">
-                エントランスから高架下を繋ぐ通路には、インダストリアルな吊り電球を採用。異国情緒あふれる店舗の連なりやネオンサインと相まって、カオスかつ人が生み出す賑わいを演出している。
+                從入口連接高架下的通道採用了工業風吊燈。結合異國情調的商店排列和霓虹招牌，營造出混沌又富有活力的氛圍。
               </p>
             </div>
             <div className=" w-full md:w-1/2 flex justify-center items-center">
@@ -598,8 +598,8 @@ export default function About() {
                       </button>
                     </div>
                     <span className="text-[.75rem] text-gray-100">
-                      太陽インキ製造 InnoValley
-                      がベストワークプレイスカテゴリーにて最優秀賞を受賞しました。
+                      太陽印刷製造 InnoValley
+                      在最佳工作場所類別中獲得了最高獎項。
                     </span>
                     <span className="text-[.75rem] text-gray-100">
                       Taichung - 2025.03.23
@@ -640,8 +640,8 @@ export default function About() {
                       </button>
                     </div>
                     <span className="text-[.75rem] text-gray-100">
-                      太陽インキ製造 InnoValley
-                      がベストワークプレイスカテゴリーにて最優秀賞を受賞しました。
+                      太陽印刷製造 InnoValley
+                      在最佳工作場所類別中獲得了最高獎項。
                     </span>
                     <span className="text-[.75rem] text-gray-100">
                       Taichung - 2025.03.23
@@ -681,8 +681,8 @@ export default function About() {
                       </button>
                     </div>
                     <span className="text-[.75rem] text-gray-100">
-                      太陽インキ製造 InnoValley
-                      がベストワークプレイスカテゴリーにて最優秀賞を受賞しました。
+                      太陽印刷製造 InnoValley
+                      在最佳工作場所類別中獲得了最高獎項。
                     </span>
                     <span className="text-[.75rem] text-gray-100">
                       Taichung - 2025.03.23
@@ -722,8 +722,8 @@ export default function About() {
                       </button>
                     </div>
                     <span className="text-[.75rem] text-gray-100">
-                      太陽インキ製造 InnoValley
-                      がベストワークプレイスカテゴリーにて最優秀賞を受賞しました。
+                      太陽印刷製造 InnoValley
+                      在最佳工作場所類別中獲得了最高獎項。
                     </span>
                     <span className="text-[.75rem] text-gray-100">
                       Taichung - 2025.03.23

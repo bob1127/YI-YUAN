@@ -631,8 +631,9 @@ export default function About() {
                   </button>
                 </div>
                 <span className="text-[.75rem]">
-                  太陽インキ製造 InnoValley
-                  がベストワークプレイスカテゴリーにて最優秀賞を受賞しました。
+                  太陽印刷製造 InnoValley 在最佳工作場所類別中獲得了最高獎項。
+
+
                 </span>
                 <span className="text-[.75rem]">Taichung - 2025.03.23</span>
               </div>
@@ -672,8 +673,9 @@ export default function About() {
                   </button>
                 </div>
                 <span className="text-[.75rem]">
-                  太陽インキ製造 InnoValley
-                  がベストワークプレイスカテゴリーにて最優秀賞を受賞しました。
+                  太陽印刷製造 InnoValley 在最佳工作場所類別中獲得了最高獎項。
+
+
                 </span>
                 <span className="text-[.75rem]">Taichung - 2025.03.23</span>
               </div>
@@ -712,8 +714,9 @@ export default function About() {
                   </button>
                 </div>
                 <span className="text-[.75rem]">
-                  太陽インキ製造 InnoValley
-                  がベストワークプレイスカテゴリーにて最優秀賞を受賞しました。
+                  太陽印刷製造 InnoValley 在最佳工作場所類別中獲得了最高獎項。
+
+
                 </span>
                 <span className="text-[.75rem]">Taichung - 2025.03.23</span>
               </div>
@@ -752,8 +755,9 @@ export default function About() {
                   </button>
                 </div>
                 <span className="text-[.75rem]">
-                  太陽インキ製造 InnoValley
-                  がベストワークプレイスカテゴリーにて最優秀賞を受賞しました。
+                  太陽印刷製造 InnoValley 在最佳工作場所類別中獲得了最高獎項。
+
+
                 </span>
                 <span className="text-[.75rem]">Taichung - 2025.03.23</span>
               </div>
@@ -792,8 +796,9 @@ export default function About() {
                   </button>
                 </div>
                 <span className="text-[.75rem]">
-                  太陽インキ製造 InnoValley
-                  がベストワークプレイスカテゴリーにて最優秀賞を受賞しました。
+                  太陽印刷製造 InnoValley 在最佳工作場所類別中獲得了最高獎項。
+
+
                 </span>
                 <span className="text-[.75rem]">Taichung - 2025.03.23</span>
               </div>
