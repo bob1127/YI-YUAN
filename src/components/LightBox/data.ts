@@ -38,6 +38,11 @@ export const slides = [
     description: 'Slide Description Six',
     borderRadius: 'rounded-tr-2xl', // 右上角圓角更大
   },
+   {
+    title: 'Yi Yuan',
+    description: 'This is a styled box without an image.',
+    customStyle: "bg-[#35a9db]  text-white p-2 grid items-center text-center rounded-bl-2xl border-2 border-black rounded-tr-2xl",
+  },
   {
     src: 'https://lifejam.co.jp/img_index/ph_minna-no-ie.jpg',
     title: 'Slide Title Seven',
@@ -48,32 +53,13 @@ export const slides = [
     title: 'Slide Title Eight',
     description: 'Slide Description Eight',
   },
-   {
-    title: 'Custom Styled Box',
-    description: 'This is a styled box without an image.',
-    customStyle: "bg-[#35a9db] text-white p-2 grid items-center text-center rounded-bl-2xl border-2 border-white rounded-tr-2xl",
-  },
+  
   {
     src: 'https://lifejam.co.jp/projects/gyokuto-town-office/images/img_detail03.jpg',
     title: 'Slide Title Nine',
     description: 'Slide Description Nine',
   },
-  {
-    src: 'https://lifejam.co.jp/projects/gyokuto-town-office/images/img_detail04.jpg',
-    title: 'Slide Title Ten',
-    description: 'Slide Description Ten',
-  },
-  {
-    src: 'https://lifejam.co.jp/projects/gyokuto-town-office/images/img_detail05.jpg',
-    title: 'Slide Title Six',
-    description: 'Slide Description Six',
-    borderRadius: 'rounded-tr-2xl', // 右上角圓角更大
-  },
-  {
-    src: 'https://lifejam.co.jp/projects/gyokuto-town-office/images/img_detail08.jpg',
-    title: 'Slide Title Seven',
-    description: 'Slide Description Seven',
-  },
+ 
   {
     src: 'https://lifejam.co.jp/projects/gyokuto-town-office/images/img_detail12.jpg',
     title: 'Slide Title Eight',
@@ -84,24 +70,15 @@ export const slides = [
     title: 'Slide Title Nine',
     description: 'Slide Description Nine',
   },
-  {
-    src: 'https://lifejam.co.jp/projects/choyo-seibu-public-housing/images/img_detail10.jpg',
-    title: 'Slide Title Ten',
-    description: 'Slide Description Ten',
-  },
-  {
-    src: 'https://lifejam.co.jp/projects/choyo-seibu-public-housing/images/next.jpg',
-    title: 'Slide Title Seven',
-    description: 'Slide Description Seven',
-  },
+ 
   {
     src: 'https://lifejam.co.jp/img_index/ph_takahiradai-no-ie.jpg',
     title: 'Slide Title Eight',
     description: 'Slide Description Eight',
   },
      {
-    title: '',
-    description: '',
-    customStyle: "w-[40vmin] font-normal text-[1.2rem]",
+    title: '宜園建設',
+    description: '實在的構築',
+    customStyle: "w-[40vmin] border-2 border-black rounded-br-2xl bg-[#35a9db] text-white font-normal text-[1.2rem]",
   },
 ]

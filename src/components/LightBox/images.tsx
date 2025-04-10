@@ -14,11 +14,11 @@ interface ImagesProps {
 const Images: FC<ImagesProps> = ({ data, onClick }) => {
   return (
     <div className="wrapper p-4 md:p-8">
-      <div className="container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 auto-rows-[150px] max-w-[1400px] mx-auto">
+      <div className="container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-2 auto-rows-[150px] w-full mx-auto">
         {data.map((slide, index) => (
           <div
             key={index}
-            className={`relative flex justify-center items-center overflow-hidden rounded-lg ${
+            className={`relative flex justify-center items-center   ${
               slide.customStyle || ""
             }`}
             onClick={() => onClick(index)}
@@ -27,12 +27,12 @@ const Images: FC<ImagesProps> = ({ data, onClick }) => {
               <img
                 src={slide.src}
                 alt={slide.description}
-                className={`w-full h-full object-cover border border-black ${
+                className={`w-full h-full border-2 border-black object-cover${
                   slide.borderRadius || ""
                 }`}
               />
             ) : (
-              <div className="w-full h-full flex justify-center items-center bg-gray-200 text-center p-2">
+              <div className="w-full h-full flex justify-center items-center  text-center p-2">
                 {slide.title}
               </div>
             )}

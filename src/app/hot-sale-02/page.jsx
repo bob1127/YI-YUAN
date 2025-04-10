@@ -625,10 +625,10 @@ export default function About() {
           </p>
         </div>
         <a className="flex mx-auto my-10" href="tel:0120-292-210">
-          <img
+          {/* <img
             className="w-[120px] h-[55px]"
             src="https://www.jgran.jp/nishiakashi/common/images/common/icon_tel.svg"
-          ></img>
+          ></img> */}
           <span className="tel__txt">
             <font className="font-bold text-[2.2rem]">
               <font className="font-bold text-[2.2rem]">0120-292-210</font>

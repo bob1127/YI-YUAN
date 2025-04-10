@@ -9,6 +9,7 @@ import CustomEase from "gsap/CustomEase";
 import Landing from "../components/Landing/index.jsx";
 import Preloader from "../components/Preloader/index.jsx";
 let isInitialLoad = true;
+import CityScene from "../components/CityScene.jsx";
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -96,7 +97,7 @@ export default function Home() {
       )}
       <div className="home-page relativez-[99999999999]" ref={containerRef}>
         <div className="hero-video">
-          <video
+          {/* <video
             ref={videoRef}
             className="video-bg"
             autoPlay
@@ -108,9 +109,10 @@ export default function Home() {
               src="videos/7578552-uhd_2560_1440_30fps.mp4"
               type="video/mp4"
             />
-          </video>
+          </video> */}
           {/* 黑色遮罩 */}
-          <div className="video-overlay"></div>
+          {/* <div className="video-overlay"></div> */}
+          <CityScene />
         </div>
         <div className="hero-title z-[99999]">
           <div className="line mt-4 ">

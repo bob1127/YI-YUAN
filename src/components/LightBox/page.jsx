@@ -36,7 +36,7 @@ function App() {
         }}
         // open={open}
         // close={() => setOpen(false)}
-        className="!z-[999999999999999999] !fixed"
+        className="!z-[99999999999999]  !fixed"
         index={index}
         open={index >= 0}
         close={() => setIndex(-1)}

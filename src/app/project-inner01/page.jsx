@@ -13,6 +13,7 @@ import HeroSlider from "../../components/HeroSlider/page";
 import { NumberTicker } from "../../../src/components/magicui/number-ticker";
 import HoverExpand from "../../components/HoverExpand/page";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import GsapText from "../../components/RevealText";
 
 import { Carousel, Card } from "../../components/ui/apple-cards-carousel";
 import {
@@ -296,22 +297,15 @@ export default function About() {
 比擬的居住體驗"
           description="在宜園建設的每一個家中，空間規劃無不考量到居住者的需求與舒適。大面積的開放式設計，帶來豐富的自然光線，讓每個角落都充滿生機。廚房、衛浴的每一處細節，都選用頂級材質，無論是煮飯還是休息，都是一場享受。"
         ></TextParallaxContent>
-        <TextParallaxContent
-          imgUrl="https://www.31sumai.com/content/dam/31sumai/mfr/B2223/top/add2.jpg"
-          subheading="Modern"
-          heading="Dress for the best."
-          description="fsdfsdfsdf"
-        ></TextParallaxContent>
       </div>
-      <div className="w-full h-full py-20">
+
+      <section className="w-full section_carousel h-full py-20">
         <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
           你們可能也會有興趣
         </h2>
         <Carousel items={cards} />
-      </div>
-      <div className="w-full overflow-hidden">
-        <LightBox />
-      </div>
+      </section>
+
       {/* <HoverExpand /> */}
     </ReactLenis>
   );
@@ -404,7 +398,7 @@ const OverlayCopy = ({ subheading, heading, description }) => {
 };
 
 const ExampleContent = () => (
-  <div className="mx-auto ">
+  <section className="mx-auto pb-[100px]">
     <div className=" py-[50px] w-[80%] mx-auto  flex flex-col justify-center items-center">
       <h2 data-aos="fade-up" className="text-[2.2rem] text-center ">
         幸福生活，從宜園開始{" "}
@@ -424,7 +418,12 @@ const ExampleContent = () => (
       </p>
       <div className="mb-8 text-xl text-neutral-600 md:text-2xl"></div>
     </div>
-  </div>
+    <section className="w-full section_lightbox overflow-hidden">
+      <div className=" flex justify-center">
+        <LightBox />
+      </div>
+    </section>
+  </section>
 );
 
 // others data

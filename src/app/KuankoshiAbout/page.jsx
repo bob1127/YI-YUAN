@@ -2,7 +2,7 @@
 import { TransitionLink } from "../../components/utils/TransitionLink";
 
 import ThreeDSlider from "../../components/3DSlider.jsx";
-import "./about.css";
+
 import InfiniteScroll from "../../components/InfiniteScroll/page.jsx";
 import GsapText from "../../components/RevealText/index";
 import HomeSlider from "../../components/HeroSliderHome/page.jsx";
@@ -632,8 +632,6 @@ export default function About() {
                 </div>
                 <span className="text-[.75rem]">
                   太陽印刷製造 InnoValley 在最佳工作場所類別中獲得了最高獎項。
-
-
                 </span>
                 <span className="text-[.75rem]">Taichung - 2025.03.23</span>
               </div>
@@ -674,8 +672,6 @@ export default function About() {
                 </div>
                 <span className="text-[.75rem]">
                   太陽印刷製造 InnoValley 在最佳工作場所類別中獲得了最高獎項。
-
-
                 </span>
                 <span className="text-[.75rem]">Taichung - 2025.03.23</span>
               </div>
@@ -715,8 +711,6 @@ export default function About() {
                 </div>
                 <span className="text-[.75rem]">
                   太陽印刷製造 InnoValley 在最佳工作場所類別中獲得了最高獎項。
-
-
                 </span>
                 <span className="text-[.75rem]">Taichung - 2025.03.23</span>
               </div>
@@ -756,8 +750,6 @@ export default function About() {
                 </div>
                 <span className="text-[.75rem]">
                   太陽印刷製造 InnoValley 在最佳工作場所類別中獲得了最高獎項。
-
-
                 </span>
                 <span className="text-[.75rem]">Taichung - 2025.03.23</span>
               </div>
@@ -797,8 +789,6 @@ export default function About() {
                 </div>
                 <span className="text-[.75rem]">
                   太陽印刷製造 InnoValley 在最佳工作場所類別中獲得了最高獎項。
-
-
                 </span>
                 <span className="text-[.75rem]">Taichung - 2025.03.23</span>
               </div>
