@@ -3,7 +3,7 @@
 import { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import Header from "./header/index.jsx";
-import { TextGenerateEffect } from "./ui/text-generate-effect";
+import { TextGenerateEffect } from "./ui/text-generate-effect.jsx";
 
 export default function LayoutContent({ children }: { children: ReactNode }) {
   const pathname = usePathname();

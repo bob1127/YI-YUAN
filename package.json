@@ -19,6 +19,9 @@
     "@nextui-org/react": "^2.6.11",
     "@radix-ui/react-hover-card": "^1.1.6",
     "@radix-ui/react-slot": "^1.1.2",
+    "@react-spring/three": "^9.6.1",
+    "@react-three/drei": "^9.83.5",
+    "@react-three/fiber": "^8.13.6",
     "@studio-freight/react-lenis": "^0.0.47",
     "@tabler/icons-react": "^3.30.0",
     "aos": "^2.3.4",
@@ -44,7 +47,7 @@
     "swiper": "^11.2.4",
     "tailwind-merge": "^3.1.0",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.174.0",
+    "three": "^0.158.0",
     "yakuhanjp": "^4.1.1",
     "yet-another-react-lightbox": "^3.21.7"
   },

@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls, Text } from "@react-three/drei";
@@ -59,8 +60,8 @@ function CameraController({ target, onArrived }) {
   return null;
 }
 
-// 🔷 主元件
-export default function CityScene() {
+// 主元件（強制只在 Client 端渲染）
+function CityScene() {
   const [camTarget, setCamTarget] = useState(null);
   const [activeInfo, setActiveInfo] = useState(null);
 
@@ -143,3 +144,8 @@ export default function CityScene() {
     </div>
   );
 }
+
+// 強制 client-only export
+export default dynamic(() => Promise.resolve(CityScene), {
+  ssr: false,
+});
