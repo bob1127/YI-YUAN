@@ -11,9 +11,9 @@ import Preloader from "../components/Preloader/index.jsx";
 let isInitialLoad = true;
 
 import dynamic from "next/dynamic";
-const CityScene = dynamic(() => import("@/components/CityScene"), {
-  ssr: false,
-});
+// const CityScene = dynamic(() => import("@/components/CityScene"), {
+//   ssr: false,
+// });
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -101,7 +101,7 @@ export default function Home() {
       )}
       <div className="home-page relativez-[99999999999]" ref={containerRef}>
         <div className="hero-video">
-          <CityScene />
+          {/* <CityScene /> */}
           {/* <video
             ref={videoRef}
             className="video-bg"
