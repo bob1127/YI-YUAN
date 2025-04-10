@@ -100,7 +100,7 @@ export default function About() {
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            第一階段：地下室工程完成（基礎結構已完工，進入地上層施作）
+            第一階段：地下室工程完成（基礎結構已完工dd，進入地上層施作）
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
