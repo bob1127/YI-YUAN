@@ -9,7 +9,11 @@ import CustomEase from "gsap/CustomEase";
 import Landing from "../components/Landing/index.jsx";
 import Preloader from "../components/Preloader/index.jsx";
 let isInitialLoad = true;
-import CityScene from "../components/CityScene.jsx";
+
+import dynamic from "next/dynamic";
+const CityScene = dynamic(() => import("@/components/CityScene"), {
+  ssr: false,
+});
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -97,6 +101,7 @@ export default function Home() {
       )}
       <div className="home-page relativez-[99999999999]" ref={containerRef}>
         <div className="hero-video">
+          <CityScene />
           {/* <video
             ref={videoRef}
             className="video-bg"
@@ -112,7 +117,6 @@ export default function Home() {
           </video> */}
           {/* 黑色遮罩 */}
           {/* <div className="video-overlay"></div> */}
-          <CityScene />
         </div>
         <div className="hero-title z-[99999]">
           <div className="line mt-4 ">
