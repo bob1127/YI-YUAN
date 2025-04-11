@@ -14,7 +14,7 @@ function HoverItem({
 
   return (
     <div
-      className={`w-[330px] hover:scale-95  hover:shadow-md duration-400 mx-4 group overflow-hidden relative bg-center bg-cover bg-no-repeat h-[480px] rounded-full border-2 border-black ${className}`}
+      className={`w-[330px] hover:scale-95  hover:shadow-md duration-400 mx-4 group overflow-hidden relative bg-center bg-cover bg-no-repeat h-[480px] rounded-full ${className}`}
       style={{ backgroundImage: `url('${imageUrl}')` }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

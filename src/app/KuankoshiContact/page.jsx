@@ -6,11 +6,16 @@ import Image from "next/image";
 import "./about.scss";
 import Link from "next/link.js";
 import { ReactLenis } from "@studio-freight/react-lenis";
+
+import Character from "../../components/TextOpacityScroll/Character";
 // import GsapText from "../../components/RevealText/index";
 import HoverItem from "../../components/HoverItem.jsx";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Marquee from "react-fast-marquee";
+
+const paragraph =
+  "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -96,7 +101,7 @@ export default function About() {
     return () => ctx.revert(); // 👈 自動 kill 清理範圍內動畫
   }, []);
   const [hovered, setHovered] = useState(false);
-
+  const words = paragraph.split(" ");
   return (
     <ReactLenis root>
       <div className="">
@@ -278,6 +283,10 @@ export default function About() {
           </div>
         </section>
       </div>
+      <section className="py-[20vh] bg-black">
+        <Character paragraph={paragraph} />
+        <div style={{ height: "100vh" }}></div>
+      </section>
       {/* <div className="w-full h-full py-20">
         <Carousel items={cards} />
       </div> */}
