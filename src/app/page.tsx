@@ -1,28 +1,25 @@
 "use client";
-import { useEffect, useRef, useState, useLayoutEffect } from "react";
 
-// import Footer from "./components/Footer/Footer";
+import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
-import Landing from "../components/Landing/index.jsx";
 import Preloader from "../components/Preloader/index.jsx";
-let isInitialLoad = true;
 import CityScene from "../components/CityScene.jsx";
+import usePageTransitionReady from "../../hooks/usePageTransitionReady"; // ✅ 引入你的 hook
 
-import dynamic from "next/dynamic";
-// const CityScene = dynamic(() => import("@/components/CityScene"), {
-//   ssr: false,
-// });
+let isInitialLoad = true;
 
 export default function Home() {
   const containerRef = useRef(null);
   const preloaderRef = useRef(null);
-  const videoRef = useRef(null);
-
   const progressBarRef = useRef(null);
+
   const [showPreloader, setShowPreloader] = useState(isInitialLoad);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const ready = usePageTransitionReady(); // ✅ 等待 page transition 完成
 
   useLayoutEffect(() => {
     gsap.registerPlugin(CustomEase);
@@ -38,10 +35,10 @@ export default function Home() {
     };
   }, []);
 
+  // ✅ 控制動畫初始化（等 ready 才開始跑 gsap）
   useGSAP(
     () => {
-      console.log("Preloader:", preloaderRef.current);
-      console.log("Progress Bar:", progressBarRef.current);
+      if (!ready) return;
 
       if (showPreloader) {
         const tl = gsap.timeline({
@@ -78,59 +75,47 @@ export default function Home() {
         ease: "power4.out",
       });
     },
-    { scope: containerRef, dependencies: [showPreloader] }
+    { scope: containerRef, dependencies: [ready, showPreloader] }
   );
-  const [isLoading, setIsLoading] = useState(true);
+
+  // ✅ 模擬 loading 動畫結束（這段可保留）
   useEffect(() => {
-    (async () => {
-      setTimeout(() => {
-        setIsLoading(false);
-        document.body.style.cursor = "default";
-        window.scrollTo(0, 0);
-      }, 2000);
-    })();
+    setTimeout(() => {
+      setIsLoading(false);
+      document.body.style.cursor = "default";
+      window.scrollTo(0, 0);
+    }, 2000);
   }, []);
+
   return (
     <>
       <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
       </AnimatePresence>
+
+      {/* ✅ 預載動畫遮罩 */}
       {showPreloader && (
-        <div className="pre-loader " ref={preloaderRef}>
+        <div className="pre-loader" ref={preloaderRef}>
           <div className="progress-bar" ref={progressBarRef}></div>
         </div>
       )}
-      <div className="home-page relativez-[99999999999]" ref={containerRef}>
+
+      <div className="home-page relative z-[99999999999]" ref={containerRef}>
         <div className="hero-video">
-          {/* <CityScene /> */}
-          {/* <video
-            ref={videoRef}
-            className="video-bg"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source
-              src="videos/7578552-uhd_2560_1440_30fps.mp4"
-              type="video/mp4"
-            />
-          </video> */}
-          {/* 黑色遮罩 */}
-          {/* <div className="video-overlay"></div> */}
           <CityScene />
         </div>
+
         <div className="hero-title z-[99999]">
-          <div className="line mt-4 ">
+          <div className="line mt-4">
             <h1 className="text-5xl text-white">實在的構築</h1>
           </div>
 
           <button
             onClick={() => (window.location.href = "/home")}
-            className="group  mt-5 relative h-12 rounded-full border border-neutral-200 bg-transparent px-4 text-neutral-950"
+            className="group mt-5 relative h-12 rounded-full border border-neutral-200 bg-transparent px-4 text-neutral-950"
           >
             <span className="relative inline-flex overflow-hidden">
-              <div className="translate-y-0 text-white  skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
+              <div className="translate-y-0 text-white skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
                 ＥＮＴＥＲ
               </div>
               <div className="absolute text-white translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
@@ -140,7 +125,6 @@ export default function Home() {
           </button>
         </div>
       </div>
-      {/* <Footer /> */}
     </>
   );
 }

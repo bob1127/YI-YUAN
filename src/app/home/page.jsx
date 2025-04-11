@@ -4,6 +4,7 @@ import { TextGenerateEffect } from "../../components/ui/text-generate-effec-home
 import StartAnimate from "../../components/HomeAnimate/page";
 
 import { Carousel, Card } from "../../components/ui/apple-cards-carousel";
+import usePageTransitionReady from "../../../hooks/usePageTransitionReady";
 
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
@@ -19,6 +20,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
+  const ready = usePageTransitionReady();
   const slideData = [
     {
       title: "誠境二期",
@@ -45,6 +47,8 @@ export default function About() {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    if (!ready) return;
+
     const disableScroll = () => {
       window.scrollTo(0, 0);
     };
@@ -62,85 +66,59 @@ export default function About() {
       window.removeEventListener("scroll", disableScroll);
     }, 5000);
 
-    const initGSAPAnimations = () => {
-      const ctx = gsap.context(() => {
-        const images = document.querySelectorAll(".animate-image-wrapper");
+    const ctx = gsap.context(() => {
+      const images = document.querySelectorAll(".animate-image-wrapper");
 
-        images.forEach((image, i) => {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: image,
-              start: "top bottom",
-              end: "top center",
-              toggleActions: "play none none none",
-              id: "imageReveal-" + i,
-            },
-          });
+      images.forEach((image, i) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: image,
+            start: "top bottom",
+            end: "top center",
+            toggleActions: "play none none none",
+            id: "imageReveal-" + i,
+          },
+        });
 
-          tl.fromTo(
-            image.querySelector(".overlay"),
+        tl.fromTo(
+          image.querySelector(".overlay"),
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+          },
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 1,
+            ease: "power2.inOut",
+          }
+        )
+          .to(image.querySelector(".overlay"), {
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            duration: 1,
+            ease: "power2.inOut",
+          })
+          .fromTo(
+            image.querySelector(".image-container"),
             {
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
             },
             {
               clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-              duration: 1,
-              ease: "power2.inOut",
-            }
-          )
-            .to(image.querySelector(".overlay"), {
-              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-              duration: 1,
-              ease: "power2.inOut",
-            })
-            .fromTo(
-              image.querySelector(".image-container"),
-              {
-                clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-              },
-              {
-                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                duration: 2,
-                ease: "power3.inOut",
-              },
-              "-=0.5"
-            );
-        });
+              duration: 2,
+              ease: "power3.inOut",
+            },
+            "-=0.5"
+          );
+      });
 
-        ScrollTrigger.refresh();
-      }, containerRef);
-
-      return ctx; // return so we can revert later
-    };
-
-    let ctx;
-
-    const onTransitionComplete = () => {
-      ctx = initGSAPAnimations();
-    };
-
-    window.addEventListener("pageTransitionComplete", onTransitionComplete);
-
-    // fallback: 若不是從 transition link 進來，直接初始化
-    if (!sessionStorage.getItem("transitioning")) {
-      ctx = initGSAPAnimations();
-    } else {
-      sessionStorage.removeItem("transitioning"); // 清除 flag
-    }
+      ScrollTrigger.refresh();
+    }, containerRef);
 
     return () => {
-      if (ctx) ctx.revert();
-      window.removeEventListener(
-        "pageTransitionComplete",
-        onTransitionComplete
-      );
+      ctx.revert();
+      clearTimeout(timeout);
+      window.removeEventListener("scroll", disableScroll);
     };
-
-    return () => ctx.revert(); // 👈 自動 kill 清理範圍內動畫
-  }, []);
-  const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
+  }, [ready]);
   return (
     <ReactLenis root>
       <section className="section_hero overflow-hidden mt-[40px]   lg:mt-[70px]">

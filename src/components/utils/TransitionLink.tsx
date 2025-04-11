@@ -1,7 +1,7 @@
 "use client";
+
 import Link, { LinkProps } from "next/link";
 import React from "react";
-import { useRouter } from "next/navigation";
 
 interface TransitionLinkProps extends LinkProps {
   children: React.ReactNode;
@@ -17,24 +17,20 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
   href,
   ...props
 }) => {
-  const router = useRouter();
-
   const handleTransition = async (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
     e.preventDefault();
     const body = document.querySelector("body");
 
+    // ✅ 加入轉場動畫 class
     body?.classList.add("page-transition");
 
-    await sleep(500); // ✅ 動畫出場前延遲
-    sessionStorage.setItem("transitioning", "true"); // ✅ 告知下一頁是 transition 進來的
+    // ✅ 等動畫出場完畢（例如 500ms）
+    await sleep(500);
 
-    router.push(href);
-
-    body?.classList.remove("page-transition");
-
-    window.dispatchEvent(new CustomEvent("pageTransitionComplete"));
+    // ✅ 改為完整重整頁面（不是 router.push）
+    window.location.href = href;
   };
 
   return (
