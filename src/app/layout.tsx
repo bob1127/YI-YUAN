@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import "./globals.css";
 import "yakuhanjp";
+import TransitionListener from "../components/TransitionListener"; // 新增這行
+
 import { HeroUIProvider } from "@heroui/react";
 import Header from "../components/header/index.jsx";
 import ClientWrapper from "../components/ClientWrapper.jsx";
@@ -26,6 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <HeroUIProvider>
         <body className="overflow-hidden">
+          <TransitionListener />
           <ClientWrapper>
             {!isHomePage && (
               <div className="w-[100vw] z-[9999999] left-0 top-0 fixed">

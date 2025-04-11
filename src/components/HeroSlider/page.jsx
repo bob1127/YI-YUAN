@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import "./page.css";
 
 import gsap from "gsap";
@@ -13,12 +13,31 @@ const Photos = () => {
   const counterRef = useRef(null);
   const titlesRef = useRef(null);
   const indicatorsRef = useRef(null);
-  const previewsRef = useRef(null);
+  const previewsRef = useRef([]);
   const sliderRef = useRef(null);
 
+  const [ready, setReady] = useState(false);
+
+  // ✅ 等待 pageTransitionComplete 事件再觸發動畫
+  useEffect(() => {
+    const handleReady = () => setReady(true);
+
+    if (!sessionStorage.getItem("transitioning")) {
+      setReady(true); // 沒有 transition 直接觸發
+    } else {
+      sessionStorage.removeItem("transitioning");
+    }
+
+    window.addEventListener("pageTransitionComplete", handleReady);
+    return () =>
+      window.removeEventListener("pageTransitionComplete", handleReady);
+  }, []);
+
+  // ✅ 延遲初始化動畫邏輯
   useGSAP(
     () => {
-      gsap.registerPlugin(CustomEase);
+      if (!ready) return; // 還沒準備好不要跑動畫
+
       CustomEase.create(
         "hop2",
         "M0,0 C0.071,0.505 0.192,0.726 0.318,0.852 0.45,0.984 0.504,1 1,1"
@@ -46,8 +65,10 @@ const Photos = () => {
       }
 
       function updateActiveSlidePreview() {
-        previewsRef.current.forEach((prev) => prev.classList.remove("active"));
-        previewsRef.current[currentImg - 1].classList.add("active");
+        previewsRef.current.forEach((prev) =>
+          prev?.classList?.remove("active")
+        );
+        previewsRef.current[currentImg - 1]?.classList?.add("active");
       }
 
       function animateSlide(direction) {
@@ -124,10 +145,8 @@ const Photos = () => {
         updateCounterAndTitlePosition();
       }
 
-      // 啟用自動輪播
-      const autoSlideInterval = setInterval(nextSlide, 4000); // 每4秒切換一次
+      const autoSlideInterval = setInterval(nextSlide, 4000);
 
-      // 仍保留手動點擊邏輯（可選）
       function handleClick(event) {
         const sliderWidth = sliderRef.current.clientWidth;
         const clickPosition = event.clientX;
@@ -178,62 +197,60 @@ const Photos = () => {
         clearInterval(autoSlideInterval);
       };
     },
-    { scope: sliderRef, dependencies: [] }
+    { scope: sliderRef, dependencies: [ready] } // ✅ 只有 ready 時才初始化
   );
 
   return (
-    <>
-      <div className="slider" ref={sliderRef}>
-        <div className="slider-images" ref={sliderImagesRef}>
-          <div className="img">
-            <img src="/assets/img1.jpg" alt="" className="" />
-          </div>
-        </div>
-
-        <div className="slider-title">
-          <div className="slider-title-wrapper" ref={titlesRef}>
-            <p>The Revival Ensemble</p>
-            <p>Above The Canvas</p>
-            <p>Harmony in Every Note</p>
-            <p>Redefining Imagination</p>
-          </div>
-        </div>
-
-        <div className="slider-counter">
-          <div className="counter" ref={counterRef}>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-          </div>
-          <div>
-            <p>&mdash;</p>
-          </div>
-          <div>
-            <p>4</p>
-          </div>
-        </div>
-
-        <div className="slider-preview">
-          {[1, 2, 3, 4].map((num) => (
-            <div
-              key={num}
-              className={`preview ${num === 1 ? "active" : ""}`}
-              ref={(el) =>
-                (previewsRef.current = [...(previewsRef.current || []), el])
-              }
-            >
-              <img src={`/assets/img${num}.jpg`} alt="" />
-            </div>
-          ))}
-        </div>
-
-        <div className="slider-indicators" ref={indicatorsRef}>
-          <p>+</p>
-          <p>+</p>
+    <div className="slider" ref={sliderRef}>
+      <div className="slider-images" ref={sliderImagesRef}>
+        <div className="img">
+          <img src="/assets/img1.jpg" alt="" />
         </div>
       </div>
-    </>
+
+      <div className="slider-title">
+        <div className="slider-title-wrapper" ref={titlesRef}>
+          <p>The Revival Ensemble</p>
+          <p>Above The Canvas</p>
+          <p>Harmony in Every Note</p>
+          <p>Redefining Imagination</p>
+        </div>
+      </div>
+
+      <div className="slider-counter">
+        <div className="counter" ref={counterRef}>
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
+          <p>4</p>
+        </div>
+        <div>
+          <p>&mdash;</p>
+        </div>
+        <div>
+          <p>4</p>
+        </div>
+      </div>
+
+      <div className="slider-preview">
+        {[1, 2, 3, 4].map((num) => (
+          <div
+            key={num}
+            className={`preview ${num === 1 ? "active" : ""}`}
+            ref={(el) => {
+              if (el) previewsRef.current[num - 1] = el;
+            }}
+          >
+            <img src={`/assets/img${num}.jpg`} alt="" />
+          </div>
+        ))}
+      </div>
+
+      <div className="slider-indicators" ref={indicatorsRef}>
+        <p>+</p>
+        <p>+</p>
+      </div>
+    </div>
   );
 };
 
