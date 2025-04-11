@@ -2,150 +2,199 @@
 
 import dynamic from "next/dynamic";
 import React, { Suspense, useRef, useState, useEffect } from "react";
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { OrbitControls, Text } from "@react-three/drei";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
+import { Canvas, useThree, useFrame } from "@react-three/fiber";
+import { OrbitControls, Text, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
 // 模型元件
-function CityModel() {
-  const obj = useLoader(OBJLoader, "/models/desert-city.obj");
-  return <primitive object={obj} scale={0.1} />;
-}
+function CityModel({ onModelLoaded }) {
+  const glb = useGLTF("/models/City11.glb");
+  const ref = useRef();
 
-// 地標與標籤
-function LocationMarker({ position, label, onClick }) {
+  useEffect(() => {
+    if (glb.scene && ref.current && onModelLoaded) {
+      onModelLoaded(ref.current);
+    }
+  }, [glb.scene]);
+
   return (
-    <group position={position}>
-      <mesh onClick={() => onClick(label, position)}>
-        <sphereGeometry args={[0.3, 16, 16]} />
-        <meshStandardMaterial color="red" />
-      </mesh>
-      <Text
-        position={[0, 0.6, 0]}
-        fontSize={0.3}
-        color="black"
-        anchorX="center"
-        anchorY="middle"
-        outlineWidth={0.01}
-        outlineColor="#ffffff"
-      >
-        {label}
-      </Text>
-    </group>
+    <primitive ref={ref} object={glb.scene} scale={0.2} position={[0, -1, 0]} />
   );
 }
 
-// 攝影機飛行控制
-function CameraController({ target, onArrived }) {
-  const arrived = useRef(false);
-  const vec = new THREE.Vector3();
-
-  useFrame(({ camera }) => {
-    if (target && !arrived.current) {
-      vec.lerpVectors(camera.position, target, 0.05);
-      camera.position.copy(vec);
-      camera.lookAt(0, 0, 0);
-      if (camera.position.distanceTo(target) < 0.1) {
-        arrived.current = true;
-        onArrived?.();
-      }
-    }
-  });
+// 攝影機控制器
+function CameraController({ target }) {
+  const controls = useRef();
 
   useEffect(() => {
-    arrived.current = false;
+    if (target && controls.current) {
+      controls.current.target.set(...target.toArray());
+    }
   }, [target]);
+
+  return (
+    <OrbitControls
+      ref={controls}
+      makeDefault
+      enableDamping
+      enableZoom
+      enablePan
+      enableRotate
+      zoomSpeed={0.8}
+      panSpeed={0.5}
+      rotateSpeed={0.5}
+      minDistance={0.01}
+      maxDistance={200}
+      maxPolarAngle={Math.PI / 2}
+    />
+  );
+}
+
+// 攝影機滑動過去地標
+function CameraFlyToTarget({ target }) {
+  const { camera } = useThree();
+  const vec = useRef(new THREE.Vector3());
+  const arrived = useRef(true);
+
+  useEffect(() => {
+    if (target) {
+      arrived.current = false;
+    }
+  }, [target]);
+
+  useFrame(() => {
+    if (!target || arrived.current) return;
+
+    vec.current.lerpVectors(camera.position, target, 0.05);
+    camera.position.copy(vec.current);
+    camera.lookAt(0, 0, 0);
+
+    if (camera.position.distanceTo(target) < 0.2) {
+      arrived.current = true;
+    }
+  });
 
   return null;
 }
 
-// 主元件（強制只在 Client 端渲染）
-function CityScene() {
-  const [camTarget, setCamTarget] = useState(null);
-  const [activeInfo, setActiveInfo] = useState(null);
+// Canvas 內容元件
+function SceneContent({ isNight, camTarget, setCamTarget }) {
+  const { camera } = useThree();
 
-  const locations = [
+  const handleModelLoaded = (model) => {
+    const box = new THREE.Box3().setFromObject(model);
+    const size = box.getSize(new THREE.Vector3()).length();
+    const center = box.getCenter(new THREE.Vector3());
+
+    camera.position.set(center.x, center.y + size * 0.4, center.z + size * 0.6);
+    camera.lookAt(center);
+    setCamTarget(center);
+  };
+
+  // ✅ 地標資料（小一點 + 貼近建築 + 顯示全名）
+  const landmarks = [
     {
-      label: "中山醫學院",
-      position: [2, 0.5, 2],
-      description:
-        "中山醫學大學，簡稱中山醫大，是位於臺中市南區的一所醫學大學，設有醫學、口腔醫學、醫學科技及健康管理等四個學院。",
+      label: "馬來西亞觀景平台",
+      position: [1, 0.1, 0],
     },
     {
-      label: "宜園大院",
-      position: [-4, 0.5, 3],
-      description: "城市北端的住宅區，環境清幽綠意盎然。",
+      label: "主塔 TOWER",
+      position: [-1.5, 0.1, 1.5],
     },
     {
-      label: "麥當勞",
-      position: [-3, 0.5, -3],
-      description: "區域內的速食店，提供各式漢堡、薯條與飲品。",
+      label: "文化館 CULTURAL HALL",
+      position: [0.5, 0.1, -1.2],
     },
   ];
 
-  const handleMarkerClick = (label, position) => {
-    setCamTarget(new THREE.Vector3(...position));
-    const location = locations.find((loc) => loc.label === label);
-    setActiveInfo(location);
-  };
+  return (
+    <>
+      <ambientLight intensity={isNight ? 0.1 : 0.6} />
+      {isNight ? (
+        <directionalLight
+          position={[10, 20, 10]}
+          intensity={0.3}
+          color="#88aaff"
+        />
+      ) : (
+        <directionalLight position={[10, 20, 10]} intensity={1} />
+      )}
+
+      <Suspense fallback={null}>
+        <CityModel onModelLoaded={handleModelLoaded} />
+
+        {/* ✅ 渲染地標 */}
+        {landmarks.map((item, i) => (
+          <group key={i} position={item.position}>
+            <mesh
+              onClick={() => setCamTarget(new THREE.Vector3(...item.position))}
+              scale={0.4}
+            >
+              <coneGeometry args={[0.2, 0.4, 2]} />
+              <meshStandardMaterial color="orange" />
+            </mesh>
+            <Text
+              position={[0, 0.6, 0]}
+              fontSize={0.25}
+              color="black"
+              anchorX="center"
+              anchorY="middle"
+              outlineWidth={0.015}
+              outlineColor="#ffffff"
+              maxWidth={4}
+              lineHeight={1.2}
+            >
+              {item.label}
+            </Text>
+          </group>
+        ))}
+      </Suspense>
+
+      <CameraFlyToTarget target={camTarget} />
+      <CameraController target={camTarget} />
+    </>
+  );
+}
+
+// 主組件
+function CityScene() {
+  const [camTarget, setCamTarget] = useState(null);
+  const [isNight, setIsNight] = useState(false);
 
   return (
     <div style={{ width: "100%", height: "100vh", position: "relative" }}>
-      {activeInfo && (
-        <div
-          style={{
-            position: "absolute",
-            top: 20,
-            right: 20,
-            background: "rgba(255, 255, 255, 0.95)",
-            padding: "24px",
-            borderRadius: "12px",
-            boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
-            maxWidth: "400px",
-            fontFamily: "sans-serif",
-            lineHeight: 1.6,
-            zIndex: 10,
-          }}
-        >
-          <h2
-            style={{
-              margin: 0,
-              fontSize: "22px",
-              fontWeight: "bold",
-              color: "#222",
-            }}
-          >
-            {activeInfo.label}
-          </h2>
-          <p style={{ fontSize: "15px", marginTop: "12px", color: "#333" }}>
-            {activeInfo.description}
-          </p>
-        </div>
-      )}
+      {/* 切換白天/夜晚 */}
+      <button
+        onClick={() => setIsNight(!isNight)}
+        style={{
+          position: "absolute",
+          top: 20,
+          left: 20,
+          zIndex: 20,
+          padding: "10px 16px",
+          background: "#222",
+          color: "#fff",
+          border: "none",
+          borderRadius: "8px",
+          cursor: "pointer",
+          fontSize: "14px",
+        }}
+      >
+        切換到{isNight ? "白天" : "晚上"}
+      </button>
 
-      <Canvas camera={{ position: [0, 10, 30], fov: 50 }}>
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[10, 20, 10]} intensity={1} />
-        <Suspense fallback={null}>
-          <CityModel />
-          {locations.map((loc, i) => (
-            <LocationMarker
-              key={i}
-              position={loc.position}
-              label={loc.label}
-              onClick={handleMarkerClick}
-            />
-          ))}
-        </Suspense>
-        <CameraController target={camTarget} onArrived={() => {}} />
-        <OrbitControls enableDamping />
+      <Canvas
+        camera={{ position: [0, 10, 30], fov: 35 }}
+        style={{ background: isNight ? "#0a0f2c" : "#87ceeb" }}
+      >
+        <SceneContent
+          isNight={isNight}
+          camTarget={camTarget}
+          setCamTarget={setCamTarget}
+        />
       </Canvas>
     </div>
   );
 }
 
-// 強制 client-only export
-export default dynamic(() => Promise.resolve(CityScene), {
-  ssr: false,
-});
+export default dynamic(() => Promise.resolve(CityScene), { ssr: false });
