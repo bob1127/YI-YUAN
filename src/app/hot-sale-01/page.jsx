@@ -1,6 +1,10 @@
 "use client";
-import { TransitionLink } from "../../components/utils/TransitionLink";
+// import { TransitionLink } from "../../components/utils/TransitionLink";
 // import EmblaCarousel from "../../components/EmblaCarousel07/EmblaCarousel";
+import AnimatedLink from "../../components/AnimatedLink";
+import { Form, Input, Button } from "@heroui/react";
+import HeroSlider from "../../components/HeroSlider/page";
+
 import { AnimatedTooltip } from "../../components/ui/animated-tooltip";
 import GsapText from "../../components/RevealText/index";
 import { PlaceholdersAndVanishInput } from "../../components/ui/placeholders-and-vanish-input";
@@ -319,16 +323,16 @@ export default function About() {
         <div className="bg-black opacity-40 w-full h-full absolute top-0 left-0 z-10" />
 
         {/* 文字區塊 */}
-        <div className="hero-title border border-green-300 w-1/2 absolute left-[4%] top-[90%] z-20">
+        <div className="hero-title  w-1/2 absolute left-[4%] top-[90%] z-20">
           <div className="text-center px-4">
             <GsapText
-              text="Built for Living."
+              text="宜園大院."
               id="gsap-intro"
               fontSize="4rem"
               fontWeight="200"
               color="#fff"
               lineHeight="60px"
-              className="text-center !text-white tracking-widest inline-block mb-0 h-auto"
+              className="text-center tracking-widest !text-white tracking-widest inline-block mb-0 h-auto"
             />
           </div>
           <div className="text-center px-4">
@@ -344,9 +348,44 @@ export default function About() {
           </div>
         </div>
       </section>
+      <section className="flex lg:flex-row flex-col max-w-[1920px] mx-auto w-[95%]  mt-20">
+        <div className=" w-full lg:w-1/2">
+          <HeroSlider />
+        </div>
+        <div className=" w-full lg:w-1/2  pt-10">
+          <div className="flex flex-col sticky top-4   items-center justify-center">
+            <div className=" ">
+              <b className="text-[1.2rem] tracking-widest ">OUR PROJECTS</b>
+              <Image
+                src="https://framerusercontent.com/images/BUDA0wz5WRVOSHMhAubzp9XbdM.jpg"
+                placeholder="empty"
+                loading="lazy"
+                alt=""
+                width="800"
+                height="1000"
+                className="w-full"
+              ></Image>
+              <div className="txt flex pt-2 flex-row">
+                <div className="w-1/3">
+                  <span className="text-[#333] text-[.9rem]">宜園建設</span>
+                </div>
+                <div className="w-1/3 flex items-end flex-col">
+                  <b className="text-[#333] text-[.9rem]">實在的構築</b>
+                  <span className="text-[#333] text-[.9rem]">建坪：200</span>
+                </div>
+                <div className="w-1/3 flex items-end flex-col">
+                  <b className="text-[#333] text-[.9rem]">建築工法</b>
+                  <span className="text-[#333] text-[.9rem]">建坪：200</span>
+                  <span className="text-[#333] text-[.9rem]">建坪：200</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="py-[100px]">
-        <div className="flex max-w-[1920px] mx-auto p-20 w-[80%] flex-col">
-          <div className="title  w-1/2">
+        <div className="flex max-w-[1920px] mx-auto p-20 w-[95%] flex-col">
+          <div className="title  sm:w-2/3 w-full lg:w-1/2">
             <div className="text-left px-4">
               <GsapText
                 text="[設施摘要]"
@@ -365,8 +404,8 @@ export default function About() {
               預約於2025年3月7日開始。除預約、採訪等以外的諮詢，請透過此處聯絡我們info[at]motherhaus-sauna.com請聯絡我們
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-8">
-            <div className="m-8">
+          <div className="flex flex-col lg:flex-row">
+            <div className="m-8 w-full lg:w-1/2">
               <Image
                 src="https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/madori.webp"
                 alt=""
@@ -374,10 +413,10 @@ export default function About() {
                 loading="lazy"
                 width={800}
                 height={800}
-                className="max-w-[550px]"
+                className="w-full"
               ></Image>
             </div>
-            <div className="m-8">
+            <div className="m-8 w-full  lg:w-1/2">
               <Image
                 src="https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/madori.webp"
                 alt=""
@@ -385,7 +424,7 @@ export default function About() {
                 loading="lazy"
                 width={800}
                 height={800}
-                className="max-w-[550px]"
+                className="w-full"
               ></Image>
             </div>
           </div>
@@ -435,7 +474,7 @@ export default function About() {
               <button class="group relative inline-flex text-[1rem] 2xl:text-[1.2rem] h-12 items-center justify-center  border-b-1 border-white px-6 font-medium text-neutral-100">
                 <span>Hover me</span>
                 <div class="relative ml-1 h-5 w-5 overflow-hidden">
-                  <div class="absolute transition-all duration-200 group-hover:-translate-y-5 group-hover:translate-x-4">
+                  <div class="absolute transition-all duration-200 sm:group-hover:-translate-y-5 sm:group-hover:translate-x-4">
                     <svg
                       width="15"
                       height="15"
@@ -566,14 +605,14 @@ export default function About() {
               <span className="text-white text-[1.4rem] mb-2">NEWS</span>
               <div className="flex  mx-auto   lg:w-full  w-full flex-wrap flex-row">
                 <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
-                  <div className="img   mx-auto  group-hover:h-[40vh] delay-75 duration-500  h-auto md:h-[33vh]  overflow-hidden">
+                  <div className="img   mx-auto  sm:group-hover:h-[40vh] delay-75 duration-500  h-auto md:h-[33vh]  overflow-hidden">
                     <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
                       <div className="image-container relative w-full h-full">
                         <Image
                           src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2025/02/AD-Awards_2024_list.jpg?fit=1280%2C1280&quality=85&strip=all&ssl=1"
                           alt="About Image 1"
                           fill
-                          className="object-cover group-hover:scale-[1.05] duration-700"
+                          className="object-cover sm:group-hover:scale-[1.05] duration-700"
                           sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                         />
                         xs
@@ -584,11 +623,11 @@ export default function About() {
                     <div className="inline-block pb-4">
                       <button
                         role="link"
-                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
                       >
                         <button
                           role="link"
-                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
                         >
                           <b className="text-[.9rem] font-bold text-white">
                             {" "}
@@ -608,14 +647,14 @@ export default function About() {
                 </div>
 
                 <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
-                  <div className="img   mx-auto    h-auto md:h-[36vh] group-hover:h-[44vh] delay-75 duration-500 overflow-hidden">
+                  <div className="img   mx-auto    h-auto md:h-[36vh] sm:group-hover:h-[44vh] delay-75 duration-500 overflow-hidden">
                     <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
                       <div className="image-container relative w-full h-full">
                         <Image
                           src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2025/01/08cda1286e0f3c4616fbf38cf569aa71.jpg?fit=1920%2C1152&quality=85&strip=all&ssl=1"
                           alt="About Image 1"
                           fill
-                          className="object-cover group-hover:scale-[1.05] duration-700"
+                          className="object-cover sm:group-hover:scale-[1.05] duration-700"
                           sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                         />
                         xs
@@ -626,11 +665,11 @@ export default function About() {
                     <div className="inline-block pb-4">
                       <button
                         role="link"
-                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
                       >
                         <button
                           role="link"
-                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
                         >
                           <b className="text-[.9rem] font-bold text-white">
                             {" "}
@@ -649,14 +688,14 @@ export default function About() {
                   </div>
                 </div>
                 <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
-                  <div className="img   mx-auto    h-auto md:h-[26vh] group-hover:h-[33vh] delay-75 duration-500 overflow-hidden">
+                  <div className="img   mx-auto    h-auto md:h-[26vh] sm:group-hover:h-[33vh] delay-75 duration-500 overflow-hidden">
                     <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
                       <div className="image-container relative w-full h-full">
                         <Image
                           src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/10/2024_tjda-site_open_top_s.jpg?fit=1920%2C1046&quality=85&strip=all&ssl=1"
                           alt="About Image 1"
                           fill
-                          className="object-cover group-hover:scale-[1.05] duration-700"
+                          className="object-cover sm:group-hover:scale-[1.05] duration-700"
                           sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                         />
                         xs
@@ -667,11 +706,11 @@ export default function About() {
                     <div className="inline-block pb-4">
                       <button
                         role="link"
-                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
                       >
                         <button
                           role="link"
-                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
                         >
                           <b className="text-[.9rem] font-bold text-white">
                             {" "}
@@ -690,14 +729,14 @@ export default function About() {
                   </div>
                 </div>
                 <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
-                  <div className="img   mx-auto    h-auto md:h-[30vh] group-hover:h-[35vh] delay-75 duration-500 overflow-hidden">
+                  <div className="img   mx-auto    h-auto md:h-[30vh] sm:group-hover:h-[35vh] delay-75 duration-500 overflow-hidden">
                     <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
                       <div className="image-container relative w-full h-full">
                         <Image
                           src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/11/ELLE-DECOR_2412_PCichiran.jpg?fit=1920%2C1280&quality=85&strip=all&ssl=1"
                           alt="About Image 1"
                           fill
-                          className="object-cover group-hover:scale-[1.05] duration-700"
+                          className="object-cover sm:group-hover:scale-[1.05] duration-700"
                           sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                         />
                         xs
@@ -708,11 +747,11 @@ export default function About() {
                     <div className="inline-block pb-4">
                       <button
                         role="link"
-                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                        class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
                       >
                         <button
                           role="link"
-                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                          class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
                         >
                           <b className="text-[.9rem] font-bold text-white">
                             {" "}
@@ -735,8 +774,8 @@ export default function About() {
           </div>
         </section>
         <section className="relative ">
-          <div className="bg-white mx-auto   max-w-[1400px] pt-10 w-[78%] flex justify-center items-center">
-            <div className="title w-1/2 pl-2 sm:pl-8 lg:pl-20 h-full flex flex-col justify-between">
+          <div className="bg-white mx-auto   max-w-[1400px] pt-10 w-[90%] lg:w-[78%] flex md:flex-row flex-col justify-center items-center">
+            <div className="title w-full md:w-1/2 px-4 md:px-[9%] xl:px-[15%] h-full flex flex-col justify-between">
               <GsapText
                 text="Project - 一青隱"
                 id="gsap-intro"
@@ -750,7 +789,7 @@ export default function About() {
                 <b className="text-[1/3rem] font-normal">實在的構築</b>
               </div>
             </div>
-            <div className="w-1/2 pt-10 flex border justify-center items-center">
+            <div className=" w-full md:w-1/2 p-4 flex  justify-center items-center">
               <Image
                 src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_10.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1"
                 alt=""
@@ -758,7 +797,7 @@ export default function About() {
                 loading="lazy"
                 width={800}
                 height={800}
-                className="max-w-[520px]"
+                className="w-full"
               ></Image>
             </div>
           </div>
@@ -819,6 +858,77 @@ export default function About() {
           </div>
         </div> */}
       </div>
+      <section className="section-contact">
+        <div className="flex flex-col lg:flex-row bg-[#222] mx-auto w-[90%] p-5 sm:p-10  lg:p-20 px-auto rounded-md">
+          <div className=" w-full lg:w-1/2 ">
+            <span className="contact-tag px-3 text-[1.4rem] tracking-widest bg-gray-700  rounded-full text-white">
+              Contact
+            </span>
+            <div className="py-5">
+              <p className="text-[2.2rem] text-light text-white">
+                跟我們聯繫！
+              </p>
+            </div>
+            <span className="text-[1rem] text-light leading-loose text-white">
+              了解更多社區規劃、戶型格局，還是實際感受一下生活氛圍？<br></br>
+              我們邀請您親臨現場看房，親眼見證您未來的理想生活。
+            </span>
+
+            <ul className="mt-5">
+              <b className="text-[1rem] text-light text-white mt-5">
+                馬上與我們聯繫，立即預約賞屋時段
+              </b>
+              <li className="flex items-center mt-2">
+                <b className="text-[.9rem] text-white">LINE:</b>
+                <p className="text-[.9rem] text-white">XXXXXXXXXXXXXXXX</p>
+              </li>
+              <li className="flex items-center mt-2">
+                <b className="text-[.9rem] text-white">PHONE:</b>
+                <p className="text-[.9rem] text-white">XXXXXXXXXXXXXXXX</p>
+              </li>
+            </ul>
+          </div>
+          <div className="w-full lg:w-1/2">
+            <div className="contact-form mt-5 lg:mt-0 bg-white rounded-md p-10 w-full">
+              <Form
+                className="w-full  max-w-[450px] 2xl:max-w-[600px] mx-auto flex flex-col gap-4"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  let data = Object.fromEntries(new FormData(e.currentTarget));
+                }}
+              >
+                <Input
+                  isRequired
+                  errorMessage="Please enter a valid username"
+                  label="Username"
+                  labelPlacement="outside"
+                  name="username"
+                  placeholder="輸入您的姓名"
+                  type="text"
+                />
+
+                <Input
+                  isRequired
+                  errorMessage="Please enter a valid email"
+                  label="Email"
+                  labelPlacement="outside"
+                  name="email"
+                  placeholder="您的信箱"
+                  type="email"
+                />
+                <div className="flex gap-2">
+                  <Button color="primary" type="submit">
+                    送出
+                  </Button>
+                  <Button type="reset" variant="flat">
+                    清除
+                  </Button>
+                </div>
+              </Form>
+            </div>
+          </div>
+        </div>
+      </section>
       <div className="bg-white z-[99999999] py-10 bottom-section flex flex-col justify-center items-center">
         <Marquee>
           <div className="flex flex-row py-10 justify-center items-center">
@@ -826,7 +936,7 @@ export default function About() {
             <div className="flex flex-col sm:flex-row justify-center items-center">
               <p className="text-[3rem] mx-4">NEWS</p>
               <button class="group relative mr-3 inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950">
-                <div class="transition duration-300 group-hover:rotate-[360deg]">
+                <div class="transition duration-300 sm:group-hover:rotate-[360deg]">
                   <svg
                     width="15"
                     height="15"
@@ -848,9 +958,10 @@ export default function About() {
             <div className="h-[1px] bg-black w-[50vw]"></div>
           </div>
         </Marquee>
+
         <div className="flex bg-white flex-row justify-center items-center flex-wrap">
           <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
-            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
+            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 sm:group-hover:opacity-100 duration-500 sm:group-hover:h-[40%] flex flex-col bg-white p-3">
               <p className="text-[.8rem] hidden sm:block">
                 不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
                 致邀，職住共生的青創企業家
@@ -861,7 +972,7 @@ export default function About() {
                   NEWS:神隱青海│2-3房│含精裝修{" "}
                 </b>
                 <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                  <div class="translate-x-0 transition sm:group-hover:translate-x-[300%]">
                     <svg
                       width="10"
                       height="10"
@@ -878,7 +989,7 @@ export default function About() {
                       ></path>
                     </svg>
                   </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0 duration-1000">
+                  <div class="absolute -translate-x-[300%] transition sm:group-hover:translate-x-0 duration-1000">
                     <svg
                       width="15"
                       height="15"
@@ -900,7 +1011,7 @@ export default function About() {
             </div>
           </div>
           <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
-            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
+            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 sm:group-hover:opacity-100 duration-500 sm:group-hover:h-[40%] flex flex-col bg-white p-3">
               <p className="text-[.8rem] hidden sm:block">
                 不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
                 致邀，職住共生的青創企業家
@@ -911,7 +1022,7 @@ export default function About() {
                   NEWS:神隱青海│2-3房│含精裝修{" "}
                 </b>
                 <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                  <div class="translate-x-0 transition sm:group-hover:translate-x-[300%]">
                     <svg
                       width="10"
                       height="10"
@@ -928,7 +1039,7 @@ export default function About() {
                       ></path>
                     </svg>
                   </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0 duration-1000">
+                  <div class="absolute -translate-x-[300%] transition sm:group-hover:translate-x-0 duration-1000">
                     <svg
                       width="15"
                       height="15"
@@ -950,7 +1061,7 @@ export default function About() {
             </div>
           </div>
           <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
-            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
+            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 sm:group-hover:opacity-100 duration-500 sm:group-hover:h-[40%] flex flex-col bg-white p-3">
               <p className="text-[.8rem] hidden sm:block">
                 不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
                 致邀，職住共生的青創企業家
@@ -961,7 +1072,7 @@ export default function About() {
                   NEWS:神隱青海│2-3房│含精裝修{" "}
                 </b>
                 <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                  <div class="translate-x-0 transition sm:group-hover:translate-x-[300%]">
                     <svg
                       width="10"
                       height="10"
@@ -978,7 +1089,7 @@ export default function About() {
                       ></path>
                     </svg>
                   </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0 duration-1000">
+                  <div class="absolute -translate-x-[300%] transition sm:group-hover:translate-x-0 duration-1000">
                     <svg
                       width="15"
                       height="15"
@@ -1000,7 +1111,7 @@ export default function About() {
             </div>
           </div>
           <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
-            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
+            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 sm:group-hover:opacity-100 duration-500 sm:group-hover:h-[40%] flex flex-col bg-white p-3">
               <p className="text-[.8rem] hidden sm:block">
                 不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
                 致邀，職住共生的青創企業家
@@ -1011,7 +1122,7 @@ export default function About() {
                   NEWS:神隱青海│2-3房│含精裝修{" "}
                 </b>
                 <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                  <div class="translate-x-0 transition sm:group-hover:translate-x-[300%]">
                     <svg
                       width="10"
                       height="10"
@@ -1028,7 +1139,7 @@ export default function About() {
                       ></path>
                     </svg>
                   </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0 duration-1000">
+                  <div class="absolute -translate-x-[300%] transition sm:group-hover:translate-x-0 duration-1000">
                     <svg
                       width="15"
                       height="15"
@@ -1050,7 +1161,7 @@ export default function About() {
             </div>
           </div>
           <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('https://commons-shop.karimoku.com/cdn/shop/files/15411_f.jpg?v=1731306525&width=750')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
-            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 group-hover:opacity-100 duration-500 group-hover:h-[40%] flex flex-col bg-white p-3">
+            <div className="description absolute w-full bottom-0 h-[0%] opacity-0 sm:group-hover:opacity-100 duration-500 sm:group-hover:h-[40%] flex flex-col bg-white p-3">
               <p className="text-[.8rem] hidden sm:block">
                 不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
                 致邀，職住共生的青創企業家
@@ -1061,7 +1172,7 @@ export default function About() {
                   NEWS:神隱青海│2-3房│含精裝修{" "}
                 </b>
                 <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-                  <div class="translate-x-0 transition group-hover:translate-x-[300%]">
+                  <div class="translate-x-0 transition sm:group-hover:translate-x-[300%]">
                     <svg
                       width="10"
                       height="10"
@@ -1078,7 +1189,7 @@ export default function About() {
                       ></path>
                     </svg>
                   </div>
-                  <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0 duration-1000">
+                  <div class="absolute -translate-x-[300%] transition sm:group-hover:translate-x-0 duration-1000">
                     <svg
                       width="15"
                       height="15"

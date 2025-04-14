@@ -2,7 +2,7 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 export default function Content() {
   return (
-    <div className="pb-2  pt-20 sm:pt-[35vh] lg:pt-[40vh] 2xl:pt-[50vh] bg-[url('https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/common/bg-footer.jpg')] bg-left bg-no-repeat bg-cover py-8 px-12 h-full w-full flex flex-col justify-between">
+    <div className="pb-2  pt-20 sm:pt-[340px] xl:pt-[350px] 2xl:pt-[20vh] bg-[url('https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/common/bg-footer.jpg')] bg-left bg-no-repeat bg-cover py-8 px-12 h-full w-full flex flex-col justify-between">
       <Section2 />
       <Marquee className="mb-12">
         <div className="flex justify-center items-center">

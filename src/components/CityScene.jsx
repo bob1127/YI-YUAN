@@ -9,7 +9,7 @@ import * as THREE from "three";
 
 // 模型元件
 function CityModel() {
-  const obj = useLoader(OBJLoader, "/models/desert-city.obj");
+  const obj = useLoader(OBJLoader, "/models/city11.obj");
   return <primitive object={obj} scale={0.1} />;
 }
 

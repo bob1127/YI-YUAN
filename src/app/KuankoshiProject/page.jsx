@@ -1,5 +1,5 @@
 "use client";
-import { TransitionLink } from "../../components/utils/TransitionLink";
+// import { TransitionLink } from "../../components/utils/TransitionLink";
 
 import ThreeDSlider from "../../components/3DSlider.jsx";
 import "./about.css";

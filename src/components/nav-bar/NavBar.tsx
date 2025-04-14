@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TransitionLink } from "../utils/TransitionLink";
+// import { TransitionLink } from "../utils/TransitionLink";
 export const FlipNav = () => {
   return (
     <nav className="p-4 flex items-center justify-between relative">
@@ -17,10 +17,10 @@ const NavLeft = () => {
       <Link href="/">
         <Logo />
       </Link>
-      <TransitionLink href="/about">About</TransitionLink>
+      {/* <TransitionLink href="/about">About</TransitionLink>
       <TransitionLink href="/community">Community</TransitionLink>
       <TransitionLink href="/pricing">Pricing</TransitionLink>
-      <TransitionLink href="/company">Company</TransitionLink>
+      <TransitionLink href="/company">Company</TransitionLink> */}
     </div>
   );
 };

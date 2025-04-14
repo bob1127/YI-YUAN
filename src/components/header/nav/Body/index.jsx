@@ -1,6 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { TransitionLink } from "../../../utils/TransitionLink"; // 使用新的 TransitionLink
+import AnimatedLink from "../../../AnimatedLink";
 import styles from "./style.module.scss";
 import Link from "next/link";
 import Image from "next/image";
@@ -66,7 +66,7 @@ export default function Body({ links, selectedLink, setSelectedLink, isOpen }) {
       {links.map((link, index) => {
         const { title, href } = link;
         return (
-          <TransitionLink key={`l_${index}`} href={href}>
+          <AnimatedLink key={`l_${index}`} href={href}>
             <p
               onMouseOver={() => setSelectedLink({ isActive: true, index })}
               onMouseLeave={() =>
@@ -80,7 +80,7 @@ export default function Body({ links, selectedLink, setSelectedLink, isOpen }) {
             >
               {getChars(title)}
             </p>
-          </TransitionLink>
+          </AnimatedLink>
         );
       })}
     </div>

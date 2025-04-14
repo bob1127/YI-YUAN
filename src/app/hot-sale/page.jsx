@@ -1,4 +1,5 @@
 "use client";
+import GsapText from "../../components/RevealText/index";
 
 import { projects } from "../../components/ParallaxCard/data";
 import { TextGenerateEffect } from "../../components/ui/text-generate-effec-home";
@@ -27,9 +28,19 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="mt-[20vh] ml-[20px] md:ml-[10%]  mb-[35px] lg:mb-[6px] text-[2.3rems] md:text-[3rem] xl:text-[5rem] font-normal text-gray-800">
-        TENDER-宜安
-      </h1>
+      {/* <h1 className="mt-[20vh] ml-[20px] md:ml-[10%]  mb-[35px] lg:mb-[6px] text-[2.3rems] md:text-[3rem] xl:text-[5rem] font-normal text-gray-800"></h1> */}
+      <div className="pt-[14vh] pl-[10%] 2xl:pl-[20%] mb-[5vmin]">
+        <GsapText
+          text="TENDER-宜安"
+          id="gsap-intro"
+          fontSize="2.8rem"
+          fontWeight="500"
+          color="#000"
+          lineHeight="60px"
+          className="text-center inline-block mb-0 h-auto "
+        />
+      </div>
+
       <main ref={container} className=" relative">
         {projects.map((project, i) => {
           const targetScale = 1 - (projects.length - i) * 0.05;

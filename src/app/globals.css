@@ -405,3 +405,53 @@ body {
   background: rgba(0, 0, 0, 0.5); /* 黑色半透明遮罩 */
   z-index: 1; /* 讓遮罩覆蓋影片 */
 }
+.col {
+  flex: 1;
+}
+
+.col:nth-child(2) {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col p {
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--copy);
+}
+
+.col p .line {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.col p .line span {
+  position: relative;
+  will-change: transform;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
+}
+
+::view-transition-group(root) {
+  z-index: auto !important;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  will-change: transform, opacity, clip-path;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 10000;
+  animation: none !important;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none !important;
+} 

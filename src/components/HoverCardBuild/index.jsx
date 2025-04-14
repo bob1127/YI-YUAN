@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import "./page.css";
-import { TransitionLink } from "../utils/TransitionLink";
+import AnimatedLink from "../AnimatedLink";
 const items = [
   {
     id: 1,
@@ -34,7 +34,7 @@ const Codegrid = () => {
     <div className="items">
       {items.map(({ id, imgSrc, number, bottomLeft }) => (
         <div className="item-wrapper flex flex-wrap " key={id}>
-          <TransitionLink href="/project-inner01">
+          <AnimatedLink href="/project-inner01">
             <div className="item mt-8 sm:mt-0">
               <div className="item-img">
                 <img src={imgSrc} alt="" />
@@ -84,7 +84,7 @@ const Codegrid = () => {
                 </button>
               </div>
             </div>
-          </TransitionLink>
+          </AnimatedLink>
         </div>
       ))}
     </div>

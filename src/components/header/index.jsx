@@ -2,7 +2,8 @@
 import styles from "./style.module.scss";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { TransitionLink } from "../utils/TransitionLink";
+import AnimatedLink from "../AnimatedLink";
+
 import { usePathname } from "next/navigation"; // 監聽當前路徑變化
 import { motion, AnimatePresence } from "framer-motion";
 import { opacity, background } from "./anim";
@@ -24,7 +25,7 @@ export default function Index() {
     <div className={styles.header}>
       <div className={styles.bar}>
         <div className=" flex justify-start ">
-          <TransitionLink href="/home" legacyBehavior>
+          <AnimatedLink href="/home" legacyBehavior>
             <a className="font-bold">
               <div className="h-full flex justify-center items-center">
                 <Image
@@ -38,7 +39,7 @@ export default function Index() {
                 />
               </div>
             </a>
-          </TransitionLink>
+          </AnimatedLink>
         </div>
 
         <div onClick={() => setIsActive(!isActive)} className={styles.el}>

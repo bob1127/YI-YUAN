@@ -6,9 +6,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import ThreeDSlider from "../../components/3DSlider.jsx";
-import { TransitionLink } from "../../components/utils/TransitionLink";
+import AnimatedLink from "../../components/AnimatedLink";
+
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
-import TextImageSlider from "../../components/TextImageSlider.jsx";
 import Link from "next/link.js";
 import { ContainerScroll } from "../../components/ui/container-scroll-animation.tsx";
 import ShiftingCountdown from "../../components/ShiftingCountdown.jsx";
@@ -358,7 +358,7 @@ export default function About() {
       <section className="py-20">
         <ThreeDSlider />
       </section>
-      <TextImageSlider />
+      {/* <TextImageSlider /> */}
       <section>
         <Image
           src="https://www.jgran.jp/nishiakashi/common/images/top/vision_title.png"
@@ -533,31 +533,64 @@ export default function About() {
           </div>
         </div>
       </div>
-      <section className="section-info h-[90vh]">
+      <section className="section-info lg:h-[85vh] h-[85vh] sm:h-[100vh]">
+        <div className="flex h-full ">
+          <div className="w-[97%] p-5 lg:p-10 border flex flex-col lg:flex-row border-black h-full justify-center items-center relative">
+            <div className="lg:w-1/2 mt-5 lg:mt-0 w-full  flex justify-center items-center 2xl:p-20">
+              <Image
+                data-aos="fade-left"
+                alt=""
+                width={1500}
+                height={800}
+                src="https://framerusercontent.com/images/Utxq4b6tZbHOYhRLOWQ2RvJRQ.jpg"
+                className="w-full h-full border-4 border-black  rounded-tr-[50px] rounded-bl-[50px]"
+              ></Image>
+            </div>
+            <div className="text flex justify-center items-center flex-col w-full lg:w-1/2">
+              <h2 className="text-[2.3rem] font-extrabold ">DESIGN -</h2>
+              <b>
+                車站的新標誌。 擁有340套單位的大型住宅社區<br></br>
+                ，在湛藍的天空下，猶如盛開的大花。
+              </b>
+            </div>
+          </div>
+          <div className="w-[3%] bg-[#5aa54d] h-full">
+            <div className="txt">
+              <b></b>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-info lg:h-[85vh] h-[85vh] sm:h-[100vh]">
         <div className="flex h-full">
           <div className="w-[3%] bg-[#5aa54d] h-full">
             <div className="txt">
               <b></b>
             </div>
           </div>
-          <div className="w-[97%] border border-black h-full relative">
-            <div className="text top-[20%] absolute z-10 left-[6%]">
-              <h2 className="text-[3rem] font-extrabold ">DESIGN - 設計</h2>
+          <div className="w-[97%] p-5 lg:p-10 justify-center items-center border flex flex-col lg:flex-row border-black h-full relative">
+            <div className="text flex justify-center items-center flex-col w-full lg:w-1/2">
+              <h2 className="text-[2.3rem] font-extrabold ">DESIGN -</h2>
               <b>
                 車站的新標誌。 擁有340套單位的大型住宅社區<br></br>
                 ，在湛藍的天空下，猶如盛開的大花。
               </b>
             </div>
-            <div
-              data-aos="fade-left"
-              className="w-[55%] absolute z-50 right-[2%] top-[5%] h-[90%] border-4 border-black bg-[url('https://www.jgran.jp/nishiakashi/common/images/top/img_location.jpg')] bg-center bg-cover bg-no-repeat rounded-tr-[50px] rounded-bl-[50px]"
-            ></div>
+            <div className="w-full mt-5 lg:mt-0 lg:w-1/2 flex justify-center items-center 2xl:p-20">
+              <Image
+                data-aos="fade-left"
+                alt=""
+                width={1500}
+                height={800}
+                src="https://framerusercontent.com/images/Utxq4b6tZbHOYhRLOWQ2RvJRQ.jpg"
+                className="w-full h-full border-4 border-black  rounded-tr-[50px] rounded-bl-[50px]"
+              ></Image>
+            </div>
           </div>
         </div>
       </section>
-
       <section className="overflow-hidden">
-        <div className="section-banner bg-[url('https://storage.googleapis.com/studio-design-asset-files/projects/91aPgdndql/s-2338x1328_v-frms_webp_37d66fac-41e3-41bf-80a5-2b9e118acf96.webp')] bg-center bg-cover bg-no-repeat h-[80vh] w-full relative">
+        <div className="section-banner bg-[url('https://worldz.design/assets/images/image02.jpg?v=b17934f0')] bg-center bg-cover bg-no-repeat h-[80vh] w-full relative">
           <div className="absolute hidden md:block w-1/3 h-full  top-0 z-0 right-0 bg-gradient-to-l from-black to-transparent opacity-60"></div>
           <div className="absolute w-[110%] md:w-1/2 h-full  top-0 z-0 left-0 bg-gradient-to-r from-black to-transparent opacity-90 md:opacity-70"></div>
 

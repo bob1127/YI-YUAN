@@ -3,7 +3,8 @@ import Image from "next/image";
 import styles from "./style.module.scss";
 import { useTransform, motion, useScroll } from "framer-motion";
 import { useRef } from "react";
-import { TransitionLink } from "../../components/utils/TransitionLink";
+import AnimatedLink from "../../components/AnimatedLink";
+
 const Card = ({
   i,
   title,
@@ -44,7 +45,7 @@ const Card = ({
 
   return (
     <div ref={container} className={styles.cardContainer}>
-      <TransitionLink className="!w-[100vw]" href="/hot-sale-01">
+      <AnimatedLink className="!w-[100vw]" href="/hot-sale-01">
         <motion.div
           style={{
             backgroundImage: `url(${backgroundImage})`,
@@ -117,7 +118,7 @@ const Card = ({
             </div>
           </div>
         </motion.div>
-      </TransitionLink>
+      </AnimatedLink>
     </div>
   );
 };

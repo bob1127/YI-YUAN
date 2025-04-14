@@ -1,5 +1,5 @@
 "use client";
-import { TransitionLink } from "../../components/utils/TransitionLink";
+import AnimatedLink from "../../components/AnimatedLink";
 import { TextGenerateEffect } from "../../components/ui/text-generate-effec-home";
 import StartAnimate from "../../components/HomeAnimate/page";
 
@@ -227,7 +227,7 @@ export default function About() {
           </div>
           <div className="img w-ful mt-4 md:mt-0 md:w-[62%] mx-auto sm:mx-3  h-auto md:h-[93vh] flex flex-col justify-end items-end xl:h-[93vh] overflow-hidden">
             <div className="animate-image-wrapper group h-[90%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
-              <TransitionLink href="/hot-sale-02">
+              <AnimatedLink href="/hot-sale-02">
                 <div className="title ">
                   <div className="flex items-center">
                     <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
@@ -250,7 +250,7 @@ export default function About() {
                     <p className="text-[.78rem]">Dec.2019</p>
                   </div>
                 </div>
-              </TransitionLink>
+              </AnimatedLink>
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
                 <Image
@@ -293,7 +293,7 @@ export default function About() {
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
-                <TransitionLink href="/hot-sale">
+                <AnimatedLink href="/hot-sale">
                   <Image
                     src="https://niwahouzing.com/wp-content/themes/niwa/assets/images/quality/img-quality-modelhouse.avif"
                     alt="About Image 2"
@@ -301,7 +301,7 @@ export default function About() {
                     className="object-cover"
                     sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                   />
-                </TransitionLink>
+                </AnimatedLink>
               </div>
             </div>
           </div>
@@ -315,7 +315,7 @@ export default function About() {
                 也許是只有製作者自己才會注意到的、<br></br>{" "}
                 極其講究的設計正在被傳達。
               </span>
-              <TransitionLink href="/hot-sale">
+              <AnimatedLink href="/hot-sale-01">
                 <div className="group flex justify-center items-center mt-10 text-[1.2rem] font-normal">
                   PRPJECT
                   <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
@@ -327,13 +327,13 @@ export default function About() {
                     </div>
                   </button>
                 </div>
-              </TransitionLink>
+              </AnimatedLink>
             </div>
           </div>
         </div>
         <div className="flex flex-col lg:flex-row max-w-[98%] justify-between py-5  mx-auto">
           <div className=" w-full lg:w-[49%] border-t-1 border-gray-600 py-8 group px-8 ">
-            <TransitionLink href="/about">
+            <AnimatedLink href="/about">
               <div className="flex flex-row">
                 <div className="w-[20%]">
                   <h3 className="font-normal  text-[1.2rem] xl:text-[2rem]">
@@ -363,11 +363,11 @@ export default function About() {
                   </button>
                 </div>
               </div>
-            </TransitionLink>
+            </AnimatedLink>
           </div>
 
           <div className=" w-full lg:w-[49%] border-t-1 border-gray-600 py-8 group px-8 ">
-            <TransitionLink href="/progress">
+            <AnimatedLink href="/progress">
               <div className="flex flex-row">
                 <div className="w-[20%]">
                   <h3 className="font-normal  text-[1.2rem] xl:text-[2rem]">
@@ -397,7 +397,7 @@ export default function About() {
                   </button>
                 </div>
               </div>
-            </TransitionLink>
+            </AnimatedLink>
           </div>
         </div>
       </section>
@@ -441,7 +441,7 @@ export default function About() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  w-full ">
-          <TransitionLink href="/project">
+          <AnimatedLink href="/project-inner01">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/assets/images/index/service03.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
               {/* 毛玻璃遮罩（hover時顯示） */}
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
@@ -458,8 +458,8 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </TransitionLink>
-          <TransitionLink href="/project">
+          </AnimatedLink>
+          <AnimatedLink href="/project-inner01">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie004-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
               {/* 毛玻璃遮罩（hover時顯示） */}
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
@@ -476,8 +476,8 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </TransitionLink>
-          <TransitionLink href="/project">
+          </AnimatedLink>
+          <AnimatedLink href="/project-inner01">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/02/hadashinoie116-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
               {/* 毛玻璃遮罩（hover時顯示） */}
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
@@ -494,8 +494,8 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </TransitionLink>
-          <TransitionLink href="/project">
+          </AnimatedLink>
+          <AnimatedLink href="/project-inner01">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie-54-1-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
               {/* 毛玻璃遮罩（hover時顯示） */}
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
@@ -512,8 +512,8 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </TransitionLink>
-          <TransitionLink href="/project">
+          </AnimatedLink>
+          <AnimatedLink href="/project-inner01">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie040-1-1-2048x1366.jpg')] bg-center bg-no-repeat bg-cover group overflow-hidden">
               {/* 毛玻璃遮罩（hover時顯示） */}
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
@@ -530,7 +530,7 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </TransitionLink>
+          </AnimatedLink>
         </div>
       </section>
       {/* <div className="w-full h-full py-20">
@@ -542,12 +542,12 @@ export default function About() {
 const NavLeft = () => {
   return (
     <div className="flex items-center gap-6">
-      <TransitionLink href="/about">
+      <AnimatedLink href="/about">
         <h1>About</h1>
-      </TransitionLink>
-      <TransitionLink href="/community">Community</TransitionLink>
-      <TransitionLink href="/pricing">Pricing</TransitionLink>
-      <TransitionLink href="/company">Company</TransitionLink>
+      </AnimatedLink>
+      <AnimatedLink href="/community">Community</AnimatedLink>
+      <AnimatedLink href="/pricing">Pricing</AnimatedLink>
+      <AnimatedLink href="/company">Company</AnimatedLink>
     </div>
   );
 };

@@ -9,7 +9,6 @@ import CustomEase from "gsap/CustomEase";
 import Landing from "../components/Landing/index.jsx";
 import Preloader from "../components/Preloader/index.jsx";
 let isInitialLoad = true;
-import CityScene from "../components/CityScene.jsx";
 
 import dynamic from "next/dynamic";
 // const CityScene = dynamic(() => import("@/components/CityScene"), {
@@ -118,7 +117,6 @@ export default function Home() {
           </video> */}
           {/* 黑色遮罩 */}
           {/* <div className="video-overlay"></div> */}
-          <CityScene />
         </div>
         <div className="hero-title z-[99999]">
           <div className="line mt-4 ">

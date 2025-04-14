@@ -4,6 +4,9 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import "./globals.css";
 import "yakuhanjp";
+import { ViewTransitions } from "next-view-transitions";
+
+import Navs from "../components/Nav";
 import { HeroUIProvider } from "@heroui/react";
 import Header from "../components/header/index.jsx";
 import ClientWrapper from "../components/ClientWrapper.jsx";
@@ -17,27 +20,26 @@ export default function RootLayout({
   const isHomePage = pathname === "/";
 
   // ✅ 修正卡住滾動的 bug：每次進入頁面都清除 .page-transition
-  useEffect(() => {
-    document.body.classList.remove("page-transition");
-    sessionStorage.removeItem("transitioning"); // 順便清除狀態
-  }, []);
+  // useEffect(() => {
+  //   document.body.classList.remove("page-transition");
+  //   sessionStorage.removeItem("transitioning"); // 順便清除狀態
+  // }, []);
 
   return (
-    <html lang="en">
-      <HeroUIProvider>
-        <body className="overflow-hidden">
-          <ClientWrapper>
-            {!isHomePage && (
-              <div className="w-[100vw] z-[9999999] left-0 top-0 fixed">
-                <Header />
-              </div>
-            )}
-            <main>{children}</main>
-          </ClientWrapper>
+    <ViewTransitions>
+      <html lang="en">
+        <body className="">
+          {!isHomePage && (
+            <div className="w-[100vw] z-[9999999] left-0 top-0 fixed">
+              <Header />
+              {/* <Navs /> */}
+            </div>
+          )}
+          <main data-aos-duration="fade-up">{children}</main>
 
           {!isHomePage && <Footer />}
         </body>
-      </HeroUIProvider>
-    </html>
+      </html>
+    </ViewTransitions>
   );
 }

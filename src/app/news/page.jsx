@@ -27,7 +27,7 @@ const Photos = () => {
 
   return (
     <ReactLenis root className="">
-      <section className="section_hero relative overflow-hidden h-[100vh] border border-black">
+      <section className="section_hero relative overflow-hidden max-h-[400px] md:max-h-[600px] 2xl:max-h-[900px] h-[100vh] ">
         <Image
           src="/images/city-img_sp.png"
           alt=" "
@@ -77,7 +77,7 @@ const Photos = () => {
       </div>
 
       <section className="section_news py-[50px]">
-        <div className="w-[80%] flex flex-col xl:flex-row section-container mx-auto">
+        <div className=" w-[90%] md:w-[80%] flex flex-col xl:flex-row section-container mx-auto">
           <div className="w-full sm:pr-10 pr-5 lg:pr-20 xl:w-[50%]">
             <div className="flex flex-col">
               <GsapText
@@ -90,7 +90,7 @@ const Photos = () => {
                 className="text-left tracking-widest inline-block mb-0 h-auto"
               />
               <p className="text-[.9rem] tracking-widest font-normal">
-                関西で活躍する編集者をゲストに迎えた「エディターズ・トーク」やインターン・採用情報などのニュースを発信しています。
+                宜園建設自成立以來，始終秉持「誠信、品質、創新」的理念，深耕本土，專注於打造結合人文、自然與現代美學的理想住宅空間。我們相信，建築不只是鋼筋水泥的堆砌，更是人與城市之間最深的情感連結。
               </p>
             </div>
             <ul className="mt-10">
@@ -149,7 +149,7 @@ const Photos = () => {
           </div>
         </div>
       </section>
-      <section className="mt-[0px] overflow-hidden w-[95%] xl:w-[85%] mx-auto xl:flex-row flex-col flex">
+      {/* <section className="mt-[0px] overflow-hidden w-[95%] xl:w-[85%] mx-auto xl:flex-row flex-col flex">
         <div className="w-full xl:w-[85%] ">
           <ScrollAnimation />
         </div>
@@ -158,9 +158,9 @@ const Photos = () => {
             <h3>title</h3>
           </div>
         </div>
-      </section>
-      <section>
-        <div className="flex justify-start items-center w-[80%] mx-auto">
+      </section> */}
+      <section className="my-[100px]">
+        <div className="flex flex-col md:flex-row justify-start items-start md:items-center w-[90%] md:w-[80%] mx-auto">
           <GsapText
             text="EDITORS FILE."
             id="gsap-intro"
@@ -168,12 +168,12 @@ const Photos = () => {
             fontWeight="800"
             color="#000"
             lineHeight="60px"
-            className="text-center tracking-widest inline-block mb-0 h-auto"
+            className="text-left  tracking-widest inline-block mb-0 h-auto"
           />
 
-          <div className="txt text-[.9rem] font-normal">
-            関西に拠点をおく編集者および <br></br>
-            編集業務を担う企業や団体を紹介しています。
+          <div className="txt text-[.9rem] text-left mb-3 font-normal">
+            只為實現對居住者的承諾── <br></br>
+            打造安全、舒適、永續的家園。
           </div>
         </div>
         <HoverCard />

@@ -1,5 +1,4 @@
 "use client";
-import { TransitionLink } from "../../components/utils/TransitionLink";
 import { TextGenerateEffect } from "../../components/ui/text-generate-effec-home";
 import StartAnimate from "../../components/HomeAnimate/page";
 import ThreeDSlider from "../../components/3DSlider.jsx";
@@ -237,30 +236,29 @@ export default function About() {
             <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3">
               <div className="img w-ful  md:mt-0  md:max-w-[380px] mx-auto sm:mx-3 h-[450px] md:h-[500px] xl:h-[600px] flex flex-col mt-4 justify-end items-end  overflow-hidden">
                 <div className="animate-image-wrapper group h-[100%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
-                  <TransitionLink href="/hot-sale-02">
-                    <div className="title ">
-                      <div className="flex items-center">
-                        <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
-                          <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
-                            →
-                          </div>
-                          <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#efca87] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
-                            →
-                          </div>
-                        </button>
-                        <h3 className="text-[1rem] text-white font-normal">
-                          My Home Project-Yi Yuan
-                        </h3>
-                      </div>
-                      <div className="flex items-center">
-                        {" "}
-                        <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
-                          Home
-                        </span>{" "}
-                        <p className="text-[.78rem] text-white">Dec.2019</p>
-                      </div>
+                  <div className="title ">
+                    <div className="flex items-center">
+                      <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                        <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                          →
+                        </div>
+                        <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#efca87] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                          →
+                        </div>
+                      </button>
+                      <h3 className="text-[1rem] text-white font-normal">
+                        My Home Project-Yi Yuan
+                      </h3>
                     </div>
-                  </TransitionLink>
+                    <div className="flex items-center">
+                      {" "}
+                      <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
+                        Home
+                      </span>{" "}
+                      <p className="text-[.78rem] text-white">Dec.2019</p>
+                    </div>
+                  </div>
+
                   <div className="overlay absolute inset-0 bg-black z-10"></div>
                   <div className="relative w-full h-full overflow-hidden group grainy">
                     {/* 原圖 */}
@@ -286,30 +284,29 @@ export default function About() {
               </div>
               <div className="img w-ful mt-4 md:mt-0  md:max-w-[380px] mx-auto sm:mx-3 h-[450px] md:h-[500px] xl:h-[600px] flex flex-col mt-4 justify-end items-end  overflow-hidden">
                 <div className="animate-image-wrapper group h-[100%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
-                  <TransitionLink href="/hot-sale-02">
-                    <div className="title ">
-                      <div className="flex items-center">
-                        <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
-                          <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
-                            →
-                          </div>
-                          <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
-                            →
-                          </div>
-                        </button>
-                        <h3 className="text-[1rem] text-white font-normal">
-                          My Home Project-Yi Yuan
-                        </h3>
-                      </div>
-                      <div className="flex items-center">
-                        {" "}
-                        <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
-                          Home
-                        </span>{" "}
-                        <p className="text-[.78rem] text-white">Dec.2019</p>
-                      </div>
+                  <div className="title ">
+                    <div className="flex items-center">
+                      <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                        <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                          →
+                        </div>
+                        <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                          →
+                        </div>
+                      </button>
+                      <h3 className="text-[1rem] text-white font-normal">
+                        My Home Project-Yi Yuan
+                      </h3>
                     </div>
-                  </TransitionLink>
+                    <div className="flex items-center">
+                      {" "}
+                      <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
+                        Home
+                      </span>{" "}
+                      <p className="text-[.78rem] text-white">Dec.2019</p>
+                    </div>
+                  </div>
+
                   <div className="overlay absolute inset-0 bg-black z-10"></div>
                   <div className="relative w-full h-full overflow-hidden group grainy">
                     {/* 原圖 */}
@@ -335,30 +332,29 @@ export default function About() {
               </div>
               <div className="img w-ful mt-4 md:mt-0  md:max-w-[380px] mx-auto sm:mx-3 h-[450px] md:h-[500px] xl:h-[600px] flex flex-col mt-4 justify-end items-end  overflow-hidden">
                 <div className="animate-image-wrapper group h-[100%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
-                  <TransitionLink href="/hot-sale-02">
-                    <div className="title ">
-                      <div className="flex items-center">
-                        <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
-                          <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
-                            →
-                          </div>
-                          <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
-                            →
-                          </div>
-                        </button>
-                        <h3 className="text-[1rem] text-white font-normal">
-                          My Home Project-Yi Yuan
-                        </h3>
-                      </div>
-                      <div className="flex items-center">
-                        {" "}
-                        <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
-                          Home
-                        </span>{" "}
-                        <p className="text-[.78rem] text-white">Dec.2019</p>
-                      </div>
+                  <div className="title ">
+                    <div className="flex items-center">
+                      <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                        <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                          →
+                        </div>
+                        <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                          →
+                        </div>
+                      </button>
+                      <h3 className="text-[1rem] text-white font-normal">
+                        My Home Project-Yi Yuan
+                      </h3>
                     </div>
-                  </TransitionLink>
+                    <div className="flex items-center">
+                      {" "}
+                      <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
+                        Home
+                      </span>{" "}
+                      <p className="text-[.78rem] text-white">Dec.2019</p>
+                    </div>
+                  </div>
+
                   <div className="overlay absolute inset-0 bg-black z-10"></div>
                   <div className="relative w-full h-full overflow-hidden group grainy">
                     {/* 原圖 */}
@@ -384,30 +380,29 @@ export default function About() {
               </div>
               <div className="img w-ful mt-4 md:mt-0  md:max-w-[380px] mx-auto sm:mx-3 h-[450px] md:h-[500px] xl:h-[600px] flex flex-col mt-4 justify-end items-end  overflow-hidden">
                 <div className="animate-image-wrapper group h-[100%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
-                  <TransitionLink href="/hot-sale-02">
-                    <div className="title ">
-                      <div className="flex items-center">
-                        <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
-                          <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
-                            →
-                          </div>
-                          <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
-                            →
-                          </div>
-                        </button>
-                        <h3 className="text-[1rem] text-white font-normal">
-                          My Home Project-Yi Yuan
-                        </h3>
-                      </div>
-                      <div className="flex items-center">
-                        {" "}
-                        <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
-                          Home
-                        </span>{" "}
-                        <p className="text-[.78rem] text-white">Dec.2019</p>
-                      </div>
+                  <div className="title ">
+                    <div className="flex items-center">
+                      <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                        <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                          →
+                        </div>
+                        <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                          →
+                        </div>
+                      </button>
+                      <h3 className="text-[1rem] text-white font-normal">
+                        My Home Project-Yi Yuan
+                      </h3>
                     </div>
-                  </TransitionLink>
+                    <div className="flex items-center">
+                      {" "}
+                      <span className="border mr-3 my-4 border-white text-white text-[.7rem] p-1">
+                        Home
+                      </span>{" "}
+                      <p className="text-[.78rem] text-white">Dec.2019</p>
+                    </div>
+                  </div>
+
                   <div className="overlay absolute inset-0 bg-black z-10"></div>
                   <div className="relative w-full h-full overflow-hidden group grainy">
                     {/* 原圖 */}

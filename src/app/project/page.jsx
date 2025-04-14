@@ -5,9 +5,11 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import Image from "next/image";
 import HoverCard from "../../components/HoverCardBuild/index";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import GsapText from "../../components/RevealText/index";
+import AnimatedLink from "../../components/AnimatedLink";
 
 import { PlaceholdersAndVanishInput } from "../../components/ui/placeholders-and-vanish-input";
 // import HeroSlider from "../../components/HeroSlider/page";
@@ -40,16 +42,88 @@ const Photos = () => {
     "https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_02.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1",
     "https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_04.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1",
   ];
+  const imageRefs = useRef([]);
+  const containerRef = useRef(null);
   useEffect(() => {
-    const timer = setInterval(() => {
-      setPrevIndex(currentIndex); // 保留上一張索引
-      setCurrentIndex((prev) => (prev + 1) % backgroundImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [currentIndex]);
+    const initGSAPAnimations = () => {
+      const ctx = gsap.context(() => {
+        const images = document.querySelectorAll(".animate-image-wrapper");
+
+        images.forEach((image, i) => {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: image,
+              start: "top bottom",
+              end: "top center",
+              toggleActions: "play none none none",
+              id: "imageReveal-" + i,
+            },
+          });
+
+          tl.fromTo(
+            image.querySelector(".overlay"),
+            {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            },
+            {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              duration: 0.7,
+              ease: "power2.inOut",
+            }
+          )
+            .to(image.querySelector(".overlay"), {
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+              duration: 0.7,
+              ease: "power2.inOut",
+            })
+            .fromTo(
+              image.querySelector(".image-container"),
+              {
+                clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+              },
+              {
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                duration: 1.5,
+                ease: "power3.inOut",
+              },
+              "-=0.5"
+            );
+        });
+
+        ScrollTrigger.refresh();
+      }, containerRef);
+
+      return ctx; // return so we can revert later
+    };
+
+    let ctx;
+
+    const onTransitionComplete = () => {
+      ctx = initGSAPAnimations();
+    };
+
+    window.addEventListener("pageTransitionComplete", onTransitionComplete);
+
+    // fallback: 若不是從 transition link 進來，直接初始化
+    if (!sessionStorage.getItem("transitioning")) {
+      ctx = initGSAPAnimations();
+    } else {
+      sessionStorage.removeItem("transitioning"); // 清除 flag
+    }
+
+    return () => {
+      if (ctx) ctx.revert();
+      window.removeEventListener(
+        "pageTransitionComplete",
+        onTransitionComplete
+      );
+    };
+
+    return () => ctx.revert(); // 👈 自動 kill 清理範圍內動畫
+  }, []);
   return (
     <ReactLenis root>
-      <section className="section-hero w-full h-[100vh] relative overflow-hidden">
+      <section className="section-hero w-full max-h-[500px] sm:max-h-[700px]  h-[100vh] relative overflow-hidden">
         {/* 背景圖片群組 */}
         {backgroundImages.map((bg, i) => (
           <motion.div
@@ -99,90 +173,141 @@ const Photos = () => {
           </div>
         </div>
       </section>
-      <section className=" pt-[10vh] ">
-        <div className=" w-[90%] overflow-hidden md:w-[95%]  mx-auto">
-          <div>
-            <div className=" w-[30%] mb-5">
-              <Image
-                width={800}
-                height={400}
-                src="https://www.bess.jp/wordpress/wp-content/themes/bess/assets/images/top_life_title.png"
-                alt="project-hero-img"
-                placeholder="empty"
-                className="w-[200px]"
-                loading="eager"
-              ></Image>
+      <section className=" max-w-[1920px] mx-auto">
+        <div className="grid items-end  sm:grid-cols-2 grid-cols-1 gap-3 lg:grid-cols-3 pl-3 pr-5  py-[50px] md:py-[100px] 2xl:py-[150px] ">
+          <div className="  w-full mx-auto sm:mx-3  max-h-[700px]  h-auto md:h-[85vh]   overflow-hidden">
+            <div className="flex flex-col pl-4 py-4">
+              <div className="inline-block pb-4">
+                <button
+                  role="link"
+                  class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                >
+                  <button
+                    role="link"
+                    class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                  >
+                    <b className="text-[.9rem] font-bold"> 誠境二期</b>
+                  </button>
+                </button>
+              </div>
+              <span className="text-[.75rem]">Project</span>
+              <span className="text-[.75rem]">Taichung - 2025.03.23</span>
             </div>
-          </div>
-          <div className="flex flex-col lg:flex-row w-full">
-            <div className="img w-full md:w-[80%] xl:w-[85%]">
-              <Image
-                width={2200}
-                height={800}
-                src="https://www.31sumai.com/content/dam/31sumai/mfr/X2114/top/main_img02.png"
-                alt="project-hero-img"
-                placeholder="empty"
-                loading="eager"
-              ></Image>
-            </div>
-            <div className=" w-full sm:w-[80%] mx-auto lg:w-[40%]  p-2 lg:p-10">
-              <h2
-                className="text-[1.1rem] w-full xl:text-[1]"
-                data-aos="fade-up"
-              >
-                不選擇普通的家，而是選擇BESS的家的人。這裡有什麼不同呢？實際的生活是什麼樣的？通過全國的家庭採訪，我們看到了真實的生活。
-              </h2>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* <div className="p-10">
-        <StickyScroll content={content} />
-      </div> */}
 
-      <section className="section_project py-[100px] flex flex-col 2xl:w-[80%] mx-auto  ">
-        <div className="flex max-w-[1920px] w-[80%] mx-auto flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
-          <div className="title mr-4">
-            <h2> 經典選粹</h2>
-          </div>
-        </div>
-        <div data-aos="fade-up">
-          {" "}
-          <HoverCard />
-        </div>
-      </section>
-      <section className="section_project flex flex-col 2xl:w-[80%] mx-auto  py-[40px]">
-        <div className="flex flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
-          <div className="description"></div>
-        </div>
-        <div data-aos="fade-up">
-          {" "}
-          <HoverCard />
-        </div>
-      </section>
-      {/* <section>
-        <div className="banner relative max-w-[1500px] border border-black mx-auto">
-          <Image
-            src="https://kon-sumai.com/common/img/openhouse-bnr.jpg"
-            width={2000}
-            className="w-full"
-            height={600}
-            placeholder="empty"
-            loading="lazy"
-            alt="banner"
-          ></Image>
-          <div className="absolute top-5 left-5 z-50 flex flex-col ">
-            <div className="bg-[#162F67] font-extrabold text-[2.5rem] text-white">
-              たくさんの人が集まれる家
+            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <Image
+                  src="https://sdmntprwestus.oaiusercontent.com/files/00000000-16d4-5230-a93e-5bfa0ab54900/raw?se=2025-04-05T12%3A22%3A44Z&sp=r&sv=2024-08-04&sr=b&scid=d64ad8a4-5b61-54d5-b2ea-3b95a3f0beab&skoid=e825dac8-9fae-4e05-9fdb-3d74e1880d5a&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-05T10%3A24%3A56Z&ske=2025-04-06T10%3A24%3A56Z&sks=b&skv=2024-08-04&sig=tpqoabsuedZNTxLwPpdp44Cz7qVcLOaVxbv9qa6rwV8%3D"
+                  alt="About Image 1"
+                  fill
+                  className="object-cover w-full"
+                />
+                xs
+              </div>
             </div>
-            <p className="text-[#162F67] text-[4rem] font-extrabold">
-              MODEL HOUSE
-            </p>
+          </div>
+          <div className="  w-full mx-auto sm:mx-3  h-auto md:h-[63vh] max-h-[450px]  overflow-hidden">
+            <div className="flex flex-col pl-4 py-4">
+              <div className="inline-block pb-4">
+                <button
+                  role="link"
+                  class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                >
+                  <button
+                    role="link"
+                    class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                  >
+                    <b className="text-[.9rem] font-bold"> 誠境二期</b>
+                  </button>
+                </button>
+              </div>
+              <span className="text-[.75rem]">Project</span>
+              <span className="text-[.75rem]">Taichung - 2025.03.23</span>
+            </div>
+            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <Image
+                  src="https://sdmntprwestus.oaiusercontent.com/files/00000000-16d4-5230-a93e-5bfa0ab54900/raw?se=2025-04-05T12%3A22%3A44Z&sp=r&sv=2024-08-04&sr=b&scid=d64ad8a4-5b61-54d5-b2ea-3b95a3f0beab&skoid=e825dac8-9fae-4e05-9fdb-3d74e1880d5a&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-05T10%3A24%3A56Z&ske=2025-04-06T10%3A24%3A56Z&sks=b&skv=2024-08-04&sig=tpqoabsuedZNTxLwPpdp44Cz7qVcLOaVxbv9qa6rwV8%3D"
+                  alt="About Image 1"
+                  fill
+                  className="object-cover w-full"
+                />
+                xs
+              </div>
+            </div>
+          </div>
+          <div className="  w-full mx-auto sm:mx-3  h-auto md:h-[88vh] max-h-[700px]  overflow-hidden">
+            <div className="flex flex-col pl-4 py-4">
+              <div className="inline-block pb-4">
+                <button
+                  role="link"
+                  class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                >
+                  <button
+                    role="link"
+                    class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                  >
+                    <b className="text-[.9rem] font-bold"> 誠境二期</b>
+                  </button>
+                </button>
+              </div>
+              <span className="text-[.75rem]">Project</span>
+              <span className="text-[.75rem]">Taichung - 2025.03.23</span>
+            </div>
+            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <Image
+                  src="https://sdmntprwestus.oaiusercontent.com/files/00000000-16d4-5230-a93e-5bfa0ab54900/raw?se=2025-04-05T12%3A22%3A44Z&sp=r&sv=2024-08-04&sr=b&scid=d64ad8a4-5b61-54d5-b2ea-3b95a3f0beab&skoid=e825dac8-9fae-4e05-9fdb-3d74e1880d5a&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-05T10%3A24%3A56Z&ske=2025-04-06T10%3A24%3A56Z&sks=b&skv=2024-08-04&sig=tpqoabsuedZNTxLwPpdp44Cz7qVcLOaVxbv9qa6rwV8%3D"
+                  alt="About Image 1"
+                  fill
+                  className="object-cover w-full"
+                />
+                xs
+              </div>
+            </div>
           </div>
         </div>
-      </section> */}
+      </section>
+      <section className="max-w-[1920px] mx-auto">
+        <div className="flex flex-row">
+          <div className="img  w-1/2 mx-auto sm:mx-3 mt-[-100px] max-h-[800px]  h-auto md:h-[95vh]  overflow-hidden">
+            <div className="flex flex-col pl-4 py-4">
+              <div className="inline-block pb-4">
+                <button
+                  role="link"
+                  class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                >
+                  <button
+                    role="link"
+                    class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
+                  >
+                    <b className="text-[.9rem] font-bold"> 誠境二期</b>
+                  </button>
+                </button>
+              </div>
+              <span className="text-[.75rem]">Project</span>
+              <span className="text-[.75rem]">Taichung - 2025.03.23</span>
+            </div>
+            <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <Image
+                  src="https://sdmntprwestus.oaiusercontent.com/files/00000000-16d4-5230-a93e-5bfa0ab54900/raw?se=2025-04-05T12%3A22%3A44Z&sp=r&sv=2024-08-04&sr=b&scid=d64ad8a4-5b61-54d5-b2ea-3b95a3f0beab&skoid=e825dac8-9fae-4e05-9fdb-3d74e1880d5a&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-05T10%3A24%3A56Z&ske=2025-04-06T10%3A24%3A56Z&sks=b&skv=2024-08-04&sig=tpqoabsuedZNTxLwPpdp44Cz7qVcLOaVxbv9qa6rwV8%3D"
+                  alt="About Image 1"
+                  fill
+                  className="object-cover w-full"
+                />
+                xs
+              </div>
+            </div>
+          </div>
+          <div className="w-1/2"></div>
+        </div>
+      </section>
 
-      {/* <ImageDistortion /> */}
       <div className="h-auto 2xl:h-[40rem] flex flex-col justify-center  items-center px-4">
         <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
           對我們的建案有興趣嗎？

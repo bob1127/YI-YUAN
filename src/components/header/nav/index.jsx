@@ -15,12 +15,12 @@ const links = [
   },
   {
     title: "經典選粹",
-    href: "/hot-sale",
+    href: "/project",
     src: "shop.png",
   },
   {
     title: "線上熱銷",
-    href: "/project",
+    href: "/hot-sale",
     src: "home.png",
   },
   {

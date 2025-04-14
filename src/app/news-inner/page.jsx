@@ -1,9 +1,9 @@
 "use client";
-import { TransitionLink } from "../../components/utils/TransitionLink";
+// import { TransitionLink } from "../../components/utils/TransitionLink";
 import EmblaCarousel from "../../components/EmblaCarousel07/EmblaCarousel";
 import { AnimatedTooltip } from "../../components/ui/animated-tooltip";
 import { PlaceholdersAndVanishInput } from "../../components/ui/placeholders-and-vanish-input";
-import { TextGenerateEffect } from "../../components/ui/text-generate-effect";
+// import { TextGenerateEffect } from "../../components/ui/text-generate-effect";
 import Image from "next/image";
 import GsapText from "../../components/RevealText";
 // import { StickyScroll } from "../../components/ui/sticky-scroll-reveal";
@@ -136,9 +136,9 @@ export default function About() {
             className="mt-5"
             loading="lazy"
           ></Image>
-          <TextImageSlider />
+          {/* <TextImageSlider /> */}
           <div className=" pt-[50px] flex flex-col justify-center  items-center px-4">
-            <h2 className="mb-10 sm:mb-20 text-[2.5rem] text-center  dark:text-white text-black">
+            <h2 className="mb-10 sm:mb-20 text-[2rem] text-center  dark:text-white text-black">
               立即詢價 專人為您服務
             </h2>
             <PlaceholdersAndVanishInput
@@ -172,9 +172,9 @@ export default function About() {
                 ></iframe>
               </div>
             </div>
-            <div className="flex flex-row items-center justify-center mb-10 w-full">
+            {/* <div className="flex flex-row items-center justify-center mb-10 w-full">
               <AnimatedTooltip items={people} />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
