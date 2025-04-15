@@ -292,7 +292,7 @@ export default function About() {
         </TextParallaxContent>
         <TextParallaxContent
           imgUrl="https://www.31sumai.com/content/dam/31sumai/mfr/B2301/top/topimage_02.jpg"
-          subheading="Quality"
+          subheading="宜園建設"
           heading="為您打造無可
 比擬的居住體驗"
           description="在宜園建設的每一個家中，空間規劃無不考量到居住者的需求與舒適。大面積的開放式設計，帶來豐富的自然光線，讓每個角落都充滿生機。廚房、衛浴的每一處細節，都選用頂級材質，無論是煮飯還是休息，都是一場享受。"
@@ -300,9 +300,6 @@ export default function About() {
       </div>
 
       <section className="w-full section_carousel h-full py-20">
-        <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
-          你們可能也會有興趣
-        </h2>
         <Carousel items={cards} />
       </section>
 
@@ -387,10 +384,10 @@ const OverlayCopy = ({ subheading, heading, description }) => {
       className="absolute left-0 top-0 flex h-[200vh] px-[5%] sm:px-[8%] lg:px-[10%] 2xl:px-[15%]  flex-col pb-[50vh] items-start justify-center text-white"
     >
       <p className="mb-2 text-center text-[2.3rem] md:mb-4 ">{subheading}</p>
-      <p className="text-left  w-2/3 leading-relaxed font-bold text-[2.3rem]">
+      <p className="text-left  w-full lg:w-2/3 leading-relaxed font-bold text-[2rem] 2xl:text-[2.3rem]">
         {heading}
       </p>
-      <p className="w-2/3 xl:w-1/2  text-[1rem] leading-loose mt-5">
+      <p className="w-full lg:w-2/3 xl:w-1/2  text-[1rem] leading-loose mt-5">
         {description}
       </p>
     </motion.div>

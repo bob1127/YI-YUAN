@@ -361,7 +361,7 @@ export default function About() {
       {/* <TextImageSlider /> */}
       <section>
         <Image
-          src="https://www.jgran.jp/nishiakashi/common/images/top/vision_title.png"
+          src="/images/hot-sale/Growth-3.png"
           alt=""
           width={1000}
           height={500}
@@ -369,13 +369,19 @@ export default function About() {
           loading="lazy"
           className="max-w-[800px] w-[90%] mx-auto"
         ></Image>
+        <h2 className="text-[2.3rem] font-bold text-center">
+          讓理想落地，從家的輪廓開始
+        </h2>
         <div>
-          <p className="text-[1rem] tracking-widest leading-relaxed w-[70%] text-center mx-auto my-20">
-            這個名字象徵著明石市和 JR 西日本集團共同建造的「未來的希望 」。
-            「TOMORROW」蘊含著對未來的「持續成長」和「希望」的訊息，
-            這個城鎮將成為居民們懷抱希望、共同成長、共建未來的地方。
-            我們追求永續發展，與子孫後代緊密相連，形成整個地區相互支持的包容性社區。
-            明日城將體現未來的永續發展， 成為引領地區發展的地標。
+          <p className="text-[1rem] tracking-widest leading-relaxed w-[70%] text-center mx-auto mb-20">
+            在宜園建設的心中，「家」不只是生活的空間，更是連結情感與希望的所在。
+            我們以「明日城」為名，象徵著對未來的期待，對每一個家庭的祝福。
+            <br></br>
+            <br></br>
+            這裡，是孩子成長的起點，是父母安心的港灣，也是鄰里彼此支持、互助共融的地方。
+            宜園建設期盼打造的不僅是一座城市，而是一個讓人放鬆、安心、彼此信賴的生活圈。
+            <br></br>
+            明日城，代表著家的延伸，也承載著對下一代的愛與責任，將成為代代相傳的幸福基地。
           </p>
           <div></div>
         </div>
@@ -385,7 +391,7 @@ export default function About() {
           <div className=" w-full lg:w-1/2 flex justify-center items-center">
             <div className="flex flex-col  p-10">
               <div className="flex flex-col justify-center items-center ">
-                <h3 className="text-[3rem] font-bold ">建案完工倒數計時</h3>
+                <h3 className="text-[2.2rem] font-bold ">建案完工時程</h3>
                 <p className="text-center tracking-widest leading-loose ">
                   當您提交房產資訊時，我們將為您提供
                   獨家網站的優先訪問權，您可以在此處查看最新資訊和獨家平面圖。
