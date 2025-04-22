@@ -67,8 +67,8 @@ export const TextGenerateEffect = ({
 
   return (
     <div className={cn("font-bold", className)} ref={ref}>
-      <div className="flex justify-center items-center">
-        <div className="text-[1.5rem] inline-flex items-center justify-center text-center lg:text-[1.7rem] 2xl:text-[2.2rem] font-normal  mx-auto  !text-[#46342a]">
+      <div className="flex ">
+        <div className="text-[1.5rem]  lg:text-[2.2rem] font-bold  mx-auto  !text-[#46342a]">
           {renderWords()}
         </div>
       </div>

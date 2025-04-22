@@ -18,17 +18,17 @@ export default function About() {
     {
       title: "誠境二期",
 
-      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery01.jpg",
+      src: "/images/JPOM9734.jpg",
     },
     {
       title: "誠境二期",
 
-      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery05.jpg",
+      src: "/images/烏日區五張犁西段474地號(誠境5)-完工實景照片10-1090219-S.jpg",
     },
     {
       title: "誠境二期",
 
-      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery02.jpg",
+      src: "/images/img002.png",
     },
     {
       title: "誠境二期",
@@ -40,7 +40,7 @@ export default function About() {
     <ReactLenis root>
       <div className="app">
         <TextParallaxContent
-          imgUrl="https://niwahouzing.com/wp-content/themes/niwa/assets/images/modelhouse/img-modelhouse-head_pc.avif"
+          imgUrl="/images/img001.png"
           heading="關於宜園建設."
           description="宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。"
         ></TextParallaxContent>
@@ -49,10 +49,7 @@ export default function About() {
           <div className="col lg:w-1/2 w-full portrait">
             <div className="portrait-container">
               <div className="img mt-8">
-                <ParallaxImage
-                  src="https://niwahouzing.com/wp-content/uploads/2024/10/bee585f7a27f9e02a7042435dd3a63ee.jpg"
-                  alt=""
-                />
+                <ParallaxImage src="/images/img003.png" alt="" />
               </div>
             </div>
           </div>

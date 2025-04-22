@@ -9,7 +9,8 @@ import CustomEase from "gsap/CustomEase";
 import Landing from "../components/Landing/index.jsx";
 import Preloader from "../components/Preloader/index.jsx";
 let isInitialLoad = true;
-import CityScene from "../components/CityScene.jsx";
+// import CityScene from "../components/CityScene.jsx";
+import { TransitionLink } from "../components/utils/TransitionLink";
 
 import dynamic from "next/dynamic";
 // const CityScene = dynamic(() => import("@/components/CityScene"), {
@@ -100,7 +101,10 @@ export default function Home() {
           <div className="progress-bar" ref={progressBarRef}></div>
         </div>
       )}
-      <div className="home-page relativez-[99999999999]" ref={containerRef}>
+      <div
+        className="home-page bg-[url('/images/pexels-peter-fazekas-1089451.jpg')] bg-center bg-no-repeat bg-cover w-screen h-screen relativez-[99999999999]"
+        ref={containerRef}
+      >
         <div className="hero-video">
           {/* <CityScene /> */}
           {/* <video
@@ -118,11 +122,18 @@ export default function Home() {
           </video> */}
           {/* 黑色遮罩 */}
           {/* <div className="video-overlay"></div> */}
-          <CityScene />
+          {/* <CityScene /> */}
         </div>
         <div className="hero-title z-[99999]">
           <div className="line mt-4 ">
             <h1 className="text-5xl text-white">實在的構築</h1>
+            <h1 className="text-[1.4rem] mt-[-15px] text-[#A99C81] ">
+              TRUE ARCH
+            </h1>
+            <h1 className="text-white text-[1rem] w-2/3 my-4 font-normal leading-loose tracking-widest mx-auto">
+              宜居的建築，承載著宜居的根，不一定最宏大，卻能帶來安心。
+              傾聽，土地的聲音；細說，生命的故事。不一定最奢華，卻處處溫暖，生活宜人。
+            </h1>
           </div>
 
           <button

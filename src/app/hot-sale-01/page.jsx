@@ -139,9 +139,9 @@ export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(null);
   const backgroundImages = [
-    "https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_01.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1",
-    "https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_02.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1",
-    "https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_04.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1",
+    "/images/JPOM9734.jpg",
+    "/images/宜園誠境實景照片.jpg",
+    "/images/JPOM9756.jpg",
   ];
   useEffect(() => {
     const timer = setInterval(() => {
@@ -233,22 +233,7 @@ export default function About() {
   const OPTIONS = {};
 
   // 這裡定義你的背景圖片
-  const SLIDES = [
-    "/images/ph_esperanza.jpg",
-    "/images/ph_takahiradai-no-ie.jpg",
-    "/images/ph_esperanza.jpg",
-    "/images/ph_minna-no-ie.jpg",
-    "/images/ph_kumamoto-tasaki-clinic.jpg",
-    "/images/hadashinoie016-2048x1365.jpg.webp",
-  ];
-  const THUMBNAILS = [
-    "/images/ph_esperanza.jpg",
-    "/images/ph_takahiradai-no-ie.jpg",
-    "/images/ph_esperanza.jpg",
-    "/images/ph_minna-no-ie.jpg",
-    "/images/ph_kumamoto-tasaki-clinic.jpg",
-    "/images/hadashinoie016-2048x1365.jpg.webp",
-  ];
+
   const [showNav, setShowNav] = useState(true);
   let lastScrollY = 0;
 
@@ -319,7 +304,7 @@ export default function About() {
         <div className="bg-black opacity-40 w-full h-full absolute top-0 left-0 z-10" />
 
         {/* 文字區塊 */}
-        <div className="hero-title border border-green-300 w-1/2 absolute left-[4%] top-[90%] z-20">
+        <div className="hero-title  w-1/2 absolute left-[4%] top-[90%] z-20">
           <div className="text-center px-4">
             <GsapText
               text="Built for Living."
@@ -395,7 +380,7 @@ export default function About() {
       <section className="w-full pt-20 bg-custom-gradient section-content">
         <section className="mx-auto  max-w-[1920px]">
           <div className="flex w-[80%] flex-col md:flex-row h-full justify-center items-center mx-auto">
-            <div className=" w-full md:w-1/2 p-5  border">
+            <div className=" w-full md:w-1/2 p-5  ">
               <GsapText
                 text="持續進化的設計"
                 id="gsap-intro"
@@ -411,9 +396,9 @@ export default function About() {
               </p>
             </div>
             <div className=" w-full md:w-1/2 flex justify-center items-center">
-              <div className="max-w-[580px] ">
+              <div className="max-w-[330px] ">
                 <Image
-                  src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_09.jpg?fit=800%2C864&quality=85&strip=all&ssl=1"
+                  src="/images/JPOM9734.jpg"
                   placeholder="empty"
                   loading="lazy"
                   alt=""

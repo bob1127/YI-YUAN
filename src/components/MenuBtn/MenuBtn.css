@@ -9,6 +9,7 @@
   position: relative;
   width: 80px;
   height: 20px;
+  z-index: 999999999999;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
@@ -19,6 +20,7 @@
 
 .menu-copy p#menu-text {
   position: absolute;
+  color: white;
   transform: translateY(24px);
 }
 

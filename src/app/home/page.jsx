@@ -2,7 +2,7 @@
 import { TransitionLink } from "../../components/utils/TransitionLink";
 import { TextGenerateEffect } from "../../components/ui/text-generate-effec-home";
 import StartAnimate from "../../components/HomeAnimate/page";
-
+import HeroSlider from "../../components/HeroSliderHome/page";
 import { Carousel, Card } from "../../components/ui/apple-cards-carousel";
 
 import React, { useRef, useEffect } from "react";
@@ -10,7 +10,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ParallaxImage from "../../components/ParallaxImage";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import HeroSlider from "../../components/HeroSlider/page";
+
 import Marquee from "react-fast-marquee";
 // import { Carousel } from "../../components/ui/carousel01";
 import gsap from "gsap";
@@ -60,7 +60,7 @@ export default function About() {
       document.documentElement.style.height = "auto";
       document.body.style.height = "auto";
       window.removeEventListener("scroll", disableScroll);
-    }, 5000);
+    }, 50);
 
     const initGSAPAnimations = () => {
       const ctx = gsap.context(() => {
@@ -84,13 +84,13 @@ export default function About() {
             },
             {
               clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-              duration: 1,
+              duration: 0.6,
               ease: "power2.inOut",
             }
           )
             .to(image.querySelector(".overlay"), {
               clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-              duration: 1,
+              duration: 0.6,
               ease: "power2.inOut",
             })
             .fromTo(
@@ -100,10 +100,10 @@ export default function About() {
               },
               {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                duration: 2,
+                duration: 1,
                 ease: "power3.inOut",
               },
-              "-=0.5"
+              "-=0.4"
             );
         });
 
@@ -143,19 +143,82 @@ export default function About() {
   ));
   return (
     <ReactLenis root>
-      <section className="section_hero overflow-hidden mt-[40px]   lg:mt-[70px]">
+      {/* <section className="section_hero overflow-hidden mt-[40px]   lg:mt-[70px]">
         <StartAnimate />
+      </section> */}
+      <section className="relative overflow-hidden 2xl:h-[830px] xl:h-[768px] lg:h-[700px]">
+        <div className="txt absolute z-50 left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2">
+          <p className="text-[3rem] text-[#8c3a35]"> ABOUT US</p>
+        </div>
+        {/* <HeroSlider /> */}
+        <Image
+          src="/images/pexels-jeff-nissen-920690.jpg"
+          width={1920}
+          height={700}
+          placeholder="empty"
+          loading="eager"
+          alt="hero-image"
+          className="
+          "
+        ></Image>
       </section>
-      <section className="section_features w-full  mx-auto  mt-[5vh]">
+      {/* <div className="flex max-w-[1920px] lg:flex-row mb-5 mt-20 sm:mt-[20vh] flex-col  mx-auto">
+        <div className="img w-[98%] md:w-[550px] lg:w-[50%] mx-auto h-auto md:h-[830px] overflow-hidden">
+          <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+            <div className="overlay absolute inset-0 bg-black z-10"></div>
+            <div className="image-container relative w-full h-full">
+              <TransitionLink href="/hot-sale">
+                <Image
+                  src="/images/JPOM9756.jpg"
+                  alt="About Image 2"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                />
+              </TransitionLink>
+            </div>
+          </div>
+        </div>
+        <div className="text w-[95%]  lg:w-1/2 p-8 flex flex-col justify-center items-center ">
+          <div className="flex flex-col justify-start items-start ">
+            <h2 className="mb-0 font-normal">宜融</h2>
+            <p className="text-[1.1rem] font-normal tracking-widest	">
+              模型房屋參觀接受中
+            </p>
+            <span className="text-[.9rem] font-normal mt-10 tracking-widest	">
+              也許是只有製作者自己才會注意到的、<br></br>{" "}
+              極其講究的設計正在被傳達。
+            </span>
+            <TransitionLink href="/hot-sale">
+              <div className="group flex justify-center items-center mt-10 text-[1.2rem] font-normal">
+                PRPJECT
+                <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                  <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                    →
+                  </div>
+                  <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                    →
+                  </div>
+                </button>
+              </div>
+            </TransitionLink>
+          </div>
+        </div>
+      </div> */}
+      <section className="section_features w-full  max-w-[1920px] mx-auto  mt-[100px]">
         <div className="title  flex justify-center flex-col items-center mx-auto w-[85%] ">
           <TextGenerateEffect
-            words="一起思考人生，一起創造未來
+            words="U - UNIQUE
 
 "
           />
-          <p className="text-[.9rem] mt-4 text-center">
-            宜園建設是一家以台中為基地的設計建築公司，<br></br>
-            專注於創造“精緻”的建築。
+          <h2>信任 ｜ 宜安心</h2>
+          <p className="text-[.9rem] mx-auto leading-loose tracking-widest w-full sm:w-2/3 mt-4 text-center">
+            房子，值得依靠；好關係，值得託付。
+            當市場競逐利益，宜園回歸最本質的「家」，最關鍵的「住」。<br></br>
+            以職人專業為基，堅守實在本質，落實大小細節，築起家的價值。
+            <br></br> <br></br>
+            宜園，以「實在的構築」，默默守護，讓您踏實生活，放心每一天。
           </p>
         </div>
         <div className="flex md:flex-row flex-col w-[90%] sm:w-[95%] mx-auto mt-10 sm:mt-20">
@@ -164,7 +227,7 @@ export default function About() {
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
                 <Image
-                  src="https://www.bess.jp/wordpress/wp-content/uploads/2024/06/kinoie_11_header_02-768x768.jpg"
+                  src="/images/img001.png"
                   alt="About Image 1"
                   fill
                   className="object-cover"
@@ -179,7 +242,7 @@ export default function About() {
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
                 <Image
-                  src="https://www.bess.jp/wordpress/wp-content/uploads/2025/03/img_hd_05_archive-768x768.jpg"
+                  src="/images/img002.png"
                   alt="About Image 1"
                   fill
                   className="object-cover"
@@ -194,7 +257,7 @@ export default function About() {
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
                 <Image
-                  src="https://www.bess.jp/wordpress/wp-content/themes/bess/assets/images/top_life_image_1312w.png"
+                  src="/images/JPOM9756.jpg"
                   alt="About Image 1"
                   fill
                   className="object-cover"
@@ -209,93 +272,88 @@ export default function About() {
             <p>不與人同的作為</p>
           </div> */}
         </div>
-        <div className="flex md:flex-row flex-col w-[90%] sm:w-[95%] mx-auto mt-10 sm:mt-20">
-          <div className="img  w-full mt-20 sm:mt-[26vh] md:w-[17%] mx-auto sm:mx-3  h-auto md:h-[60vh] xl:h-[60vh] overflow-hidden">
-            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-              <div className="overlay absolute inset-0 bg-black z-10"></div>
-              <div className="image-container relative w-full h-full">
-                <Image
-                  src="https://niwahouzing.com/wp-content/uploads/2024/10/f6f77a1616e27fc34eb1a81aa7dc6262-17.jpg"
-                  alt="About Image 1"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                />
-                xs
+        <section className="py-[50px]">
+          <div className="flex md:flex-row flex-col w-[90%] sm:w-[95%] mx-auto mt-10 sm:mt-20">
+            <div className="img  flex justify-center pl-0 md:p-5 w-full mt-20 sm:mt-[26vh] md:w-[35%] mx-auto sm:mx-3  h-auto md:h-[60vh] xl:h-[60vh] overflow-hidden">
+              <div className="title mx-auto flex flex-col justify-start items-start">
+                <TextGenerateEffect words="R - RELATION" />
+                <h2>關係 ｜ 宜真情</h2>
+                <p className="leading-loose tracking-widest w-full md:w-2/3 ">
+                  建築，是連結土地的根，也是凝聚人心的橋。
+                  於家人，傳遞溫度與關懷；於鄰里，凝聚和睦與理解；
+                  於土地，報以尊重與謙遜；於城市，追求共生共榮。
+                </p>
               </div>
             </div>
-          </div>
-          <div className="img w-ful mt-4 md:mt-0 md:w-[62%] mx-auto sm:mx-3  h-auto md:h-[93vh] flex flex-col justify-end items-end xl:h-[93vh] overflow-hidden">
-            <div className="animate-image-wrapper group h-[90%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
-              <TransitionLink href="/hot-sale-02">
-                <div className="title ">
-                  <div className="flex items-center">
-                    <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
-                      <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
-                        →
-                      </div>
-                      <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
-                        →
-                      </div>
-                    </button>
-                    <h3 className="text-[1.3rem] font-normal">
-                      My Home Project-Yi Yuan
-                    </h3>
+
+            <div className="img w-ful mt-4 md:mt-0 md:w-[40%] sm:mx-3  h-auto md:h-[70vh] lg::h-[93vh] flex flex-col justify-end items-end xl:h-[93vh] overflow-hidden">
+              <div className="animate-image-wrapper group h-[90%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
+                <TransitionLink href="/hot-sale-02">
+                  <div className="title ">
+                    <div className="flex items-center">
+                      <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                        <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                          →
+                        </div>
+                        <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                          →
+                        </div>
+                      </button>
+                      <h3 className="text-[1.3rem] font-normal">
+                        My Home Project-Yi Yuan
+                      </h3>
+                    </div>
+                    <div className="flex items-center">
+                      {" "}
+                      <span className="border mr-3 my-2 border-black text-[.78rem] p-1">
+                        Home
+                      </span>{" "}
+                      <p className="text-[.78rem]">Dec.2019</p>
+                    </div>
                   </div>
-                  <div className="flex items-center">
-                    {" "}
-                    <span className="border mr-3 my-2 border-black text-[.78rem] p-1">
-                      Home
-                    </span>{" "}
-                    <p className="text-[.78rem]">Dec.2019</p>
-                  </div>
+                </TransitionLink>
+                <div className="overlay absolute inset-0 bg-black z-10"></div>
+                <div className="image-container relative w-full h-full">
+                  <Image
+                    src="/images/宜園誠境實景照片.jpg"
+                    alt="About Image 1"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 950px, 85vw"
+                  />
+                  xs
                 </div>
-              </TransitionLink>
-              <div className="overlay absolute inset-0 bg-black z-10"></div>
-              <div className="image-container relative w-full h-full">
-                <Image
-                  src="https://niwahouzing.com/wp-content/uploads/2024/10/6929b940e4802cf13960acbb172247c2-17.jpg"
-                  alt="About Image 1"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                />
-                xs
               </div>
             </div>
-            <b className="mt-3">Feature</b>
-            <p className="w-[60%] mt-4 text-[.8rem]">
-              被牆面上的裝飾架圍繞著我最喜愛的愛好。2.房間中央的窗戶兼顧設計與功能性。實木地板和組合材質的架子營造出自然的情感。
-            </p>
-          </div>
-          <div className="img  w-full  mt-4 md:mt-0  md:w-[21%] mx-auto sm:mx-3 pt-[14vh]  h-auto md:h-[50vh] xl:h-[50vh] overflow-hidden">
-            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-              <div className="overlay absolute inset-0 bg-black z-10"></div>
-              <div className="image-container relative w-full h-full">
-                <Image
-                  src="https://niwahouzing.com/wp-content/uploads/2024/10/ed80de20dfec1bd144442f3c2532b6bb-18.jpg"
-                  alt="About Image 1"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                />
-                xs
+            <div className="img  w-full  mt-4 md:mt-0  md:w-[25%] mx-auto sm:mx-3 pt-[5vh] md:pt-[24vh]  h-auto md:h-[50vh] xl:h-[70vh] overflow-hidden">
+              <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                <div className="overlay absolute inset-0 bg-black z-10"></div>
+                <div className="image-container relative w-full h-full">
+                  <Image
+                    src="/images/烏日區五張犁西段474地號(誠境5)-完工實景照片10-1090219-S.jpg"
+                    alt="About Image 1"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                  />
+                  xs
+                </div>
               </div>
             </div>
-          </div>
-          {/* <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
+            {/* <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
             <TextGenerateEffect words="宜居" />
             <p>不與人同的作為</p>
           </div> */}
-        </div>
-        <div className="flex lg:flex-row mb-5 mt-20 sm:mt-[20vh] flex-col w-[98%] mx-auto">
-          <div className="img w-[98%] md:w-[550px] lg:w-[50%] mx-auto h-auto md:h-[830px] overflow-hidden">
+          </div>
+        </section>
+        <div className="flex lg:flex-row flex-col-reverse mb-5 mt-20 sm:mt-[20vh] w-[98%] mx-auto">
+          <div className="img w-[98%] md:w-[85%] lg:w-[50%] mx-auto h-auto md:h-[830px] overflow-hidden">
             <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
               <div className="overlay absolute inset-0 bg-black z-10"></div>
               <div className="image-container relative w-full h-full">
                 <TransitionLink href="/hot-sale">
                   <Image
-                    src="https://niwahouzing.com/wp-content/themes/niwa/assets/images/quality/img-quality-modelhouse.avif"
+                    src="/images/JPOM9734.jpg"
                     alt="About Image 2"
                     fill
                     className="object-cover"
@@ -305,18 +363,20 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="text w-[95%]  lg:w-1/2 p-8 flex flex-col justify-center items-center ">
+          <div className="text w-[95%]   lg:w-1/2 p-20 flex flex-col justify-center items-center ">
             <div className="flex flex-col justify-start items-start ">
-              <h2 className="mb-0 font-normal">宜融</h2>
-              <p className="text-[1.1rem] font-normal tracking-widest	">
-                模型房屋參觀接受中
-              </p>
-              <span className="text-[.9rem] font-normal mt-10 tracking-widest	">
-                也許是只有製作者自己才會注意到的、<br></br>{" "}
-                極其講究的設計正在被傳達。
-              </span>
+              <div className="title mx-auto flex flex-col justify-start items-start">
+                <TextGenerateEffect words="U - UNIQUE" />
+                <h2>獨特 ｜ 宜居所</h2>
+                <p className="leading-loose tracking-widest w-full sm:w-2/3">
+                  每個人，都是獨一無二的個體。 好的房子，懂得尊重每一種獨特。
+                  以好規劃，讓私領域的靜謐、公領域的交流，恰如其分。
+                  以好設計，迎風納景，擋聲遮擾，恰到好處。
+                  宜園，以實在的構築，成就居住者理想居所，守護與眾不同的生活想像
+                </p>
+              </div>
               <TransitionLink href="/hot-sale">
-                <div className="group flex justify-center items-center mt-10 text-[1.2rem] font-normal">
+                <div className="group flex  mt-10 text-[1.2rem] font-normal">
                   PRPJECT
                   <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
                     <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
@@ -328,6 +388,53 @@ export default function About() {
                   </button>
                 </div>
               </TransitionLink>
+            </div>
+          </div>
+        </div>
+        <div className="flex  lg:flex-row mb-5 mt-20 sm:mt-[20vh] flex-col w-[98%] mx-auto">
+          <div className="text w-[95%]   lg:w-1/2 p-20 flex flex-col justify-center items-center ">
+            <div className="flex flex-col justify-start items-start ">
+              <div className="title mx-auto flex flex-col justify-start items-start">
+                <TextGenerateEffect words="E - ETERNAL" />
+                <h2>永恆 ｜ 宜融入</h2>
+                <p className="leading-loose tracking-widest w-full sm:w-2/3">
+                  好房子懂得跟土地相處，找出最舒適的生活方式。
+                  宜園傾聽土地的聲音，細說生命的故事，
+                  讓建築扎根於大地，成就心的歸宿。<br></br>
+                  <br></br>
+                  宜園，以實在的構築，融入環境，與自然共生共長；
+                  順應時間，讓家越住越美，恆久宜居。
+                </p>
+              </div>
+              <TransitionLink href="/hot-sale">
+                <div className="group flex  mt-10 text-[1.2rem] font-normal">
+                  PRPJECT
+                  <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
+                    <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
+                      →
+                    </div>
+                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
+                      →
+                    </div>
+                  </button>
+                </div>
+              </TransitionLink>
+            </div>
+          </div>
+          <div className="img w-[98%] md:w-[85%] lg:w-[50%] mx-auto h-auto md:h-[830px] overflow-hidden">
+            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+              <div className="overlay absolute inset-0 bg-black z-10"></div>
+              <div className="image-container relative w-full h-full">
+                <TransitionLink href="/hot-sale">
+                  <Image
+                    src="/images/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.JPG"
+                    alt="About Image 2"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                  />
+                </TransitionLink>
+              </div>
             </div>
           </div>
         </div>
@@ -428,7 +535,7 @@ export default function About() {
         </h1> */}
       </div>
 
-      <section className="section_project flex-col my-20 sm:my-[20vh]">
+      {/* <section className="section_project flex-col my-20 sm:my-[20vh]">
         <div className="title  mb-6 flex justify-center flex-col items-center mx-auto w-[85%] sm:w-full">
           <TextGenerateEffect
             words="我們用心塑造我們的家。
@@ -443,10 +550,10 @@ export default function About() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  w-full ">
           <TransitionLink href="/project">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/assets/images/index/service03.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
-              {/* 毛玻璃遮罩（hover時顯示） */}
+     
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
 
-              {/* 內部內容 */}
+         
               <div className="absolute inset-0 flex flex-col justify-between">
                 <div className="top h-[20%] flex items-start p-5">
                   <span className="text-white text-[.9rem]">01</span>
@@ -461,10 +568,10 @@ export default function About() {
           </TransitionLink>
           <TransitionLink href="/project">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie004-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
-              {/* 毛玻璃遮罩（hover時顯示） */}
+            
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
 
-              {/* 內部內容 */}
+    
               <div className="absolute inset-0 flex flex-col justify-between">
                 <div className="top h-[20%] flex items-start p-5">
                   <span className="text-white text-[.9rem]">01</span>
@@ -479,10 +586,9 @@ export default function About() {
           </TransitionLink>
           <TransitionLink href="/project">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/02/hadashinoie116-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
-              {/* 毛玻璃遮罩（hover時顯示） */}
+            
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
 
-              {/* 內部內容 */}
               <div className="absolute inset-0 flex flex-col justify-between">
                 <div className="top h-[20%] flex items-start p-5">
                   <span className="text-white text-[.9rem]">01</span>
@@ -497,10 +603,9 @@ export default function About() {
           </TransitionLink>
           <TransitionLink href="/project">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie-54-1-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
-              {/* 毛玻璃遮罩（hover時顯示） */}
+    
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
 
-              {/* 內部內容 */}
               <div className="absolute inset-0 flex flex-col justify-between">
                 <div className="top h-[20%] flex items-start p-5">
                   <span className="text-white text-[.9rem]">01</span>
@@ -515,10 +620,10 @@ export default function About() {
           </TransitionLink>
           <TransitionLink href="/project">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie040-1-1-2048x1366.jpg')] bg-center bg-no-repeat bg-cover group overflow-hidden">
-              {/* 毛玻璃遮罩（hover時顯示） */}
+            
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
 
-              {/* 內部內容 */}
+         
               <div className="absolute inset-0 flex flex-col justify-between">
                 <div className="top h-[20%] flex items-start p-5">
                   <span className="text-white text-[.9rem]">01</span>
@@ -532,7 +637,7 @@ export default function About() {
             </div>
           </TransitionLink>
         </div>
-      </section>
+      </section> */}
       {/* <div className="w-full h-full py-20">
         <Carousel items={cards} />
       </div> */}

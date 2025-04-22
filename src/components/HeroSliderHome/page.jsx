@@ -12,19 +12,19 @@ gsap.registerPlugin(CustomEase);
 const slides = [
   {
     type: "video",
-    src: "/videos/hero.mp4",
+    src: "/images/pexels-jeff-nissen-920690.jpg",
   },
   {
     type: "image",
-    src: "/images/hero02.jpg",
+    src: "/images/pexels-jeff-nissen-920690.jpg",
   },
   {
     type: "image",
-    src: "/images/hero01.jpg",
+    src: "/images/pexels-jeff-nissen-920690.jpg",
   },
   {
     type: "image",
-    src: "/images/hero03.jpg",
+    src: "/images/pexels-jeff-nissen-920690.jpg",
   },
 ];
 

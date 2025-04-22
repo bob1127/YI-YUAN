@@ -133,7 +133,7 @@ const HeroComponent = () => {
             </p>
             <div className="max-w-[1000px]">
               <Image
-                src="https://www.estie.jp/_next/static/media/productLineup_pc.fa01c9d5.png"
+                src="/images/about/about-01.jpg"
                 placeholder="empty"
                 alt=""
                 loading="lazy"

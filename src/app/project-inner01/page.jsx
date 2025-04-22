@@ -174,7 +174,7 @@ export default function About() {
               </div>
             </div>
             <img
-              src="https://lifejam.co.jp/img_index/ph_choyo-seibu-public-housing.jpg"
+              src="/images/img004.png"
               placeholder="empty"
               loading="lazy"
               width={1300}
@@ -282,7 +282,8 @@ export default function About() {
       </div>
       <div className="bg-white ">
         <TextParallaxContent
-          imgUrl="https://www.31sumai.com/content/dam/31sumai/mfr/F2471/top/main_img01.jpg"
+          imgUrl="/images/JPOM9734.jpg"
+          className="text-white"
           subheading="宜居"
           heading="坐落在13期的心臟."
           description="在富人區的心臟地帶，坐落著一座如詩如畫的豪墅，猶如隱匿於繁華中的藝術品。
@@ -386,11 +387,13 @@ const OverlayCopy = ({ subheading, heading, description }) => {
       ref={targetRef}
       className="absolute left-0 top-0 flex h-[200vh] px-[5%] sm:px-[8%] lg:px-[10%] 2xl:px-[15%]  flex-col pb-[50vh] items-start justify-center text-white"
     >
-      <p className="mb-2 text-center text-[2.3rem] md:mb-4 ">{subheading}</p>
-      <p className="text-left  w-2/3 leading-relaxed font-bold text-[2.3rem]">
+      <p className="mb-2 text-center text-white text-[2.3rem] md:mb-4 ">
+        {subheading}
+      </p>
+      <p className="text-left text-white  w-2/3 leading-relaxed font-bold text-[2.3rem]">
         {heading}
       </p>
-      <p className="w-2/3 xl:w-1/2  text-[1rem] leading-loose mt-5">
+      <p className="w-2/3 xl:w-1/2 text-white text-[1rem] leading-loose mt-5">
         {description}
       </p>
     </motion.div>

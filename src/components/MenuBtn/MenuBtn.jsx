@@ -32,10 +32,10 @@ const MenuBtn = ({ isOpen, toggleMenu }) => {
   return (
     <div
       ref={container}
-      className={`menu-toggle ${isOpen ? "opened" : "closed"}`}
+      className={`menu-toggle  ${isOpen ? "opened" : "closed"}`}
       onClick={toggleMenu}
     >
-      <div className="menu-copy">
+      <div className="menu-copy ">
         <p id="menu-open" ref={menuBtnOpen}>
           Menu
         </p>

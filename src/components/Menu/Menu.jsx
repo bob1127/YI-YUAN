@@ -1,4 +1,5 @@
 "use client";
+
 import {
   useEffect,
   useState,
@@ -15,7 +16,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
 
-const Menu = () => {
+const Menu = ({ isDarkBg }) => {
   const init = useRef(false);
   const container = useRef();
   const menuRef = useRef(null);
@@ -54,9 +55,7 @@ const Menu = () => {
   );
 
   const animateMenu = useCallback((open) => {
-    if (!menuRef.current) {
-      return;
-    }
+    if (!menuRef.current) return;
 
     const menu = menuRef.current;
     const links = menu.querySelectorAll(".link .link-wrapper");
@@ -72,9 +71,7 @@ const Menu = () => {
         onStart: () => {
           menu.style.pointerEvents = "all";
         },
-        onComplete: () => {
-          setIsAnimating(false);
-        },
+        onComplete: () => setIsAnimating(false),
       });
 
       gsap.to(links, {
@@ -127,62 +124,28 @@ const Menu = () => {
 
   const toggleMenu = useCallback(() => {
     if (!isAnimating) {
-      setIsOpen((prevIsOpen) => {
-        return !prevIsOpen;
-      });
+      setIsOpen((prev) => !prev);
     }
-  }, [isAnimating, isOpen]);
+  }, [isAnimating]);
 
   const closeMenu = useCallback(() => {
-    if (!isAnimating) {
-      if (isOpen) {
-        setIsOpen((prevIsOpen) => {
-          return !prevIsOpen;
-        });
-      } else return;
+    if (!isAnimating && isOpen) {
+      setIsOpen(false);
     }
   }, [isAnimating, isOpen]);
 
   return (
     <div ref={container}>
-      <MenuBar isOpen={isOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
+      <MenuBar
+        isOpen={isOpen}
+        toggleMenu={toggleMenu}
+        closeMenu={closeMenu}
+        isDarkBg={isDarkBg}
+      />
 
       <div className="menu" ref={menuRef}>
         <div className="col col-1">
-          <div className="socials">
-            <div className="sub-col">
-              {address.map((line, index) => (
-                <div className="line" key={index}>
-                  <p>{line}</p>
-                </div>
-              ))}
-              <br />
-              {contactInfo.slice(0, 2).map((line, index) => (
-                <div className="line" key={index}>
-                  <p>{line}</p>
-                </div>
-              ))}
-            </div>
-            <div className="sub-col">
-              {socials.map((social, index) => (
-                <div className="line" key={index}>
-                  <p>
-                    <a
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {social.label}
-                    </a>
-                  </p>
-                </div>
-              ))}
-              <br />
-              <div className="line">
-                <p>{contactInfo[2]}</p>
-              </div>
-            </div>
-          </div>
+          <div className="socials"></div>
         </div>
         <div className="col col-2">
           <div className="links">
