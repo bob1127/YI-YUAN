@@ -164,7 +164,21 @@ export default function About() {
   ];
   return (
     <ReactLenis root>
-      <HeroSlider />
+      <HeroSlider
+        slides={[
+          {
+            image:
+              "/images/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.JPG",
+            title: "Slide One",
+          },
+          {
+            image: "/images/宜園誠境實景照片.jpg",
+            title: "Slide Two",
+          },
+          { image: "/images/img004.png", title: "Slide Three" },
+          { image: "/images/img003.png", title: "Slide Four" },
+        ]}
+      />
       <section className="section_main_building w-[95%] sm:w-[85%] lg:w-[60%] py-[100px] mx-auto flex flex-col justify-center items-center">
         <div>
           <div className="relative w-full">
@@ -183,12 +197,12 @@ export default function About() {
             ></img>
           </div>
           <div className="w-[25%] mt-5">
-            <span className="text-[1.2vmin] font-light text-gray-600">
-              買取型災害公営住宅 長陽西部団地
+            <span className="text-[1.2vmin] font-bold text-gray-600">
+              一座建築，承載一種生活的理想。
             </span>
             <br></br>
             <span className="text-[1.2vmin] font-light text-gray-600">
-              minamiaso village, aso district, kumamoto 2019
+              在繁忙都市的節奏中，我們渴望一處能深呼吸的空間。
             </span>
           </div>
         </div>
@@ -292,7 +306,7 @@ export default function About() {
           <ExampleContent />
         </TextParallaxContent>
         <TextParallaxContent
-          imgUrl="https://www.31sumai.com/content/dam/31sumai/mfr/B2301/top/topimage_02.jpg"
+          imgUrl="/images/宜園誠境實景照片.jpg"
           subheading="Quality"
           heading="為您打造無可
 比擬的居住體驗"
@@ -461,40 +475,41 @@ const DummyContent = () => {
 
 const data = [
   {
-    category: "Artificial Intelligence",
-    title: "You can do more with AI.",
-    src: "https://www.31sumai.com/content/dam/31sumai/mfr/F2471/top/main_img01.jpg",
+    category: "常見問題",
+    title: "宜園建設是什麼樣的公司？有什麼特色？",
+    src: "/images/烏日區五張犁西段474地號(誠境5)-完工實景照片10-1090219-S.jpg",
     content: <DummyContent />,
   },
   {
-    category: "Productivity",
-    title: "Enhance your productivity.",
-    src: "https://www.31sumai.com/content/dam/31sumai/mfr/X2114/top/top_img14.png",
+    category: "建案地區",
+    title: "宜園建設的建案主要集中在哪些地區？",
+    src: "/images/宜園誠境實景照片.jpg",
     content: <DummyContent />,
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "https://www.31sumai.com/content/dam/31sumai/mfr/F2241/top/main_gaikan.jpg",
+    category: "客戶疑問",
+    title: "你們的建案是否有實品屋或實景可以參觀？",
+    src: "/images/ChatGPT Image 2025年4月15日 下午01_21_28.png",
+    content: <DummyContent />,
+  },
+  {
+    category: "關於售後",
+    title: "房子保固或售後服務",
+    src: "/images/img001.png",
     content: <DummyContent />,
   },
 
   {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://www.31sumai.com/content/dam/31sumai/mfr/B2223/top/img15.jpg",
+    category: "室內設計",
+    title: "是否提供客製化裝修或配合設計調整",
+    src: "/images/img002.png",
     content: <DummyContent />,
   },
+
   {
-    category: "iOS",
-    title: "Photography just got better.",
-    src: "https://www.31sumai.com/content/dam/31sumai/mfr/B2307/floor_plan/btn_plan3.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/06/20230121-2B3A0074-2048x1365.jpg",
+    category: "新聞",
+    title: "追蹤宜園建設最新建案或活動",
+    src: "/images/ChatGPT Image 2025年4月15日 下午08_06_21.png",
     content: <DummyContent />,
   },
 ];

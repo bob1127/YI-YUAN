@@ -9,7 +9,7 @@
        local('PingFang TC'),
        local('PingFang SC Regular'),
        local('PingFang SC');
-  font-weight: normal;
+
   font-style: normal;
 }
 
@@ -17,7 +17,7 @@
   font-family: 'PingFang TC';
   src: local('PingFang TC Medium'),
        local('PingFang SC Medium');
-  font-weight: 500;
+
   font-style: normal;
 }
 
@@ -25,7 +25,7 @@
   font-family: 'PingFang TC';
   src: local('PingFang TC Semibold'),
        local('PingFang SC Semibold');
-  font-weight: 600;
+
   font-style: normal;
 }
 
@@ -33,7 +33,7 @@
   font-family: 'PingFang TC';
   src: local('PingFang TC Bold'),
        local('PingFang SC Bold');
-  font-weight: bold;
+
   font-style: normal;
 }
 
@@ -126,7 +126,7 @@ body {
   transition-timing-function: ease-in-out;
   transition-duration: 500ms;
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-end-rgb));
+
   font-feature-settings: "palt";
   -webkit-font-feature-settings: "palt";
   -moz-font-feature-settings: "palt";
@@ -404,4 +404,41 @@ body {
   height: 100vh;
   background: rgba(0, 0, 0, 0.5); /* 黑色半透明遮罩 */
   z-index: 1; /* 讓遮罩覆蓋影片 */
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
+}
+
+::view-transition-group(root) {
+  z-index: auto !important;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  will-change: transform, opacity, clip-path;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 10000;
+  animation: none !important;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none !important;
+} 
+/* public/logo-loader.css */
+.logo-stroke {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: draw 2.5s ease forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }

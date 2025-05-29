@@ -31,19 +31,19 @@ export const DragCloseDrawer = ({
 
       {/* Drawer Panel */}
       <div
-        className={`!fixed top-0 right-0 z-50 border-l-2 border-black border-t-2 h-full w-full md:w-3/4 shadow-xl transform transition-transform duration-300 ease-in-out
+        className={`!fixed top-0 h-full right-0 z-50 border-l-2 border-black border-t-2  w-full md:w-3/4 aspect-[500/500] sm:aspect-[1024/576] xl:aspect-[1920/768] shadow-xl transform transition-transform duration-300 ease-in-out
   bg-[linear-gradient(to_bottom,_#5b8b5a_0%,_#5b8b5a_30%,_#fefefe_30%,_#fefefe_100%)]
   ${open ? "translate-x-0" : "translate-x-full"} ${className || ""}`}
       >
         {/* flex-col 容器，拉撐高度 */}
-        <div className="relative flex w-full flex-col h-full">
+        <div className="relative flex w-full flex-col ">
           {/* 左側裝飾條 */}
-          <div className="left-bar absolute left-0 top-0 z-50 h-screen border-r-2 bg-white border-black w-[6%]">
+          <div className="left-bar absolute left-0 top-0 z-50 h-full border-r-2 bg-white border-black w-[6%]">
             {/* 關閉按鈕 - X 標誌 */}
 
             <button
               onClick={handleClose}
-              className="text-black text-2xl close-button border-b-2 border-black top h-[10%] w-full flex items-start justify-center  pt-4 hover:text-white hover:bg-black transition-colors duration-200"
+              className="text-black text-2xl close-button border-b-2 border-black top  w-full flex items-start justify-center  p-3 hover:text-white hover:bg-black transition-colors duration-200"
               aria-label="關閉"
             >
               ✕

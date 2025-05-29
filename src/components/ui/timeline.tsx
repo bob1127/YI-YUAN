@@ -38,7 +38,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full pt-[160px]  dark:bg-neutral-950 font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
+      <div className="max-w-7xl mx-auto  px-4 md:px-8 lg:px-10">
         <div className="title  flex justify-center flex-col items-center mx-auto w-[85%] sm:w-full">
           <TextGenerateEffect
             words="工程進度

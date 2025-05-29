@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import "./page.css";
-import { TransitionLink } from "../utils/TransitionLink";
+import AnimatedLink from "../../components/AnimatedLink";
 
 const items = [
   {
@@ -135,14 +135,14 @@ const Codegrid = () => {
               日期：2025/01/01
             </div>
             <div className="link mt-1">
-              <TransitionLink href="/news-inner">
+              <AnimatedLink href="/news-inner">
                 <button
                   role="link"
                   class="relative font-extrabold text-[1rem] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
                 >
                   慶祝宜園大院 動土典禮活動紀錄
                 </button>
-              </TransitionLink>
+              </AnimatedLink>
             </div>
           </div>
         </div>

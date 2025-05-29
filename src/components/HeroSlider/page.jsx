@@ -1,77 +1,70 @@
 "use client";
 import { useRef } from "react";
 import "./page.css";
-
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { CustomEase } from "gsap/CustomEase";
 
 gsap.registerPlugin(CustomEase);
 
-const Photos = () => {
+const Photos = ({ slides }) => {
   const sliderImagesRef = useRef(null);
   const counterRef = useRef(null);
   const titlesRef = useRef(null);
   const indicatorsRef = useRef(null);
-  const previewsRef = useRef(null);
+  const previewsRef = useRef([]);
   const sliderRef = useRef(null);
 
   useGSAP(
     () => {
-      gsap.registerPlugin(CustomEase);
       CustomEase.create(
         "hop2",
         "M0,0 C0.071,0.505 0.192,0.726 0.318,0.852 0.45,0.984 0.504,1 1,1"
       );
 
       let currentImg = 1;
-      const totalSlides = 4;
+      const totalSlides = slides.length;
       let indicatorRotation = 0;
 
-      function updateCounterAndTitlePosition() {
-        const counterY = -20 * (currentImg - 1);
-        const titleY = -60 * (currentImg - 1);
-
+      const updateCounterAndTitlePosition = () => {
         gsap.to(counterRef.current, {
-          y: counterY,
+          y: -20 * (currentImg - 1),
           duration: 1,
           ease: "hop2",
         });
-
         gsap.to(titlesRef.current, {
-          y: titleY,
+          y: -60 * (currentImg - 1),
           duration: 1,
           ease: "hop2",
         });
-      }
+      };
 
-      function updateActiveSlidePreview() {
-        previewsRef.current.forEach((prev) => prev.classList.remove("active"));
-        previewsRef.current[currentImg - 1].classList.add("active");
-      }
+      const updateActiveSlidePreview = () => {
+        previewsRef.current.forEach((el, i) =>
+          el?.classList.toggle("active", i === currentImg - 1)
+        );
+      };
 
-      function animateSlide(direction) {
+      const animateSlide = (direction) => {
         const currentSlide = sliderImagesRef.current.lastElementChild;
+        const newSlide = document.createElement("div");
+        newSlide.classList.add("img");
 
-        const slideImg = document.createElement("div");
-        slideImg.classList.add("img");
+        const img = document.createElement("img");
+        img.src = slides[currentImg - 1].image;
+        gsap.set(img, { x: direction === "left" ? -500 : 500 });
 
-        const slideImgElem = document.createElement("img");
-        slideImgElem.src = `/assets/img${currentImg}.jpg`;
-        gsap.set(slideImgElem, { x: direction === "left" ? -500 : 500 });
-
-        slideImg.appendChild(slideImgElem);
-        sliderImagesRef.current.appendChild(slideImg);
+        newSlide.appendChild(img);
+        sliderImagesRef.current.appendChild(newSlide);
 
         const tl = gsap.timeline();
-
         tl.to(currentSlide.querySelector("img"), {
           x: direction === "left" ? 500 : -500,
           duration: 1.5,
           ease: "hop2",
         })
           .fromTo(
-            slideImg,
+            newSlide,
             {
               clipPath:
                 direction === "left"
@@ -85,15 +78,7 @@ const Photos = () => {
             },
             0
           )
-          .to(
-            slideImgElem,
-            {
-              x: 0,
-              duration: 1.5,
-              ease: "hop2",
-            },
-            0
-          )
+          .to(img, { x: 0, duration: 1.5, ease: "hop2" }, 0)
           .call(() => cleanupSlides(), null, 1.5);
 
         indicatorRotation += direction === "left" ? -90 : 90;
@@ -102,138 +87,113 @@ const Photos = () => {
           duration: 1,
           ease: "hop2",
         });
-      }
+      };
 
-      function cleanupSlides() {
-        const imgElements = sliderImagesRef.current.querySelectorAll(".img");
-        if (imgElements.length > totalSlides) {
-          gsap.to(imgElements[0], {
+      const cleanupSlides = () => {
+        const imgs = sliderImagesRef.current.querySelectorAll(".img");
+        if (imgs.length > totalSlides) {
+          gsap.to(imgs[0], {
             opacity: 0,
             duration: 0.5,
-            onComplete: () => {
-              imgElements[0].remove();
-            },
+            onComplete: () => imgs[0].remove(),
           });
         }
-      }
+      };
 
-      function nextSlide() {
+      const nextSlide = () => {
         currentImg = currentImg < totalSlides ? currentImg + 1 : 1;
         animateSlide("right");
         updateActiveSlidePreview();
         updateCounterAndTitlePosition();
-      }
+      };
 
-      // 啟用自動輪播
-      const autoSlideInterval = setInterval(nextSlide, 4000); // 每4秒切換一次
+      const autoSlideInterval = setInterval(nextSlide, 4000);
 
-      // 仍保留手動點擊邏輯（可選）
-      function handleClick(event) {
+      const handleClick = (e) => {
         const sliderWidth = sliderRef.current.clientWidth;
-        const clickPosition = event.clientX;
+        const clickX = e.clientX;
+        const clickedPreview = e.target.closest(".preview");
 
-        if (event.target.closest(".slider-preview")) {
-          const clickedPrev = event.target.closest(".preview");
-
-          if (clickedPrev) {
-            const clickedIndex =
-              Array.from(previewsRef.current).indexOf(clickedPrev) + 1;
-
-            if (clickedIndex !== currentImg) {
-              if (clickedIndex < currentImg) {
-                currentImg = clickedIndex;
-                animateSlide("left");
-              } else {
-                currentImg = clickedIndex;
-                animateSlide("right");
-              }
-              updateActiveSlidePreview();
-              updateCounterAndTitlePosition();
-            }
+        if (clickedPreview) {
+          const clickedIndex = previewsRef.current.indexOf(clickedPreview);
+          if (clickedIndex !== -1 && clickedIndex + 1 !== currentImg) {
+            currentImg = clickedIndex + 1;
+            animateSlide(clickedIndex + 1 < currentImg ? "left" : "right");
+            updateActiveSlidePreview();
+            updateCounterAndTitlePosition();
           }
           return;
         }
 
-        if (clickPosition < sliderWidth / 2 && currentImg !== 1) {
+        if (clickX < sliderWidth / 2 && currentImg > 1) {
           currentImg--;
           animateSlide("left");
-        } else if (
-          clickPosition > sliderWidth / 2 &&
-          currentImg !== totalSlides
-        ) {
+        } else if (clickX > sliderWidth / 2 && currentImg < totalSlides) {
           currentImg++;
           animateSlide("right");
         }
 
         updateActiveSlidePreview();
         updateCounterAndTitlePosition();
-      }
+      };
 
       sliderRef.current.addEventListener("click", handleClick);
 
       return () => {
-        if (sliderRef.current) {
-          sliderRef.current.removeEventListener("click", handleClick);
-        }
+        sliderRef.current.removeEventListener("click", handleClick);
         clearInterval(autoSlideInterval);
       };
     },
-    { scope: sliderRef, dependencies: [] }
+    { scope: sliderRef }
   );
 
   return (
-    <>
-      <div className="slider" ref={sliderRef}>
-        <div className="slider-images" ref={sliderImagesRef}>
-          <div className="img">
-            <img src="/assets/img1.jpg" alt="" className="" />
-          </div>
-        </div>
-
-        <div className="slider-title">
-          <div className="slider-title-wrapper" ref={titlesRef}>
-            <p>The Revival Ensemble</p>
-            <p>Above The Canvas</p>
-            <p>Harmony in Every Note</p>
-            <p>Redefining Imagination</p>
-          </div>
-        </div>
-
-        <div className="slider-counter">
-          <div className="counter" ref={counterRef}>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-          </div>
-          <div>
-            <p>&mdash;</p>
-          </div>
-          <div>
-            <p>4</p>
-          </div>
-        </div>
-
-        <div className="slider-preview">
-          {[1, 2, 3, 4].map((num) => (
-            <div
-              key={num}
-              className={`preview ${num === 1 ? "active" : ""}`}
-              ref={(el) =>
-                (previewsRef.current = [...(previewsRef.current || []), el])
-              }
-            >
-              <img src={`/assets/img${num}.jpg`} alt="" />
-            </div>
-          ))}
-        </div>
-
-        <div className="slider-indicators" ref={indicatorsRef}>
-          <p>+</p>
-          <p>+</p>
+    <div className="slider" ref={sliderRef}>
+      <div className="slider-images" ref={sliderImagesRef}>
+        <div className="img">
+          <img src={slides[0].image} alt="" />
         </div>
       </div>
-    </>
+
+      <div className="slider-title">
+        <div className="slider-title-wrapper" ref={titlesRef}>
+          {slides.map((s, i) => (
+            <p key={i}>{s.title}</p>
+          ))}
+        </div>
+      </div>
+
+      <div className="slider-counter">
+        <div className="counter" ref={counterRef}>
+          {slides.map((_, i) => (
+            <p key={i}>{i + 1}</p>
+          ))}
+        </div>
+        <div>
+          <p>&mdash;</p>
+        </div>
+        <div>
+          <p>{slides.length}</p>
+        </div>
+      </div>
+
+      <div className="slider-preview">
+        {slides.map((s, i) => (
+          <div
+            key={i}
+            className={`preview ${i === 0 ? "active" : ""}`}
+            ref={(el) => (previewsRef.current[i] = el)}
+          >
+            <img src={s.image} alt="" />
+          </div>
+        ))}
+      </div>
+
+      <div className="slider-indicators" ref={indicatorsRef}>
+        <p>+</p>
+        <p>+</p>
+      </div>
+    </div>
   );
 };
 

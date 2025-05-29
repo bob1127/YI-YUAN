@@ -38,6 +38,7 @@ export default function Home() {
               total={projects.length} // ✅ 修正這裡
               key={`p_${i}`}
               i={i}
+              url={project.link}
               {...project}
               progress={scrollYProgress}
               range={[i * 0.25, 1]}
@@ -89,7 +90,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section>
+      {/* <section>
         <div className="flex max-w-[1000px] mx-auto my-5 justify-center">
           <Image
             src="https://www.31sumai.com/content/dam/31sumai/mfr/H2302/top/btn_access.png"
@@ -112,7 +113,7 @@ export default function Home() {
             className="w-full"
           ></Image>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

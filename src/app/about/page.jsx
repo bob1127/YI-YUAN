@@ -1,7 +1,6 @@
 "use client";
-import { TransitionLink } from "../../components/utils/TransitionLink";
 import { Accordion, AccordionItem } from "@heroui/react";
-
+import AnimatedLink from "../../components/AnimatedLink";
 import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -40,7 +39,7 @@ export default function About() {
     <ReactLenis root>
       <div className="app">
         <TextParallaxContent
-          imgUrl="/images/img001.png"
+          imgUrl="/images/JPOM9734.jpg"
           heading="關於宜園建設."
           description="宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。"
         ></TextParallaxContent>
@@ -49,7 +48,7 @@ export default function About() {
           <div className="col lg:w-1/2 w-full portrait">
             <div className="portrait-container">
               <div className="img mt-8">
-                <ParallaxImage src="/images/img003.png" alt="" />
+                <ParallaxImage src="/images/宜園誠境實景照片.jpg" alt="" />
               </div>
             </div>
           </div>
@@ -58,7 +57,7 @@ export default function About() {
             <p className="leading-relaxed font-normal text-[.95rem] text-[#20201f]">
               宜家園邸，打造溫馨舒適的理想家園。宜園建設精心規劃，融合自然綠意與現代設計，營造安心宜居的生活環境。便利交通、完善機能，讓您盡享家的溫暖與美好。
             </p>
-            <div className="flex justify-center items-center h-[20rem] flex-col px-4">
+            {/* <div className="flex justify-center items-center h-[20rem] flex-col px-4">
               <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-3xl mx-auto mb-10">
                 <LinkPreview
                   style="!border-none !underline-none"
@@ -76,7 +75,7 @@ export default function About() {
                   宜園建設精心規劃，融合自然綠意與現代設計
                 </span>
               </p>
-            </div>
+            </div> */}
           </div>
         </section>
         {/* 
@@ -145,7 +144,7 @@ export default function About() {
           </div>
         </Marquee>
         <div>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden py-[100px] w-[100%] h-auto">
             <SvgImage />
           </div>
         </div>
@@ -280,7 +279,7 @@ export default function About() {
                   </div>
                 }
               >
-                <div>
+                <div className="flex  px-5 py-4 flex-col gap-2">
                   <b>購屋流程簡單明確，大致如下：</b>
                   <div>
                     <p className="text-[.8rem] tracking-widest mt-2">
@@ -307,7 +306,7 @@ export default function About() {
             </Accordion>
           </div>
           <div className="">
-            <TransitionLink href="/news">
+            <AnimatedLink href="/news">
               <div className="flex group py-10 w-full sm:w-[85%] md:w-[70%] mx-auto justify-center md:justify-end items-center">
                 <span className="text-[2rem] font-bold mr-3">更多消息</span>
                 <button class="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
@@ -347,7 +346,7 @@ export default function About() {
                   </div>
                 </button>
               </div>
-            </TransitionLink>
+            </AnimatedLink>
           </div>
         </div>
         <div className="py-8 lg:flex-row bg-white flex-col flex">
@@ -400,12 +399,12 @@ export default function About() {
 const NavLeft = () => {
   return (
     <div className="flex items-center gap-6">
-      <TransitionLink href="/about">
+      <AnimatedLink href="/about">
         <h1>About</h1>
-      </TransitionLink>
-      <TransitionLink href="/community">Community</TransitionLink>
-      <TransitionLink href="/pricing">Pricing</TransitionLink>
-      <TransitionLink href="/company">Company</TransitionLink>
+      </AnimatedLink>
+      <AnimatedLink href="/community">Community</AnimatedLink>
+      <AnimatedLink href="/pricing">Pricing</AnimatedLink>
+      <AnimatedLink href="/company">Company</AnimatedLink>
     </div>
   );
 };

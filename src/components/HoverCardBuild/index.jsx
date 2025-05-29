@@ -5,24 +5,21 @@ import { TransitionLink } from "../utils/TransitionLink";
 const items = [
   {
     id: 1,
-    imgSrc:
-      "https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/service-10-pc.webp",
+    imgSrc: "/images/JPOM9734.jpg",
     number: "宜園大院",
 
     bottomLeft: "宜園建設，打造理想生活空間",
   },
   {
     id: 2,
-    imgSrc:
-      "https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/service-02-pc.webp",
+    imgSrc: "/images/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.JPG",
     number: "一青隱",
 
     bottomLeft: "宜園建設，打造理想生活空間",
   },
   {
     id: 3,
-    imgSrc:
-      "https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/service-05-pc.webp",
+    imgSrc: "/images/img001.png",
     number: "誠境二期",
 
     bottomLeft: "宜園建設，打造理想生活空間",

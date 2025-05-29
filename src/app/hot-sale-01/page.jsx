@@ -258,28 +258,35 @@ export default function About() {
   return (
     <ReactLenis root className="">
       {/* <InfiniteScroll /> */}
-      <motion.div
-        initial={{ y: 0 }}
-        animate={{ y: showNav ? 0 : 100 }} // 向下移出
-        transition={{ duration: 0.6, ease: [0.77, 0, 0.175, 1] }}
-        className="fixed bottom-10 left-[35%] z-50 w-[410px] h-[64px] bg-[rgba(0,0,0,0.2)] shadow-[0_0_16px_4px_#00000008] rounded-lg backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)]"
-      >
-        <div className="flex px-6 justify-start items-center h-full mx-auto">
-          <div className="w-[30%]">
-            <b className="text-white text-[1.2rem] font-bold">YI YUAN</b>
-          </div>
-          <div className="w-[45%]">
-            <span className="text-gray-500 text-[.9rem]">Project - </span>
-            <span className="text-[1rem] tracking-widest text-white">
-              宜園大院
-            </span>
-          </div>
-          <div className="w-[25%]">
-            <span className="text-[.8rem] text-white">2025.05.23</span>
-          </div>
+      <div className="fixed bottom-8 z-[99999999999] left-0 w-screen">
+        <div className="flex justify-center">
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: showNav ? 0 : 100 }}
+            transition={{ duration: 0.6, ease: [0.77, 0, 0.175, 1] }}
+            className=" bottom-8 left-1/2 -translate-x-1/2 z-50 w-[90%] sm:w-[410px] h-[64px] bg-[rgba(0,0,0,0.2)] shadow-[0_0_16px_4px_#00000008] rounded-lg backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)]"
+          >
+            <div className="flex px-6 justify-start items-center h-full">
+              <div className="w-[30%]">
+                <b className="text-white text-[.9rem] sm:text-[1.2rem] font-bold">
+                  YI YUAN
+                </b>
+              </div>
+              <div className="w-[45%]">
+                <span className="text-gray-500 text-[.9rem]">Project - </span>
+                <span className=" text-[.8rem] sm:text-[1rem] tracking-widest text-white">
+                  宜園大院
+                </span>
+              </div>
+              <div className="w-[25%]">
+                <span className="text-[.8rem] text-white">2025.05.23</span>
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
-      <section className="section-hero w-full min-h-[100vh] relative">
+      </div>
+
+      <section className="section-hero w-full aspect-[500/500] sm:aspect-[1024/576] xl:aspect-[1920/768] overflow-hidden relative">
         {/* 背景圖片群組 */}
         {backgroundImages.map((bg, i) => (
           <motion.div
@@ -309,7 +316,7 @@ export default function About() {
             <GsapText
               text="Built for Living."
               id="gsap-intro"
-              fontSize="4rem"
+              fontSize="2.6rem"
               fontWeight="200"
               color="#fff"
               lineHeight="60px"
@@ -330,8 +337,8 @@ export default function About() {
         </div>
       </section>
       <section className="py-[100px]">
-        <div className="flex max-w-[1920px] mx-auto p-20 w-[80%] flex-col">
-          <div className="title  w-1/2">
+        <div className="flex max-w-[1920px] w-full sm:w-[80%] xl:w-full mx-auto px-5 md:px-10 lg:px-20  flex-col">
+          <div className="title  w-full lg:w-[80%] xl:w-1/2">
             <div className="text-left px-4">
               <GsapText
                 text="[設施摘要]"
@@ -350,27 +357,27 @@ export default function About() {
               預約於2025年3月7日開始。除預約、採訪等以外的諮詢，請透過此處聯絡我們info[at]motherhaus-sauna.com請聯絡我們
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-8">
-            <div className="m-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 ">
+            <div className="lg:m-8 mt-4   ">
               <Image
-                src="https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/madori.webp"
+                src="/images/ChatGPT Image 2025年4月15日 下午08_06_21.png"
                 alt=""
                 placeholder="empty"
                 loading="lazy"
-                width={800}
-                height={800}
-                className="max-w-[550px]"
+                width={1500}
+                height={1500}
+                className=" w-full"
               ></Image>
             </div>
-            <div className="m-8">
+            <div className="lg:m-8 mt-4  ">
               <Image
-                src="https://motherhaus-sauna.com/sys/wp-content/themes/motherbase/assets/img/top/madori.webp"
+                src="/images/ChatGPT Image 2025年4月15日 下午01_21_28.png"
                 alt=""
                 placeholder="empty"
                 loading="lazy"
-                width={800}
-                height={800}
-                className="max-w-[550px]"
+                width={1500}
+                height={1500}
+                className=" w-full"
               ></Image>
             </div>
           </div>
@@ -412,8 +419,8 @@ export default function About() {
         </section>
 
         <section className="section-footer p-3 lg:p-10 2xl:p-20">
-          <div className="mx-auto w-[80%] 2xl:w-[70%] py-20">
-            <div className="top flex justify-between flex-row">
+          <div className="mx-auto w-[90%] 2xl:w-[80%] py-20">
+            <div className="top flex justify-between flex-col md:flex-row">
               <h3 className="text-white text-[1.8rem] font-bold">
                 YI YUAN BUILDING
               </h3>
@@ -455,8 +462,8 @@ export default function About() {
                 </div>
               </button>
             </div>
-            <div className="middle flex  flex-row">
-              <div className="w-[40%]">
+            <div className="middle flex  flex-col md:flex-row">
+              <div className=" w-full md:w-[40%]">
                 <div className="grid grid-cols-2">
                   <div className="flex py-8 flex-col">
                     <div className="flex flex-col">
@@ -500,7 +507,7 @@ export default function About() {
                   </div>
                 </div>
               </div>
-              <div className="w-[60%] pb-5 flex justify-end">
+              <div className=" w-full md:w-[60%] pb-5 flex justify-start md:justify-end">
                 <div className=" flex flex-col items-end justify-end">
                   <div className="flex flex-row items-center">
                     <span className="text-[.8rem] mr-2 mt-1 text-gray-400">
@@ -537,7 +544,7 @@ export default function About() {
                 </div>
               </div>
             </div>
-            <div className="bottom mt-[15vh] pb-10 border-b-1 border-[#6f6f6f]">
+            <div className="bottom mt-[10vh] md:mt-[15vh] pb-10 border-b-1 border-[#6f6f6f]">
               <div className="flex flex-row items-center mt-1">
                 <span className="text-[.8rem] mr-2 mt-1 text-gray-400">
                   Website Sesign
@@ -548,9 +555,9 @@ export default function About() {
               </div>
             </div>
             <section className=" w-full mt-4">
-              <span className="text-white text-[1.4rem] mb-2">NEWS</span>
-              <div className="flex  mx-auto   lg:w-full  w-full flex-wrap flex-row">
-                <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
+              <span className="text-white  text-[1.4rem] mb-2">NEWS</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+                <div className=" w-full mx-auto md:w-[200px] lg:w-[230px] 2xl:w-[280px] xl:w-[230px]  group ">
                   <div className="img   mx-auto  group-hover:h-[40vh] delay-75 duration-500  h-auto md:h-[33vh]  overflow-hidden">
                     <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
                       <div className="image-container relative w-full h-full">
@@ -592,7 +599,7 @@ export default function About() {
                   </div>
                 </div>
 
-                <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
+                <div className=" w-[90%] mx-auto  md:w-[200px] lg:w-[230px] 2xl:w-[280px] xl:w-[230px]  group mx-1">
                   <div className="img   mx-auto    h-auto md:h-[36vh] group-hover:h-[44vh] delay-75 duration-500 overflow-hidden">
                     <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
                       <div className="image-container relative w-full h-full">
@@ -633,7 +640,7 @@ export default function About() {
                     </span>
                   </div>
                 </div>
-                <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
+                <div className=" w-[90%] mx-auto  md:w-[200px] lg:w-[230px] 2xl:w-[280px] xl:w-[230px]  group mx-1">
                   <div className="img   mx-auto    h-auto md:h-[26vh] group-hover:h-[33vh] delay-75 duration-500 overflow-hidden">
                     <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
                       <div className="image-container relative w-full h-full">
@@ -674,7 +681,7 @@ export default function About() {
                     </span>
                   </div>
                 </div>
-                <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
+                <div className=" w-[90%] mx-auto  md:w-[200px] lg:w-[230px] 2xl:w-[280px] xl:w-[230px]  group mx-1">
                   <div className="img   mx-auto    h-auto md:h-[30vh] group-hover:h-[35vh] delay-75 duration-500 overflow-hidden">
                     <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
                       <div className="image-container relative w-full h-full">
@@ -720,8 +727,8 @@ export default function About() {
           </div>
         </section>
         <section className="relative ">
-          <div className="bg-white mx-auto   max-w-[1400px] pt-10 w-[78%] flex justify-center items-center">
-            <div className="title w-1/2 pl-2 sm:pl-8 lg:pl-20 h-full flex flex-col justify-between">
+          <div className="bg-white mx-auto rounded-tr-2xl border-l-2 border-r-2 border-t-2 border-gray-400 rounded-tl-2xl  max-w-[1400px] pt-10 w-full md:w-[78%] flex  md:flex-row flex-col justify-center items-center">
+            <div className="title sm:w-[70%] w-[80%] mx-auto lg::w-1/2 pl-2 sm:pl-8 lg:pl-20 h-full flex flex-col justify-between">
               <GsapText
                 text="Project - 一青隱"
                 id="gsap-intro"
@@ -735,7 +742,7 @@ export default function About() {
                 <b className="text-[1/3rem] font-normal">實在的構築</b>
               </div>
             </div>
-            <div className="w-1/2 pt-10 flex border justify-center items-center">
+            <div className="sm:w-[70%] pr-0 md:pr-10 w-[80%] mx-auto lg::w-1/2 pt-10 flex  justify-center items-center">
               <Image
                 src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2023/11/7_mikan-shimokita_10.jpg?fit=2880%2C1920&quality=85&strip=all&ssl=1"
                 alt=""
@@ -743,7 +750,7 @@ export default function About() {
                 loading="lazy"
                 width={800}
                 height={800}
-                className="max-w-[520px]"
+                className="w-full max-w-[520px]"
               ></Image>
             </div>
           </div>
@@ -752,58 +759,7 @@ export default function About() {
       <section>
         <Timeline data={data01} />
       </section>
-      <div className="flex lg:flex-row px-0 2xl:px-[200px] flex-col pt-[100px] bg-white ">
-        {/* <div className=" w-full  flex-col justify-center items-center flex ">
-          <EmblaCarousel
-            slides={SLIDES}
-            thumbnails={THUMBNAILS}
-            options={OPTIONS}
-          />
-          <div className="title py-[40px] md:py-[50px] px-[30px] sm:px-[40px] lg:px-[80px]">
-            <h1 className="!text-[2rem]">宜園建設【一青隱】</h1>
-          </div>
-          <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
-            <p className="leading-relaxed">
-              不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
-              致邀，職住共生的青創企業家 成家滿意，創業更旺，2-3房共居新浪潮
-              <br></br> <br></br>
-              宜園建設【一青隱】 神隱青海│2-3房│含精裝修
-              接待會館：漢口路一段69號（漢口國中正對面） 預約專線：04-2314-9066
-            </p>
-          </div>
-          <div className="img p-[80px]">
-            {" "}
-            <img
-              src="https://cdn.shopify.com/s/files/1/0779/4674/9246/files/240705Karimoku_LAVOT28889.jpg?v=1724405193"
-              alt=""
-              className="w-full"
-            />
-          </div>
-          <div className="title py-[40px] md:py-[50px] px-[30px] sm:px-[40px] lg:px-[80px]">
-            <TextGenerateEffect words="向自然習作，美好新始，健康新序" />
-            <h1 className="!text-[2rem]"></h1>
-          </div>
-          <div className="content flex flex-col justify-center items-center w-full lg:w-2/3 mx-auto px-[30px] sm:px-[40px] lg:px-[80px]">
-            <p className="leading-relaxed">
-              不簡單的青海路，相遇不平凡的青世代 獻給，鍾情市中心的菁英家庭
-              致邀，職住共生的青創企業家 成家滿意，創業更旺，2-3房共居新浪潮
-              <br></br> <br></br>
-              宜園建設【一青隱】 神隱青海│2-3房│含精裝修
-              接待會館：漢口路一段69號（漢口國中正對面） 預約專線：04-2314-9066
-            </p>
-          </div>
-          <div className="h-[40rem] flex flex-col justify-center  items-center px-4">
-            <h2 className="mb-10 sm:mb-20 text-[2.5rem] text-center  dark:text-white text-black">
-              立即詢價 專人為您服務
-            </h2>
-            <PlaceholdersAndVanishInput
-              placeholders={placeholders}
-              onChange={handleChange}
-              onSubmit={onSubmit}
-            />
-          </div>
-        </div> */}
-      </div>
+
       <div className="bg-white z-[99999999] py-10 bottom-section flex flex-col justify-center items-center">
         <Marquee>
           <div className="flex flex-row py-10 justify-center items-center">

@@ -124,7 +124,7 @@ const HeroComponent = () => {
           className="hero h-auto justify-center items-center max-w-[80%] mx-auto flex flex-col  text-center py-16"
         >
           {/* 這裡可以放標題、按鈕、描述文字 */}
-          <div className="flex flex-col  items-start justify-start border border-black">
+          <div className="flex flex-col  items-start justify-start ">
             <h1 className="text-4xl font-bold mb-4 text-white">
               綠意盎然的未來
             </h1>

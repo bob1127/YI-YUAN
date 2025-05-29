@@ -2,8 +2,9 @@
 import Image from "next/image";
 import styles from "./style.module.scss";
 import { useTransform, motion, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { TransitionLink } from "../../components/utils/TransitionLink";
+import AnimatedLink from "../AnimatedLink";
 const Card = ({
   i,
   title,
@@ -14,7 +15,7 @@ const Card = ({
   progress,
   range,
   targetScale,
-  total, // 新增 total prop
+  total,
 }) => {
   const container = useRef(null);
 
@@ -24,27 +25,31 @@ const Card = ({
     smooth: 0.5,
   });
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 3], {
-    transition: { duration: 3, ease: "easeInOut" },
-  });
-
+  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 3]);
   const isLast = i === total - 1;
-
-  // 永遠執行 Hook（符合規則）
-  const scaleMotion = useTransform(progress, range, [1, targetScale], {
-    transition: { duration: 3, ease: "easeInOut" },
-  });
-
-  // 最後才決定是否要用固定值
+  const scaleMotion = useTransform(progress, range, [1, targetScale]);
   const scale = isLast ? 1 : scaleMotion;
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.1, 0.7]);
 
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.1, 0.7], {
-    transition: { duration: 3, ease: "easeInOut" },
-  });
+  // ✅ TransitionLink 動畫後重新啟動
+  useEffect(() => {
+    const handleTransitionComplete = () => {
+      // 若有外部動畫庫初始化請放這裡，例如：
+      // ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("pageTransitionComplete", handleTransitionComplete);
+    return () => {
+      window.removeEventListener(
+        "pageTransitionComplete",
+        handleTransitionComplete
+      );
+    };
+  }, []);
 
   return (
     <div ref={container} className={styles.cardContainer}>
-      <TransitionLink className="!w-[100vw]" href="/hot-sale-01">
+      <AnimatedLink className="!w-[100vw]" href={url}>
         <motion.div
           style={{
             backgroundImage: `url(${backgroundImage})`,
@@ -117,7 +122,7 @@ const Card = ({
             </div>
           </div>
         </motion.div>
-      </TransitionLink>
+      </AnimatedLink>
     </div>
   );
 };

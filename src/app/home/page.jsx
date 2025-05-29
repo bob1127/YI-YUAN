@@ -1,9 +1,10 @@
 "use client";
-import { TransitionLink } from "../../components/utils/TransitionLink";
 import { TextGenerateEffect } from "../../components/ui/text-generate-effec-home";
 import StartAnimate from "../../components/HomeAnimate/page";
 import HeroSlider from "../../components/HeroSliderHome/page";
 import { Carousel, Card } from "../../components/ui/apple-cards-carousel";
+import Link from "next/link";
+import AnimatedLink from "../../components/AnimatedLink";
 
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
@@ -146,28 +147,33 @@ export default function About() {
       {/* <section className="section_hero overflow-hidden mt-[40px]   lg:mt-[70px]">
         <StartAnimate />
       </section> */}
-      <section className="relative overflow-hidden 2xl:h-[830px] xl:h-[768px] lg:h-[700px]">
-        <div className="txt absolute z-50 left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2">
-          <p className="text-[3rem] text-[#8c3a35]"> ABOUT US</p>
-        </div>
-        {/* <HeroSlider /> */}
-        <Image
-          src="/images/pexels-jeff-nissen-920690.jpg"
-          width={1920}
-          height={700}
-          placeholder="empty"
-          loading="eager"
-          alt="hero-image"
-          className="
-          "
-        ></Image>
-      </section>
-      {/* <div className="flex max-w-[1920px] lg:flex-row mb-5 mt-20 sm:mt-[20vh] flex-col  mx-auto">
+      <div className="bg-white">
+        <section className="relative md:h-[768px] h-[500px] xl:h-[1024px] 2xl:h-screen w-full overflow-hidden">
+          {/* 毛玻璃遮罩層 */}
+          <div className="absolute inset-0 z-10 backdrop-blur-sm bg-white/30" />
+
+          {/* 文字區塊 */}
+          <div className="txt absolute z-20 left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2">
+            <p className="text-[3rem] text-[#8c3a35]"> ABOUT US</p>
+          </div>
+
+          {/* 背景圖片 */}
+          <Image
+            src="/images/pexels-jeff-nissen-920690.jpg"
+            fill
+            placeholder="empty"
+            loading="eager"
+            alt="hero-image"
+            className="object-cover"
+          />
+        </section>
+
+        {/* <div className="flex max-w-[1920px] lg:flex-row mb-5 mt-20 sm:mt-[20vh] flex-col  mx-auto">
         <div className="img w-[98%] md:w-[550px] lg:w-[50%] mx-auto h-auto md:h-[830px] overflow-hidden">
           <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
             <div className="overlay absolute inset-0 bg-black z-10"></div>
             <div className="image-container relative w-full h-full">
-              <TransitionLink href="/hot-sale">
+              <AnimatedLink href="/hot-sale">
                 <Image
                   src="/images/JPOM9756.jpg"
                   alt="About Image 2"
@@ -175,7 +181,7 @@ export default function About() {
                   className="object-cover"
                   sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                 />
-              </TransitionLink>
+              </AnimatedLink>
             </div>
           </div>
         </div>
@@ -189,7 +195,7 @@ export default function About() {
               也許是只有製作者自己才會注意到的、<br></br>{" "}
               極其講究的設計正在被傳達。
             </span>
-            <TransitionLink href="/hot-sale">
+            <AnimatedLink href="/hot-sale">
               <div className="group flex justify-center items-center mt-10 text-[1.2rem] font-normal">
                 PRPJECT
                 <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
@@ -201,341 +207,179 @@ export default function About() {
                   </div>
                 </button>
               </div>
-            </TransitionLink>
-          </div>
+            </AnimatedLink>
+          </div>text w-[95%]   lg:w-[40%] p-10 2xl:p-20 flex flex-col  
         </div>
       </div> */}
-      <section className="section_features w-full  max-w-[1920px] mx-auto  mt-[100px]">
-        <div className="title  flex justify-center flex-col items-center mx-auto w-[85%] ">
-          <TextGenerateEffect
-            words="U - UNIQUE
-
-"
-          />
-          <h2>信任 ｜ 宜安心</h2>
-          <p className="text-[.9rem] mx-auto leading-loose tracking-widest w-full sm:w-2/3 mt-4 text-center">
-            房子，值得依靠；好關係，值得託付。
-            當市場競逐利益，宜園回歸最本質的「家」，最關鍵的「住」。<br></br>
-            以職人專業為基，堅守實在本質，落實大小細節，築起家的價值。
-            <br></br> <br></br>
-            宜園，以「實在的構築」，默默守護，讓您踏實生活，放心每一天。
-          </p>
-        </div>
-        <div className="flex md:flex-row flex-col w-[90%] sm:w-[95%] mx-auto mt-10 sm:mt-20">
-          <div className="img  w-full md:w-[20%] mx-auto sm:mx-3  h-auto md:h-[20vh] xl:h-[30vh] overflow-hidden">
-            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-              <div className="overlay absolute inset-0 bg-black z-10"></div>
-              <div className="image-container relative w-full h-full">
-                <Image
-                  src="/images/img001.png"
-                  alt="About Image 1"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                />
-                xs
-              </div>
-            </div>
-          </div>
-          <div className="img w-ful mt-4 md:mt-0 md:w-[25%] mx-auto sm:mx-3  h-auto md:h-[30vh] xl:h-[60vh] overflow-hidden">
-            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-              <div className="overlay absolute inset-0 bg-black z-10"></div>
-              <div className="image-container relative w-full h-full">
-                <Image
-                  src="/images/img002.png"
-                  alt="About Image 1"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                />
-                xs
-              </div>
-            </div>
-          </div>
-          <div className="img  w-full  mt-4 md:mt-0  md:w-[55%] mx-auto sm:mx-3  h-auto md:h-[50vh] xl:h-[70vh] overflow-hidden">
-            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-              <div className="overlay absolute inset-0 bg-black z-10"></div>
-              <div className="image-container relative w-full h-full">
-                <Image
-                  src="/images/JPOM9756.jpg"
-                  alt="About Image 1"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                />
-                xs
-              </div>
-            </div>
-          </div>
-          {/* <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
-            <TextGenerateEffect words="宜居" />
-            <p>不與人同的作為</p>
-          </div> */}
-        </div>
-        <section className="py-[50px]">
-          <div className="flex md:flex-row flex-col w-[90%] sm:w-[95%] mx-auto mt-10 sm:mt-20">
-            <div className="img  flex justify-center pl-0 md:p-5 w-full mt-20 sm:mt-[26vh] md:w-[35%] mx-auto sm:mx-3  h-auto md:h-[60vh] xl:h-[60vh] overflow-hidden">
-              <div className="title mx-auto flex flex-col justify-start items-start">
-                <TextGenerateEffect words="R - RELATION" />
-                <h2>關係 ｜ 宜真情</h2>
-                <p className="leading-loose tracking-widest w-full md:w-2/3 ">
-                  建築，是連結土地的根，也是凝聚人心的橋。
-                  於家人，傳遞溫度與關懷；於鄰里，凝聚和睦與理解；
-                  於土地，報以尊重與謙遜；於城市，追求共生共榮。
-                </p>
+        <section className="section_features w-full   mx-auto  mt-[100px]">
+          <div className="flex lg:flex-row max-w-[1920px] flex-col-reverse mb-5 mt-20 sm:mt-[20vh] w-full mx-auto">
+            <div className="img w-full  md:w-[85%] lg:w-[60%] mx-auto h-auto max-h-[500px] overflow-hidden">
+              <div className="animate-image-wrapper relative w-full aspect-[4/5] max-h-[500px] h-full overflow-hidden">
+                <div className="overlay absolute inset-0 bg-black z-10 max-h-[500px] h-full"></div>
+                <div className="image-container relative w-full h-full max-h-[500px]">
+                  <AnimatedLink href="/hot-sale">
+                    <Image
+                      src="/images/JPOM9756.jpg"
+                      alt="About Image 2"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                    />
+                  </AnimatedLink>
+                </div>
               </div>
             </div>
 
-            <div className="img w-ful mt-4 md:mt-0 md:w-[40%] sm:mx-3  h-auto md:h-[70vh] lg::h-[93vh] flex flex-col justify-end items-end xl:h-[93vh] overflow-hidden">
-              <div className="animate-image-wrapper group h-[90%] relative w-full aspect-[4/5]  pt-[7vh] pb-[5vh]">
-                <TransitionLink href="/hot-sale-02">
-                  <div className="title ">
-                    <div className="flex items-center">
-                      <button class="group relative  mr-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
-                        <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
-                          →
-                        </div>
-                        <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
-                          →
-                        </div>
-                      </button>
-                      <h3 className="text-[1.3rem] font-normal">
-                        My Home Project-Yi Yuan
-                      </h3>
-                    </div>
-                    <div className="flex items-center">
-                      {" "}
-                      <span className="border mr-3 my-2 border-black text-[.78rem] p-1">
-                        Home
-                      </span>{" "}
-                      <p className="text-[.78rem]">Dec.2019</p>
-                    </div>
+            <div className="text w-[85%] mb-5 lg:mb-0 mx-auto lg:w-[40%]  flex flex-col  justify-center items-center">
+              <div className="flex flex-col  px-0 lg:px-20 justify-start items-start ">
+                <div className="title  mx-auto flex flex-col justify-start items-start">
+                  <TextGenerateEffect words="T - TRUST" />
+                  <h2>信任 ｜ 宜安心</h2>
+                  <p className="leading-loose tracking-widest w-full ">
+                    房子，值得依靠；好關係，值得託付。
+                    當市場競逐利益，宜園回歸最本質的「家」，最關鍵的「住」。
+                    以職人專業為基，堅守實在本質，落實大小細節，築起家的價值。
+                    <br></br>
+                    <br></br>
+                    宜園，以「實在的構築」，默默守護，讓您踏實生活，放心每一天。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>{" "}
+          <section className="lg:py-[50px] max-w-[1920px]  mx-auto">
+            <div className="flex lg:flex-row justify-center items-center flex-col w-full sm:w-[95%] mx-auto ">
+              <div className="img  flex justify-center items-center p-10 w-[95%]   lg:w-[50%] mx-auto sm:mx-3  h-auto lg:h-[60vh] xl:h-[60vh] overflow-hidden">
+                <div className="title mx-auto flex flex-col justify-start items-start">
+                  <TextGenerateEffect words="R - RELATION" />
+                  <h2>關係 ｜ 宜真情</h2>
+                  <p className="leading-loose tracking-widest w-full md:w-2/3 ">
+                    建築，是連結土地的根，也是凝聚人心的橋。
+                    於家人，傳遞溫度與關懷；於鄰里，凝聚和睦與理解；
+                    於土地，報以尊重與謙遜；於城市，追求共<br></br>
+                    <br></br>
+                    宜園，以實在的構築，讓人與人、與土地、與城市之間，美好關係加以延續。
+                  </p>
+                </div>
+              </div>
+
+              {/* 第一張圖片 */}
+              <div className="img mt-4 md:mt-0 w-[85%] lg:w-[50%] sm:mx-3 h-auto md:h-[70vh] lg:h-[73vh] xl:h-[83vh] overflow-hidden flex flex-col justify-center items-center">
+                <div className="animate-image-wrapper group relative w-full aspect-[4/5]">
+                  <div className="overlay absolute inset-0 bg-black z-10"></div>
+                  <div className="image-container relative w-full h-full">
+                    <Image
+                      src="/images/烏日區五張犁西段474地號(誠境5)-完工實景照片10-1090219-S.jpg"
+                      alt="About Image 1"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 50vw"
+                    />
                   </div>
-                </TransitionLink>
-                <div className="overlay absolute inset-0 bg-black z-10"></div>
-                <div className="image-container relative w-full h-full">
-                  <Image
-                    src="/images/宜園誠境實景照片.jpg"
-                    alt="About Image 1"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 950px, 85vw"
-                  />
-                  xs
                 </div>
               </div>
-            </div>
-            <div className="img  w-full  mt-4 md:mt-0  md:w-[25%] mx-auto sm:mx-3 pt-[5vh] md:pt-[24vh]  h-auto md:h-[50vh] xl:h-[70vh] overflow-hidden">
-              <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-                <div className="overlay absolute inset-0 bg-black z-10"></div>
-                <div className="image-container relative w-full h-full">
-                  <Image
-                    src="/images/烏日區五張犁西段474地號(誠境5)-完工實景照片10-1090219-S.jpg"
-                    alt="About Image 1"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                  />
-                  xs
+
+              {/* 第二張圖片 */}
+              <div className="img w-[85%] lg:w-[50%] sm:mx-3 h-auto md:h-[70vh] lg:h-[73vh] xl:h-[83vh] mt-5 lg:mt-0 overflow-hidden flex flex-col justify-center items-center">
+                <div className="animate-image-wrapper group relative w-full aspect-[4/5]">
+                  <div className="overlay absolute inset-0 bg-black z-10"></div>
+                  <div className="image-container relative w-full h-full">
+                    <Image
+                      src="/images/宜園誠境實景照片.jpg"
+                      alt="About Image 2"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 40vw"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
+
+              {/* <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
             <TextGenerateEffect words="宜居" />
             <p>不與人同的作為</p>
           </div> */}
-          </div>
+            </div>
+          </section>
+          <section className=" py-[30px] mt-10 lg:mt-0 lg:py-[50px] bg-[#6D7B80] sm:py-[70px]">
+            <div className="flex  max-w-[1920px]  lg:flex-row flex-col-reverse mb-5 mt-20 lg:mt-[10vh] w-[98%] mx-auto">
+              <div className="img w-[98%] md:w-[85%] lg:w-[50%] mx-auto h-auto overflow-hidden">
+                <div className="animate-image-wrapper relative w-full lg:w-[90%] mx-auto pl-0 lg:pl-20 aspect-[3/2.6] overflow-hidden">
+                  <div className="overlay absolute inset-0 bg-black z-10"></div>
+                  <div className="image-container relative w-full h-full">
+                    <AnimatedLink href="/hot-sale">
+                      <Image
+                        src="/images/JPOM9734.jpg"
+                        alt="About Image 2"
+                        fill
+                        className="object-cover scale-[1.3] object-[20%_60%] transition-transform duration-500"
+                        sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                      />
+                    </AnimatedLink>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text mb-5 lg:mb-0 w-[85%]  mx-auto lg:w-[40%]  flex flex-col ">
+                <div className="flex flex-col justify-center items-center h-full">
+                  <div className="title mx-auto flex flex-col justify-start items-start">
+                    <TextGenerateEffect words="U - UNIQUE" />
+                    <h2>獨特 ｜ 宜居所</h2>
+                    <p className="leading-loose tracking-widest w-full sm:w-2/3">
+                      每個人，都是獨一無二的個體。
+                      好的房子，懂得尊重每一種獨特。
+                      以好規劃，讓私領域的靜謐、公領域的交流，恰如其分。
+                      以好設計，迎風納景，擋聲遮擾，恰到好處。<br></br>
+                      <br></br>
+                      宜園，以實在的構築，成就居住者理想居所，守護與眾不同的生活想像
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex max-w-[1920px]  lg:flex-row flex-col mb-5 mt-20 lg:mt-[10vh] w-full mx-auto">
+              <div className="text mb-5 lg:mb-0 w-[85%]  mx-auto lg:w-[40%]  flex flex-col ">
+                <div className="flex flex-col justify-center h-full items-center ">
+                  <div className="title  mx-auto flex flex-col justify-start items-start pl-0 lg:pl-20">
+                    <TextGenerateEffect words="E - ETERNAL" />
+                    <h2 className="text-left">永恆 ｜ 宜融入</h2>
+                    <p className="leading-loose tracking-widest w-full sm:w-2/3">
+                      好房子懂得跟土地相處，找出最舒適的生活方式。
+                      宜園傾聽土地的聲音，細說生命的故事，
+                      讓建築扎根於大地，成就心的歸宿。
+                      <br />
+                      <br />
+                      宜園，以實在的構築，融入環境，與自然共生共長；
+                      順應時間，讓家越住越美，恆久宜居。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="img w-full md:w-[85%] lg:w-[70%] mx-auto h-auto max-h-[500px] sm:max-h-[580px]  overflow-hidden">
+                <div className="animate-image-wrapper relative w-full aspect-[4/5] max-h-[500px] sm:max-h-[580px]  h-full overflow-hidden">
+                  <div className="overlay absolute inset-0 bg-black z-10 max-h-[500px] sm:max-h-[580px]  h-full"></div>
+                  <div
+                    className="image-container relative w-full h-full max-h-[500px] sm:max-h-[580px]  bg-top bg-cover"
+                    style={{
+                      backgroundImage: `url('/images/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.JPG')`,
+                      backgroundPosition: "top right",
+                      backgroundSize: "130% auto", // ← 關鍵：特寫上半部
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  >
+                    <AnimatedLink
+                      href="/hot-sale"
+                      className="absolute inset-0 block z-20"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </section>
-        <div className="flex lg:flex-row flex-col-reverse mb-5 mt-20 sm:mt-[20vh] w-[98%] mx-auto">
-          <div className="img w-[98%] md:w-[85%] lg:w-[50%] mx-auto h-auto md:h-[830px] overflow-hidden">
-            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-              <div className="overlay absolute inset-0 bg-black z-10"></div>
-              <div className="image-container relative w-full h-full">
-                <TransitionLink href="/hot-sale">
-                  <Image
-                    src="/images/JPOM9734.jpg"
-                    alt="About Image 2"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                  />
-                </TransitionLink>
-              </div>
-            </div>
-          </div>
-          <div className="text w-[95%]   lg:w-1/2 p-20 flex flex-col justify-center items-center ">
-            <div className="flex flex-col justify-start items-start ">
-              <div className="title mx-auto flex flex-col justify-start items-start">
-                <TextGenerateEffect words="U - UNIQUE" />
-                <h2>獨特 ｜ 宜居所</h2>
-                <p className="leading-loose tracking-widest w-full sm:w-2/3">
-                  每個人，都是獨一無二的個體。 好的房子，懂得尊重每一種獨特。
-                  以好規劃，讓私領域的靜謐、公領域的交流，恰如其分。
-                  以好設計，迎風納景，擋聲遮擾，恰到好處。
-                  宜園，以實在的構築，成就居住者理想居所，守護與眾不同的生活想像
-                </p>
-              </div>
-              <TransitionLink href="/hot-sale">
-                <div className="group flex  mt-10 text-[1.2rem] font-normal">
-                  PRPJECT
-                  <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
-                    <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
-                      →
-                    </div>
-                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
-                      →
-                    </div>
-                  </button>
-                </div>
-              </TransitionLink>
-            </div>
-          </div>
-        </div>
-        <div className="flex  lg:flex-row mb-5 mt-20 sm:mt-[20vh] flex-col w-[98%] mx-auto">
-          <div className="text w-[95%]   lg:w-1/2 p-20 flex flex-col justify-center items-center ">
-            <div className="flex flex-col justify-start items-start ">
-              <div className="title mx-auto flex flex-col justify-start items-start">
-                <TextGenerateEffect words="E - ETERNAL" />
-                <h2>永恆 ｜ 宜融入</h2>
-                <p className="leading-loose tracking-widest w-full sm:w-2/3">
-                  好房子懂得跟土地相處，找出最舒適的生活方式。
-                  宜園傾聽土地的聲音，細說生命的故事，
-                  讓建築扎根於大地，成就心的歸宿。<br></br>
-                  <br></br>
-                  宜園，以實在的構築，融入環境，與自然共生共長；
-                  順應時間，讓家越住越美，恆久宜居。
-                </p>
-              </div>
-              <TransitionLink href="/hot-sale">
-                <div className="group flex  mt-10 text-[1.2rem] font-normal">
-                  PRPJECT
-                  <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
-                    <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
-                      →
-                    </div>
-                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
-                      →
-                    </div>
-                  </button>
-                </div>
-              </TransitionLink>
-            </div>
-          </div>
-          <div className="img w-[98%] md:w-[85%] lg:w-[50%] mx-auto h-auto md:h-[830px] overflow-hidden">
-            <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-              <div className="overlay absolute inset-0 bg-black z-10"></div>
-              <div className="image-container relative w-full h-full">
-                <TransitionLink href="/hot-sale">
-                  <Image
-                    src="/images/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.JPG"
-                    alt="About Image 2"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                  />
-                </TransitionLink>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col lg:flex-row max-w-[98%] justify-between py-5  mx-auto">
-          <div className=" w-full lg:w-[49%] border-t-1 border-gray-600 py-8 group px-8 ">
-            <TransitionLink href="/about">
-              <div className="flex flex-row">
-                <div className="w-[20%]">
-                  <h3 className="font-normal  text-[1.2rem] xl:text-[2rem]">
-                    About
-                  </h3>
-                </div>
-                <div className="w-[80%]  flex items-center flex-row justify-around">
-                  <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden  bg-transparent px-4 text-neutral-950">
-                    <span class="relative inline-flex overflow-hidden">
-                      <div class="absolute origin-bottom transition duration-500 [transform:translateX(-150%)_skewX(33deg)] group-hover:[transform:translateX(0)_skewX(0deg)]">
-                        我們不僅專注於設計，還對實現概念的施工保持堅持。
-                      </div>
-                      <div class="transition duration-500 [transform:translateX(0%)_skewX(0deg)] group-hover:[transform:translateX(150%)_skewX(33deg)]">
-                        我們不僅專注於設計，還對實現概念的施工保持堅持。
-                      </div>
-                    </span>
-                  </button>
 
-                  <span></span>
-                  <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
-                    <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
-                      →
-                    </div>
-                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
-                      →
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </TransitionLink>
-          </div>
-
-          <div className=" w-full lg:w-[49%] border-t-1 border-gray-600 py-8 group px-8 ">
-            <TransitionLink href="/progress">
-              <div className="flex flex-row">
-                <div className="w-[20%]">
-                  <h3 className="font-normal  text-[1.2rem] xl:text-[2rem]">
-                    Progress
-                  </h3>
-                </div>
-                <div className="w-[80%]  flex items-center flex-row justify-around">
-                  <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden  bg-transparent px-4 text-neutral-950">
-                    <span class="relative inline-flex overflow-hidden">
-                      <div class="absolute origin-bottom transition duration-500 [transform:translateX(-150%)_skewX(33deg)] group-hover:[transform:translateX(0)_skewX(0deg)]">
-                        我們不僅專注於設計，還對實現概念的施工保持堅持。
-                      </div>
-                      <div class="transition duration-500 [transform:translateX(0%)_skewX(0deg)] group-hover:[transform:translateX(150%)_skewX(33deg)]">
-                        我們不僅專注於設計，還對實現概念的施工保持堅持。
-                      </div>
-                    </span>
-                  </button>
-
-                  <span></span>
-                  <button class="group relative ml-3  inline-flex h-8 items-center justify-center overflow-hidden rounded-md border border-neutral-200 font-medium">
-                    <div class="inline-flex h-12 translate-x-0 items-center justify-center bg-white px-6 text-neutral-950 transition group-hover:-translate-x-[150%]">
-                      →
-                    </div>
-                    <div class="absolute inline-flex h-12 w-full translate-x-[100%] items-center justify-center bg-[#8A9A5B] px-6 text-neutral-50 transition duration-300 group-hover:translate-x-0">
-                      →
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </TransitionLink>
-          </div>
-        </div>
-      </section>
-
-      <div className="grid place-content-center  px-4  py-5 sm:py-12 lg:py-24 text-yellow-50">
-        {/* <h1 className="max-w-2xl text-gray-600  font-normal text-center sm:text-[3rem] text-[2rem] lg:text-5xl leading-snug">
-          實在的構築
-          <span className="relative">
-            宜園建設
-            <svg
-              viewBox="0 0 286 73"
-              fill="none"
-              className="absolute -left-2 -right-2 -top-2 bottom-0 translate-y-1"
-            >
-              <motion.path
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                transition={{
-                  duration: 1.25,
-                  ease: "easeInOut",
-                }}
-                d="M142.293 1C106.854 16.8908 6.08202 7.17705 1.23654 43.3756C-2.10604 68.3466 29.5633 73.2652 122.688 71.7518C215.814 70.2384 316.298 70.689 275.761 38.0785C230.14 1.37835 97.0503 24.4575 52.9384 1"
-                stroke="#FACC15"
-                strokeWidth="3"
-              />
-            </svg>
-          </span>{" "}
-        </h1> */}
-      </div>
-
-      {/* <section className="section_project flex-col my-20 sm:my-[20vh]">
+        {/* <section className="section_project flex-col my-20 sm:my-[20vh]">
         <div className="title  mb-6 flex justify-center flex-col items-center mx-auto w-[85%] sm:w-full">
           <TextGenerateEffect
             words="我們用心塑造我們的家。
@@ -548,7 +392,7 @@ export default function About() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  w-full ">
-          <TransitionLink href="/project">
+          <AnimatedLink href="/project">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/assets/images/index/service03.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
      
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
@@ -565,8 +409,8 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </TransitionLink>
-          <TransitionLink href="/project">
+          </AnimatedLink>
+          <AnimatedLink href="/project">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie004-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
             
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
@@ -583,8 +427,8 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </TransitionLink>
-          <TransitionLink href="/project">
+          </AnimatedLink>
+          <AnimatedLink href="/project">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/02/hadashinoie116-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
             
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
@@ -600,8 +444,8 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </TransitionLink>
-          <TransitionLink href="/project">
+          </AnimatedLink>
+          <AnimatedLink href="/project">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie-54-1-2048x1365.jpg')] bg-center bg-no-repeat bg-cover group  overflow-hidden">
     
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
@@ -617,8 +461,8 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </TransitionLink>
-          <TransitionLink href="/project">
+          </AnimatedLink>
+          <AnimatedLink href="/project">
             <div className="relative w-full h-[480px] bg-[url('https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie040-1-1-2048x1366.jpg')] bg-center bg-no-repeat bg-cover group overflow-hidden">
             
               <div className="absolute inset-0 bg-white/1 backdrop-blur-[10px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-80"></div>
@@ -635,24 +479,25 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </TransitionLink>
+          </AnimatedLink>
         </div>
       </section> */}
-      {/* <div className="w-full h-full py-20">
+        {/* <div className="w-full h-full py-20">
         <Carousel items={cards} />
       </div> */}
+      </div>
     </ReactLenis>
   );
 }
 const NavLeft = () => {
   return (
     <div className="flex items-center gap-6">
-      <TransitionLink href="/about">
+      <AnimatedLink href="/about">
         <h1>About</h1>
-      </TransitionLink>
-      <TransitionLink href="/community">Community</TransitionLink>
-      <TransitionLink href="/pricing">Pricing</TransitionLink>
-      <TransitionLink href="/company">Company</TransitionLink>
+      </AnimatedLink>
+      <AnimatedLink href="/community">Community</AnimatedLink>
+      <AnimatedLink href="/pricing">Pricing</AnimatedLink>
+      <AnimatedLink href="/company">Company</AnimatedLink>
     </div>
   );
 };
