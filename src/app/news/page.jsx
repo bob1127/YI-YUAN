@@ -27,15 +27,18 @@ const Photos = () => {
 
   return (
     <ReactLenis root className="">
-      <section className="section-hero-title relative w-full h-[60vh] sm:h-[70vh] lg:h-[80vh]">
+      <section className="section-hero-title relative w-full h-[60vh] sm:h-[70vh] lg:h-[80vh] overflow-hidden">
         {/* 背景圖 */}
-        <Image
+        <img
           src="/images/news/pexels-goldcircuits-4147343.tif"
           alt="經典建築案例"
-          fill
-          priority
+          loading="lazy"
+          decoding="async"
+          width="1920"
+          height="1080"
+          className="absolute top-0 left-0 w-full h-full object-cover"
           sizes="100vw"
-          className="object-cover w-full h-full"
+          style={{ objectFit: "cover", width: "100%", height: "100%" }}
         />
 
         {/* 左上角文字 */}
@@ -45,6 +48,7 @@ const Photos = () => {
           </h1>
         </div>
       </section>
+
       <section className="section-content py-10 lg:py-20">
         <div className=" flex flex-col lg:flex-row max-w-[1920px]  mx-auto">
           <div className="left w-full lg:w-1/2 border">
@@ -65,13 +69,14 @@ const Photos = () => {
                 <div className="flex flex-col gap-6 md:w-1/2">
                   {/* 上圖 */}
                   <div className="relative w-full h-[288px] overflow-hidden group">
-                    <Image
+                    <img
                       src="/images/news/樓版清洗.jpg"
                       alt="樓版清洗"
-                      placeholder="empty"
                       loading="lazy"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      decoding="async"
+                      width="1200"
+                      height="800"
+                      className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-r from-black/70 to-transparent flex items-center px-4">
                       <p className="text-white text-sm">樓版清洗</p>
@@ -80,13 +85,14 @@ const Photos = () => {
 
                   {/* 下圖 */}
                   <div className="relative w-full h-[288px] overflow-hidden group">
-                    <Image
+                    <img
                       src="/images/news/樓板施作完成,灌漿前照片.jpg"
                       alt="樓板施作完成，灌漿前照片"
-                      placeholder="empty"
                       loading="lazy"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      decoding="async"
+                      width="1200"
+                      height="800"
+                      className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-r from-black/70 to-transparent flex items-center px-4">
                       <p className="text-white text-sm">
@@ -99,13 +105,14 @@ const Photos = () => {
                 {/* 右側圖 */}
                 <div className="md:w-1/2">
                   <div className="relative w-full h-[600px] overflow-hidden group">
-                    <Image
+                    <img
                       src="/images/news/正面外觀施工照片.jpg"
                       alt="正面外觀施工照片"
-                      placeholder="empty"
                       loading="lazy"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      decoding="async"
+                      width="1200"
+                      height="1600"
+                      className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-r from-black/70 to-transparent flex items-center px-4">
                       <p className="text-white text-sm">正面外觀施工照片</p>
@@ -126,13 +133,14 @@ const Photos = () => {
                 {/* 右圖 */}
                 <div className="md:w-1/2">
                   <div className="relative w-full h-[600px] overflow-hidden group">
-                    <Image
+                    <img
                       src="/images/news/土方開挖完成.tif"
                       alt="土方開挖完成"
-                      placeholder="empty"
                       loading="lazy"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      decoding="async"
+                      width="1200"
+                      height="1600"
+                      className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-r from-black/70 to-transparent flex items-center px-4">
                       <p className="text-white text-sm">土方開挖完成</p>
@@ -144,13 +152,14 @@ const Photos = () => {
                 <div className="flex flex-col gap-6 md:w-1/2">
                   {/* 上圖 */}
                   <div className="relative w-full h-[288px] overflow-hidden group">
-                    <Image
+                    <img
                       src="/images/news/擋土柱鋼筋幫紮完成勘驗.jpg"
                       alt="擋土柱鋼筋綁紮完成"
-                      placeholder="empty"
                       loading="lazy"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      decoding="async"
+                      width="1200"
+                      height="800"
+                      className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-r from-black/70 to-transparent flex items-center px-4">
                       <p className="text-white text-sm">擋土柱鋼筋綁紮完成</p>
@@ -159,13 +168,14 @@ const Photos = () => {
 
                   {/* 下圖 */}
                   <div className="relative w-full h-[288px] overflow-hidden group">
-                    <Image
+                    <img
                       src="/images/news/擋土柱施作-1.tif"
                       alt="擋土柱施作中"
-                      placeholder="empty"
                       loading="lazy"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      decoding="async"
+                      width="1200"
+                      height="800"
+                      className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-r from-black/70 to-transparent flex items-center px-4">
                       <p className="text-white text-sm">擋土柱施作中</p>

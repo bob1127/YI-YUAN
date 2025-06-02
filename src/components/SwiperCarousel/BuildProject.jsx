@@ -21,27 +21,30 @@ export default () => {
         <SwiperSlide className="w-full bg-white pb-[40px]">
           <Card className="py-4 bg-white p-0 m-0 shadow-none">
             <CardBody className="flex pb-[30px] flex-col relative">
-              <Image
-                loading="lazy"
-                alt="Card background"
+              <img
                 src="/images/project/1140520-聯播網探索廣告_1200x628.jpg"
-                width={1500}
-                height={800}
-                className="max-w-[1000px] w-[90%] mx-auto"
+                alt="Card background"
+                loading="lazy"
+                decoding="async"
+                width="1500"
+                height="800"
+                className="max-w-[1000px] w-[90%] mx-auto object-cover"
               />
             </CardBody>
           </Card>
         </SwiperSlide>
+
         <SwiperSlide className="w-full bg-white pb-[40px]">
           <Card className="py-4 bg-white p-0 m-0 shadow-none">
             <CardBody className="flex pb-[30px] flex-col relative">
-              <Image
-                loading="lazy"
-                alt="Card background"
+              <img
                 src="/images/project/1140520-聯播網探索廣告_1200x628_1.jpg"
-                width={1500}
-                height={800}
-                className="max-w-[1000px] w-[90%] mx-auto"
+                alt="Card background"
+                loading="lazy"
+                decoding="async"
+                width="1500"
+                height="800"
+                className="max-w-[1000px] w-[90%] mx-auto object-cover"
               />
             </CardBody>
           </Card>

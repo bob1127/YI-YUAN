@@ -36,53 +36,56 @@ const Photos = () => {
     <ReactLenis root>
       <section className="section-hero-title w-full relative">
         {/* Hero Image */}
-        <Image
+        <img
           src="/images/project/pexels-pixabay-327482.jpg"
           alt="經典建築案例"
-          width={1920}
-          height={700}
-          priority
-          sizes="100vw"
-          className="w-full mt-[50px] sm:mt-0 h-auto"
+          loading="lazy"
+          decoding="async"
+          className="w-full h-auto mt-[50px] sm:mt-0"
+          width="1920"
+          height="700"
         />
 
         {/* 右下角文字 */}
         <div className="absolute bottom-[10%] right-[10%] text-white text-right z-10 px-4">
-          <div className="flex ">
+          <div className="flex">
             <h1 className="text-4xl sm:text-5xl text-white tracking-wide">
               CLASSIC
             </h1>
-            <p className=" text-xl mt-5 ml-2 sm:text-4xl text-white font-normal">
+            <p className="text-xl mt-5 ml-2 sm:text-4xl text-white font-normal">
               貫徹更好的美好旅程
             </p>
           </div>
         </div>
       </section>
-      <section className="section-project mt-[100px] px-4 md:px-8 xl:px-16 ">
-        <div className="container max-w-[1920px]  mx-auto w-[85%]">
+
+      <section className="section-project mt-[100px] px-4 md:px-8 xl:px-16">
+        <div className="container max-w-[1920px] mx-auto w-[85%]">
           <div className="title">
             <h2 className="m-3">宜園誠境｜</h2>
           </div>
+
           <div className="image-wrap flex flex-col md:flex-row justify-center items-center">
-            <Image
+            <img
               src="/images/project/宜園誠境實景照片03-1041020.jpg"
               alt="經典建築案例"
-              width={1200}
-              height={800}
               loading="lazy"
-              sizes="100vw"
-              className=" w-full md:w-1/2 mt-[20px] m-3  h-auto"
+              decoding="async"
+              width="1200"
+              height="800"
+              className="w-full md:w-1/2 mt-[20px] m-3 h-auto"
             />
-            <Image
+            <img
               src="/images/project/宜園誠境實景照片03-1041020.jpg"
               alt="經典建築案例"
-              width={1200}
-              height={800}
               loading="lazy"
-              sizes="100vw"
-              className=" w-full md:w-1/2 mt-[20px] m-3  h-auto"
+              decoding="async"
+              width="1200"
+              height="800"
+              className="w-full md:w-1/2 mt-[20px] m-3 h-auto"
             />
           </div>
+
           <div className="bottom-description flex justify-end">
             <div className="max-w-[500px] 2xl:max-w-[700px] py-[90px]">
               <p className="text-gray-400 font-normal text-right">
@@ -95,31 +98,34 @@ const Photos = () => {
           </div>
         </div>
       </section>
+
       <section className="section-project mt-[100px] bg-[#bdc3c6] pt-[90px] px-4 md:px-8 xl:px-16">
         <div className="container max-w-[1920px] mx-auto w-[85%]">
           <div className="title">
             <h2 className="m-3">宜園誠境2｜</h2>
           </div>
+
           <div className="image-wrap flex flex-col md:flex-row justify-center items-center">
-            <Image
+            <img
               src="/images/project/DSC_2058.jpg"
               alt="經典建築案例"
-              width={1200}
-              height={800}
               loading="lazy"
-              sizes="100vw"
-              className="w-full md:w-1/2 mt-[20px] m-3  h-auto"
+              decoding="async"
+              width="1200"
+              height="800"
+              className="w-full md:w-1/2 mt-[20px] m-3 h-auto"
             />
-            <Image
+            <img
               src="/images/project/DSC_1962.tif"
               alt="經典建築案例"
-              width={1200}
-              height={800}
               loading="lazy"
-              sizes="100vw"
-              className="w-full md:w-1/2 mt-[20px] m-3  h-auto"
+              decoding="async"
+              width="1200"
+              height="800"
+              className="w-full md:w-1/2 mt-[20px] m-3 h-auto"
             />
           </div>
+
           <div className="bottom-description flex justify-end">
             <div className="max-w-[500px] 2xl:max-w-[700px] py-[90px]">
               <p className="text-gray-50 font-normal text-right">
@@ -132,6 +138,7 @@ const Photos = () => {
           </div>
         </div>
       </section>
+
       <section className="section-project mt-[100px] px-4 md:px-8 xl:px-16">
         <div className="container max-w-[1920px] mx-auto w-[90%]">
           {/* 標題區塊 */}
@@ -146,37 +153,37 @@ const Photos = () => {
             {/* 左圖 */}
             <div className="w-full md:w-1/2">
               <div className="h-full">
-                <Image
+                <img
                   src="/images/project/烏日區五張犁西段474地號(誠境5)-完工實景照片10-1090219-S.tif"
                   alt="經典建築案例"
-                  width={1200}
-                  height={800}
                   loading="lazy"
-                  sizes="100vw"
-                  className="w-full h-full object-cover "
+                  decoding="async"
+                  width="1200"
+                  height="800"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
 
             {/* 右側雙圖 */}
             <div className="w-full md:w-1/2 flex flex-col gap-6 justify-between">
-              <Image
+              <img
                 src="/images/project/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.jpg"
                 alt="經典建築案例"
-                width={1200}
-                height={800}
                 loading="lazy"
-                sizes="100vw"
-                className="w-full h-auto "
+                decoding="async"
+                width="1200"
+                height="800"
+                className="w-full h-auto"
               />
-              <Image
+              <img
                 src="/images/project/烏日區五張犁西段474地號(誠境5)-完工實景照片08-1090219.jpg"
                 alt="經典建築案例"
-                width={1200}
-                height={800}
                 loading="lazy"
-                sizes="100vw"
-                className="w-full h-auto "
+                decoding="async"
+                width="1200"
+                height="800"
+                className="w-full h-auto"
               />
             </div>
           </div>
@@ -194,6 +201,7 @@ const Photos = () => {
           </div>
         </div>
       </section>
+
       <section className="section-project pt-[80px] mt-[100px] bg-[#bdc3c6] px-4 md:px-8 xl:px-16">
         <div className="container max-w-[1920px] mx-auto w-[90%]">
           {/* 標題區塊 */}
@@ -206,42 +214,42 @@ const Photos = () => {
           {/* 圖片區塊 */}
           <div className="image-wrap flex flex-col gap-8 items-stretch">
             {/* 左圖 */}
-            <div className="w-full ">
+            <div className="w-full">
               <div className="h-full">
-                <Image
+                <img
                   src="/images/project/JPOM9756.jpg"
                   alt="經典建築案例"
-                  width={1200}
-                  height={800}
                   loading="lazy"
-                  sizes="100vw"
-                  className="w-full h-full object-cover "
+                  decoding="async"
+                  width="1200"
+                  height="800"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
 
             {/* 右側雙圖 */}
-            <div className="w-full  flex  flex-col md:flex-row  gap-6 justify-between">
+            <div className="w-full flex flex-col md:flex-row gap-6 justify-between">
               <div className="w-full md:w-1/2">
-                <Image
+                <img
                   src="/images/project/JPOM9752-2.jpg"
                   alt="經典建築案例"
-                  width={1200}
-                  height={800}
                   loading="lazy"
-                  sizes="100vw"
-                  className="w-full h-auto "
+                  decoding="async"
+                  width="1200"
+                  height="800"
+                  className="w-full h-auto"
                 />
               </div>
               <div className="w-full md:w-1/2">
-                <Image
+                <img
                   src="/images/project/JPOM9749-2.jpg"
                   alt="經典建築案例"
-                  width={1200}
-                  height={800}
                   loading="lazy"
-                  sizes="100vw"
-                  className="w-full h-auto "
+                  decoding="async"
+                  width="1200"
+                  height="800"
+                  className="w-full h-auto"
                 />
               </div>
             </div>
