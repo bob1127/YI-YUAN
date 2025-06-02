@@ -21,7 +21,7 @@ const MenuBar = ({ closeMenu }) => {
     { label: "關於宜園 ABOUT", href: "/about" },
     { label: "建築經典 CLASSIC", href: "/project" },
     { label: "新案鑑賞 PROJECT", href: "/hot-sale" },
-    { label: "工程進度 PROGRESS", href: "/progress" },
+    { label: "工程進度 PROGRESS", href: "/news" },
     { label: "聯絡我們 CONTACT", href: "/contact" },
   ];
 

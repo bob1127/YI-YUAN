@@ -3,7 +3,7 @@ export const links = [
   { label: "新案件賞", path: "/portfolio" },
   { label: "經典選粹", path: "/photos" },
   { label: "新聞中心", path: "/news" },
-  { label: "工程進度", path: "/contact" },
+  { label: "工程進度", path: "/news" },
    
 ];
 

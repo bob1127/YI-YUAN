@@ -27,156 +27,168 @@ const Photos = () => {
 
   return (
     <ReactLenis root className="">
-      <section className="section_hero relative overflow-hidden h-[100vh] border border-black">
+      <section className="section-hero-title relative w-full h-[60vh] sm:h-[70vh] lg:h-[80vh]">
+        {/* 背景圖 */}
         <Image
-          src="/images/city-img_sp.png"
-          alt=" "
-          placeholder="empty"
-          loading="lazy"
-          width={2820}
-          height={700}
-          className="w-full h-full absolute z-[9] mt-[15vh] top-0 left-0"
-        ></Image>
-        <BackgroundGradientAnimation></BackgroundGradientAnimation>
-        <div className="absolute w-[550px] z-50 top-[35%] left-[15%]">
-          <div className="flex flex-col">
-            <img
-              src="https://www.tokiomarinehd.com/purpose/images/top/purpose-ttl.svg"
-              alt="leaders message"
-            />
-            <div className="txt">
-              <h2>宜宜</h2>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div className=" mt-[-20vh] ">
-        <InfiniteMovingCards
-          speed={800}
-          items={[
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/IMG_3175-1.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/IMG_3323_edit.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-05.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-07.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-07.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-01.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/IMG_3175-1.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/IMG_3323_edit.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-05.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-07.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-07.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-01.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/IMG_3175-1.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/IMG_3323_edit.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-05.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-07.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-07.jpg",
-            "https://www.kouken-nagoya.com/wp/wp-content/uploads/2023/09/fv-im-01.jpg",
-          ]}
+          src="/images/news/pexels-goldcircuits-4147343.tif"
+          alt="經典建築案例"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover w-full h-full"
         />
-      </div>
 
-      <section className="section_news py-[50px]">
-        <div className="w-[80%] flex flex-col xl:flex-row section-container mx-auto">
-          <div className="w-full sm:pr-10 pr-5 lg:pr-20 xl:w-[50%]">
-            <div className="flex flex-col">
-              <GsapText
-                text="NEWS."
-                id="gsap-intro"
-                fontSize="3.2rem"
-                fontWeight="800"
-                color="#000"
-                lineHeight="60px"
-                className="text-left tracking-widest inline-block mb-0 h-auto"
-              />
-              <p className="text-[.9rem] tracking-widest font-normal">
-                関西で活躍する編集者をゲストに迎えた「エディターズ・トーク」やインターン・採用情報などのニュースを発信しています。
-              </p>
-            </div>
-            <ul className="mt-10">
-              <li className="border-b-1 group pt-4 pb-[20px] hover:scale-105 duration-400">
-                <div className="flex flex-col  w-auto ">
-                  <b className="text-[.8rem] mb-3">2025/01/01</b>
-                  <button
-                    role="link"
-                    class="text-[1rem]  flex justify-start relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
-                  >
-                    慶祝宜園大院 動土典禮活動紀錄
-                  </button>
-                  <p className="text-[.8rem] mt-3">2025/01/01</p>
-                </div>
-              </li>
-              <li className="border-b-1 group pt-4 pb-[20px] hover:scale-105 duration-400">
-                <div className="flex flex-col  w-auto ">
-                  <b className="text-[.8rem] mb-3">2025/01/01</b>
-                  <button
-                    role="link"
-                    class="text-[1rem]  flex justify-start relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
-                  >
-                    慶祝宜園大院 動土典禮活動紀錄
-                  </button>
-                  <p className="text-[.8rem] mt-3">2025/01/01</p>
-                </div>
-              </li>
-
-              <li className="border-b-1 group pt-4 pb-[20px] hover:scale-105 duration-400">
-                <div className="flex flex-col  w-auto ">
-                  <b className="text-[.8rem] mb-3">2025/01/01</b>
-                  <button
-                    role="link"
-                    class="text-[1rem]  flex justify-start relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
-                  >
-                    慶祝宜園大院 動土典禮活動紀錄
-                  </button>
-                  <p className="text-[.8rem] mt-3">2025/01/01</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div className="w-full xl:w-[50%]">
-            <div>
-              <Image
-                data-aos="fade-up"
-                src="https://www.lala.co.jp/wp-content/themes/lalahouse/common/images/top/img-about-after.png?1736987543401"
-                placeholder="empty"
-                loading="lazy"
-                alt=""
-                width={800}
-                height={1500}
-                className="w-[70%] mt-10 md:mt-0 mx-auto max-w-[800px]"
-              ></Image>
-            </div>
-          </div>
+        {/* 左上角文字 */}
+        <div className="absolute top-[20%] left-[25%] z-50 p-6 sm:p-10 text-white">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-wide drop-shadow-md">
+            NEWS
+          </h1>
         </div>
       </section>
-      <section className="mt-[0px] overflow-hidden w-[95%] xl:w-[85%] mx-auto xl:flex-row flex-col flex">
-        <div className="w-full xl:w-[85%] ">
-          <ScrollAnimation />
-        </div>
-        <div className="w-full xl:w-[15%] pt-0  xl:pt-[10%] pb-20  ">
-          <div className="bg-white mt-20 w-full h-[400px] p-10">
-            <h3>title</h3>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div className="flex justify-start items-center w-[80%] mx-auto">
-          <GsapText
-            text="EDITORS FILE."
-            id="gsap-intro"
-            fontSize="3.2rem"
-            fontWeight="800"
-            color="#000"
-            lineHeight="60px"
-            className="text-center tracking-widest inline-block mb-0 h-auto"
-          />
+      <section className="section-content py-10 lg:py-20">
+        <div className=" flex flex-col lg:flex-row max-w-[1920px]  mx-auto">
+          <div className="left w-full lg:w-1/2 border">
+            {/* 區塊標題 */}
+            <div className="flex flex-col px-4 md:px-8 xl:px-16">
+              <h2>工程進度｜</h2>
+            </div>
 
-          <div className="txt text-[.9rem] font-normal">
-            関西に拠点をおく編集者および <br></br>
-            編集業務を担う企業や団体を紹介しています。
+            {/* 第一區塊 */}
+            <div className="flex flex-col px-4 md:px-8 xl:px-16">
+              <div className="title pt-10 mb-4 border-b-1 flex justify-between w-full">
+                <h3 className="text-[22px]">宜園一青隱</h3>
+                <span>更新日期：114.05</span>
+              </div>
+
+              <div className="news-img flex flex-col md:flex-row gap-6 items-stretch">
+                {/* 左側兩圖 */}
+                <div className="flex flex-col gap-6 md:w-1/2">
+                  {/* 上圖 */}
+                  <div className="relative w-full h-[288px] overflow-hidden group">
+                    <Image
+                      src="/images/news/樓版清洗.jpg"
+                      alt="樓版清洗"
+                      placeholder="empty"
+                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-r from-black/70 to-transparent flex items-center px-4">
+                      <p className="text-white text-sm">樓版清洗</p>
+                    </div>
+                  </div>
+
+                  {/* 下圖 */}
+                  <div className="relative w-full h-[288px] overflow-hidden group">
+                    <Image
+                      src="/images/news/樓板施作完成,灌漿前照片.jpg"
+                      alt="樓板施作完成，灌漿前照片"
+                      placeholder="empty"
+                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-r from-black/70 to-transparent flex items-center px-4">
+                      <p className="text-white text-sm">
+                        樓板施作完成，灌漿前照片
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 右側圖 */}
+                <div className="md:w-1/2">
+                  <div className="relative w-full h-[600px] overflow-hidden group">
+                    <Image
+                      src="/images/news/正面外觀施工照片.jpg"
+                      alt="正面外觀施工照片"
+                      placeholder="empty"
+                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-r from-black/70 to-transparent flex items-center px-4">
+                      <p className="text-white text-sm">正面外觀施工照片</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 第二區塊 */}
+            <div className="flex flex-col px-4 md:px-8 xl:px-16">
+              <div className="title pt-10 mb-4 border-b-1 flex justify-between w-full">
+                <h3 className="text-[22px]">宜園13期新案</h3>
+                <span>更新日期：114.05</span>
+              </div>
+
+              <div className="news-img flex flex-col md:flex-row gap-6 items-stretch">
+                {/* 右圖 */}
+                <div className="md:w-1/2">
+                  <div className="relative w-full h-[600px] overflow-hidden group">
+                    <Image
+                      src="/images/news/土方開挖完成.tif"
+                      alt="土方開挖完成"
+                      placeholder="empty"
+                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-r from-black/70 to-transparent flex items-center px-4">
+                      <p className="text-white text-sm">土方開挖完成</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 左側兩圖 */}
+                <div className="flex flex-col gap-6 md:w-1/2">
+                  {/* 上圖 */}
+                  <div className="relative w-full h-[288px] overflow-hidden group">
+                    <Image
+                      src="/images/news/擋土柱鋼筋幫紮完成勘驗.jpg"
+                      alt="擋土柱鋼筋綁紮完成"
+                      placeholder="empty"
+                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-r from-black/70 to-transparent flex items-center px-4">
+                      <p className="text-white text-sm">擋土柱鋼筋綁紮完成</p>
+                    </div>
+                  </div>
+
+                  {/* 下圖 */}
+                  <div className="relative w-full h-[288px] overflow-hidden group">
+                    <Image
+                      src="/images/news/擋土柱施作-1.tif"
+                      alt="擋土柱施作中"
+                      placeholder="empty"
+                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-r from-black/70 to-transparent flex items-center px-4">
+                      <p className="text-white text-sm">擋土柱施作中</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 可選：右欄區塊 */}
+          <div className="right w-1/2">
+            {/* 區塊標題 */}
+            <div className="flex flex-col px-4 md:px-8 xl:px-16">
+              <h2>工程進度｜</h2>
+            </div>
+
+            {/* 第一區塊 */}
+            <div className="flex flex-col px-4 md:px-8 xl:px-16">
+              <div></div>
+            </div>
           </div>
         </div>
-        <HoverCard />
       </section>
     </ReactLenis>
   );

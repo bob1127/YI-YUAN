@@ -4,36 +4,9 @@
 
 /* 定義蘋方字體 */
 @font-face {
-  font-family: 'PingFang TC';
-  src: local('PingFang TC Regular'),
-       local('PingFang TC'),
-       local('PingFang SC Regular'),
-       local('PingFang SC');
-
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'PingFang TC';
-  src: local('PingFang TC Medium'),
-       local('PingFang SC Medium');
-
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'PingFang TC';
-  src: local('PingFang TC Semibold'),
-       local('PingFang SC Semibold');
-
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'PingFang TC';
-  src: local('PingFang TC Bold'),
-       local('PingFang SC Bold');
-
+  font-family: 'MonnaSongTC';
+  src: url('/fonts/Monotype.otf') format('opentype');
+  font-weight: bold;
   font-style: normal;
 }
 
@@ -49,8 +22,9 @@ body, h1, h2, h3, h4, h5, h6, p, span, div {
   -moz-font-feature-settings: "palt";
   -ms-font-feature-settings: "palt";
   -o-font-feature-settings: "palt";
-  font-family: 'PingFang TC', 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'MonnaSongTC', -apple-system, BlinkMacSystemFont, 'PingFang TC', 'PingFang SC', sans-serif;
 }
+
 
 h1 {
   @apply text-[3rem] font-semibold text-gray-800 mt-4 mb-6;

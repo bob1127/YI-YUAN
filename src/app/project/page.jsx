@@ -34,127 +34,232 @@ const Photos = () => {
   }, [currentIndex]);
   return (
     <ReactLenis root>
-      <section className="section-hero w-full aspect-[500/500] sm:aspect-[1024/576] xl:aspect-[1920/768] overflow-hidden relative">
-        {/* 背景圖片群組 */}
-        {backgroundImages.map((bg, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 1 }}
-            animate={{
-              opacity: i === currentIndex ? 1 : 0,
-              scale: i === currentIndex ? 1.15 : 1, // 放大範圍加大
-            }}
-            transition={{
-              opacity: { duration: 1.5, ease: "easeInOut" }, // 切換用淡入淡出
-              scale: { duration: 20, ease: "linear" }, // 放大效果持續 20 秒
-            }}
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-            style={{
-              backgroundImage: `url(${bg})`,
-            }}
-          />
-        ))}
+      <section className="section-hero-title w-full relative">
+        {/* Hero Image */}
+        <Image
+          src="/images/project/pexels-pixabay-327482.jpg"
+          alt="經典建築案例"
+          width={1920}
+          height={700}
+          priority
+          sizes="100vw"
+          className="w-full mt-[50px] sm:mt-0 h-auto"
+        />
 
-        {/* 黑色遮罩 */}
-        <div className="bg-black opacity-40 w-full h-full absolute top-0 left-0 z-10" />
-
-        {/* 文字區塊 */}
-        <div className="hero-title  w-1/2 absolute left-[4%] top-[90%] z-20">
-          <div className="text-center px-4">
-            <GsapText
-              text="Built for Living."
-              id="gsap-intro"
-              fontSize="2.6rem"
-              fontWeight="200"
-              color="#fff"
-              lineHeight="60px"
-              className="text-center !text-white tracking-widest inline-block mb-0 h-auto"
-            />
-          </div>
-          <div className="text-center px-4">
-            <GsapText
-              text="Yi Yuan"
-              id="gsap-intro"
-              fontSize="1.5rem"
-              fontWeight="200"
-              color="#fff"
-              lineHeight="30px"
-              className="text-center !text-white tracking-widest inline-block mb-0 h-auto"
-            />
-          </div>
-        </div>
-      </section>
-      <section className=" pt-[10vh] ">
-        <div className=" w-[90%] overflow-hidden md:w-[95%]  mx-auto">
-          <div className="flex flex-col lg:flex-row w-full">
-            <div className="img w-full md:w-[80%] xl:w-[85%]">
-              <Image
-                width={2200}
-                height={800}
-                src="/images/JPOM9756.jpg"
-                alt="project-hero-img"
-                placeholder="empty"
-                loading="eager"
-              ></Image>
-            </div>
-            <div className=" w-full sm:w-[80%] mx-auto lg:w-[40%]  p-2 lg:p-10">
-              <h2
-                className="text-[1.1rem] w-full xl:text-[1]"
-                data-aos="fade-up"
-              >
-                不選擇普通的家，而是選擇BESS的家的人。這裡有什麼不同呢？實際的生活是什麼樣的？通過全國的家庭採訪，我們看到了真實的生活。
-              </h2>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* <div className="p-10">
-        <StickyScroll content={content} />
-      </div> */}
-
-      <section className="section_project py-[100px] flex flex-col 2xl:w-[80%] mx-auto  ">
-        <div className="flex max-w-[1920px] w-[80%] mx-auto flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
-          <div className="title mr-4">
-            <h2> 經典選粹</h2>
-          </div>
-        </div>
-        <div data-aos="fade-up">
-          {" "}
-          <HoverCard />
-        </div>
-      </section>
-      <section className="section_project flex flex-col 2xl:w-[80%] mx-auto  py-[40px]">
-        <div className="flex flex-col lg:flex-row 2xl:px-[10px] justify-start items-center pl-6">
-          <div className="description"></div>
-        </div>
-        <div data-aos="fade-up">
-          {" "}
-          <HoverCard />
-        </div>
-      </section>
-      {/* <section>
-        <div className="banner relative max-w-[1500px] border border-black mx-auto">
-          <Image
-            src="https://kon-sumai.com/common/img/openhouse-bnr.jpg"
-            width={2000}
-            className="w-full"
-            height={600}
-            placeholder="empty"
-            loading="lazy"
-            alt="banner"
-          ></Image>
-          <div className="absolute top-5 left-5 z-50 flex flex-col ">
-            <div className="bg-[#162F67] font-extrabold text-[2.5rem] text-white">
-              たくさんの人が集まれる家
-            </div>
-            <p className="text-[#162F67] text-[4rem] font-extrabold">
-              MODEL HOUSE
+        {/* 右下角文字 */}
+        <div className="absolute bottom-[10%] right-[10%] text-white text-right z-10 px-4">
+          <div className="flex ">
+            <h1 className="text-4xl sm:text-5xl text-white tracking-wide">
+              CLASSIC
+            </h1>
+            <p className=" text-xl mt-5 ml-2 sm:text-4xl text-white font-normal">
+              貫徹更好的美好旅程
             </p>
           </div>
         </div>
-      </section> */}
+      </section>
+      <section className="section-project mt-[100px] px-4 md:px-8 xl:px-16 ">
+        <div className="container max-w-[1920px]  mx-auto w-[85%]">
+          <div className="title">
+            <h2 className="m-3">宜園誠境｜</h2>
+          </div>
+          <div className="image-wrap flex flex-col md:flex-row justify-center items-center">
+            <Image
+              src="/images/project/宜園誠境實景照片03-1041020.jpg"
+              alt="經典建築案例"
+              width={1200}
+              height={800}
+              loading="lazy"
+              sizes="100vw"
+              className=" w-full md:w-1/2 mt-[20px] m-3  h-auto"
+            />
+            <Image
+              src="/images/project/宜園誠境實景照片03-1041020.jpg"
+              alt="經典建築案例"
+              width={1200}
+              height={800}
+              loading="lazy"
+              sizes="100vw"
+              className=" w-full md:w-1/2 mt-[20px] m-3  h-auto"
+            />
+          </div>
+          <div className="bottom-description flex justify-end">
+            <div className="max-w-[500px] 2xl:max-w-[700px] py-[90px]">
+              <p className="text-gray-400 font-normal text-right">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                iure distinctio atque suscipit adipisci asperiores sequi
+                repellat inventore maiores vero nesciunt consectetur minus
+                facilis beatae, provident blanditiis odit facere? Minus.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-project mt-[100px] bg-[#bdc3c6] pt-[90px] px-4 md:px-8 xl:px-16">
+        <div className="container max-w-[1920px] mx-auto w-[85%]">
+          <div className="title">
+            <h2 className="m-3">宜園誠境2｜</h2>
+          </div>
+          <div className="image-wrap flex flex-col md:flex-row justify-center items-center">
+            <Image
+              src="/images/project/DSC_2058.jpg"
+              alt="經典建築案例"
+              width={1200}
+              height={800}
+              loading="lazy"
+              sizes="100vw"
+              className="w-full md:w-1/2 mt-[20px] m-3  h-auto"
+            />
+            <Image
+              src="/images/project/DSC_1962.tif"
+              alt="經典建築案例"
+              width={1200}
+              height={800}
+              loading="lazy"
+              sizes="100vw"
+              className="w-full md:w-1/2 mt-[20px] m-3  h-auto"
+            />
+          </div>
+          <div className="bottom-description flex justify-end">
+            <div className="max-w-[500px] 2xl:max-w-[700px] py-[90px]">
+              <p className="text-gray-50 font-normal text-right">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                iure distinctio atque suscipit adipisci asperiores sequi
+                repellat inventore maiores vero nesciunt consectetur minus
+                facilis beatae, provident blanditiis odit facere? Minus.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-project mt-[100px] px-4 md:px-8 xl:px-16">
+        <div className="container max-w-[1920px] mx-auto w-[90%]">
+          {/* 標題區塊 */}
+          <div className="title mb-8">
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
+              宜園誠境 5｜
+            </h2>
+          </div>
 
-      {/* <ImageDistortion /> */}
+          {/* 圖片區塊 */}
+          <div className="image-wrap flex flex-col md:flex-row gap-8 items-stretch">
+            {/* 左圖 */}
+            <div className="w-full md:w-1/2">
+              <div className="h-full">
+                <Image
+                  src="/images/project/烏日區五張犁西段474地號(誠境5)-完工實景照片10-1090219-S.tif"
+                  alt="經典建築案例"
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                  sizes="100vw"
+                  className="w-full h-full object-cover "
+                />
+              </div>
+            </div>
+
+            {/* 右側雙圖 */}
+            <div className="w-full md:w-1/2 flex flex-col gap-6 justify-between">
+              <Image
+                src="/images/project/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.jpg"
+                alt="經典建築案例"
+                width={1200}
+                height={800}
+                loading="lazy"
+                sizes="100vw"
+                className="w-full h-auto "
+              />
+              <Image
+                src="/images/project/烏日區五張犁西段474地號(誠境5)-完工實景照片08-1090219.jpg"
+                alt="經典建築案例"
+                width={1200}
+                height={800}
+                loading="lazy"
+                sizes="100vw"
+                className="w-full h-auto "
+              />
+            </div>
+          </div>
+
+          {/* 說明文字 */}
+          <div className="bottom-description flex justify-end mt-12">
+            <div className="max-w-full md:max-w-[500px] 2xl:max-w-[700px] px-4 md:px-0 py-10 md:py-[90px]">
+              <p className="text-gray-500 font-normal text-right leading-relaxed text-sm md:text-base">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                iure distinctio atque suscipit adipisci asperiores sequi
+                repellat inventore maiores vero nesciunt consectetur minus
+                facilis beatae, provident blanditiis odit facere? Minus.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-project pt-[80px] mt-[100px] bg-[#bdc3c6] px-4 md:px-8 xl:px-16">
+        <div className="container max-w-[1920px] mx-auto w-[90%]">
+          {/* 標題區塊 */}
+          <div className="title mb-8">
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
+              宜園誠境 5｜
+            </h2>
+          </div>
+
+          {/* 圖片區塊 */}
+          <div className="image-wrap flex flex-col gap-8 items-stretch">
+            {/* 左圖 */}
+            <div className="w-full ">
+              <div className="h-full">
+                <Image
+                  src="/images/project/JPOM9756.jpg"
+                  alt="經典建築案例"
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                  sizes="100vw"
+                  className="w-full h-full object-cover "
+                />
+              </div>
+            </div>
+
+            {/* 右側雙圖 */}
+            <div className="w-full  flex  flex-col md:flex-row  gap-6 justify-between">
+              <div className="w-full md:w-1/2">
+                <Image
+                  src="/images/project/JPOM9752-2.jpg"
+                  alt="經典建築案例"
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                  sizes="100vw"
+                  className="w-full h-auto "
+                />
+              </div>
+              <div className="w-full md:w-1/2">
+                <Image
+                  src="/images/project/JPOM9749-2.jpg"
+                  alt="經典建築案例"
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                  sizes="100vw"
+                  className="w-full h-auto "
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* 說明文字 */}
+          <div className="bottom-description flex justify-end mt-12">
+            <div className="max-w-full md:max-w-[500px] 2xl:max-w-[700px] px-4 md:px-0 py-10 md:py-[90px]">
+              <p className="text-gray-50 font-normal text-right leading-relaxed text-sm md:text-base">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                iure distinctio atque suscipit adipisci asperiores sequi
+                repellat inventore maiores vero nesciunt consectetur minus
+                facilis beatae, provident blanditiis odit facere? Minus.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </ReactLenis>
   );
 };
