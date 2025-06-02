@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <ViewTransitions>
         <HeroUIProvider>
-          <body className="overflow-hidden">
+          <body className="">
             <ClientWrapper>
               {!isHomePage && (
                 <div className="w-[100vw] z-[9999999] left-0 top-0 fixed">
