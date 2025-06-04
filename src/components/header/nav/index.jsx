@@ -9,31 +9,20 @@ import Image from "./Image";
 
 const links = [
   {
-    title: "關於宜園",
-    href: "/about",
-    src: "home.png",
-  },
-  {
-    title: "經典選粹",
-    href: "/hot-sale",
+    title: "建築經典",
+    href: "/project",
     src: "shop.png",
   },
   {
-    title: "線上熱銷",
-    href: "/project",
+    title: "新案件賞",
+    href: "/hot-sale",
     src: "home.png",
   },
   {
-    title: "建築思維",
-    href: "/thinking",
+    title: "工程進度",
+    href: "/news",
     src: "lookbook.png",
   },
-  {
-    title: "新聞中心",
-    href: "/news",
-    src: "contact.png",
-  },
-
   {
     title: "聯絡我們",
     href: "/contact",

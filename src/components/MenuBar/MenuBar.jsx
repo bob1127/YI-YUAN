@@ -18,7 +18,6 @@ const MenuBar = ({ closeMenu }) => {
   }, []);
 
   const navItems = [
-    { label: "關於宜園 ABOUT", href: "/about" },
     { label: "建築經典 CLASSIC", href: "/project" },
     { label: "新案鑑賞 PROJECT", href: "/hot-sale" },
     { label: "工程進度 PROGRESS", href: "/news" },

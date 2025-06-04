@@ -56,20 +56,6 @@ export default function RootLayout({ children }) {
             </ClientWrapper>
             {!isHomePage && (
               <footer className="section-footer  py-[40px] md:py-[40px] 2xl:py-[90px] px-[30px] sm:px-[50px] md:px-[100px] bg-[#474141]">
-                <div className="flex flex-row mb-5 mx-auto w-[80%]">
-                  <div className="md:w-[70%] w-full 2xl:w-1/2">
-                    <div className="h-auto flex flex-col ">
-                      <h2 className=" text-mdsm:text-2xl dark:text-white text-gray-200">
-                        對我們的建案有興趣嗎？
-                      </h2>
-                      <PlaceholdersAndVanishInput
-                        placeholders={placeholders}
-                        onChange={handleChange}
-                        onSubmit={onSubmit}
-                      />
-                    </div>
-                  </div>
-                </div>
                 <div className="flex sm:w-[90%] w-full lg:w-[80%] mx-auto flex-col md:flex-row border-t-1  border-[#c7c7c7]">
                   <div className="left flex flex-col justify-between mt-5 w-full md:w-[50%]">
                     <div className="flex flex-col">
@@ -86,9 +72,6 @@ export default function RootLayout({ children }) {
                       </p>
                       <p className="text-[.8rem] text-[#d9d9d9] font-light">
                         EMAIL:
-                      </p>
-                      <p className="text-[.8rem] text-[#d9d9d9] font-light">
-                        FAX: 04-22978199
                       </p>
                     </div>
                   </div>

@@ -51,7 +51,7 @@ const Photos = () => {
 
       <section className="section-content py-10 lg:py-20">
         <div className=" flex flex-col lg:flex-row max-w-[1920px]  mx-auto">
-          <div className="left w-full lg:w-1/2 border">
+          <div className="left w-full lg:w-1/2 ">
             {/* 區塊標題 */}
             <div className="flex flex-col px-4 md:px-8 xl:px-16">
               <h2>工程進度｜</h2>
