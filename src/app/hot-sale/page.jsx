@@ -14,7 +14,7 @@ export default function About() {
         {/* Hero 背景圖（用 <img>） */}
         <div className="absolute inset-0 w-full h-full">
           <img
-            src="/images/project/pexels-may-abeki-1238188510-24033295.tif"
+            src="/images/project/pexels-may-abeki-1238188510-24033295.jpg"
             alt="經典建築案例"
             loading="eager"
             decoding="async"

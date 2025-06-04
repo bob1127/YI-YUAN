@@ -30,7 +30,7 @@ const Photos = () => {
       <section className="section-hero-title relative w-full h-[60vh] sm:h-[70vh] lg:h-[80vh] overflow-hidden">
         {/* 背景圖 */}
         <img
-          src="/images/news/pexels-goldcircuits-4147343.tif"
+          src="/images/news/pexels-goldcircuits-4147343.jpg"
           alt="經典建築案例"
           loading="lazy"
           decoding="async"
@@ -134,7 +134,7 @@ const Photos = () => {
                 <div className="md:w-1/2">
                   <div className="relative w-full h-[600px] overflow-hidden group">
                     <img
-                      src="/images/news/土方開挖完成.tif"
+                      src="/images/news/土方開挖完成.jpg"
                       alt="土方開挖完成"
                       loading="lazy"
                       decoding="async"
@@ -169,7 +169,7 @@ const Photos = () => {
                   {/* 下圖 */}
                   <div className="relative w-full h-[288px] overflow-hidden group">
                     <img
-                      src="/images/news/擋土柱施作-1.tif"
+                      src="/images/news/擋土柱施作-1.jpg"
                       alt="擋土柱施作中"
                       loading="lazy"
                       decoding="async"

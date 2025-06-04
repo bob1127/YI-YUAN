@@ -45,100 +45,6 @@ export default function About() {
   const imageRefs = useRef([]);
   const containerRef = useRef(null);
 
-  useEffect(() => {
-    const disableScroll = () => {
-      window.scrollTo(0, 0);
-    };
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
-    document.documentElement.style.height = "100vh";
-    document.body.style.height = "100vh";
-    window.addEventListener("scroll", disableScroll);
-
-    const timeout = setTimeout(() => {
-      document.body.style.overflow = "auto";
-      document.documentElement.style.overflow = "auto";
-      document.documentElement.style.height = "auto";
-      document.body.style.height = "auto";
-      window.removeEventListener("scroll", disableScroll);
-    }, 50);
-
-    const initGSAPAnimations = () => {
-      const ctx = gsap.context(() => {
-        const images = document.querySelectorAll(".animate-image-wrapper");
-
-        images.forEach((image, i) => {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: image,
-              start: "top bottom",
-              end: "top center",
-              toggleActions: "play none none none",
-              id: "imageReveal-" + i,
-            },
-          });
-
-          tl.fromTo(
-            image.querySelector(".overlay"),
-            {
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-            },
-            {
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-              duration: 0.6,
-              ease: "power2.inOut",
-            }
-          )
-            .to(image.querySelector(".overlay"), {
-              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-              duration: 0.6,
-              ease: "power2.inOut",
-            })
-            .fromTo(
-              image.querySelector(".image-container"),
-              {
-                clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-              },
-              {
-                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                duration: 1,
-                ease: "power3.inOut",
-              },
-              "-=0.4"
-            );
-        });
-
-        ScrollTrigger.refresh();
-      }, containerRef);
-
-      return ctx; // return so we can revert later
-    };
-
-    let ctx;
-
-    const onTransitionComplete = () => {
-      ctx = initGSAPAnimations();
-    };
-
-    window.addEventListener("pageTransitionComplete", onTransitionComplete);
-
-    // fallback: 若不是從 transition link 進來，直接初始化
-    if (!sessionStorage.getItem("transitioning")) {
-      ctx = initGSAPAnimations();
-    } else {
-      sessionStorage.removeItem("transitioning"); // 清除 flag
-    }
-
-    return () => {
-      if (ctx) ctx.revert();
-      window.removeEventListener(
-        "pageTransitionComplete",
-        onTransitionComplete
-      );
-    };
-
-    return () => ctx.revert(); // 👈 自動 kill 清理範圍內動畫
-  }, []);
   const cards = data.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
   ));
@@ -171,7 +77,7 @@ export default function About() {
         {/* <div className="flex max-w-[1920px] lg:flex-row mb-5 mt-20 sm:mt-[20vh] flex-col  mx-auto">
         <div className="img w-[98%] md:w-[550px] lg:w-[50%] mx-auto h-auto md:h-[830px] overflow-hidden">
           <div className="animate-image-wrapper relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-            <div className="overlay absolute inset-0 bg-black z-10"></div>
+        
             <div className="image-container relative w-full h-full">
               <AnimatedLink href="/hot-sale">
                 <Image
@@ -215,7 +121,6 @@ export default function About() {
           <div className="flex lg:flex-row max-w-[1920px] flex-col-reverse mb-5 mt-20 sm:mt-[20vh] w-full mx-auto">
             <div className="img w-full  md:w-[85%] lg:w-[60%] mx-auto h-auto max-h-[500px] overflow-hidden">
               <div className="animate-image-wrapper relative w-full aspect-[4/5] max-h-[500px] h-full overflow-hidden">
-                <div className="overlay absolute inset-0 bg-black z-10 max-h-[500px] h-full"></div>
                 <div className="image-container relative w-full h-full max-h-[500px]">
                   <AnimatedLink href="/hot-sale">
                     <Image
@@ -266,7 +171,6 @@ export default function About() {
               {/* 第一張圖片 */}
               <div className="img mt-4 md:mt-0 w-[85%] lg:w-[50%] sm:mx-3 h-auto md:h-[70vh] lg:h-[73vh] xl:h-[83vh] overflow-hidden flex flex-col justify-center items-center">
                 <div className="animate-image-wrapper group relative w-full aspect-[4/5]">
-                  <div className="overlay absolute inset-0 bg-black z-10"></div>
                   <div className="image-container relative w-full h-full">
                     <Image
                       src="/images/烏日區五張犁西段474地號(誠境5)-完工實景照片10-1090219-S.jpg"
@@ -282,7 +186,6 @@ export default function About() {
               {/* 第二張圖片 */}
               <div className="img w-[85%] lg:w-[50%] sm:mx-3 h-auto md:h-[70vh] lg:h-[73vh] xl:h-[83vh] mt-5 lg:mt-0 overflow-hidden flex flex-col justify-center items-center">
                 <div className="animate-image-wrapper group relative w-full aspect-[4/5]">
-                  <div className="overlay absolute inset-0 bg-black z-10"></div>
                   <div className="image-container relative w-full h-full">
                     <Image
                       src="/images/宜園誠境實景照片.jpg"
@@ -305,7 +208,6 @@ export default function About() {
             <div className="flex  max-w-[1920px]  lg:flex-row flex-col-reverse mb-5 mt-20 lg:mt-[10vh] w-[98%] mx-auto">
               <div className="img w-[98%] md:w-[85%] lg:w-[50%] mx-auto h-auto overflow-hidden">
                 <div className="animate-image-wrapper relative w-full lg:w-[90%] mx-auto pl-0 lg:pl-20 aspect-[3/2.6] overflow-hidden">
-                  <div className="overlay absolute inset-0 bg-black z-10"></div>
                   <div className="image-container relative w-full h-full">
                     <AnimatedLink href="/hot-sale">
                       <Image
@@ -358,7 +260,6 @@ export default function About() {
 
               <div className="img w-full md:w-[85%] lg:w-[70%] mx-auto h-auto max-h-[500px] sm:max-h-[580px]  overflow-hidden">
                 <div className="animate-image-wrapper relative w-full aspect-[4/5] max-h-[500px] sm:max-h-[580px]  h-full overflow-hidden">
-                  <div className="overlay absolute inset-0 bg-black z-10 max-h-[500px] sm:max-h-[580px]  h-full"></div>
                   <div
                     className="image-container relative w-full h-full max-h-[500px] sm:max-h-[580px]  bg-top bg-cover"
                     style={{

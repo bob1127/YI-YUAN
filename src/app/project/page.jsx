@@ -35,17 +35,15 @@ const Photos = () => {
   return (
     <ReactLenis root>
       <section className="section-hero-title w-full relative">
-        {/* Hero Image */}
+        {/* Hero Image */}{" "}
         <img
           src="/images/project/pexels-pixabay-327482.jpg"
           alt="經典建築案例"
           loading="lazy"
           decoding="async"
-          className="w-full h-auto mt-[50px] sm:mt-0"
-          width="1920"
+          className="w-full "
           height="700"
         />
-
         {/* 右下角文字 */}
         <div className="absolute bottom-[10%] right-[10%] text-white text-right z-10 px-4">
           <div className="flex">
@@ -66,24 +64,28 @@ const Photos = () => {
           </div>
 
           <div className="image-wrap flex flex-col md:flex-row justify-center items-center">
-            <img
-              src="/images/project/宜園誠境實景照片03-1041020.jpg"
-              alt="經典建築案例"
-              loading="lazy"
-              decoding="async"
-              width="1200"
-              height="800"
-              className="w-full md:w-1/2 mt-[20px] m-3 h-auto"
-            />
-            <img
-              src="/images/project/宜園誠境實景照片03-1041020.jpg"
-              alt="經典建築案例"
-              loading="lazy"
-              decoding="async"
-              width="1200"
-              height="800"
-              className="w-full md:w-1/2 mt-[20px] m-3 h-auto"
-            />
+            <div className="overflow-hidden w-full md:w-1/2 mt-[20px] m-3">
+              <img
+                src="/images/project/宜園誠境實景照片03-1041020.jpg"
+                alt="經典建築案例"
+                loading="lazy"
+                decoding="async"
+                width="1200"
+                height="800"
+                className="w-full h-auto ease-in-out duration-500 hover:scale-105"
+              />
+            </div>
+            <div className="overflow-hidden w-full md:w-1/2 mt-[20px] m-3">
+              <img
+                src="/images/project/宜園誠境實景照片03-1041020.jpg"
+                alt="經典建築案例"
+                loading="lazy"
+                decoding="async"
+                width="1200"
+                height="800"
+                className="w-full h-auto ease-in-out duration-500 hover:scale-105"
+              />
+            </div>
           </div>
 
           <div className="bottom-description flex justify-end">
@@ -106,24 +108,28 @@ const Photos = () => {
           </div>
 
           <div className="image-wrap flex flex-col md:flex-row justify-center items-center">
-            <img
-              src="/images/project/DSC_2058.jpg"
-              alt="經典建築案例"
-              loading="lazy"
-              decoding="async"
-              width="1200"
-              height="800"
-              className="w-full md:w-1/2 mt-[20px] m-3 h-auto"
-            />
-            <img
-              src="/images/project/DSC_1962.tif"
-              alt="經典建築案例"
-              loading="lazy"
-              decoding="async"
-              width="1200"
-              height="800"
-              className="w-full md:w-1/2 mt-[20px] m-3 h-auto"
-            />
+            <div className="overflow-hidden w-full md:w-1/2 mt-[20px] m-3">
+              <img
+                src="/images/project/DSC_2058.jpg"
+                alt="經典建築案例"
+                loading="lazy"
+                decoding="async"
+                width="1200"
+                height="800"
+                className="w-full h-auto ease-in-out duration-500 hover:scale-105"
+              />
+            </div>
+            <div className="overflow-hidden w-full md:w-1/2 mt-[20px] m-3">
+              <img
+                src="/images/project/DSC_1962.jpg"
+                alt="經典建築案例"
+                loading="lazy"
+                decoding="async"
+                width="1200"
+                height="800"
+                className="w-full h-auto ease-in-out duration-500 hover:scale-105"
+              />
+            </div>
           </div>
 
           <div className="bottom-description flex justify-end">
@@ -138,7 +144,6 @@ const Photos = () => {
           </div>
         </div>
       </section>
-
       <section className="section-project mt-[100px] px-4 md:px-8 xl:px-16">
         <div className="container max-w-[1920px] mx-auto w-[90%]">
           {/* 標題區塊 */}
@@ -152,39 +157,43 @@ const Photos = () => {
           <div className="image-wrap flex flex-col md:flex-row gap-8 items-stretch">
             {/* 左圖 */}
             <div className="w-full md:w-1/2">
-              <div className="h-full">
+              <div className="h-full overflow-hidden">
                 <img
-                  src="/images/project/烏日區五張犁西段474地號(誠境5)-完工實景照片10-1090219-S.tif"
+                  src="/images/project/烏日區五張犁西段474地號(誠境5)-完工實景照片10-1090219-S-2.jpg"
                   alt="經典建築案例"
                   loading="lazy"
                   decoding="async"
                   width="1200"
                   height="800"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover ease-in-out duration-500 hover:scale-105"
                 />
               </div>
             </div>
 
             {/* 右側雙圖 */}
             <div className="w-full md:w-1/2 flex flex-col gap-6 justify-between">
-              <img
-                src="/images/project/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.jpg"
-                alt="經典建築案例"
-                loading="lazy"
-                decoding="async"
-                width="1200"
-                height="800"
-                className="w-full h-auto"
-              />
-              <img
-                src="/images/project/烏日區五張犁西段474地號(誠境5)-完工實景照片08-1090219.jpg"
-                alt="經典建築案例"
-                loading="lazy"
-                decoding="async"
-                width="1200"
-                height="800"
-                className="w-full h-auto"
-              />
+              <div className="overflow-hidden">
+                <img
+                  src="/images/project/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.jpg"
+                  alt="經典建築案例"
+                  loading="lazy"
+                  decoding="async"
+                  width="1200"
+                  height="800"
+                  className="w-full h-auto ease-in-out duration-500 hover:scale-105"
+                />
+              </div>
+              <div className="overflow-hidden">
+                <img
+                  src="/images/project/烏日區五張犁西段474地號(誠境5)-完工實景照片08-1090219.jpg"
+                  alt="經典建築案例"
+                  loading="lazy"
+                  decoding="async"
+                  width="1200"
+                  height="800"
+                  className="w-full h-auto ease-in-out duration-500 hover:scale-105"
+                />
+              </div>
             </div>
           </div>
 
@@ -201,7 +210,6 @@ const Photos = () => {
           </div>
         </div>
       </section>
-
       <section className="section-project pt-[80px] mt-[100px] bg-[#bdc3c6] px-4 md:px-8 xl:px-16">
         <div className="container max-w-[1920px] mx-auto w-[90%]">
           {/* 標題區塊 */}
@@ -215,7 +223,7 @@ const Photos = () => {
           <div className="image-wrap flex flex-col gap-8 items-stretch">
             {/* 左圖 */}
             <div className="w-full">
-              <div className="h-full">
+              <div className="h-full overflow-hidden">
                 <img
                   src="/images/project/JPOM9756.jpg"
                   alt="經典建築案例"
@@ -223,14 +231,14 @@ const Photos = () => {
                   decoding="async"
                   width="1200"
                   height="800"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full aspect-[7/3] object-cover ease-in-out duration-500 hover:scale-105"
                 />
               </div>
             </div>
 
             {/* 右側雙圖 */}
             <div className="w-full flex flex-col md:flex-row gap-6 justify-between">
-              <div className="w-full md:w-1/2">
+              <div className="w-full md:w-1/2 overflow-hidden">
                 <img
                   src="/images/project/JPOM9752-2.jpg"
                   alt="經典建築案例"
@@ -238,10 +246,10 @@ const Photos = () => {
                   decoding="async"
                   width="1200"
                   height="800"
-                  className="w-full h-auto"
+                  className="w-full h-auto ease-in-out duration-500 hover:scale-105"
                 />
               </div>
-              <div className="w-full md:w-1/2">
+              <div className="w-full md:w-1/2 overflow-hidden">
                 <img
                   src="/images/project/JPOM9749-2.jpg"
                   alt="經典建築案例"
@@ -249,7 +257,7 @@ const Photos = () => {
                   decoding="async"
                   width="1200"
                   height="800"
-                  className="w-full h-auto"
+                  className="w-full h-auto ease-in-out duration-500 hover:scale-105"
                 />
               </div>
             </div>

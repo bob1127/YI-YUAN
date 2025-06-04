@@ -13,7 +13,7 @@ export default function About() {
       <section className="section-hero-title w-full relative h-[60vh] sm:h-[70vh] lg:h-[80vh]">
         {/* Hero Image */}
         <Image
-          src="/images/project/pexels-may-abeki-1238188510-24033295.tif"
+          src="/images/project/pexels-may-abeki-1238188510-24033295.jpg"
           alt="經典建築案例"
           fill
           priority
