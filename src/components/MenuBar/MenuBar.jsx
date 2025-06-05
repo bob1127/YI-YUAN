@@ -33,7 +33,6 @@ const MenuBar = ({ closeMenu }) => {
         borderBottom: isTop
           ? "1px solid rgba(255,255,255,0.2)"
           : "1px solid rgba(0,0,0,0.05)",
-        color: isTop ? "#ffffff" : "#111111",
       }}
       transition={{
         duration: 0.3,
@@ -58,11 +57,11 @@ const MenuBar = ({ closeMenu }) => {
               <button className="group relative w-full px-4 font-medium flex items-center justify-center">
                 <span
                   className={`
-          relative mx-1 inline-flex border-t border-b
-          ${isTop ? "border-white" : "border-black"}
-          transition-colors duration-300
-          text-center
-        `}
+    relative mx-1 inline-flex border-t border-b
+    border-black  // ✅ 固定為黑色
+    transition-colors duration-300
+    text-center
+  `}
                 >
                   <div
                     className={`

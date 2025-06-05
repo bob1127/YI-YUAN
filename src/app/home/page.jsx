@@ -50,9 +50,6 @@ export default function About() {
   ));
   return (
     <ReactLenis root>
-      {/* <section className="section_hero overflow-hidden mt-[40px]   lg:mt-[70px]">
-        <StartAnimate />
-      </section> */}
       <div className="bg-white">
         <section className="relative md:h-[768px] h-[500px] xl:h-[1024px] 2xl:h-screen w-full overflow-hidden">
           {/* 毛玻璃遮罩層 */}
