@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function About() {
   return (
     <ReactLenis root>
-      <section className="pt-[10vh] px-4 py-20 md:px-12 lg:px-20 max-w-[1920px] mx-auto">
+      <section className="pt-[10vh] px-4  md:px-12 lg:px-20 w-full xl:!w-[80%] 2xl:w-full max-w-[1920px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start min-h-[600px]">
           {/* 左側：表單（垂直置中） */}
           <div className="w-full px-10  max-w-3xl mx-auto  md:mx-0 h-full flex items-start">
@@ -41,14 +41,12 @@ export default function About() {
                       {
                         id: "project1",
                         label: "一青隱",
-                        image:
-                          "/images/烏日區五張犁西段474地號(誠境5)-完工實景照片10-1090219-S.jpg",
+                        image: "/images/S__28844101.jpg",
                       },
                       {
                         id: "project2",
                         label: "宜園大院",
-                        image:
-                          "/images/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.JPG",
+                        image: "/images/S__28844100.png",
                       },
                     ].map((project) => (
                       <label
@@ -119,12 +117,13 @@ export default function About() {
                 </span>
                 <h3 className="text-xl font-bold">Map</h3>
               </div>
-              <div className="w-full overflow-hidden rounded-lg max-h-[550px]">
+              <div className="w-full overflow-hidden rounded-lg max-h-[670px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29131.79636988095!2d120.64383669972379!3d24.11996731884885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693c55c0686be1%3A0xc3a3cec1c5df6a18!2zNDAy5Y-w5Lit5biC5Y2X5Y2A!5e0!3m2!1szh-TW!2stw!4v1743684644979!5m2!1szh-TW!2stw"
-                  className="w-full h-[540px] border-0"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.9665782451734!2d120.67564991235373!3d24.172904872332158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x44766439ed9d2f13%3A0x7915785e2ed054c3!2z5a6c5ZyS5bu66Kit6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1749193687174!5m2!1szh-TW!2stw"
+                  width="600"
+                  height="450"
+                  className="w-full h-[670px] border-0"
                   loading="lazy"
-                  allowFullScreen
                 ></iframe>
               </div>
               <div className="text-sm text-gray-700 space-y-2">
@@ -134,9 +133,12 @@ export default function About() {
                 <p>宜園建設</p>
               </div>
               <div className="text-right">
-                <span className="border-b border-black text-sm tracking-widest">
+                <Link
+                  href="/about"
+                  className="border-b border-black text-sm tracking-widest"
+                >
                   About Yi Yuan
-                </span>
+                </Link>
               </div>
             </div>
           </div>
