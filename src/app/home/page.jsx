@@ -1,5 +1,3 @@
-import Client from "./Client";
-
 export const metadata = {
   title: "宜園建設",
   description:
@@ -23,10 +21,10 @@ export const metadata = {
     siteName: "宜園建設",
     images: [
       {
-        url: "https://www.yiyuan-arch.com.tw/images/og-about.jpg",
+        url: "https://www.yiyuan-arch.com.tw/images/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.JPG",
         width: 1200,
         height: 630,
-        alt: "宜園建設關於我們",
+        alt: "宜園建設 - 誠境五完工實景",
       },
     ],
     locale: "zh_TW",
@@ -36,26 +34,8 @@ export const metadata = {
     card: "summary_large_image",
     title: "宜園建設",
     description: "認識宜園建設的初心與核心理念，與您一起打造理想生活空間。",
-    images: ["https://www.yiyuan-arch.com.tw/images/og-about.jpg"],
+    images: [
+      "https://www.yiyuan-arch.com.tw/images/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.JPG",
+    ],
   },
 };
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "宜園建設",
-  url: "https://www.yiyuan-arch.com.tw",
-  logo: "https://www.yiyuan-arch.com.tw/images/logo.png",
-  sameAs: [
-    "https://www.facebook.com/你的粉專",
-    "https://www.instagram.com/你的帳號",
-  ],
-};
-export default function HomePage() {
-  return (
-    <>
-      <Client />
-      <script type="application/ld+json" />
-    </>
-  );
-}
