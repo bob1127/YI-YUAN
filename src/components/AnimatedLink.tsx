@@ -1,6 +1,7 @@
 "use client";
 import { useTransitionRouter } from "next-view-transitions";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const slideInOut = () => {
   document.documentElement.animate(
@@ -50,6 +51,21 @@ const AnimatedLink = ({
   className?: string;
 }) => {
   const router = useTransitionRouter();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth <= 768); // 可依需要調整斷點
+    }
+  }, []);
+
+  if (isMobile) {
+    return (
+      <Link href={href} className={className}>
+        {children}
+      </Link>
+    );
+  }
 
   return (
     <a
