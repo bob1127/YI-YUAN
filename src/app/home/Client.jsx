@@ -96,12 +96,7 @@ export default function About() {
         <div className="bg-white">
           <section className="relative md:h-[768px] h-[500px] xl:h-[1024px] 2xl:h-screen w-full overflow-hidden">
             {/* 毛玻璃遮罩層 */}
-            <div className="absolute inset-0 z-10 backdrop-blur-sm bg-white/30" />
-
-            {/* 文字區塊 */}
-            <div className="txt absolute z-20 left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2">
-              <p className="text-[3rem] text-[#8c3a35]"> ABOUT US</p>
-            </div>
+            <div className="absolute inset-0 z-10" />
 
             {/* 背景圖片 */}
             <Image

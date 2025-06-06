@@ -40,13 +40,13 @@ export default function About() {
                     {[
                       {
                         id: "project1",
-                        label: "誠境二期",
+                        label: "一青隱",
                         image:
                           "/images/烏日區五張犁西段474地號(誠境5)-完工實景照片10-1090219-S.jpg",
                       },
                       {
                         id: "project2",
-                        label: "誠境一期",
+                        label: "宜園大院",
                         image:
                           "/images/烏日區五張犁西段474地號(誠境5)-完工實景照片03-1090219.JPG",
                       },
