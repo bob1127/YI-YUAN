@@ -9,12 +9,17 @@ import Image from "./Image";
 
 const links = [
   {
+    title: "關於宜園",
+    href: "/about",
+    src: "home.png",
+  },
+  {
     title: "建築經典",
     href: "/project",
     src: "shop.png",
   },
   {
-    title: "新案件賞",
+    title: "新案鑑賞",
     href: "/hot-sale",
     src: "home.png",
   },
