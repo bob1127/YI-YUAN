@@ -107,7 +107,7 @@ export default function Home() {
         </div>
 
         <div className="hero-title z-[99999]">
-          <div className="line mt-[60px] ">
+          <div className="line  sm:mt-[60px] ">
             <h1 className="text-5xl text-white">實在的構築</h1>
             <h1 className="text-[1.4rem] mt-[-15px] text-[#A99C81] ">
               TRUE ARCH
@@ -120,13 +120,13 @@ export default function Home() {
 
           <button
             onClick={() => (window.location.href = "/home")}
-            className="group  mt-[250px] relative h-12 rounded-full border border-neutral-200 bg-transparent px-4 text-neutral-950"
+            className="group  sm:mt-[250px] relative h-12 rounded-full border border-neutral-200 bg-transparent px-4 text-neutral-950"
           >
             <span className="relative inline-flex overflow-hidden">
               <div className="translate-y-0 text-white  skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
                 ＥＮＴＥＲ
               </div>
-              <div className="absolute text-white translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+              <div className="absolute w-full text-white translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0 flex justify-center">
                 Yi-Yuan
               </div>
             </span>
