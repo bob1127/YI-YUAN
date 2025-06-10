@@ -10,6 +10,10 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    'ease-[cubic-bezier(0.77,0,0.175,1)]',
+    'after:ease-[cubic-bezier(0.65_0.05_0.36_1)]',
+  ],
   theme: {
   	extend: {
       backgroundImage: {
