@@ -71,7 +71,12 @@ export default function RootLayout({ children }) {
                         PHONE: 04-22978188
                       </p>
                       <p className="text-[.8rem] text-[#d9d9d9] font-light">
-                        EMAIL:
+                        <a
+                          href="mailto:yi.yuan@msa.hinet.net"
+                          className="text-[#d9d9d9]"
+                        >
+                          EMAIL: yi.yuan@msa.hinet.net
+                        </a>
                       </p>
                     </div>
                   </div>
