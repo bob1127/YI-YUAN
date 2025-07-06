@@ -1,6 +1,6 @@
 "use client";
 import { Accordion, AccordionItem } from "@heroui/react";
-import AnimatedLink from "../../components/AnimatedLink";
+import Link from "next/link";
 import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -306,7 +306,7 @@ export default function About() {
             </Accordion>
           </div>
           <div className="">
-            <AnimatedLink href="/news">
+            <Link href="/news">
               <div className="flex group py-10 w-full sm:w-[85%] md:w-[70%] mx-auto justify-center md:justify-end items-center">
                 <span className="text-[2rem] font-bold mr-3">更多消息</span>
                 <button class="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
@@ -346,7 +346,7 @@ export default function About() {
                   </div>
                 </button>
               </div>
-            </AnimatedLink>
+            </Link>
           </div>
         </div>
         <div className="py-8 lg:flex-row bg-white flex-col flex">
@@ -399,12 +399,12 @@ export default function About() {
 const NavLeft = () => {
   return (
     <div className="flex items-center gap-6">
-      <AnimatedLink href="/about">
+      <Link href="/about">
         <h1>About</h1>
-      </AnimatedLink>
-      <AnimatedLink href="/community">Community</AnimatedLink>
-      <AnimatedLink href="/pricing">Pricing</AnimatedLink>
-      <AnimatedLink href="/company">Company</AnimatedLink>
+      </Link>
+      <Link href="/community">Community</Link>
+      <Link href="/pricing">Pricing</Link>
+      <Link href="/company">Company</Link>
     </div>
   );
 };

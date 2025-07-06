@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import AnimatedLink from "../AnimatedLink";
 
 const MenuBar = ({ closeMenu }) => {
   const [isTop, setIsTop] = useState(true);
@@ -45,16 +44,16 @@ const MenuBar = ({ closeMenu }) => {
         className="logo w-[20%] flex justify-center items-center"
         onClick={closeMenu}
       >
-        <AnimatedLink href="/home">
+        <Link href="/home">
           <span className="text-[1.8rem] font-extrabold">宜園建設</span>
-        </AnimatedLink>
+        </Link>
       </div>
 
       {/* Nav Items */}
       <div className="menu-toggle-wrapper w-[60%] flex items-center justify-end">
         <div className="flex items-center w-full justify-center font-light flex-row">
           {navItems.map(({ label, href }) => (
-            <AnimatedLink href={href} key={label}>
+            <Link href={href} key={label}>
               <button className="group relative w-full px-4 font-medium flex items-center justify-center">
                 <span
                   className={`
@@ -77,7 +76,7 @@ const MenuBar = ({ closeMenu }) => {
                   </div>
                 </span>
               </button>
-            </AnimatedLink>
+            </Link>
           ))}
         </div>
       </div>

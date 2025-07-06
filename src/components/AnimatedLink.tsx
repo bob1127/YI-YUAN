@@ -1,47 +1,26 @@
 "use client";
 import { useTransitionRouter } from "next-view-transitions";
-import Link from "next/link";
+
 import { useEffect, useState } from "react";
 
-const slideInOut = () => {
-  document.documentElement.animate(
-    [
-      {
-        opacity: 1,
-        transform: "translateY(0)",
-      },
-      {
-        opacity: 0.2,
-        transform: "translateY(-35%)",
-      },
-    ],
-    {
-      duration: 1500,
-      easing: "cubic-bezier(0.87, 0, 0.13, 1)",
-      fill: "forwards",
-      pseudoElement: "::view-transition-old(root)",
-    }
-  );
+// ✅ 簡單淡入淡出動畫
+const fadeTransition = () => {
+  document.documentElement.animate([{ opacity: 1 }, { opacity: 0 }], {
+    duration: 300,
+    easing: "ease",
+    fill: "forwards",
+    pseudoElement: "::view-transition-old(root)",
+  });
 
-  document.documentElement.animate(
-    [
-      {
-        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-      },
-      {
-        clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-      },
-    ],
-    {
-      duration: 1500,
-      easing: "cubic-bezier(0.87, 0, 0.13, 1)",
-      fill: "forwards",
-      pseudoElement: "::view-transition-new(root)",
-    }
-  );
+  document.documentElement.animate([{ opacity: 0 }, { opacity: 1 }], {
+    duration: 300,
+    easing: "ease",
+    fill: "forwards",
+    pseudoElement: "::view-transition-new(root)",
+  });
 };
 
-const AnimatedLink = ({
+const Link = ({
   href,
   children,
   className,
@@ -55,7 +34,7 @@ const AnimatedLink = ({
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setIsMobile(window.innerWidth <= 768); // 可依需要調整斷點
+      setIsMobile(window.innerWidth <= 768);
     }
   }, []);
 
@@ -74,7 +53,13 @@ const AnimatedLink = ({
       onClick={(e) => {
         e.preventDefault();
         router.push(href, {
-          onTransitionReady: slideInOut,
+          onTransitionReady: () => {
+            fadeTransition();
+            // ✅ 等轉場開始後再 scroll to top（延遲 100ms）
+            setTimeout(() => {
+              window.scrollTo({ top: 0, behavior: "instant" });
+            }, 100);
+          },
         });
       }}
     >
@@ -83,4 +68,4 @@ const AnimatedLink = ({
   );
 };
 
-export default AnimatedLink;
+export default Link;

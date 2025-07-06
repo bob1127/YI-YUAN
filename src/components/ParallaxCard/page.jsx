@@ -4,7 +4,7 @@ import styles from "./style.module.scss";
 import { useTransform, motion, useScroll } from "framer-motion";
 import { useRef, useEffect } from "react";
 import { TransitionLink } from "../../components/utils/TransitionLink";
-import AnimatedLink from "../AnimatedLink";
+import Link from "../Link";
 const Card = ({
   i,
   title,
@@ -49,7 +49,7 @@ const Card = ({
 
   return (
     <div ref={container} className={styles.cardContainer}>
-      <AnimatedLink className="!w-[100vw]" href={url}>
+      <Link className="!w-[100vw]" href={url}>
         <motion.div
           style={{
             backgroundImage: `url(${backgroundImage})`,
@@ -122,7 +122,7 @@ const Card = ({
             </div>
           </div>
         </motion.div>
-      </AnimatedLink>
+      </Link>
     </div>
   );
 };

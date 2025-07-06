@@ -4,7 +4,6 @@ import StartAnimate from "../../components/HomeAnimate/page";
 import HeroSlider from "../../components/HeroSliderHome/page";
 import { Carousel, Card } from "../../components/ui/apple-cards-carousel";
 import Link from "next/link";
-import AnimatedLink from "../../components/AnimatedLink";
 
 import Head from "next/head";
 
@@ -22,34 +21,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
-  const slideData = [
-    {
-      title: "誠境二期",
-
-      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery01.jpg",
-    },
-    {
-      title: "誠境二期",
-
-      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery05.jpg",
-    },
-    {
-      title: "誠境二期",
-
-      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_gallery02.jpg",
-    },
-    {
-      title: "誠境二期",
-
-      src: "https://www.hasegawa-kogyo.co.jp/lucano/img/sec_feature05.jpg",
-    },
-  ];
-  const imageRefs = useRef([]);
-  const containerRef = useRef(null);
-
-  const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "application/ld+json";
@@ -114,7 +85,7 @@ export default function About() {
               <div className="img w-full  md:w-[85%] lg:w-[60%] mx-auto h-auto max-h-[500px] overflow-hidden">
                 <div className="animate-image-wrapper relative w-full aspect-[4/5] max-h-[500px] h-full overflow-hidden">
                   <div className="image-container relative w-full h-full max-h-[500px]">
-                    <AnimatedLink href="/hot-sale">
+                    <Link href="/hot-sale">
                       <Image
                         src="/images/JPOM9756.jpg"
                         alt="About Image 2"
@@ -122,7 +93,7 @@ export default function About() {
                         className="object-cover"
                         sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                       />
-                    </AnimatedLink>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -201,7 +172,7 @@ export default function About() {
                 <div className="img w-[98%] md:w-[85%] lg:w-[50%] mx-auto h-auto overflow-hidden">
                   <div className="animate-image-wrapper relative w-full lg:w-[90%] mx-auto pl-0 lg:pl-20 aspect-[3/2.6] overflow-hidden">
                     <div className="image-container relative w-full h-full">
-                      <AnimatedLink href="/hot-sale">
+                      <Link href="/hot-sale">
                         <Image
                           src="/images/JPOM9734.jpg"
                           alt="About Image 2"
@@ -209,7 +180,7 @@ export default function About() {
                           className="object-cover scale-[1.3] object-[20%_60%] transition-transform duration-500"
                           sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                         />
-                      </AnimatedLink>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -261,7 +232,7 @@ export default function About() {
                         backgroundRepeat: "no-repeat",
                       }}
                     >
-                      <AnimatedLink
+                      <Link
                         href="/hot-sale"
                         className="absolute inset-0 block z-20"
                       />
@@ -276,235 +247,3 @@ export default function About() {
     </>
   );
 }
-const NavLeft = () => {
-  return (
-    <div className="flex items-center gap-6">
-      <AnimatedLink href="/about">
-        <h1>About</h1>
-      </AnimatedLink>
-      <AnimatedLink href="/community">Community</AnimatedLink>
-      <AnimatedLink href="/pricing">Pricing</AnimatedLink>
-      <AnimatedLink href="/company">Company</AnimatedLink>
-    </div>
-  );
-};
-const DURATION = 0.25;
-const STAGGER = 0.025;
-
-const FlipLink = ({ children, href }) => {
-  return (
-    <motion.a
-      initial="initial"
-      whileHover="hovered"
-      href={href}
-      className="relative block my-4 w-[240px] h-[43px] pt-1 overflow-hidden whitespace-nowrap text-[2.5rem] font-normal uppercase "
-      style={{
-        lineHeight: 0.75,
-      }}
-    >
-      <div>
-        {children.split("").map((l, i) => (
-          <motion.span
-            variants={{
-              initial: {
-                y: 0,
-              },
-              hovered: {
-                y: "-190%",
-              },
-            }}
-            transition={{
-              duration: DURATION,
-              ease: "easeInOut",
-              delay: STAGGER * i,
-            }}
-            className="inline-block "
-            key={i}
-          >
-            {l}
-          </motion.span>
-        ))}
-      </div>
-      <div className="absolute top-1 inset-0">
-        {children.split("").map((l, i) => (
-          <motion.span
-            variants={{
-              initial: {
-                y: "200%",
-              },
-              hovered: {
-                y: 0,
-              },
-            }}
-            transition={{
-              duration: DURATION,
-              ease: "easeInOut",
-              delay: STAGGER * i,
-            }}
-            className="inline-block"
-            key={i}
-          >
-            {l}
-          </motion.span>
-        ))}
-      </div>
-    </motion.a>
-  );
-};
-const IMG_PADDING = 12;
-
-const TextParallaxContent = ({
-  imgUrl,
-  description,
-  subheading,
-  heading,
-  children,
-}) => {
-  return (
-    <div>
-      <div className="relative h-[150vh]">
-        <StickyImage imgUrl={imgUrl} />
-        <OverlayCopy
-          heading={heading}
-          subheading={subheading}
-          description={description}
-        />
-      </div>
-      {children}
-    </div>
-  );
-};
-
-const StickyImage = ({ imgUrl }) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["end end", "end start"],
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.99]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-
-  return (
-    <motion.div
-      style={{
-        backgroundImage: `url(${imgUrl})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        height: `calc(100vh - ${IMG_PADDING * 2}px)`,
-        top: IMG_PADDING,
-        scale,
-      }}
-      ref={targetRef}
-      className="sticky z-0 overflow-hidden "
-    >
-      <motion.div
-        className="absolute inset-0 bg-neutral-950/70"
-        style={{
-          opacity,
-        }}
-      />
-    </motion.div>
-  );
-};
-
-const OverlayCopy = ({ subheading, heading, description }) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
-  const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
-
-  return (
-    <motion.div
-      style={{
-        y,
-        opacity,
-      }}
-      ref={targetRef}
-      className="absolute left-0 top-0 flex h-[200vh] px-[5%] sm:px-[8%] lg:px-[10%] 2xl:px-[15%]  flex-col pb-[50vh] items-start justify-center text-white"
-    >
-      <p className="mb-2 text-center text-xl md:mb-4 text-white md:text-3xl">
-        {subheading}
-      </p>
-      <p className="text-left  w-2/3 leading-relaxed text-white font-bold text-[3rem]">
-        {heading}
-      </p>
-      <p className="w-2/3 xl:w-1/2  text-[1rem] text-white leading-loose mt-5">
-        {description}
-      </p>
-    </motion.div>
-  );
-};
-
-const DummyContent = () => {
-  return (
-    <>
-      {[...new Array(3).fill(1)].map((_, index) => {
-        return (
-          <div
-            key={"dummy-content" + index}
-            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14  mb-4"
-          >
-            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-medium font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-[20px] text-neutral-700 dark:text-neutral-200">
-                臨近繁華，與自然共生
-              </span>{" "}
-              周邊環境方面，宜園建設為您精心選擇了理想的生活圈。社區周邊生活機能豐富，無論是超市、學校還是醫療機構，應有盡有。交通便捷，讓您無論是通勤還是外出，都能輕鬆迅速。
-            </p>
-            <Image
-              src="https://hadashinoie.co.jp/app/wp-content/uploads/2024/05/2B3A0382-2048x1365.jpg"
-              alt="Macbook mockup from Aceternity UI"
-              height="500"
-              width="500"
-              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-            />
-          </div>
-        );
-      })}
-    </>
-  );
-};
-
-const data = [
-  {
-    category: "PROJECT",
-    title: "誠鏡二期",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2025/01/PXL_20250124_000513315-1-2048x1152.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "PROJECT",
-    title: "宜園大院",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/06/01_0140-2048x1365.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "PROJECT",
-    title: "一青隱",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2025/03/hadashinoie004-2048x1365.jpg",
-    content: <DummyContent />,
-  },
-
-  {
-    category: "PROJECT",
-    title: "誠鏡五期",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/11/hadashinoie016-2048x1365.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "PROJECT",
-    title: "誠鏡二期",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2025/01/PXL_20250124_000513315-1-2048x1152.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "PROJECT",
-    title: "宜園大院",
-    src: "https://hadashinoie.co.jp/app/wp-content/uploads/2024/06/01_0140-2048x1365.jpg",
-    content: <DummyContent />,
-  },
-];
