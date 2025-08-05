@@ -9,10 +9,10 @@ import Link from "next/link";
 export default function About() {
   return (
     <ReactLenis root>
-      <section className="pt-[10vh] px-4  md:px-12 lg:px-20 w-full xl:!w-[80%] 2xl:w-full max-w-[1920px] mx-auto">
+      <section className="py-[10vh] px-4   md:px-12 lg:px-20 w-full xl:!w-[80%] 2xl:w-full max-w-[1920px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start min-h-[600px]">
           {/* 左側：表單（垂直置中） */}
-          <div className="w-full px-10  max-w-3xl mx-auto  md:mx-0 h-full flex items-start">
+          <div className="w-full px-4  max-w-3xl mx-auto  md:mx-0 h-full flex items-start">
             <div className="w-full  ">
               <div className="mb-4">
                 <span className="text-sm tracking-widest text-gray-600">

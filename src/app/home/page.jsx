@@ -122,11 +122,15 @@ export default function About() {
                     <TextGenerateEffect words="R - RELATION" />
                     <h2>關係 ｜ 宜真情</h2>
                     <p className="leading-loose tracking-widest w-full md:w-2/3 ">
-                      建築，是連結土地的根，也是凝聚人心的橋。
-                      於家人，傳遞溫度與關懷；於鄰里，凝聚和睦與理解；
-                      於土地，報以尊重與謙遜；於城市，追求共<br></br>
+                      建築，是連結土地的根，<br></br>也是凝聚人心的橋。
                       <br></br>
-                      宜園，以實在的構築，讓人與人、與土地、與城市之間，美好關係加以延續。
+                      <br></br>於家人，傳遞溫度與關懷；<br></br>
+                      於鄰里，凝聚和睦與理解；
+                      <br></br>於土地，報以尊重與謙遜；<br></br>於城市，追求共
+                      <br></br>
+                      <br></br>
+                      宜園，以實在的構築，<br></br>
+                      讓人與人、與土地、<br></br>與城市之間，美好關係加以延續。
                     </p>
                   </div>
                 </div>

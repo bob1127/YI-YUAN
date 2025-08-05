@@ -55,8 +55,8 @@ export default function RootLayout({ children }) {
               <main>{children}</main>
             </ClientWrapper>
             {!isHomePage && (
-              <footer className="section-footer  py-[40px] md:py-[40px] 2xl:py-[90px] px-[30px] sm:px-[50px] md:px-[100px] bg-[#474141]">
-                <div className="flex sm:w-[90%] w-full lg:w-[80%] mx-auto flex-col md:flex-row border-t-1  border-[#c7c7c7]">
+              <footer className="section-footer  py-4 sm:py-[20px]   px-[30px] sm:px-[50px] md:px-[100px] bg-[#474141]">
+                <div className="flex sm:w-[90%] w-full lg:w-[80%] mx-auto flex-col md:flex-row ">
                   <div className="left flex flex-col justify-between mt-5 w-full md:w-[50%]">
                     <div className="flex flex-col">
                       <b className="text-[1.1rem] text-white font-bold">
@@ -65,85 +65,81 @@ export default function RootLayout({ children }) {
                       <b className="text-[.9rem] text-[#d9d9d9] mt-2 font-light">
                         臺中市北區賴興里文心路四段212號10樓之2
                       </b>
-                    </div>
-                    <div className="flex flex-col mt-8">
                       <p className="text-[.8rem] text-[#d9d9d9] font-light">
                         PHONE: 04-22978188
                       </p>
-                      <p className="text-[.8rem] text-[#d9d9d9] font-light">
-                        <a
-                          href="mailto:yi.yuan@msa.hinet.net"
-                          className="text-[#d9d9d9]"
-                        >
-                          EMAIL: yi.yuan@msa.hinet.net
-                        </a>
-                      </p>
                     </div>
-                  </div>
-                  <div className="right mt-[40px] md:mt-5 justify-center items-center md:justify-end md:items-end w-full md:w-[50%] flex flex-row">
-                    <div className="flex justify-center  pr-0 md:pr-[80px] social-media">
-                      <Link href="" target="_blank">
+                    <div className="flex mt-4 social-media">
+                      <Link
+                        href="https://www.facebook.com/%E5%AE%9C%E5%9C%92%E5%BB%BA%E8%A8%AD-100063749781596/?wtsid=rdr_03dfhLEjozbKUYktM"
+                        target="_blank"
+                      >
                         <svg
-                          role="img"
-                          aria-label="Facebook"
-                          width="22"
-                          height="22"
-                          viewBox="0 0 22 22"
-                          fill="none"
                           xmlns="http://www.w3.org/2000/svg"
-                          className="text-[#cfcfcf]" // Facebook 藍色，可自訂 text-white / text-black
+                          x="0px"
+                          y="0px"
+                          width="40"
+                          height="40"
+                          viewBox="0 0 48 48"
+                          className="mr-2"
+                        >
+                          <linearGradient
+                            id="Ld6sqrtcxMyckEl6xeDdMa_uLWV5A9vXIPu_gr1"
+                            x1="9.993"
+                            x2="40.615"
+                            y1="9.993"
+                            y2="40.615"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop offset="0" stop-color="#2aa4f4"></stop>
+                            <stop offset="1" stop-color="#007ad9"></stop>
+                          </linearGradient>
+                          <path
+                            fill="url(#Ld6sqrtcxMyckEl6xeDdMa_uLWV5A9vXIPu_gr1)"
+                            d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"
+                          ></path>
+                          <path
+                            fill="#fff"
+                            d="M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46 c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.452 C21.988,43.9,22.981,44,24,44c0.921,0,1.82-0.084,2.707-0.204V29.301z"
+                          ></path>
+                        </svg>
+                      </Link>
+                      <Link href="mailto:yi.yuan@msa.hinet.net">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          x="0px"
+                          y="0px"
+                          width="45"
+                          height="45"
+                          viewBox="0 0 48 48"
+                          className="mr-2"
                         >
                           <path
-                            d="M22 11.0672C22 16.5913 17.9773 21.17 12.7188 22V14.2663H15.2818L15.7695 11.0672H12.7188V8.99126C12.7188 8.11582 13.145 7.26287 14.5114 7.26287H15.8984V4.53929C15.8984 4.53929 14.6395 4.32313 13.4359 4.32313C10.9235 4.32313 9.28125 5.85525 9.28125 8.62898V11.0672H6.48828V14.2663H9.28125V22C4.02273 21.17 0 16.5913 0 11.0672C0 4.95518 4.92508 0 11 0C17.0749 0 22 4.95518 22 11.0672Z"
-                            fill="currentColor"
-                          />
+                            fill="#1e88e5"
+                            d="M34,42H14c-4.411,0-8-3.589-8-8V14c0-4.411,3.589-8,8-8h20c4.411,0,8,3.589,8,8v20 C42,38.411,38.411,42,34,42z"
+                          ></path>
+                          <path
+                            fill="#fff"
+                            d="M35.926,17.488L29.414,24l6.511,6.511C35.969,30.347,36,30.178,36,30V18 C36,17.822,35.969,17.653,35.926,17.488z M26.688,23.899l7.824-7.825C34.347,16.031,34.178,16,34,16H14 c-0.178,0-0.347,0.031-0.512,0.074l7.824,7.825C22.795,25.38,25.205,25.38,26.688,23.899z M24,27.009 c-1.44,0-2.873-0.542-3.99-1.605l-6.522,6.522C13.653,31.969,13.822,32,14,32h20c0.178,0,0.347-0.031,0.512-0.074l-6.522-6.522 C26.873,26.467,25.44,27.009,24,27.009z M12.074,17.488C12.031,17.653,12,17.822,12,18v12c0,0.178,0.031,0.347,0.074,0.512 L18.586,24L12.074,17.488z"
+                          ></path>
                         </svg>
                       </Link>
                     </div>
-                    <div className="flex flex-col  items-end justify-end pr-[50px]">
-                      <span className="text-[.9rem] group flex items-center text-right  font-light text-[#e0e0e0]">
-                        GO PROJECT
-                        <button class=" relative ml-3 inline-flex h-10 w-10 items-center justify-center z-[1] overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
-                          <div class="translate-x-0 transition group-hover:translate-x-[300%]">
-                            <svg
-                              width="15"
-                              height="15"
-                              viewBox="0 0 15 15"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-5 w-5"
-                            >
-                              <path
-                                d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                              ></path>
-                            </svg>
-                          </div>
-                          <div class="absolute -translate-x-[300%] transition group-hover:translate-x-0">
-                            <svg
-                              width="15"
-                              height="15"
-                              viewBox="0 0 15 15"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-5 w-5"
-                            >
-                              <path
-                                d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                              ></path>
-                            </svg>
-                          </div>
-                        </button>
-                      </span>
-                      <span className="font-extralight text-nowrap text-[.8rem] text-right mt-[100px] text-[#e0e0e0]">
-                        2013-2025 Yi Yuan Inc.
-                      </span>
-                    </div>
+                  </div>
+                  <div className="right mt-3  items-center justify-center w-full md:w-[50%]  flex flex-row">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3638.645756798055!2d120.67565527588012!3d24.172904872433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x44766439ed9d2f13%3A0x7915785e2ed054c3!2z5a6c5ZyS5bu66Kit6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1754358378407!5m2!1szh-TW!2stw"
+                      width="600"
+                      height="150"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                </div>
+                <div className="flex justify-center pt-8">
+                  <div className="w-full text-center py-4 text-sm text-gray-50 ">
+                    © {new Date().getFullYear()} Yi Yuan 建設有限公司 版權所有
                   </div>
                 </div>
               </footer>

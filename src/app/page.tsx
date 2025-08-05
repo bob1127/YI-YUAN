@@ -6,8 +6,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
 import Preloader from "../components/Preloader/index.jsx";
-import CityScene from "../components/CityScene.jsx";
 import Image from "next/image.js";
+
 let isInitialLoad = true;
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
   const progressBarRef = useRef(null);
 
   const [showPreloader, setShowPreloader] = useState(isInitialLoad);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); // 控制是否遮住畫面
 
   useLayoutEffect(() => {
     gsap.registerPlugin(CustomEase);
@@ -32,11 +32,16 @@ export default function Home() {
     };
   }, []);
 
-  // ✅ 控制動畫初始化（等 ready 才開始跑 gsap）
   useGSAP(() => {
     if (showPreloader) {
       const tl = gsap.timeline({
-        onComplete: () => setShowPreloader(false),
+        onComplete: () => {
+          // ✅ 動畫完成後才放開按鈕點擊
+          setShowPreloader(false);
+          setIsLoading(false);
+          document.body.style.cursor = "default";
+          window.scrollTo(0, 0);
+        },
       });
 
       tl.to(progressBarRef.current, {
@@ -70,22 +75,13 @@ export default function Home() {
     });
   });
 
-  // ✅ 模擬 loading 動畫結束（這段可保留）
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-      document.body.style.cursor = "default";
-      window.scrollTo(0, 0);
-    }, 2000);
-  }, []);
-
   return (
     <>
+      {/* ✅ 預載動畫（白背景） */}
       <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
       </AnimatePresence>
 
-      {/* ✅ 預載動畫遮罩 */}
       {showPreloader && (
         <div
           className="pre-loader fixed z-[9999999999999999]"
@@ -107,23 +103,28 @@ export default function Home() {
         </div>
 
         <div className="hero-title z-[99999]">
-          <div className="line  sm:mt-[60px] ">
+          <div className="line sm:mt-[60px]">
             <h1 className="text-5xl text-white">實在的構築</h1>
-            <h1 className="text-[1.4rem] mt-[-15px] text-[#A99C81] ">
+            <h1 className="text-[1.4rem] mt-[-15px] text-[#A99C81]">
               TRUE ARCH
             </h1>
-            <h1 className="text-white text-[1rem] w-2/3 my-4 font-normal leading-loose tracking-widest mx-auto">
-              宜居的建築，承載著宜居的根，不一定最宏大，卻能帶來安心。<br></br>
+            <h1 className="text-white text-[1rem] w-[80%] my-4 font-normal leading-loose tracking-widest mx-auto">
+              宜居的建築，承載著宜居的根，不一定最宏大，卻能帶來安心。
+              <br />
               傾聽，土地的聲音；細說，生命的故事。不一定最奢華，卻處處溫暖，生活宜人。
             </h1>
           </div>
 
+          {/* ✅ ENTER 按鈕：在 isLoading === false 時可點 */}
           <button
             onClick={() => (window.location.href = "/home")}
-            className="group  sm:mt-[250px] relative h-12 rounded-full border border-neutral-200 bg-transparent px-4 text-neutral-950"
+            disabled={isLoading}
+            className={`group sm:mt-[250px] relative h-12 rounded-full border border-neutral-200 bg-transparent px-4 text-neutral-950 ${
+              isLoading ? "opacity-40 pointer-events-none" : ""
+            }`}
           >
             <span className="relative inline-flex overflow-hidden">
-              <div className="translate-y-0 text-white  skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
+              <div className="translate-y-0 text-white skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
                 ＥＮＴＥＲ
               </div>
               <div className="absolute w-full text-white translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0 flex justify-center">

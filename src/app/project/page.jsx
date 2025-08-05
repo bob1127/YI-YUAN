@@ -34,16 +34,18 @@ const Photos = () => {
   }, [currentIndex]);
   return (
     <ReactLenis root>
-      <section className="section-hero-title w-full relative">
-        {/* Hero Image */}{" "}
-        <img
-          src="/images/project/pexels-pixabay-327482.jpg"
-          alt="經典建築案例"
-          loading="lazy"
-          decoding="async"
-          className="w-full "
-          height="700"
-        />
+      <section className="section-hero-title mt-14 w-full relative">
+        {/* Hero Image */}
+        <div className="relative w-full h-[500px] sm:h-[700px]">
+          <img
+            src="/images/project/pexels-pixabay-327482.jpg"
+            alt="經典建築案例"
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+
         {/* 右下角文字 */}
         <div className="absolute bottom-[10%] right-[10%] text-white text-right z-10 px-4">
           <div className="flex">
@@ -57,7 +59,7 @@ const Photos = () => {
         </div>
       </section>
 
-      <section className="section-project mt-[100px] px-4 md:px-8 xl:px-16">
+      <section className="section-project mt-[40px] px-4 md:px-8 xl:px-16">
         <div className="container max-w-[1920px] mx-auto w-[85%]">
           <div className="title">
             <h2 className="m-3">宜園誠境｜</h2>
@@ -101,7 +103,7 @@ const Photos = () => {
         </div>
       </section>
 
-      <section className="section-project mt-[100px] bg-[#bdc3c6] pt-[90px] px-4 md:px-8 xl:px-16">
+      <section className="section-project mt-[40px] bg-[#bdc3c6] pt-[90px] px-4 md:px-8 xl:px-16">
         <div className="container max-w-[1920px] mx-auto w-[85%]">
           <div className="title">
             <h2 className="m-3">宜園誠境2｜</h2>
@@ -144,7 +146,7 @@ const Photos = () => {
           </div>
         </div>
       </section>
-      <section className="section-project mt-[100px] px-4 md:px-8 xl:px-16">
+      <section className="section-project mt-[40px] px-4 md:px-8 xl:px-16">
         <div className="container max-w-[1920px] mx-auto w-[90%]">
           {/* 標題區塊 */}
           <div className="title mb-8">
@@ -210,7 +212,7 @@ const Photos = () => {
           </div>
         </div>
       </section>
-      <section className="section-project pt-[80px] mt-[100px] bg-[#bdc3c6] px-4 md:px-8 xl:px-16">
+      <section className="section-project pt-[80px] mt-[40px] bg-[#bdc3c6] px-4 md:px-8 xl:px-16">
         <div className="container max-w-[1920px] mx-auto w-[90%]">
           {/* 標題區塊 */}
           <div className="title mb-8">
