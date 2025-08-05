@@ -16,7 +16,7 @@ export default function Home() {
   const progressBarRef = useRef(null);
 
   const [showPreloader, setShowPreloader] = useState(isInitialLoad);
-  const [isLoading, setIsLoading] = useState(true); // 控制是否遮住畫面
+  const [isLoading, setIsLoading] = useState(true);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(CustomEase);
@@ -36,7 +36,6 @@ export default function Home() {
     if (showPreloader) {
       const tl = gsap.timeline({
         onComplete: () => {
-          // ✅ 動畫完成後才放開按鈕點擊
           setShowPreloader(false);
           setIsLoading(false);
           document.body.style.cursor = "default";
@@ -77,6 +76,17 @@ export default function Home() {
 
   return (
     <>
+      {/* ✅ 這段是 SEO 標頭設定 */}
+      <head>
+        <title>宜園建設 Yi-Yuan｜進入官網</title>
+        <meta
+          name="description"
+          content="歡迎進入宜園建設官方網站，探索實在構築的理想生活。"
+        />
+        <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href="https://www.yiyuan-arch.com.tw/home" />
+      </head>
+
       {/* ✅ 預載動畫（白背景） */}
       <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
@@ -115,7 +125,6 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* ✅ ENTER 按鈕：在 isLoading === false 時可點 */}
           <button
             onClick={() => (window.location.href = "/home")}
             disabled={isLoading}
