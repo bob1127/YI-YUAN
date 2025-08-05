@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
                   <div className="left flex flex-col justify-between mt-5 w-full md:w-[50%]">
                     <div className="flex flex-col">
                       <b className="text-[1.1rem] text-white font-bold">
-                        宜園建設
+                        宜園建設股份有限公司
                       </b>
                       <b className="text-[.9rem] text-[#d9d9d9] mt-2 font-light">
                         臺中市北區賴興里文心路四段212號10樓之2
@@ -137,9 +137,20 @@ export default function RootLayout({ children }) {
                     ></iframe>
                   </div>
                 </div>
-                <div className="flex justify-center pt-8">
+                <div className="flex justify-center flex-col items-center pt-8 pb-4">
                   <div className="w-full text-center py-4 text-sm text-gray-50 ">
-                    © {new Date().getFullYear()} Yi Yuan 建設有限公司 版權所有
+                    © {new Date().getFullYear()} 宜園建設股份有限公司 版權所有
+                  </div>
+                  <div>
+                    {" "}
+                    <Link
+                      href="https://www.jeek-webdesign.com.tw"
+                      target="_black"
+                    >
+                      <span className="text-[14px] text-gray-200">
+                        Design by Jeek WebDesign
+                      </span>
+                    </Link>
                   </div>
                 </div>
               </footer>
