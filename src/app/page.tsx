@@ -78,7 +78,7 @@ export default function Home() {
     <>
       {/* ✅ 這段是 SEO 標頭設定 */}
       <head>
-        <title>宜園建設 Yi-Yuan｜進入官網</title>
+        <title>宜園建設 Yi-Yuan</title>
         <meta
           name="description"
           content="歡迎進入宜園建設官方網站，探索實在構築的理想生活。"

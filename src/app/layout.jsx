@@ -27,8 +27,8 @@ export default function RootLayout({ children }) {
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "宜園建設股份有限公司",
-      legalName: "宜園建設股份有限公司",
+      name: "宜園建設",
+      legalName: "宜園建設",
       url: "https://www.yiyuan-arch.com.tw",
       logo: "https://www.yiyuan-arch.com.tw/company-logo.ico",
       image:
@@ -62,10 +62,10 @@ export default function RootLayout({ children }) {
     <html lang="zh-TW">
       <head>
         {/* ✅ 網站 title */}
-        <title>宜園建設股份有限公司｜實在構築的理想居所</title>
+        <title>宜園建設｜實在構築的理想居所</title>
 
         {/* ✅ favicon 公司 LOGO */}
-        <link rel="icon" href="/company-logo.ico" />
+        <link rel="icon" href="/favicon.ico" />
 
         {/* ✅ Meta 基礎 SEO */}
         <meta

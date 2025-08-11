@@ -27,8 +27,8 @@ export default function About() {
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "宜園建設股份有限公司",
-      legalName: "宜園建設股份有限公司",
+      name: "宜園建設",
+      legalName: "宜園建設",
       url: "https://www.yiyuan-arch.com.tw",
       logo: "https://www.yiyuan-arch.com.tw/images/yiyuan-logo.png",
       image:
