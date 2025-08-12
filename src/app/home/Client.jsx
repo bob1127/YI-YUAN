@@ -136,7 +136,7 @@ export default function About() {
             <section className="lg:py-[50px] max-w-[1920px]  mx-auto">
               <div className="flex lg:flex-row justify-center items-center flex-col w-full sm:w-[95%] mx-auto ">
                 <div className="img  flex justify-center items-center p-10 w-[95%]   lg:w-[50%] mx-auto sm:mx-3  h-auto lg:h-[60vh] xl:h-[60vh] overflow-hidden">
-                  <div className="title mx-auto flex flex-col justify-start items-start">
+                  <div className="title w-full mx-auto flex flex-col justify-center items-start">
                     <TextGenerateEffect words="R - RELATION" />
                     <h2>關係 ｜ 宜真情</h2>
                     <p className="leading-loose tracking-widest w-full md:w-2/3 ">
